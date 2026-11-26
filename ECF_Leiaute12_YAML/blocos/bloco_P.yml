@@ -1,0 +1,349 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+bloco: P
+nome: Lucro Presumido
+paginas_manual:
+- 311
+- 326
+orientacoes_gerais: |-
+  O programa da ECF foi desenvolvido de forma a atender às disposições de apuração do Imposto de Renda da Pessoa Jurídica – IRPJ e da Contribuição Social sobre o Lucro Líquido – CSLL conforme disciplinadas na Instrução Normativa da Secretaria da Receita Federal do Brasil – IN RFB nº 1.700, de 14 de março de 2017; no que se refere às alterações na legislação tributária introduzidas pela Lei nº 12.973, de 13 de maio de 2014 e suas alterações.
+  Assim, as informações inerentes ao tratamento tributário para as empresas do lucro presumido (conceitos, formas de apuração, obrigatoriedade, bases de tributação, alíquotas, deduções legais, compensações, adições e exclusões, incentivos fiscais etc.) e seu disciplinamento devem ser consultadas nas normas de regência (Regulamento do Imposto de Renda da Pessoa Jurídica – Decreto nº 9580/2018; lei nº 12.973/2014; IN RFB nº 1.700/2017; etc.).
+  I) Conceito
+  O lucro presumido é uma forma de tributação simplificada para determinação da base de cálculo do imposto de renda e da CSLL das pessoas jurídicas que não estiverem obrigadas, no ano- calendário, à apuração do lucro real. O imposto de renda é devido trimestralmente.
+  II) Ingresso no Sistema
+  A opção pelo regime de tributação com base no lucro presumido é manifestada com o pagamento da primeira ou única quota do imposto devido, correspondente ao primeiro período de apuração de cada ano-calendário.
+  A pessoa jurídica que iniciar atividades a partir do segundo trimestre manifesta a opção com o pagamento da primeira ou única quota do imposto devido, relativa ao período de apuração do início de atividade.
+  A opção pela apuração do imposto de renda com base no lucro presumido é definitiva para o ano-calendário (Lei nº 9.718, de 1998, art. 13, § 1º).
+  Atenção: Não podem optar pelo regime de tributação com base no lucro presumido as pessoas jurídicas que exercerem atividades de compra e venda, loteamento, incorporação e construção de imóveis, enquanto não concluídas as operações imobiliárias para as quais haja registro de custo orçado.
+  III) Saída do Sistema
+  A saída do sistema de tributação pelo lucro presumido é efetuada quando a pessoa jurídica deixar de se enquadrar nas condições para permanecer no sistema.
+  IV) Pessoas Jurídicas Autorizadas a Optar
+  IV.1) Considerações Gerais
+  Podem optar pela tributação com base no lucro presumido as pessoas jurídicas que, não estando obrigadas ao regime de tributação pelo lucro real, tenham auferido, no ano-calendário anterior, receita total igual ou inferior a R$ 78.000.000,00 (setenta e oito milhões de reais).
+  Considera-se receita total o somatório da receita bruta mensal; dos ganhos líquidos obtidos em operações realizadas em bolsa de valores, de mercadorias e futuros e em mercado de balcão organizado; dos rendimentos produzidos por aplicações financeiras de renda fixa e de renda variável; das demais receitas e ganhos de capital; das parcelas de receitas auferidas nas exportações às pessoas vinculadas ou aos países com tributação favorecida que excederem o valor já apropriado na escrituração da empresa, na forma prevista na Instrução Normativa RFB nº 2161, de 28 de setembro de 2023; e dos juros sobre o capital próprio que não tenham sido contabilizados como receita, conforme disposto no parágrafo único do art. 76. No caso de início de atividade, o limite será proporcional, à razão de R$ 6.500.000,00 (seis milhões e quinhentos mil reais) multiplicado pelo número de meses do período.
+  Podem, também, optar pela tributação com base no lucro presumido as pessoas jurídicas que iniciarem atividades ou que resultarem de incorporação, fusão ou cisão, desde que não estejam obrigadas à tributação pelo lucro real.
+  As pessoas jurídicas, tributadas pelo lucro presumido, e que, em qualquer trimestre do ano-calendário, tiverem seu lucro arbitrado, podem permanecer no regime de tributação com base no lucro presumido relativamente aos demais trimestres do ano-calendário, desde que atendidas as disposições legais pertinentes (Lei nº 8.981, de 1995, art. 47, § 2º; Lei nº 9.430, de 1996, art.1º; Instrução Normativa no 1.700/2017, art. 235).
+  IV.2) Optantes pelo Refis
+  O Programa de Recuperação Fiscal (Refis), instituído pela Lei nº 9.964, de 10 de abril de 2000, destina-se a promover a regularização de créditos da União, decorrentes de débitos de pessoas jurídicas, relativos a tributos e contribuições à época administrados pela Secretaria da Receita Federal (SRF) e pelo Instituto Nacional do Seguro Social (INSS), com vencimento até 29 de fevereiro de 2000, constituídos ou não, inscritos ou não em dívida ativa, ajuizados ou a ajuizar, com exigibilidade suspensa ou não, inclusive os decorrentes de falta de recolhimento de valores retidos, observados o Decreto nº 3.431, de 24 de abril de 2000, a Lei nº 10.002, de 14 de setembro de 2000, a Lei nº 10.189, de 14 de fevereiro de 2001, e a Lei nº 10.637, de 30 de dezembro de 2002.
+  Não puderam ingressar no Refis as pessoas jurídicas de que tratam os incisos II e VI do art. 14 da Lei nº 9.718, de 27 de novembro de 1998.
+  As pessoas jurídicas cuja receita total, no ano-calendário anterior, seja superior ao limite de R$ 78.000.000,00 (setenta e oito milhões de reais), ou de R$ 6.500.000,00 (seis milhões e quinhentos mil reais) multiplicados pelo número de meses do período, quando inferior a doze meses; cujas atividades sejam de bancos comerciais, bancos de investimentos, bancos de desenvolvimento, caixas econômicas, sociedades de crédito, financiamento e investimento, sociedades de crédito imobiliário, sociedades corretoras de títulos, valores mobiliários e câmbio, distribuidoras de títulos e valores mobiliários, empresas de arrendamento mercantil, cooperativas de crédito, empresas de seguros privados e de capitalização e entidades de previdência privada aberta; que tiverem lucros, rendimentos ou ganhos de capital oriundos do exterior; que, autorizadas pela legislação tributária, usufruam benefícios fiscais relativos à isenção ou redução do imposto; que, no decorrer do ano-calendário, tenham efetuado pagamento mensal do imposto de renda, determinado sobre a base de cálculo estimada, na forma do art. 2º da Lei nº 9.430, de 1996; e as sociedades em conta de participação (SCP) que optarem pelo Programa de Recuperação Fiscal (Refis) podem, durante o período em que submetidas ao Refis, adotar o regime de tributação com base no lucro presumido. A opção pelo lucro presumido é irretratável para todo o ano-calendário (Lei nº 9.964, de 2000, art. 4º).
+  Ocorrendo a exclusão dessas pessoas jurídicas do Refis, o imposto de renda e a contribuição social sobre o lucro líquido serão apurados sobre o lucro líquido contábil ajustado pelas adições e exclusões determinadas pela legislação específica, a partir do trimestre-calendário seguinte ao da exclusão.
+  As pessoas jurídicas que exerçam as atividades de compra e venda, loteamento, incorporação e construção de imóveis não podem optar pelo lucro presumido, ainda que tenham ingressado no Refis, enquanto não concluídas as operações imobiliárias para as quais haja registro de custo orçado.
+  IV.3) Verificação do Limite de Receita
+  O limite de R$ 78.000.000,00 (setenta e oito milhões de reais) para a opção no ano-calendário é calculado tomando-se por base o somatório das receitas totais mensais auferidas no ano-calendário anterior.
+  IV.3.1) Valores Integrantes da Receita Total
+  Integram a receita total para fins de determinação do limite de que trata o subitem IV.1:
+  a) da receita bruta mensal;
+  b) dos ganhos líquidos obtidos em operações realizadas em bolsa de valores, de mercadorias e futuros e em mercado de balcão organizado;
+  c) dos rendimentos produzidos por aplicações financeiras de renda fixa e de renda variável;
+  d) das demais receitas e ganhos de capital;
+  e) das parcelas de receitas auferidas nas exportações às pessoas vinculadas ou aos países com tributação favorecida que excederem o valor já apropriado na escrituração da empresa, na forma prevista na Instrução Normativa RFB nº 2161, de 28 de setembro de 2023; e
+  f) dos juros sobre o capital próprio que não tenham sido contabilizados como receita, conforme disposto no parágrafo único do art. 76, da IN RFB 1700, de 14 de março de 2017.
+  IV.3.2) Valores não Integrantes da Receita Total
+  Não integram a receita total as saídas que não decorram de vendas, a exemplo das transferências de mercadorias para outros estabelecimentos da mesma empresa.
+  V) Determinação do Lucro Presumido
+  V.1) Percentuais
+  No ano-calendário na determinação do lucro presumido são aplicados os seguintes percentuais na determinação do lucro presumido sobre a receita bruta auferida na atividade, deduzida das devoluções, das vendas canceladas e dos descontos incondicionais concedidos:
+  a) 1,6% (um inteiro e seis décimos por cento) sobre a receita bruta mensal auferida na revenda, para consumo, de combustível derivado de petróleo, álcool etílico carburante e gás natural;
+  b) 8% (oito por cento) sobre a receita bruta mensal proveniente:
+  b.1) da venda de produtos de fabricação própria;
+  b.2) da venda de mercadorias adquiridas para revenda;
+  b.3) da industrialização de produtos em que a matéria-prima, ou o produto intermediário ou o material de embalagem tenham sido fornecidos por quem encomendou a industrialização;
+  b.4) da atividade rural;
+  b.5) da prestação de serviços hospitalares e de auxílio diagnóstico e terapia, fisioterapia e terapia ocupacional, fonoaudiologia, patologia clínica, imagenologia, radiologia, anatomia patológica e citopatologia, medicina nuclear e análises e patologias clínicas, exames por métodos gráficos, procedimentos endoscópicos, radioterapia, quimioterapia, diálise e oxigenoterapia hiperbárica, desde que a prestadora desses serviços seja organizada sob a forma de sociedade empresária e atenda às normas da Agência Nacional de Vigilância Sanitária (Anvisa);;
+  b.6) do transporte de cargas;
+  b.7) das atividades de loteamento de terrenos, incorporação imobiliária e venda de imóveis construídos ou adquiridos para revenda;
+  b.8) de outras atividades não caracterizadas como prestação de serviços;
+  c) 16% (dezesseis por cento) sobre a receita bruta mensal auferida:
+  c.1) na prestação de serviços de transporte, exceto o de cargas c.2) nas atividades desenvolvidas por bancos comerciais, bancos de investimentos, bancos de desenvolvimento, agências de fomento, caixas econômicas, sociedades de crédito, financiamento e investimento, sociedades de crédito imobiliário, sociedades corretoras de títulos, valores mobiliários e câmbio, distribuidoras de títulos e valores mobiliários, empresas de arrendamento mercantil, cooperativas de crédito, empresas de seguros privados e de capitalização e entidades de previdência privada aberta.
+  d) 32% (trinta e dois por cento) sobre a receita bruta mensal auferida com as atividades de:
+  d.1) prestação de serviços, relativos ao exercício de profissão legalmente regulamentada;
+  d.2) intermediação de negócios;
+  d.3) administração, locação ou cessão de bens imóveis, móveis ou direitos de qualquer natureza;
+  d.4) construção por administração ou por empreitada unicamente de mão-de-obra ou com emprego parcial de materiais;
+  d.5) construção, recuperação, reforma, ampliação ou melhoramento de infraestrutura, no caso de contratos de concessão de serviços públicos, independentemente do emprego parcial ou total de materiais. d.6) prestação cumulativa e contínua de serviços de assessoria creditícia, mercadológica, gestão de crédito, seleção de riscos, administração de contas a pagar e a receber, e compras de direitos creditórios resultantes de vendas mercantis a prazo ou de prestação de serviços (factoring);
+  d.7) coleta e transporte de resíduos até aterros sanitários ou local de descarte;
+  d.8) prestação de qualquer outra espécie de serviço não mencionada neste subitem.
+  e) 38,4% (trinta e oito inteiros e quatro décimos por cento), para as atividades de operação de empréstimo, de financiamento e de desconto de títulos de crédito realizadas por Empresa Simples de Crédito (ESC).
+  As atividades de corretagem (seguros, imóveis etc.) e as de representação comercial são consideradas atividades de intermediação de negócios.
+  Atenção
+  1) No caso de atividades diversificadas, deve ser aplicado o percentual correspondente sobre a receita proveniente de cada atividade.
+  2) As sociedades cooperativas de consumo e as demais quanto aos atos não cooperados, utilizam os percentuais de acordo com a natureza de suas atividades.
+  3) A partir de 1º de janeiro de 2006, o percentual também passou a ser aplicado sobre a receita financeira da pessoa jurídica que explore atividades imobiliárias relativas a loteamento de terrenos, incorporação imobiliária, construção de prédios destinados à venda, bem como a venda de imóveis construídos ou adquiridos para a revenda, quando decorrente da comercialização de imóveis e for apurada por meio de índices ou coeficientes previstos em contrato. (Lei nº 11.196, de 2005, art. 34)
+  4) A receita bruta auferida pela pessoa jurídica decorrente da prestação de serviços em geral, como limpeza e locação de mão de obra, ainda que sejam fornecidos os materiais, está sujeita à aplicação do percentual de 32% (trinta e dois por cento).
+  5) Para fins de aplicação do disposto na alínea “b5”, entende-se como atendimento às normas da Anvisa, entre outras, a prestação de serviços em ambientes desenvolvidos de acordo com o item 3 - Dimensionamento, Quantificação e Instalações Prediais dos Ambientes da Parte II - Programação Físico-Funcional dos Estabelecimentos Assistenciais de Saúde da Resolução RDC nº 50, de 21 de fevereiro de 2002, cuja comprovação deve ser feita mediante alvará da vigilância sanitária estadual ou municipal.
+  6) O disposto na alínea “b5” não se aplica:
+  I - à pessoa jurídica organizada sob a forma de sociedade simples;
+  II - aos serviços prestados com utilização de ambiente de terceiro; e
+  III - à pessoa jurídica prestadora de serviço médico ambulatorial com recursos para realização de exames complementares e serviços médicos prestados em residência, sejam eles coletivos ou particulares (home care).
+  V.2) Determinação da Base de Cálculo do Imposto Por Meio de Percentual Favorecido
+  As pessoas jurídicas exclusivamente prestadoras de serviços em geral, mencionadas nas alíneas "d.2", “d.3”, d.4”, "d.6", “d.7” e “d.8” retros, cuja receita bruta anual seja de até R$ 120.000,00, podem utilizar, para determinação da base de cálculo do imposto de renda trimestral, o percentual de 16% (dezesseis por cento).
+  A pessoa jurídica cuja receita bruta anual acumulada até determinado trimestre do ano-calendário exceder o limite anual de R$ 120.000,00 (cento e vinte mil reais) deve determinar nova base de cálculo do imposto com a aplicação do percentual de 32% (trinta e dois por cento), e apurar a diferença do imposto postergado em cada trimestre transcorrido, no trimestre em que foi excedido o limite.
+  Esta diferença deve ser paga em quota única, por meio de Darf separado, no código 2089, até o último dia útil do mês subsequente ao trimestre em que ocorrer o excesso. Após esse prazo, a diferença será paga com os acréscimos legais.
+  V.3) Conceito de Receita Bruta
+  A receita bruta das vendas e serviços compreende o produto da venda de bens nas operações de conta própria, o preço dos serviços prestados, o resultado auferido nas operações de conta alheia e as receitas da atividade ou objeto principal da pessoa jurídica não compreendida nos itens anteriores, observando-se que:
+  a) Na receita bruta não se incluem os tributos não cumulativos cobrados destacadamente do comprador ou contratante dos quais o vendedor dos bens ou o prestador dos serviços seja mero depositário.
+  b) Na receita bruta incluem-se os tributos sobre ela incidentes e os valores decorrentes do ajuste a valor presente, de que trata o inciso VIII do caput do art. 183 da Lei nº 6.404, de 1976, das operações que compõe a receita bruta.
+  Atenção:
+  1) A pessoa jurídica optante pelo regime de tributação com base no lucro presumido pode adotar o critério de reconhecimento de suas receitas de venda de bens ou direitos ou de prestação de serviços pelo regime de caixa ou de competência.
+  2) As receitas próprias da venda de unidades imobiliárias (bem assim, as receitas financeiras e variações monetárias decorrentes dessa operação) que compõem a incorporação imobiliária inscrita no regime especial de tributação (RET) de que tratam os arts. 1º a 4º da Lei nº 10.931, de 2 de agosto de 2004, alterados pelo art. 111 da Lei nº 11.196, de 2005, não deverão ser computadas na receita bruta para efeito de apuração do IRPJ e da CSLL com base no lucro presumido ou arbitrado.
+  V.3.1) Valores Integrantes da Base de Cálculo
+  O lucro presumido, apurado trimestralmente, é a soma dos seguintes valores:
+  a) do valor obtido pela aplicação dos percentuais especificados no subitem V.1;
+  b) dos valores correspondentes aos demais resultados e ganhos de capital, inclusive:
+  b.1) os ganhos de capital nas alienações de bens e direitos, inclusive de aplicações em ouro não caracterizado como ativo financeiro. O ganho corresponde à diferença positiva verificada, no mês, entre o valor da alienação e o respectivo custo de aquisição, diminuído dos encargos de depreciação, amortização ou exaustão acumulada, ainda que a empresa não mantenha escrituração contábil;
+  b.2) os ganhos de capital auferidos na alienação de participações societárias permanentes em sociedades coligadas e controladas, e de participações societárias que permanecerem no ativo da pessoa jurídica até o término do ano-calendário seguinte ao de suas aquisições;
+  b.3) os ganhos de capital auferidos na devolução de capital em bens ou direitos;
+  b.4) os rendimentos auferidos nas operações de mútuo realizadas entre pessoas jurídicas ou entre pessoa jurídica e pessoa física;
+  b.5) os ganhos auferidos em operações de cobertura (hedge) realizadas em bolsas de valores, de mercadorias e de futuros ou no mercado de balcão;
+  b.6) a receita de locação de imóvel, quando não for este o objeto social da pessoa jurídica;
+  b.7) os juros equivalentes à taxa referencial do Sistema Especial de Liquidação e Custódia (Selic), para títulos federais, acumulada mensalmente, relativos a impostos e contribuições a serem restituídos ou compensados;
+  b.8) as variações monetárias ativas;
+  c) dos rendimentos e ganhos líquidos auferidos em aplicações financeiras de renda fixa e de renda variável;
+  d) dos juros sobre o capital próprio auferidos;
+  e) dos valores recuperados correspondentes a custos e despesas, inclusive com perdas no recebimento de créditos, salvo se a pessoa jurídica comprovar não os ter deduzido em período anterior no qual tenha se submetido ao regime de tributação com base no lucro real, ou que se refiram a período no qual tenha se submetido ao regime de tributação com base no lucro presumido, arbitrado ou simples;
+  f) do valor resultante da aplicação dos percentuais de que trata o subitem V.1 sobre a parcela das receitas auferidas nas exportações às pessoas vinculadas ou aos países com tributação favorecida que exceder ao valor já apropriado na escrituração da empresa, decorrente dos ajustes dos métodos de preços de transferências;
+  g) do valor dos encargos suportados pela mutuária que exceder ao limite calculado com base na taxa Libor, para depósitos em dólares dos Estados Unidos da América, pelo prazo de seis meses, acrescido de três por cento anuais a título de "spread", proporcionalizados em função do período a que se referirem os juros, quando pagos ou creditados a pessoa vinculada no exterior e o contrato não for registrado no Banco Central do Brasil;
+  h) da diferença de receita, auferida pela mutuante, correspondente ao valor calculado com base na taxa a que se refere a alínea “g” e o valor contratado, quando este for inferior, caso o contrato, não registrado no Banco Central do Brasil, seja realizado com mutuária definida como pessoa vinculada domiciliada no exterior;
+  i) das multas ou qualquer outra vantagem recebida ou creditada, ainda que a título de indenização, em virtude de rescisão de contrato;
+  j) da diferença entre o valor em dinheiro ou o valor dos bens e direitos recebidos de instituição isenta, a título de devolução de patrimônio, e o valor em dinheiro ou o valor dos bens e direitos entregue para a formação do referido patrimônio (Lei nº 9.532, de 1997, art. 17, § 3º, e art. 81, inciso II).
+  Atenção:
+  1) O resultado negativo ou perda apurados em uma operação não podem ser compensados com os resultados positivos auferidos em outras operações.
+  2) Consideram-se resultados positivos as receitas auferidas diminuídas das despesas necessárias à sua obtenção, quando efetivamente realizadas.
+  3) Quanto à alínea "b.8", a pessoa jurídica pode excluir a parcela das receitas financeiras decorrentes da variação monetária ativa dos direitos de crédito e das obrigações, em função da taxa de câmbio, submetida à tributação, segundo o regime de competência, relativa a períodos compreendidos no ano-calendário de 1999, excedente ao valor da variação monetária efetivamente realizada, ainda que a operação tenha sido liquidada (MP nº 1.858-10, de 1999, art. 31, e reedições).
+  4) As variações monetárias ativas dos direitos de crédito e das obrigações do contribuinte, em função da taxa de câmbio, são consideradas, para efeito de determinação da base de cálculo, quando da liquidação da correspondente operação. À opção da pessoa jurídica, as variações monetárias podem ser consideradas, na determinação da base de cálculo, pelo regime de competência, sendo que a opção aplica-se a todo ano-calendário (MP nº 1.858-10, de 1999, art. 31, e reedições).
+  5) Quanto à alínea "l", devem ser aplicadas as normas do inciso I do art. 17 da Lei nº 9.249, de 1995, aos valores entregues até o final de 1995 (Lei nº 9.532, de 1997, art. 17, § 1º).
+  6) A pessoa jurídica que optar pelo regime de tributação com base no lucro presumido, durante o período em que submetida ao Refis, deve acrescer à base de cálculo o valor correspondente aos lucros, rendimentos e ganhos de capital oriundos do exterior, no trimestre em que forem disponibilizados os citados lucros e auferidos os rendimentos e ganhos, nos termos do art. 2º da Instrução Normativa nº 16, de 15 de fevereiro de 2001, observado o disposto no art. 74 da Medida Provisória nº 2.158-35 de 24 de agosto de 2001.
+  7) Nas atividades de compra e venda, loteamento, incorporação e construção de imóveis, as variações monetárias ativas a que se refere o art. 9º da Lei nº 9.718, de 1998, devem ser adicionadas ao próprio lucro, pelo regime de competência ou de caixa, conforme opção do contribuinte, estando vedada a opção pelo lucro presumido enquanto não concluídas as operações imobiliárias para as quais haja registro de custo orçado, inclusive se optante do Programa de Recuperação Fiscal (Refis).
+  l) do saldo dos valores cuja tributação tenha sido diferida de períodos de apuração anteriores (Lei nº 9.430 de 1996, art. 54).
+  m) Outras Adições e Exclusões referentes ao RTT.
+  V.4) Lucros Diferidos de Períodos de Apuração Anteriores
+  A pessoa jurídica que, em 31/12/1996, possuía lucros cuja tributação houvesse sido diferida para períodos de apuração subsequentes e optou pelo regime de tributação com base no lucro presumido nos anos-calendário de 1996 a 2005, deve adicionar, à base de cálculo do imposto, os lucros diferidos, à medida que forem realizados.
+  A pessoa jurídica que exerceu a opção pela tributação com base no lucro presumido, e tenha sido tributada com base no lucro real, no ano-calendário anterior, deve oferecer à tributação, no primeiro trimestre do ano-calendário, os saldos dos valores cuja tributação houver diferido, controlados na Parte B do Lalur.
+  V.5) Valores de Operações Praticadas com Pessoas Vinculadas Residentes ou Domiciliadas no Exterior
+  Os valores de que tratam as alíneas "g", "h" e "i" do subitem V.3.1 são apurados anualmente e acrescidos à base de cálculo do quarto trimestre do ano-calendário.
+  A diferença entre o imposto apurado conforme o parágrafo anterior e o calculado no decorrer do ano-calendário, sem a inclusão desses valores, deve ser recolhida conjuntamente com o imposto devido relativo ao quarto trimestre.
+  V.6) Receitas Tributadas na Fonte
+  As importâncias pagas ou creditadas à pessoa jurídica, sujeitas à incidência do imposto na fonte, têm o seguinte tratamento:
+  a) quando decorrentes da prestação de serviços caracterizadamente de natureza profissional, de comissões, corretagens ou quaisquer outras remunerações pela representação comercial ou pela mediação na realização de negócios civis e comerciais e da prestação de serviços de propaganda e publicidade, são incluídas como receitas de prestação de serviços e o imposto retido na fonte pode ser compensado com o devido trimestralmente. Para efeito de compensação, o imposto pago ou retido, constante de documento hábil, é compensado pelos valores originais, sem qualquer atualização (Lei nº 9.430, de 1996, art. 75, parágrafo único). Quando o imposto a compensar for superior ao devido no trimestre, o excesso pode ser compensado nos trimestres subsequentes, acrescido dos juros equivalentes à taxa referencial do Sistema Especial de Liquidação e Custódia (Selic), para títulos federais, acumulada mensalmente, a partir do primeiro dia do trimestre subsequente até o mês anterior ao da compensação e de 1% (um por cento) no mês da compensação;
+  b) os rendimentos de aplicações financeiras de renda fixa, renda variável ou juros sobre o capital próprio são incluídos na base de cálculo e o imposto pago ou retido incidente sobre esses rendimentos pode ser compensado com o devido trimestralmente. Para efeito de compensação, o imposto pago ou retido, constante de documento hábil, é compensado pelos valores originais, sem qualquer atualização (Lei nº 9.430, de 1996, art. 75, parágrafo único). Quando o imposto a compensar for superior ao imposto devido no trimestre, o excesso pode ser compensado nos trimestres subsequentes, acrescido dos juros equivalentes à taxa referencial do Sistema Especial de Liquidação e Custódia (Selic), para títulos federais, acumulada mensalmente, a partir do primeiro dia do trimestre subsequente até o mês anterior ao da compensação e de 1% (um por cento) no mês da compensação;
+  V.7) Programa Emergencial de Retomada do Setor de Eventos (Perse)
+  De acordo com a Instrução Normativa RFB nº 2.114/2021, o benefício fiscal relativo ao Programa Emergencial de Retomada do Setor de Eventos (PERSE) consiste na aplicação da alíquota de 0% (zero por cento) sobre as receitas e os resultados das atividades econômicas de que tratam os Anexos I e II da Portaria ME nº 7.163, de 21 de junho de 2021, desde que eles estejam relacionados à:
+  I - realização ou comercialização de congressos, feiras, eventos esportivos, sociais, promocionais ou culturais, feiras de negócios, shows, festas, festivais, simpósios ou espetáculos em geral, casas de eventos, buffets sociais e infantis, casas noturnas e casas de espetáculos;
+  II - hotelaria em geral;
+  III - administração de salas de exibição cinematográfica; e
+  IV - prestação de serviços turísticos, conforme disciplinado pelo art. 21 da Lei nº 11.771, de 17 de setembro de 2008.
+  O benefício fiscal não se aplica às receitas e aos resultados oriundos de atividades econômicas não relacionadas no caput ou que sejam classificadas como receitas financeiras ou receitas e resultados não operacionais.
+  Para fins de apuração do IRPJ e da CSLL, a pessoa jurídica que apura o imposto sobre a renda pela sistemática:
+  I - do lucro real deverá apurar o lucro da exploração referente às atividades referidas no art. 2º, observadas as demais disposições previstas na legislação do imposto sobre a renda e proventos de qualquer natureza; ou
+  II - do lucro presumido ou arbitrado não deverá computar, na base de cálculo dos referidos tributos, as receitas decorrentes das atividades referidas no art. 2º.
+  V.8) Entidade em Liquidação
+  De acordo com o Anexo VI da Instrução Normativa RFB nº 1.753/2017:
+  Remensuração de Ativos
+  i) O ganho decorrente da mensuração de ativo pelo valor de liquidação, conforme estabelecido na letra "a" do item 22 do CPC Liquidação, não integrará as bases de cálculo do lucro presumido, do resultado presumido, do lucro arbitrado e do resultado arbitrado no período de apuração em que for apropriado como receita.
+  ii) Na apuração dos ganhos a que se referem os incisos I e II do § 3º dos arts. 215 e 227 da Instrução Normativa RFB nº 1.700, de 2017, o aumento ou a redução no valor do ativo registrado em contrapartida a ganho ou perda decorrente de sua mensuração pelo valor de liquidação não será considerado como parte integrante do valor contábil.
+  iii) A mensuração de ativo com base no valor justo, conforme estabelecido na letra "b" do item 22 do CPC Liquidação, terá o tratamento tributário estabelecido nos arts. 217 e 229 da Instrução Normativa RFB nº 1.700, de 2017. iv) Na apuração dos ganhos a que se referem os incisos I e II do § 3º dos arts. 215 e 227 da Instrução Normativa RFB nº 1.700, de 2017, a redução no valor do ativo registrada em contrapartida à despesa estimada para realização a que se refere a letra "c" do item 22 do CPC Liquidação não será considerada como parte integrante do valor contábil.
+  Ativos Incorporados Posteriormente ao Início da Liquidação
+  i) O ganho decorrente do reconhecimento de ativo não registrado até a data de início de liquidação, conforme estabelecido nos itens 21 e 48 do CPC Liquidação, não integrará as bases de cálculo do lucro presumido, do resultado presumido, do lucro arbitrado e do resultado arbitrado no período de apuração em que for apropriado como receita.
+  ii) Na apuração dos ganhos a que se referem os incisos I e II do § 3º dos arts. 215 e 227 da Instrução Normativa RFB nº 1.700, de 2017, relativos ao ativo de que trata o item 28, o valor contábil do ativo será zero.
+  VI) Determinação do Imposto de Renda Devido
+  VI.1) Alíquota
+  O imposto devido em cada trimestre é calculado mediante a aplicação da alíquota de 15% (quinze por cento) sobre a base de cálculo.
+  VI.2) Adicional
+  A parcela do lucro presumido que exceder ao resultado da multiplicação de R$ 20.000,00 (vinte mil reais) pelo número dos meses do respectivo período de apuração sujeita-se à incidência do adicional, à alíquota de 10% (dez por cento).
+  VI.3) Deduções do Imposto Devido
+  A pessoa jurídica optante pelo lucro presumido pode deduzir do imposto de renda apurado:
+  a) o imposto de renda pago ou retido na fonte sobre receitas que integram a base de cálculo do imposto devido;
+  b) o imposto de renda retido na fonte por órgãos públicos, conforme art. 64 da Lei nº 9.430, de 1996;
+  c) o imposto de renda retido na fonte por Entidades da Administração Pública Federal (Lei nº 10.833/2003, art. 34);
+  d) o imposto de renda pago incidente sobre ganhos no mercado de renda variável.
+  VI.4) Compensações do Imposto de Renda Devido
+  A pessoa jurídica pode efetuar as seguintes compensações:
+  a) pagamento indevido ou a maior que o devido de imposto de renda;
+  b) saldo negativo de imposto de renda de períodos anteriores;
+  c) outras compensações efetuadas mediante Declaração de Compensação (Per/DComp) ou processo administrativo.
+  As compensações efetuadas devem ser informadas na DCTF.
+  VI.5) Incentivos Fiscais
+  À pessoa jurídica tributada com base no lucro presumido não é permitido qualquer dedução a título de incentivo fiscal (Lei nº 9.532, de 1997, art. 10).
+  VII) Pagamento do Imposto
+  VII.1) Local de Pagamento
+  Os contribuintes devem pagar o imposto de renda da pessoa jurídica por intermédio dos Bancos integrantes da rede arrecadadora de receitas federais.
+  VII.2) Documento a Utilizar
+  O pagamento deve ser feito mediante a utilização do Documento de Arrecadação de Receitas Federais (Darf), sob o código 2089.
+  VII.3) Prazo para Pagamento
+  O imposto de renda devido, apurado trimestralmente, deve ser pago em quota única, até o último dia útil do mês subsequente ao do encerramento do período de apuração.
+  À opção da pessoa jurídica, o imposto devido pode ser pago em até três quotas mensais, iguais e sucessivas, vencíveis no último dia útil dos três meses subsequentes ao de encerramento do período de apuração a que corresponder.
+  Nenhuma quota pode ter valor inferior a R$ 1.000,00 (mil reais) e o imposto de valor inferior a R$ 2.000,00 (dois mil reais) será pago em quota única.
+  As quotas do imposto serão acrescidas de juros equivalentes à taxa referencial do Sistema Especial de Liquidação e Custódia (Selic), para títulos federais, acumulada mensalmente, a partir do primeiro dia do segundo mês subsequente ao do encerramento do período de apuração até o último dia do mês anterior ao do pagamento e de 1% (um por cento) no mês do pagamento.
+  VIII) Escrituração
+  A pessoa jurídica que optar pela tributação com base no lucro presumido deve manter:
+  a) escrituração contábil, nos termos da legislação comercial, ou livro Caixa, no qual deve estar escriturada toda a movimentação financeira, inclusive bancária;
+  b) Livro Registro de Inventário, no qual devem constar registrados os estoques existentes no término do ano-calendário abrangido pelo regime de tributação simplificada; e
+  c) Livro de Apuração do Lucro Real, quando tiver lucros diferidos de períodos de apuração anteriores.
+  A documentação relativa aos atos negociais que os contribuintes praticarem ou em que intervierem, os livros de escrituração obrigatória por legislação fiscal específica e todos os demais papéis e documentos que serviram de base para a escrituração comercial e fiscal devem ser conservados em boa ordem e guarda, enquanto não prescritas eventuais ações que lhes sejam pertinentes (Decreto-Lei nº 486, de 1969, art. 4º).
+  IX) Receitas e Rendimentos não Tributáveis
+  Consideram-se não tributáveis as receitas e os rendimentos relacionados abaixo:
+  a) recuperações de créditos que não representem ingressos de novas receitas, e cujas perdas não tenham sido deduzidas na apuração do lucro real em períodos anteriores;
+  b) a reversão de saldo de provisões anteriormente constituídas, desde que o valor provisionado não tenha sido deduzido na apuração do lucro real dos períodos anteriores, ou que se refiram ao período no qual a pessoa jurídica não tenha se submetido a esse regime de tributação (Lei nº 9.430, de 1996, art. 53);
+  c) os lucros e dividendos recebidos decorrentes de participações societárias no Brasil, caso se refiram a períodos em que estes sejam isentos de imposto de renda.
+  X) Distribuição de lucros
+  Os lucros ou dividendos calculados com base nos resultados apurados a partir do mês de janeiro de 1996, pagos ou creditados pela pessoa jurídica tributada com base no lucro presumido ou arbitrado, não estão sujeitos à incidência do imposto de renda na fonte, nem integram a base de cálculo do imposto de renda do beneficiário, pessoa física ou jurídica, domiciliado no País ou no exterior (Lei nº 9.249, de 1995, art. 10).
+  Poderá ser distribuído, a título de lucros, sem incidência do imposto:
+  a) o valor do lucro presumido ou arbitrado (base de cálculo do imposto), diminuído do imposto de renda da pessoa jurídica (IRPJ), inclusive adicional, quando devido, da contribuição social sobre o lucro líquido (CSLL), da contribuição para financiamento da seguridade social (Cofins) e das contribuições para o PIS/Pasep (ADN Cosit nº 4, de 29 de janeiro de 1996); ou
+  b) a parcela do lucro e dividendos excedentes ao valor determinado na alínea "a", desde que a pessoa jurídica demonstre, mediante escrituração contábil feita com observância da lei comercial, que o lucro efetivo é maior que o determinado segundo as normas para apuração do lucro presumido.
+  Atenção: Essa isenção não abrange os valores pagos a outro título, tais como pró-labore, aluguéis e serviços prestados, que se sujeitam à incidência do imposto de renda na fonte e na declaração de rendimentos dos beneficiários.
+  X.1) Lucros Distribuídos que Excederem ao Valor Apurado na Escrituração
+  A parcela dos rendimentos pagos ou creditados a sócio ou acionista ou ao titular da pessoa jurídica, a título de lucros ou dividendos distribuídos, ainda que por conta de período de apuração não encerrado, que exceder ao valor apurado com base na escrituração contábil, deve ser imputada aos lucros acumulados ou reservas de lucros de exercícios anteriores, ficando sujeita à incidência do imposto de renda calculado segundo o disposto na legislação específica, com acréscimos legais.
+  O disposto no parágrafo acima não abrange a distribuição de lucros e dividendos efetuada, após o encerramento do trimestre correspondente, com base no lucro presumido ou arbitrado diminuído do imposto e das contribuições a que estiver sujeita a pessoa jurídica.
+  Inexistindo lucros acumulados ou reservas de lucros em montante suficiente, a parcela excedente deve ser submetida à tributação, nos termos do art. 61 da Lei no 8.981/1995 (Art. 238, § 4o, da Instrução Normativa no 1.700, de 14 de março de 2017).
+  A distribuição de rendimentos a título de lucros ou dividendos que não tenham sido apurados em balanço sujeita-se à incidência do imposto de renda na forma prevista no parágrafo anterior.
+  XI) Contribuição Social Sobre o Lucro Líquido (CSLL)
+  A base de cálculo da CSLL em cada trimestre, apurada com base no resultado presumido ou arbitrado, corresponde à soma dos seguintes valores:
+  1) 12% (doze por cento) ou 32% (trinta e dois por cento) da receita bruta auferida no período de apuração;
+  2) 12% (doze por cento) ou 32% (trinta e dois por cento) da parcela das receitas auferidas, no respectivo período de apuração, nas exportações a pessoas vinculadas ou para países com tributação favorecida, que exceder ao valor já apropriado na escrituração da empresa, na forma da legislação específica;
+  3) 38,4% (trinta e oito inteiros e quatro décimos por cento), para as atividades de operação de empréstimo, de financiamento e de desconto de títulos de crédito realizadas por Empresa Simples de Crédito (ESC).
+  Atenção:
+  1) O percentual da receita bruta para efeito de determinação da base de cálculo da CSLL é de 32 % (trinta e dois por cento) para as atividades de:
+  a) prestação de serviços em geral;
+  b) intermediação de negócios;
+  c) administração, locação ou cessão de bens imóveis, móveis e direitos de qualquer natureza;
+  d) prestação cumulativa e contínua de serviços de assessoria creditícia, mercadológica, gestão de crédito, seleção de riscos, administração de contas a pagar e a receber, e compra de direitos creditórios resultantes de vendas mercantis a prazo ou de prestação de serviços (factoring).
+  e) prestação de serviços de construção, recuperação, reforma, ampliação ou melhoramento de infraestrutura vinculados a contrato de concessão de serviço público.
+  2) O percentual de receita bruta a ser considerado é de 12% (doze por cento) para as atividades de:
+  a) prestação de serviços hospitalares e de auxílio diagnóstico e terapia, fisioterapia e terapia ocupacional, fonoaudiologia, patologia clínica, imagenologia, radiologia, anatomia patológica e citopatologia, medicina nuclear e análises e patologias clínicas, exames por métodos gráficos, procedimentos endoscópicos, radioterapia, quimioterapia, diálise e oxigenoterapia hiperbárica, desde que a prestadora desses serviços seja organizada sob a forma de sociedade empresária e atenda às normas da Agência Nacional de Vigilância Sanitária (Anvisa);prestação de serviços hospitalares; e
+  b) de transporte, inclusive de carga, o percentual de receita bruta a ser considerado é de 12% (doze por cento).
+  3) No caso de atividades diversificadas, deve ser aplicado o percentual correspondente a cada atividade.
+  4) A partir de 1º de janeiro de 2006, para as pessoas jurídicas tributadas com base no lucro presumido, o percentual também passou a ser aplicado sobre a receita financeira da pessoa jurídica que explore atividades imobiliárias relativas a loteamento de terrenos, incorporação imobiliária, construção de prédios destinados à venda, bem como a venda de imóveis construídos ou adquiridos para a revenda, quando decorrente da comercialização de imóveis e for apurada por meio de índices ou coeficientes previstos em contrato. (Lei nº 11.196, de 2005, art. 34).
+  5) Para fins de aplicação do disposto no item “2a”, entende-se como atendimento às normas da Anvisa, entre outras, a prestação de serviços em ambientes desenvolvidos de acordo com o item 3
+  - Dimensionamento, Quantificação e Instalações Prediais dos Ambientes da Parte II - Programação Físico-Funcional dos Estabelecimentos Assistenciais de Saúde da Resolução RDC nº 50, de 21 de fevereiro de 2002, cuja comprovação deve ser feita mediante alvará da vigilância sanitária estadual ou municipal.
+  6) O disposto na alínea “2a” não se aplica:
+  I - à pessoa jurídica organizada sob a forma de sociedade simples;
+  II - aos serviços prestados com utilização de ambiente de terceiro; e
+  III - à pessoa jurídica prestadora de serviço médico ambulatorial com recursos para realização de exames complementares e serviços médicos prestados em residência, sejam eles coletivos ou particulares (home care).
+  7) os ganhos de capital, os rendimentos e ganhos líquidos auferidos em aplicações financeiras, as demais receitas e os resultados positivos decorrentes de receitas não abrangidas pelo item 1 acima, auferidos no mesmo período de apuração, inclusive:
+  a) os ganhos de capital nas alienações de bens do ativo não-circulante, exceto realizável a longo prazo, e de ouro não caracterizado como ativo financeiro;
+  b) os ganhos de capital auferidos na alienação de participações societárias permanentes em sociedades coligadas e controladas, e de participações societárias que permaneceram no ativo da pessoa jurídica até o término do ano-calendário seguinte ao de sua aquisição;
+  c) os ganhos de capital auferidos na devolução de capital em bens ou direitos;
+  d) os rendimentos auferidos nas operações de mútuo realizadas entre pessoas jurídicas ou entre pessoa jurídica e pessoa física;
+  e) a receita de locação de imóvel, quando não for este o objeto social da pessoa jurídica, deduzida dos encargos necessários à sua percepção;
+  f) os juros equivalentes à taxa referencial do Selic para títulos federais, acumulada mensalmente, relativos a tributos e contribuições a serem restituídos ou compensados;
+  g) os valores recuperados correspondentes a custos e despesas, inclusive com perdas no recebimento de créditos, salvo se a pessoa jurídica comprovar não os ter deduzido em período anterior no qual tenha se submetido ao regime de incidência da CSLL com base no resultado ajustado, ou que se refiram a período no qual tenha se submetido ao regime de incidência da CSLL com base no resultado presumido, arbitrado ou Simples;
+  h) a diferença entre o valor em dinheiro ou o valor dos bens e direitos recebidos de instituição isenta, a título de devolução de patrimônio, e o valor em dinheiro ou o valor dos bens e direitos entregue para a formação do referido patrimônio;
+  i) os rendimentos e ganhos líquidos auferidos em aplicações financeiras de renda fixa e de renda variável;
+  j) as variações monetárias ativas dos direitos de crédito e das obrigações do contribuinte, em função da taxa de câmbio ou de índices ou coeficientes aplicáveis por disposição legal ou contratual.
+  Os valores de que trata o item 2 (receitas auferidas, no respectivo período de apuração, nas exportações a pessoas vinculadas) devem ser apurados anualmente e acrescidos ao resultado presumido ou arbitrado do último trimestre do ano-calendário, para efeito de se determinar a CSLL devida.
+  Para os efeitos da alínea "a" do item 7, o ganho de capital corresponde à diferença positiva verificada entre o valor da alienação e o respectivo valor contábil.
+  As variações cambiais a que se refere a alínea "j" do item 7 serão consideradas, para efeito de determinação do resultado presumido ou arbitrado da CSLL, quando da liquidação da correspondente operação. À opção da pessoa jurídica, as variações cambiais podem ser consideradas, na determinação da base de cálculo da CSLL, pelo regime de competência, o qual deve ser aplicado a todo o ano- calendário.
+  A pessoa jurídica pode excluir a parcela das receitas financeiras decorrentes da variação monetária dos direitos de crédito e das obrigações, em função da taxa de câmbio, submetida à tributação, segundo regime de competência, relativo a períodos compreendidos no ano-calendário de 1999, excedente ao valor da variação monetária efetivamente realizada, ainda que a operação tenha sido liquidada (MP nº 1.858-10, de 1999, art. 31, parágrafo único, e reedições).
+  O valor do Vale-Pedágio obrigatório, pago pelo embarcador ao transportador, não integra o frete e não deve ser considerado receita operacional ou rendimento tributável.
+  Será adicionado ao resultado presumido ou arbitrado o valor dos encargos suportados pela mutuária que exceder ao limite calculado com base na taxa Libor, para depósitos em dólares dos Estados Unidos da América, pelo prazo de seis meses, acrescida de três por cento anuais a título de spread, proporcionalizados em função do período a que se referirem os juros, quando pagos ou creditados a pessoa vinculada no exterior e o contrato não for registrado no Banco Central do Brasil.
+  No caso de mútuo com pessoa vinculada domiciliada no exterior, a pessoa jurídica mutuante, domiciliada no Brasil, deverá reconhecer, como receita financeira, a diferença entre o valor calculado com base na taxa a que se refere o parágrafo anterior e o valor contratado, quando este seja inferior, no caso de contrato não registrado no Banco Central do Brasil.
+  As pessoas jurídicas que tiverem lucros, rendimentos e ganhos de capital auferidos no exterior somente podem optar pelo lucro presumido durante o período em que submetidas ao Refis.
+  Os lucros disponibilizados no exterior e os rendimentos e ganhos de capital auferidos no exterior no período em que a pessoa jurídica apurar a CSLL com base no resultado arbitrado devem ser computados na base de cálculo no trimestre da disponibilização dos lucros ou do auferimento dos rendimentos e ganhos de capital.
+  Os rendimentos e ganhos de capital a que se refere o parágrafo acima são os auferidos no exterior, diretamente pela pessoa jurídica domiciliada no Brasil.
+  XI.1) Pagamento da CSLL
+  XI.1.1) Local de Pagamento
+  A pessoa jurídica deve pagar a CSLL por intermédio dos Bancos integrantes da rede arrecadadora de receitas federais.
+  XI.1.2) Documento a Utilizar
+  O pagamento é feito mediante a utilização do Documento de Arrecadação de Receitas Federais (Darf), sob o seguinte código 2372 - PJ optante pela apuração com Base no Resultado Presumido ou pelo Arbitrado.
+  XI.1.3) Prazo para Pagamento
+  A CSLL, apurada trimestralmente, deve ser paga em quota única, até o último dia útil do mês subsequente ao do encerramento do período de apuração.
+  À opção da pessoa jurídica, a CSLL pode ser paga em até três quotas mensais, iguais e sucessivas, vencíveis no último dia útil dos três meses subsequentes ao de encerramento do período de apuração a que corresponder.
+  Nenhuma quota pode ter valor inferior a R$ 1.000,00 (mil reais) e a CSLL de valor inferior a R$ 2.000,00 (dois mil reais) deve ser paga em quota única.
+  As quotas da CSLL são acrescidas de juros equivalentes à taxa referencial do Sistema Especial de Liquidação e Custódia (Selic), para títulos federais, acumulada mensalmente, a partir do primeiro dia do segundo mês subsequente ao do encerramento do período de apuração até o último dia do mês anterior ao do pagamento e de 1% (um por cento) no mês do pagamento.
+  A primeira quota ou quota única, quando paga até o vencimento, não sofre acréscimos.
+  O saldo da CSLL, se negativo, pode ser restituído ou compensado com a CSLL devida a partir do encerramento do trimestre, acrescido de juros equivalentes à taxa Selic para títulos federais, acumulada mensalmente, calculados a partir do mês subsequente ao do encerramento do período de apuração até o mês anterior ao da restituição ou compensação e de um por cento relativamente ao mês em que estiver sendo efetuada a restituição ou compensação (ADN Cosit nº 31, de 27 de outubro de 1999).
+  XII) Lei Complementar nº 224, de 26 de dezembro de 2025
+  A LC 224/25 instituiu um adicional de 10% nos adicionais de presunção sobre a receita bruta para se chegar na base de cálculo do IRPJ e da CSLL.
+  A IN RFB nº 2.305, de 31 de dezembro de 2025, e suas atualizações, disciplinou a aplicação da LC 224/25 no âmbito interno da RFB.
+  XII.1) Aspectos Gerais da Aplicação da LC 224/25 e IN RFB 2.305/25
+  O acréscimo percentual incide, somente, na parcela que ultrapassar o valor de R$ 5.000.000,00 (cinco milhões de reais). Tal limite deve ser distribuído proporcionalmente pelos períodos de apuração, para verificação se há ou não incidência do acréscimo.
+  Art. 14. No caso de pessoa jurídica tributada com base no lucro presumido, deverá ser observado o acréscimo em 10% (dez por cento) nos percentuais de presunção previstos na legislação do IRPJ e da CSLL.
+  Art. 15. O acréscimo previsto no art. 14 somente se aplica aos percentuais de presunção incidentes sobre a parcela da receita bruta total que exceder o valor de R$ 5.000.000,00 (cinco milhões de reais) no respectivo ano-calendário.
+  § 1º Para fins de aplicação do limite anual de que trata o caput:
+  I - o limite deve ser distribuído proporcionalmente entre os períodos de apuração trimestrais, permitido o ajuste nos trimestres subsequentes do mesmo ano-calendário; e
+  II - o acréscimo deverá ser aplicado proporcionalmente às receitas auferidas em cada atividade.
+  § 2º O limite proporcional de que trata o inciso I do § 1º corresponde a R$ 1.250.000,00 (um milhão, duzentos e cinquenta mil reais) por trimestre e deve ser verificado considerando a receita bruta do respectivo trimestre.
+  § 3º No trimestre em que a receita bruta for superior ao limite proporcional previsto no § 2º, deverá ser aplicado o respectivo percentual de presunção do IRPJ e da CSLL acrescido em 10% (dez por cento) sobre a parcela da receita bruta que exceder o referido limite.
+  Caso o total da receita bruta no período de apuração for inferior ao limite proporcional, o valor excedente entre a receita bruta do período e o limite proporcional poderá ser utilizado em período de apuração posterior, dentro do mesmo ano-calendário, para fins de um limite proporcional ajustado.
+  § 4º No trimestre em que a receita bruta for inferior ao limite proporcional previsto no § 2º, a diferença poderá ser considerada para fins de apuração do limite aplicável aos trimestres subsequentes do mesmo ano-calendário.
+  Na hipótese de a pessoa jurídica não atingir o limite anual, mas em algum período de apuração ter atingido o limite proporcional, a IN RFB nº 2.305/25 faculta ao contribuinte a possibilidade, no último trimestre, de fazer recálculos a fim de excluir a incidência do adicional ocorrida.
+  § 5º No último trimestre do ano-calendário, a pessoa jurídica deverá verificar o limite anual considerando a receita bruta acumulada do ano-calendário, observadas as seguintes regras:
+  I - na hipótese de a receita bruta acumulada ser inferior ao limite anual:
+  a) não incidirá o acréscimo em 10% (dez por cento) nos percentuais de presunção no último trimestre do ano-calendário; e
+  b) a pessoa jurídica poderá:
+  1. recalcular o IRPJ e a CSLL devidos sem o acréscimo em 10% (dez por cento) nos percentuais de presunção naqueles trimestres em que tal acréscimo tiver sido aplicado;
+  2. apurar a diferença entre o IRPJ e a CSLL recalculados nos termos do item 1 e os valores apurados anteriormente, com a aplicação do acréscimo em 10% (dez por cento);
+  e
+  3. deduzir a diferença apurada nos termos do item 2 do IRPJ e CSLL devidos no último trimestre do ano-calendário;
+  Para atender o item 3, do inciso I, § 5º do art. 15, foram criadas linhas nos registros P300 e P500. Sugere-se leitura das orientações de cada linha dos registros que foram inseridas no arquivo de Tabelas Dinâmicas.
+  Uma vez atingido o limite anual, é possível efetuar recálculos e/ou limitar a base de cálculo que será utilizado no último trimestre.
+  § 5º No último trimestre do ano-calendário, a pessoa jurídica deverá verificar o limite anual considerando a receita bruta acumulada do ano-calendário, observadas as seguintes regras:
+  II - na hipótese de a receita bruta acumulada do ano-calendário ser superior ao limite anual e a parcela excedente correspondente for inferior ao somatório das parcelas excedentes dos trimestres anteriores ao último trimestre do mesmo ano-calendário:
+  a) não incidirá o acréscimo em 10% (dez por cento) nos percentuais de presunção no último trimestre do ano-calendário; e
+  b) a pessoa jurídica poderá recalcular o IRPJ e o CSLL devidos com o acréscimo em 10% (dez por cento) naqueles trimestres em que tal acréscimo tiver sido aplicado, hipótese em que deverá:
+  1. apurar a razão entre a parcela excedente de cada trimestre em que o limite proporcional foi excedido e o somatório das parcelas excedentes dos trimestres anteriores ao último trimestre do mesmo ano-calendário em que o limite proporcional foi excedido;
+  2. calcular o produto entre a razão de que trata o item 1 e a parcela da receita bruta acumulada do ano-calendário; e
+  3. efetuar o recálculo considerando como parcela excedente ao limite proporcional do trimestre o valor obtido conforme o item 2 e apurar a diferença em relação aos valores devidos efetivamente apurados, a qual poderá ser deduzida do IRPJ e CSLL devido no último trimestre do ano-calendário; e
+  III - na hipótese de a receita bruta acumulada do ano-calendário ser superior ao limite anual e a parcela excedente correspondente for superior ao somatório das parcelas excedentes dos trimestres anteriores ao último trimestre do mesmo ano-calendário, a parcela excedente do último trimestre será limitada à diferença entre a parcela da receita bruta acumulada do ano-calendário que exceder o limite anual e o somatório das parcelas excedentes dos trimestres anteriores ao último trimestre do mesmo ano-calendário.
+  O contribuinte com atividades diversificadas sujeitas a mais de um percentual de presunção de receita bruta deverá observar, por trimestre, a proporção da receita bruta decorrente de cada atividade em relação à receita bruta total.
+  Como exemplo da situação acima, supondo que um contribuinte esteja sujeito aos percentuais de 8 e 16%, e no trimestre cada um dos percentuais teve receita bruta no valor de R$ 700.000,00, totalizando R$ 1.400.000,00. Supondo que o limite do trimestre é 1.250.000,00, então R$ 150.000,00 é a base de cálculo, onde haverá um proporcional de 50% sujeito a um adicional de 0,8% e outro de 1,6%.
+  § 6º Para fins do disposto neste artigo, a pessoa jurídica com atividades diversificadas e sujeita a mais de um percentual de presunção deverá observar, em cada trimestre, a proporção da receita bruta decorrente de cada atividade em relação à receita bruta total do trimestre.
+  A IN RFB nº 2.305/25 ainda prevê a possibilidade de pedido de restituição ou compensação, caso haja pagamento a maior indevido baseado no adicional previsto na LC 224/25, com a possibilidade de juros.
+  § 7º Caso o IRPJ e a CSLL devidos, recalculados nos termos dos incisos I e II do § 5º, seja superior, respectivamente, ao IRPJ e à CSLL devidos apurados no último trimestre do ano-calendário, a parcela excedente poderá ser objeto de pedido de restituição ou de compensação, mediante solicitação do contribuinte, na forma da legislação aplicável.
+  § 8º O crédito de que trata o § 7º será acrescido de juros equivalentes à taxa referencial do Sistema Especial de Liquidação e de Custódia (Selic) para títulos federais, acumulados mensalmente, e de juros de 1% (um por cento) no mês em que a quantia for disponibilizada ao sujeito passivo ou for entregue a declaração de compensação, sendo considerado como termo inicial, para fins do cálculo de incidência dos juros, o mês subsequente ao do último trimestre do ano- calendário.
+  A regra é que o limite anual tenha o valor de R$ 5.000.000,00 (cinco milhões de reais), porém, no início ou encerramento das atividades no curso do ano-calendário, esse limite é ajustado considerando o número de trimestres efetivamente em atividade, multiplicado pelo limite trimestral de R$ 1.250.000,00.
+  Supondo que a entidade iniciou suas atividades em maio de 2026 e continuou em atividades até o final do ano-calendário. Nesse cenário, serão três trimestres, ficando o limite anual no valor de R$ 3.750.000,00 (três milhões setecentos e cinquenta mil) – 1.250.000,00 * 3 (Números de períodos de apuração).
+  § 9º No caso de início ou encerramento de atividades no curso do ano-calendário, o limite anual previsto no caput deverá ser calculado proporcionalmente, considerando o número de trimestres efetivamente em atividade, multiplicado pelo limite estabelecido no § 2º
+tabela_blocos:
+  nome: Lucro Presumido
+  descricao: |-
+    Apresenta o balanço patrimonial, a demonstração do resultado do exercício e apura o
+    IRPJ e a CSLL com base no lucro presumido.
+registros:
+- registro: P001
+  nome: Abertura do Bloco P – Lucro Presumido
+  nivel: 1
+  arquivo: ../registros/bloco_P/P001.yml
+- registro: P030
+  nome: Identificação dos Períodos e Forma de Apuração do IRPJ e da CSLL das Empresas Tributadas pelo Lucro Presumido
+  nivel: 2
+  arquivo: ../registros/bloco_P/P030.yml
+- registro: P100
+  nome: Balanço Patrimonial
+  nivel: 3
+  arquivo: ../registros/bloco_P/P100.yml
+- registro: P130
+  nome: Demonstração das Receitas Incentivadas do Lucro Presumido
+  nivel: 3
+  arquivo: ../registros/bloco_P/P130.yml
+- registro: P150
+  nome: Demonstração do Resultado
+  nivel: 3
+  arquivo: ../registros/bloco_P/P150.yml
+- registro: P200
+  nome: Apuração da Base de Cálculo do Lucro Presumido
+  nivel: 3
+  arquivo: ../registros/bloco_P/P200.yml
+- registro: P230
+  nome: Cálculo da Isenção e Redução do Lucro Presumido
+  nivel: 3
+  arquivo: ../registros/bloco_P/P230.yml
+- registro: P300
+  nome: Cálculo do IRPJ com Base no Lucro Presumido
+  nivel: 3
+  arquivo: ../registros/bloco_P/P300.yml
+- registro: P400
+  nome: Apuração da Base de Cálculo da CSLL com Base no Lucro Presumido
+  nivel: 3
+  arquivo: ../registros/bloco_P/P400.yml
+- registro: P500
+  nome: Cálculo da CSLL com Base no Lucro Líquido
+  nivel: 3
+  arquivo: ../registros/bloco_P/P500.yml
+- registro: P990
+  nome: Encerramento do Bloco P
+  nivel: 1
+  arquivo: ../registros/bloco_P/P990.yml

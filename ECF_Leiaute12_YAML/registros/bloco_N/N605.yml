@@ -1,0 +1,110 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: N605
+nome: Contas Contábeis Utilizadas na Apuração do Lucro da Exploração
+bloco: N
+nome_tabela_registros: Contas Contábeis Envolvidas na Apuração do Lucro da Exploração
+paginas_manual:
+- 286
+- 287
+descricao: Caso a linha N600(48.05) - Tipo de Apuração do Lucro da Exploração seja igual a 2 (Contabilidade), as contas contábeis que formaram o valor da linha N600(48) deverão ser informadas neste registro.
+titulo_leiaute: 'REGISTRO N605: CONTAS CONTÁBEIS UTILIZADAS NA APURAÇÃO DO LUCRO DA EXPLORAÇÃO'
+regras_validacao_registro:
+- REGRA_SOMATORIO_N605_K355
+nivel_hierarquico: 3
+ocorrencia: 0:N
+campos_chave: COD_CTA + COD_CCUS
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se N600(48.05) = “ 2” - Contabilidade
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: N030
+  filhos: []
+  irmaos:
+  - N500
+  - N600
+  - N610
+  - N615
+  - N620
+  - N630
+  - N650
+  - N660
+  - N670
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (N605).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[N605]'
+  obrigatorio: true
+- numero: 2
+  campo: COD_CTA
+  descricao: |-
+    Código da conta contábil.
+    Observação: código da conta informado deve constar no registro K355.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: COD_CCUS
+  descricao: |-
+    Código do centro de custos.
+    Observação: código do centro de custos informado deve constar no registro K355, para o código de conta informado no campo N605.COD_CTA.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 4
+  campo: VALOR
+  descricao: Saldo utilizado.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: IND_VALOR
+  descricao: |-
+    Indicador do saldo utilizado:
+    D – Devedor
+    C – Credor
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: '[D;C]'
+  obrigatorio: true
+regras_validacao_registro_detalhe:
+- regra: REGRA_SOMATORIO_N605_K355
+  descricao: Quando K355.COD_CTA/COD_CCUS for igual a N605.COD_CTA/COD_CCUS, o somatório do saldo da conta de resultado/centro de custos do registro K355 deve ser igual ao utilizado no somatório do registro N605, considerando o mesmo período de apuração e o mesmo indicador de saldo. Se a regra não for cumprida, a ECF gera um erro.
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|N605|11111|||10000,00|D|'
+  explicacao:
+  - valor: '|N605|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|11111|'
+    descricao: Código da conta (11111).
+  - valor: '| |'
+    descricao: Centro de custos (não há).
+  - valor: '|10000,00|'
+    descricao: Saldo utilizado (R$ 10.000,00).
+  - valor: '|D|'
+    descricao: Indicador de saldo utilizado (D).

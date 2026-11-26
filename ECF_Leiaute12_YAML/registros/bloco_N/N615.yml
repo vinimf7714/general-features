@@ -1,0 +1,218 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: N615
+nome: Informações da Base de Cálculo dos Incentivos Fiscais
+bloco: N
+nome_tabela_registros: Informações da Base de Cálculo de Incentivos Fiscais
+paginas_manual:
+- 292
+- 296
+descricao: |-
+  Este registro deve ser preenchido pelas pessoas jurídicas ou grupos de empresas coligadas de que trata o art. 9º da Lei nº 8.167, de 1991, alterado pela Medida Provisória nº 2.199-14, de 24 de agosto de 2001, titulares de empreendimento de setor da economia considerado, em ato do Poder Executivo, prioritário para o desenvolvimento regional, aprovado ou protocolizado até 2 de maio de 2001 nas áreas da Sudam e da Sudene (MP nº 2.199-14, de 2001, art. 4º e MP nº 2.145, de 2 de maio de 2001, art. 50, inciso XX, atuais MP nº 2.156-5, de 2001, art. 32, inciso XVIII, e nº 2.157-5, de 2001, art. 32, inciso IV), e MP nº 634, de 2013, arts. 1º e 2º.
+  Atenção:
+  1) As aplicações somente podem ser efetuadas até o final do prazo previsto para a implantação do projeto, desde que o projeto esteja em situação de regularidade, cumpridos todos os requisitos previstos e os cronogramas aprovados.
+  2) após 2 de maio de 2001, é vedada a aplicação nos fundos Finor e Finam pelas pessoas jurídicas que não se enquadram nas condições do art. 9º da Lei nº 8.167, de 1991 (MP nº 2.145, de 2 de maio de 2001, art. 50, inciso XX, atuais MP nº 2.156-5, de 2001, art. 32, inciso XVIII, e nº 2.157-5, de 2001, art. 32, inciso IV e Lei nº 12.995, de 2014), arts. 1º e 2º).
+  Exemplo 01:
+
+  | 01 - BASE DE CÁLCULO DOS INCENTIVOS FISCAIS | | 2.000,00 |
+  |---|---|---|
+  | | PERCENTUAL (%) | VALOR LÍQUIDO DO INCENTIVO |
+  | 02 - Finor (até 6%) | 0,60% | 12,00 |
+  | 03 - Finam (até 6%) | | |
+  | 04 - TOTAL DOS INCENTIVOS (até 6%) | 0,60% | 12,00 |
+
+  Exemplo 02:
+
+  | 01 - BASE DE CÁLCULO DOS INCENTIVOS FISCAIS | | 2.000,00 |
+  |---|---|---|
+  | | PERCENTUAL (%) | VALOR LÍQUIDO DO INCENTIVO |
+  | 02 - Finor (até 6%) | 3,00% | 60,00 |
+  | 03 - Finam (até 6%) | | |
+  | 04 - TOTAL DOS INCENTIVOS (até 6%) | 3,00% | 60,00 |
+
+  Exemplo 03:
+
+  | 01 - BASE DE CÁLCULO DOS INCENTIVOS FISCAIS | | 2.000,00 |
+  |---|---|---|
+  | | PERCENTUAL (%) | VALOR LÍQUIDO DO INCENTIVO |
+  | 02 - Finor (até 6%) | 3,00% | 60,00 |
+  | 03 - Finam (até 6%) | 3,00% | 60,00 |
+  | 04 - TOTAL DOS INCENTIVOS (até 6%) | 6,00% | 120,00 |
+titulo_leiaute: 'REGISTRO N615: INFORMAÇÕES DA BASE DE CÁLCULO DOS INCENTIVOS FISCAIS'
+regras_validacao_registro: []
+nivel_hierarquico: 3
+ocorrencia: '1:1'
+campos_chave: REG
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se N030 E 0020.IND_FIN="S" Exceto Se (N030.PER_APUR = [A01..A012] E 0010. MES_BAL_RED [1..12] = “E”)
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: N030
+  filhos: []
+  irmaos:
+  - N500
+  - N600
+  - N605
+  - N610
+  - N620
+  - N630
+  - N650
+  - N660
+  - N670
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (N615).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[N615]'
+  obrigatorio: true
+- numero: 2
+  campo: BASE_CALC
+  descricao: |-
+    Base de Cálculo: Base de cálculo dos incentivos fiscais: Para fins de determinação da base de cálculo dos incentivos, deve-se observar a forma de apuração do imposto de renda da pessoa jurídica, as deduções permitidas. a) Regra Geral: O valor desta linha, quando a apuração do imposto de renda for com base no lucro real trimestral e no lucro real apurado em 31 de dezembro do ano-calendário (ajuste anual) será calculado pela seguinte fórmula:
+    BASE_CALC = A - (B + C + D + E + F + G + H + I + J + L + M+ N + O + P), onde:
+    A = Imposto de Renda devido à alíquota de 15% (Linha N630/3)
+    B = Atividades Culturais e Artísticas (Linha N630/6) (art. 18, e §§ 1º e 3º, e art. 25 e 26 da Lei nº 8.313, de 1991, com as alterações do art. 1º, da Lei nº 9.874, de 1999, do art. 53 da MP nº 2.228, de 2001) C = Operações de Aquisição de Vale-Cultura (Linha N630/7) (Lei nº 12.761/2012, art. 10) D = Programa de Alimentação ao Trabalhador (Linha N630/8) E = Desenvolvimento Tecnológico Industrial/Agropecuário (Linha N630/9) F = Atividade Audiovisual (Linha N630/10) G = Fundo dos Direitos da Criança e do Adolescente (Linha N630/11) H = Fundos Nacional, Estaduais ou Municipais do Idoso (Linha N630/12) (Lei nº 12.213, de 2010, art. 3º).
+    I = Atividades de Caráter Desportivo (Linha N630/13)
+    J = Programa Nacional de Apoio à Atenção Oncológica - PRONON (Linha N630/14) - (Lei nº 12.715/2012, arts. 1º e 4º) L = Programa Nacional de Apoio à Atenção da Saúde da Pessoa com Deficiência - PRONAS/PCD (Linha N630/15) (Lei nº 12.715, de 2012, arts. 3º e 4º) M= Valor da Remuneração da Prorrogação da Licença-Maternidade (Linha N630/16) (Lei nº 11.770, de 2008, art. 5º) N = 3,33 x Redução por Reinvestimento (Linha N630/18) O = Imposto devido no Brasil à alíquota de 15% incidente sobre lucros, rendimentos e ganhos de capital oriundos do exterior (Linha N630/19) P = Imposto de renda sobre a diferença entre o Custo Orçado e o Custo Efetivo (Linha N630/27)
+    b) Pessoa Jurídica com Direito à Isenção e/ou Redução do Imposto
+    A pessoa jurídica que tiver direito à redução ou isenção do imposto (Linha N630/17) deve, com base nas informações do Registro N610 - Cálculo da Isenção e Redução do Imposto Sobre o Lucro Real, deduzir do valor determinado pela aplicação da Regra Geral (item "a") o seguinte valor (Z):
+    Z = [Linhas N610/7 + N610/12 + N610/17 + (N610/47 x 75%) + (N610/52 x 70%) + (N610/57x 50%) + (N610/62 x 33,33%) + (N610/67 x 25%) + (N610/72 x 12,50%)] O valor desta linha passa, então, a ser determinado pela seguinte fórmula:
+    BASE_CALC = A - (Z + B + C + D + E + F + G + H + I + J + L + M + N + O + P)
+    Atenção:
+    1) Também compõe a base de cálculo dos incentivos (fórmula da letra a ou b) o valor correspondente à soma do imposto sobre a renda pago por SCP tributada com base no lucro real, exclusive adicional, das quais a declarante seja sócia ostensiva. Sendo que a opção somente poderá ser efetuada em relação à parte do imposto devido, exclusive o adicional, pertencente à pessoa jurídica sócia ostensiva, quer dizer, não pode ser efetivada em relação à parte do imposto que cabe aos demais sócios da SCP.
+    2) Observar as instruções deste manual, com relação às deduções de incentivos fiscais, quando o imposto for calculado sobre a base de cálculo estimada.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: PER_INCEN_FINOR
+  descricao: Percentual do Incentivo FINOR (até 6%).
+  tipo: N
+  tamanho: 8
+  decimal: 4
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: VL_LIQ_INCEN_FINOR
+  descricao: Valor Líquido do Incentivo FINOR.
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: PER_INCEN_FINAM
+  descricao: Percentual do Incentivo FINAM (até 6%).
+  tipo: N
+  tamanho: 8
+  decimal: 4
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: VL_LIQ_INCEN_FINAM
+  descricao: Valor Líquido do Incentivo FINAM.
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 7
+  campo: VL_TOTAL
+  descricao: Total dos Incentivos.
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_campos:
+- numero: 2
+  campo: BASE_CALC
+  regras:
+  - regra: REGRA_BASE_CALC_ZERO
+    descricao: Verifica se N615.BASE_CALC é igual a zero e N615.PER_INCEN_FINOR + N615.PER_INCEN_FINAM + N615.PER_INCEN_FUNRES é igual a zero.
+    tipo: Aviso
+  - regra: REGRA_BASE_CAL_IGUAL
+    descricao: |-
+      Verifica se N615.BASE_CALC é igual:
+      N630(3) – (N630(6) + N630(7) + N630(8) + N630(9) + N630(10) + N630(11) + N630(12) + N630(13) + N630(14) + N630(15) + N630(16) + 3,33 x N630(18) + N630(19) + N630(27))
+    tipo: Aviso
+  - regra: REGRA_BASE_CAL_IGUAL_ISENCAO_REDUCAO
+    descricao: |-
+      Verifica, quando 0020.IND_LUC_EXP igual a “S”, se N615.BASE_CALC é igual:
+      N630(3) – (N610(7) + N610(12) + N610(17) + (N610(47) x 75%) + (N610(52) x 70%) + (N610(57) x 50%) + (N610(62) x 33,33%) + (N610(67) x 25%) + (N610(72) x 12,50%) + N630(6) + N630(7) + N630(8) + N630(9) + N630(10) + N630(11) + N630(12) + N630(13) + N630(14) + N630(15) + N630(16) + 3,33 x N630(18) + N630(19) + N630(27))
+    tipo: Aviso
+- numero: 3
+  campo: PER_INCEN_FINOR
+  regras:
+  - regra: REGRA_PERCENTUAL_MAIOR_6
+    descricao: Verifica se N615.PER_INCEN_FINOR é menor ou igual a “6”.
+    tipo: Aviso
+  - regra: REGRA_PERCENTUAL
+    descricao: Verifica se o valor informado no campo N615.PER_INCEN_FINOR está entre “0” e “100”.
+    tipo: Erro
+- numero: 4
+  campo: VL_LIQ_INCEN_FINOR
+  regras:
+  - regra: REGRA_FINOR_LIQUIDO_DIFERENTE
+    descricao: Verifica se o valor informado em N615.VL_LIQ_INCEN_ FINOR é igual ao resultado da multiplicação de N615.PER_INCEN_FINOR por N615.BASE_CALC.
+    tipo: Erro
+- numero: 5
+  campo: PER_INCEN_FINAM
+  regras:
+  - regra: REGRA_PERCENTUAL_MAIOR_6
+    descricao: Verifica se N615.PER_INCEN_FINAM é menor ou igual a “6”.
+    tipo: Aviso
+  - regra: REGRA_PERCENTUAL_MAIOR_6_GERAL
+    descricao: Verifica se N615.PER_INCEN_FINOR somado ao N615.PER_INCEN_FINAM é menor ou igual a “6”.
+    tipo: Aviso
+  - regra: REGRA_PERCENTUAL
+    descricao: Verifica se o valor informado no campo N615.PER_INCEN_FINOR está entre “0” e “100”.
+    tipo: Erro
+- numero: 6
+  campo: VL_LIQ_INCEN_FINAM
+  regras:
+  - regra: REGRA_FINAM_LIQUIDO_DIFERENTE
+    descricao: Verifica se o valor informado em N615.VL_LIQ_INCEN_ FINAM é igual ao resultado da multiplicação de N615.PER_INCEN_FINAM por N615.BASE_CALC.
+    tipo: Erro
+- numero: 7
+  campo: VL_TOTAL
+  regras:
+  - regra: REGRA_TOTAL_DIFERENTE
+    descricao: Verifica se N615.VL_LIQ_INCEN_ FINOR somado ao N615.VL_LIQ_INCEN_ FINAM é igual ao valor informado no campo N615.VL_TOTAL.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|N615|2000,00|3,00|60,00|3,00|60,00|120,00|'
+  explicacao:
+  - valor: '|N615|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|2000,00|'
+    descricao: Base de cálculo (R$ 2.000,00).
+  - valor: '|3,00|'
+    descricao: Percentual do incentivo FINOR (3,00%).
+  - valor: '|2000,00|'
+    descricao: Valor líquido do incentivo FINOR (R$ 60,00 = 3% x R$ 2.000,00).
+  - valor: '|3,00|'
+    descricao: Percentual do incentivo FINAM (3,00%).
+  - valor: '|2000,00|'
+    descricao: Valor líquido do incentivo FINAM (R$ 60,00 = 3% x R$ 2.000,00).
+  - valor: '|120,00|'
+    descricao: Total dos incentivos (R$ 60,00 + R$ 60,00 = R$ 120,00).

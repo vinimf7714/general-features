@@ -1,0 +1,64 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: C150
+nome: Identificação do Período dos Saldos Periódicos das Contas
+bloco: C
+nome_tabela_registros: Identificação do Período dos Saldos Periódicos das Contas Patrimoniais
+paginas_manual:
+- 116
+- 116
+descricao: Registro preenchido pelo sistema ao executar a funcionalidade de recuperação da ECD. Recupera as contas dos registros I150 (saldos periódicos – identificação do período) das ECD do período.
+titulo_leiaute: 'REGISTRO C150: SALDOS PERIÓDICOS – IDENTIFICAÇÃO DO PERÍODO'
+regras_validacao_registro: []
+nivel_hierarquico: 3
+ocorrencia: 0:12
+campos_chave: DT_INI + DT_FIN
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: N
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se houver recuperação de dados da ECD
+  ocorrencia: '[0;13]'
+hierarquia:
+  pai: C040
+  filhos:
+  - C155
+  irmaos:
+  - C050
+  - C100
+  - C350
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (C150).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[C150]'
+  obrigatorio: true
+- numero: 2
+  campo: DT_INI
+  descricao: Data do Início do período.
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: DT_FIN
+  descricao: Data do Fim do período.
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true

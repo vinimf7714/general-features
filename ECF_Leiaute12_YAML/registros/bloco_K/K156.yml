@@ -1,0 +1,123 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: K156
+nome: Mapeamento Referencial do Saldo
+bloco: K
+nome_tabela_registros: Mapeamento Referencial do Saldo
+paginas_manual:
+- 150
+- 151
+descricao: |-
+  Registro utilizado para mapeamento, por conta referencial, dos saldos de todas as contas patrimoniais da escrituração societária da pessoa jurídica (Ativo, Passivo e Patrimônio Líquido), nos respectivos períodos de apuração. Poderá ser preenchido das seguintes formas:
+  - Edição pelo programa da ECF;
+  - Calculado pelo sistema através da funcionalidade de recuperar ECD; e
+  - Importado de arquivo digital.
+  Observação: Se houver somente uma conta referencial no registro J051 mapeada a partir de uma conta contábil (plano de contas da pessoa jurídica), o próprio sistema preencherá o registro K156 (mapeamento de uma conta contábil para uma conta referencial). Caso contrário, ou seja, a conta contábil foi mapeada para mais de uma conta referencial, o registro K156 deverá ser preenchido pela pessoa jurídica.
+titulo_leiaute: 'REGISTRO K156: MAPEAMENTO REFERENCIAL DO SALDO'
+regras_validacao_registro: []
+nivel_hierarquico: 4
+ocorrencia: 1:N
+campos_chave: COD_CTA_REF
+tabela_registros:
+  nivel: 4
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Localizar o J050.COD_CTA = K155.PAI_COD_CTA. (Se J050 possuir mais de uma conta referencial cadastrada no registro J051 para o mesmo centro de custo – Registro)
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: K155
+  filhos: []
+  irmaos: []
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (K156).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[K156]'
+  obrigatorio: true
+- numero: 2
+  campo: COD_CTA_REF
+  descricao: Código da Conta no Plano de Contas Referencial, conforme tabela do Sped. (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: VL_SLD_INI
+  descricao: Valor do Saldo Inicial do Período.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: IND_VL_SLD_INI
+  descricao: |-
+    Indicador da Situação do Saldo Inicial:
+    D – Devedor
+    C – Credor
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[D; C]'
+  obrigatorio: true
+- numero: 5
+  campo: VL_DEB
+  descricao: Valor Total dos Débitos no Período.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_campos:
+- numero: 2
+  campo: COD_CTA_REF
+  regras:
+  - regra: REGRA_CTA_REF_MAPEADA_J051
+    descricao: Verifica se o K156.COD_CTA_REF informado, foi utilizado no registro J051.
+    tipo: Erro
+- numero: 3
+  campo: VL_SLD_INI
+  regras:
+  - regra: REGRA_VALIDA_SALDO_INICIAL
+    descricao: Verifica se o K156.VL_SLD_INI informado e igual ao saldo final do período imediatamente anterior. No primeiro período da ECF, verifica se K156.VL_SLD_INI é igual ao E010.VAL_CTA_REF (saldo final da conta referencial recuperado da ECF anterior).
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|K156|1.01.01.01.01|0,00|D|7500,00|5000,00|2500,00|D|'
+  explicacao:
+  - valor: '|K156|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|1.01.01.01.01|'
+    descricao: Código da conta referencial (1.01.01.01 = Caixa Matriz).
+  - valor: '|0,00|'
+    descricao: Valor do saldo inicial (R$ 0,00).
+  - valor: '|D|'
+    descricao: Indicador da situação do saldo inicial (D = Devedor).
+  - valor: '|7500,00|'
+    descricao: Valor total de débitos (R$ 7.500,00).
+  - valor: '|5000,00|'
+    descricao: Valor total de créditos (R$ 5.000,00).
+  - valor: '|2500,00|'
+    descricao: Valor do saldo final (R$ 2.500,00 = R$ 7.500,00 – R$ 5.000,00).
+  - valor: '|D|'
+    descricao: Indicador da situação do saldo final (D = Devedor).
+informacoes_adicionais:
+- conteudo: |-
+    | VL_CRED | Valor Total dos Créditos no Período. | N | 19 | 2 | - | Sim |
+    |---|---|---|---|---|---|---|
+    | VL_SLD_FIN | Valor do Saldo Final do Período. | N | 19 | 2 | - | Sim |
+    | IND_VL_SLD_FIN | Indicador da Situação do Saldo Final: D – Devedor C – Credor | C | 1 | - | [D; C] | Sim |

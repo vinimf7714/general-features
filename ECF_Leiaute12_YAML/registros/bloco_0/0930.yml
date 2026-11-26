@@ -1,0 +1,186 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: 0930
+nome: Identificação dos Signatários da ECF
+bloco: '0'
+nome_tabela_registros: Identificação dos Signatários da ECF
+paginas_manual:
+- 104
+- 107
+descricao: |-
+  Informa os dados dos signatários da escrituração. São obrigatórias duas assinaturas: uma do contabilista e uma da pessoa jurídica, podendo ser utilizado certificado na nuvem, desde de que respeitadas as demais regras apresentadas a seguir.
+  Para a assinatura do contabilista só podem ser utilizados certificados digitais de pessoa física (e-CPF), do tipo A1 ou A3.
+  Para a assinatura da pessoa jurídica, poderá ser utilizado certificado digital válido, do tipo A1 ou A3:
+  1. O e-CNPJ do estabelecimento que contenha a mesma base do CNPJ (8 primeiros caracteres);
+  2. O e-CPF do representante legal da pessoa jurídica.
+  3.
+  3.1. O e-CPF do procurador (outorgado) constituído diretamente no e-CAC (Centro Virtual de Atendimento), a partir do e-CNPJ da pessoa jurídica (outorgante).
+  3.2. O e-CPF do procurador (outorgado) constituído nos termos da Instrução Normativa RFB no 2.066/2022, por meio de procuração cadastrada no site da Receita Federal do Brasil e validada em qualquer uma de suas unidades, tendo como outorgante a pessoa jurídica.
+  3.3. O e-CNPJ do procurador (outorgado) constituído diretamente no e-CAC (Centro Virtual de Atendimento), a partir do e-CNPJ da pessoa jurídica (outorgante);
+  3.4. O e-CNPJ do procurador (outorgado) constituído nos termos da Instrução Normativa RFB n.º 2.066/2022, por meio de procuração cadastrada na página da Receita Federal do Brasil e validada em qualquer uma de suas unidades, tendo como outorgante a pessoa jurídica.
+  Cadastramento de Procuração Eletrônica ou Procuração RFB:
+  No site da RFB, http://receita.fazenda.gov.br, no menu “Serviços”, clicar em “Procurações Digitais” ou opcionalmente https://cav.receita.fazenda.gov.br/scripts/CAV/login/login.asp.
+  Para procuração Eletrônica, o caminho é o seguinte:
+  1. Login com certificado digital de pessoa jurídica ou representante legal/procurador;
+  2. Selecionar “Procuração eletrônica”;
+  3. Selecionar “Cadastrar Procuração” ou outra opção, se for o caso;
+  4. Selecionar “Solicitação de procuração para a Receita Federal do Brasil”;
+  5. Preencher os dados do formulário apresentado e selecionar a opção “Transmissão de Declarações/Arquivos, inclusive todos do CNPJ, com Assinatura Digital via Receitanet.”
+  6. Para finalizar, clicar em “Cadastrar procuração”, ou “Limpar” ou “Voltar”.
+  Observação: Na procuração eletrônica, é importante habilitar o serviço “ECF – Escrituração Contábil Fiscal” ou habilitar a opção para todos os serviços.
+  A assinatura digital será verificada quanto a sua existência, prazo e validade para a pessoa jurídica identificada na ECF, no início do processo de transmissão do arquivo digital.
+  Para Procuração RFB, selecione a opção “Solicitar uma procuração”, preencha as informações solicitadas e apresente, via processo, os documentos necessários para a análise, via processo digital, conforme orientações disponíveis em https://www.gov.br/pt-br/servicos/cadastrar-ou-cancelar-procuracao-para-acesso-ao-e-cac
+  Assinatura como procurador: O contador pode assinar a ECF como contador e procurador. Para assinar como procurador, é necessária a procuração eletrônica cadastrada no e-CAC. É importante ressaltar que o serviço ECF – Escrituração Contábil Fiscal – ou a opção para todos os serviços devem estar explicitamente habilitados na procuração eletrônica. Para o preenchimento do registro 0930, as duas linhas conterão os dados do contador (Nome e CPF, conforme e-CPF do contador). Uma linha será com a qualificação “Contabilista” e a outra linha será com a qualificação “Procurador”.
+  Observação: No caso de imunes ou isentas sem obrigatoriedade de entrega da ECD, o sistema somente exigirá a assinatura do representante legal ou procurador. Não será obrigatória a assinatura de um contador. Nos demais casos, o sistema exigirá a assinatura do representante legal ou procurador e do contador.
+titulo_leiaute: 'REGISTRO 0930: IDENTIFICAÇÃO DOS SIGNATÁRIOS DA ECF'
+regras_validacao_registro:
+- REGRA_OBRIGATORIO_ASSIN_CONTADOR
+- REGRA_OCORRENCIA_0930_2
+- REGRA_OCORRENCIA_0930_1
+nivel_hierarquico: 2
+ocorrencia: 1:N
+campos_chave: '[REG]'
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: O
+  ocorrencia: '[1;N]'
+hierarquia:
+  pai: '0001'
+  filhos: []
+  irmaos:
+  - '0010'
+  - '0020'
+  - '0021'
+  - '0030'
+  - '0035'
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto fixo contendo a identificação do registro (0930).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[0930]'
+  obrigatorio: true
+- numero: 2
+  campo: IDENT_NOM
+  descricao: Nome do Signatário
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: IDENT_CPF_CNPJ
+  descricao: |-
+    CPF/CNPJ:
+    O tamanho do campo deve ser exatamente o informado na coluna “Tamanho”.
+  tipo: C
+  tamanho: CPF (11) CNPJ(14)
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: IDENT_QUALIF
+  descricao: Código de qualificação do assinante, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas/SPEDECF_LOCAL$SPEDECF_QUALIF_ASSINANTE).
+  tipo: C
+  tamanho: 3
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: IND_CRC
+  descricao: Número de inscrição do contabilista no Conselho Regional de Contabilidade.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 6
+  campo: EMAIL
+  descricao: E-mail do signatário
+  tipo: C
+  tamanho: 60
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 7
+  campo: FONE
+  descricao: DDD e telefone do signatário
+  tipo: C
+  tamanho: 14
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_registro_detalhe:
+- regra: REGRA_OBRIGATORIO_ASSIN_CONTADOR
+  descricao: Verifica se existe, no mínimo, um registro 0930, cujo 0930.IDENT_QUALIF seja igual a 900 (Contador ou Contabilista), no caso de forma de tributação diferente de imunes/isentas (0010.FORMA_TRIB diferente de “8” ou “9”) ou 0010.TIP_ESC_PRE igual a “C” – Obrigada a entregar a ECD ou entrega facultativa) e, no mínimo, um registro 0930, cujo 0930.IDENT_QUALIF seja diferente de 900. Se a regra não for cumprida, o programa da ECF gera um erro.
+- regra: REGRA_OCORRENCIA_0930
+  descricao: Verifica se o registro 0930 possui, no máximo, duas ocorrências. Se a regra não for cumprida, o programa da ECF gera um erro.
+regras_validacao_campos:
+- numero: 3
+  campo: IDENT_CPF_CNPJ
+  regras:
+  - regra: REGRA_CONTADOR_CPF
+    descricao: Verifica, quando 0930.IDENT_QUALIF igual a 900 (Contador ou Contabilista), se 0930.IDENT_CPF_CNPJ possui 11 caracteres.
+    tipo: Erro
+  - regra: REGRA_VALIDA_CPF_CNPJ
+    descricao: Verifica se a regra de formação do 0930.IDENT_CPF_CNPJ é válida.
+    tipo: Erro
+- numero: 5
+  campo: IND_CRC
+  regras:
+  - regra: REGRA_OBRIGATORIO_CONTADOR
+    descricao: 0930.IND_CRC obrigatório quando 0930.IDENT_QUALIF for igual a 900 (Contador ou Contabilista).
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|0930|FULANO BELTRANO|12345678900|900|1SP123456|fulanobeltrano@email.com|61333344444|'
+  explicacao:
+  - valor: '|0930|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|FULANO BELTRANO|'
+    descricao: Nome do Signatário.
+  - valor: '|12345678900|'
+    descricao: CPF (123.456.789-00).
+  - valor: '|900|'
+    descricao: Código de Qualificação do Assinante (900 = Contador).
+  - valor: '|1SP123456|'
+    descricao: Número de Inscrição do Contabilista no Conselho Regional de Contabilidade.
+  - valor: '|fulanobeltrano@email.com|'
+    descricao: Email do signatário.
+  - valor: '|6133334444|'
+    descricao: DDD com telefone do signatário (61-3333-4444).
+informacoes_adicionais:
+- conteudo: |-
+    Código de Qualificação do Assinante
+    Código Descrição 1
+    203 Diretor
+    204 Conselheiro de Administração
+    205 Administrador
+    206 Administrador do Grupo
+    207 Administrador de Sociedade Filiada
+    220 Administrador Judicial – Pessoa Física
+    222 Administrador Judicial – Pessoa Jurídica - Profissional Responsável
+    223 Administrador Judicial/Gestor
+    226 Gestor Judicial
+    309 Procurador
+    312 Inventariante
+    313 Liquidante
+    315 Interventor
+    401 Titular Pessoa Física – Sociedade Limitada Unipessoal (SLU)
+    801 Empresário
+    900 Contador
+    900 Contabilista
+    999 Outros

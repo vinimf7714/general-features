@@ -1,0 +1,66 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  documento: Manual de Orientação do Leiaute 12 da Escrituração Contábil Fiscal (ECF)
+  ato: Anexo ao Ato Declaratório Executivo Cofis nº 02/2026
+  atualizacao: julho/2026
+  ano_calendario: 2025 e situações especiais de 2026
+  leiaute: 12
+  orgao: RFB/Subsecretaria de Fiscalização/Coordenação Geral de Fiscalização/Div. de Captação de Dados
+  total_paginas: 622
+capitulo: 3
+titulo: Regras de Validação
+paginas_manual:
+- 38
+- 40
+secoes:
+- secao: null
+  paginas_manual:
+  - 38
+  - 38
+  conteudo: |-
+    As inconsistências encontradas serão classificadas em dois tipos:
+    • “Erro”: Identifica uma situação que impede a conclusão com sucesso da funcionalidade.
+    • “Aviso”: Alerta apenas informativo, dando ciência ao USUÁRIO de uma situação incomum.
+    As inconsistências encontradas na importação dos arquivos foram classificadas em dois tipos:
+    • “Erro”: Permite que apenas a funcionalidade de “Importação/Validação” seja executada.
+    • “Aviso”: Não impede a execução das demais funcionalidades.
+    As rotinas de validação são executadas em níveis:
+    Nível 1 – Validações de estrutura – utilizado na importação e edição:
+    ✓ Validação de Estrutura - Nível 1.1 – Os erros encontrados interrompem o processo de importação, pois impedem a determinação da estrutura da escrituração.
+    ✓ Validação de Estrutura - Nível 1.2 – Os erros encontrados impedem a importação, mas permitem a continuidade das validações.
+    Nível 2 – Validações de campos:
+    ✓ Validação de Campos - Nível 2 - Utilizada na edição e verificação de pendências.
+    Nível 3 – Validações entre registros:
+    ✓ Validação de Registros - Nível 3 – Utilizada somente na verificação de pendencias.
+- secao: Seção 3.1. Regras de Validação de Estrutura – Nível 1.1
+  paginas_manual:
+  - 39
+  - 39
+  conteudo: |-
+    Os erros encontrados não permitem a seleção de blocos para importação.
+
+    | Nº | Código da regra | Descrição | Como obter | Tipo |
+    |---|---|---|---|---|
+    | 01 | REGRA_DT_FINAL_ESCRITURACAO | Para escrituração que não esteja em situação especial, a data final deve ser igual ao último dia do ano “31/12”. | O erro ocorre quando 0000.SIT_ESPECIAL não está preenchido ou com zero e o dia e mês da data final é diferente de “31/12”. | Erro |
+    | 02 | REGRA_DT_INÍCIO_ESCRITURACAO | Para escrituração que esteja com indicador de início de período igual a zero (IND_SIT_INI_PER) a data inicial deve ser igual ao primeiro dia do ano “01/01”. | O erro ocorre quando IND_SIT_INI_PER do registro 0000 é igual a zero e o dia e mês da data inicial é diferente de “01/01”. | Erro |
+    | 03 | REGRA_VALIDA_CNPJ | Verifica se a regra de formação do código é válida. | O erro ocorre se o cálculo dos números do DV for incorreto. | Erro |
+    | 04 | REGRA_DATA_INI_MAIOR | Verifica se o campo DT-FIN foi preenchido com a data menor que a data do campo DT_INI. | Verifica se o campo DT-FIN foi preenchido com a data menor que a data do campo DT_INI. | Erro |
+    | 05 | REGRA_ANO_DIFERENTE | Verificar se o ano é igual na data inicial e final da escrituração | Verificar se o ano dos campos DT_FIN e DT_INI estão diferentes | Erro |
+    | 06 | REGRA_DATA_MINIMA | Se no registro 0000 o campo DT_INI for menor que uma data específica. | O erro ocorre quando no registro 0000 o campo DT_INI for menor que 01/01/2014. | Erro |
+    | 07 | REGRA_SCP_OBRIGATORIO | Campo obrigatório quando ECF da SCP. | O erro ocorre quando 0000.TIP_ECF for igual a 2 e 0000.COD_SCP não estiver preenchido. | Erro |
+    | 08 | REGRA_SCP_NAO_PREENCHER | Campo não deve ser preenchido quando a empresa não possui SCP ou é sócia ostensiva. | O erro ocorre quando o campo está preenchido e 0000.TIP_ECF for diferente de 2. | Erro |
+    | 09 | REGRA_LEIAUTE_VIGENTE | Verificar se o leiaute utilizado é válido para o período da escrituração. | O erro ocorre quando o arquivo é importado e o valor do campo não é válido para o período da escrituração de acordo com “SPEDEFDIRPJ-RNG-Geral”, item “Controle de Versões" | Erro |
+    | 10 | REGRA_SEM_LEIAUTE | Verifica se para o ano informado existe leiaute disponível | O erro ocorre quando não existe o pacote “DINAMICOAAAA” disponível para o ano. | Erro |
+- secao: Seção 3.2. Regras de Validação de Estrutura – Nível 1, Regras de Validação de Campos – Nível 2 e Regras de Validação de Registros – Nível 3
+  paginas_manual:
+  - 40
+  - 40
+  conteudo: |-
+    Todas essas regras de validação são apresentadas nos próprios registros do leiaute da ECF, com exceção das regras das tabelas dinâmicas, que constam no próprio diretório do programa da ECF, em C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas.
+    Exemplo: Regras da tabela dinâmica M300A – Arquivo: SPEDECF_DINAMICO_2019$SPEDECF_DINAMICA_M300_A_REGRAS$7$10772
+    Entendendo no nome dos arquivos de tabelas dinâmicas e regras:
+    SPEDECF_DINAMICO: Identifica que o arquivo corresponde a uma tabela dinâmica ou de regras de validação da tabela dinâmica.
+    2019: Identifica o ano-calendário.
+    $SPEDECF_DINAMICA_M300_A: Identifica a tabela dinâmica (M300A);
+    REGRAS: Quando o nome apresentar a palavra “REGRAS”, representa o arquivo das regras de validação das tabelas dinâmicas.
+    $7$10772: Identifica a versão do arquivo.

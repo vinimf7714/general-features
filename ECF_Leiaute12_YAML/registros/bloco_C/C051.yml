@@ -1,0 +1,61 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: C051
+nome: Plano de Contas Referencial
+bloco: C
+nome_tabela_registros: Plano de Contas Referencial Preenchido na ECD
+paginas_manual:
+- 113
+- 113
+descricao: Registro preenchido pelo sistema ao executar a funcionalidade de recuperação da ECD. Recupera os registros I051 (centro de custo e mapeamento para o plano de conta referencial) das ECD do período.
+titulo_leiaute: 'REGISTRO C051: PLANO DE CONTAS REFERENCIAL'
+regras_validacao_registro: []
+nivel_hierarquico: 4
+ocorrencia: 0:N
+campos_chave: COD_CCUS + COD_CTA_REF
+tabela_registros:
+  nivel: 4
+  obrigatoriedade_entrada:
+    codigo: N
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se houver recuperação de dados da ECD
+  ocorrencia: Se C050.IND_CTA = “A” [0:N] Senão [0]
+hierarquia:
+  pai: C050
+  filhos: []
+  irmaos:
+  - C053
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (C051).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[C051]'
+  obrigatorio: true
+- numero: 2
+  campo: COD_CCUS
+  descricao: Código do Centro de Custos.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 3
+  campo: COD_CTA_REF
+  descricao: Código da Conta no Plano de Contas Referencial.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true

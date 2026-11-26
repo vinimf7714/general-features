@@ -1,0 +1,209 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: M010
+nome: Identificação da Conta na Parte B do e-Lalur e do e-Lacs
+bloco: M
+nome_tabela_registros: Identificação da Conta na Parte B e-Lalur e do e-Lacs
+paginas_manual:
+- 238
+- 241
+descricao: Cadastra os saldos iniciais no período da escrituração das contas da parte B utilizadas no e-LALUR e no e-LACS. O registro pode ser replicado da ECF anterior, importado e/ou editado.
+titulo_leiaute: 'REGISTRO M010: IDENTIFICAÇÃO DA CONTA NA PARTE B DO e-LALUR E DO e-LACS'
+regras_validacao_registro:
+- REGRA_DIVERGENCIA_E020_M010
+- REGRA_EXISTENCIA_M010
+- REGRA_SALDOS_M010_E020
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: COD_CTA_B + COD_TRIBUTO
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: FC
+    condicao: (Se 0010. FORMA_TRIB = “1”, “2”, “3” ou “4”).
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: M001
+  filhos: []
+  irmaos:
+  - M030
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto fixo contendo a identificação do registro (M010).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[M010]'
+  obrigatorio: true
+- numero: 2
+  campo: COD_CTA_B
+  descricao: Código Unívoco Atribuído pela Pessoa Jurídica à Conta no e-Lalur
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: DESC_CTA_LAL
+  descricao: Descrição da Conta.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: DT_AP_LAL
+  descricao: 'Data Final: Data final do período de apuração em que a conta foi criada.'
+  tipo: C
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: COD_PB_RFB
+  descricao: |-
+    Código da tabela padrão da Parte B. Vide planilha PARTEB_PADRAO do arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” a partir do link http://sped.rfb.gov.br/pasta/show/1644.
+    Os relacionamentos possíveis das contas padrão da Parte B do e-Lalur e do e-Lacs com as linhas da Parte A constam da planilha PARTEB_PARTEA do mesmo arquivo.
+  tipo: C
+  tamanho: 6
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: DT_LIM_LAL
+  descricao: 'Data Limite: Data limite para a exclusão, adição ou compensação do valor controlado, se houver.'
+  tipo: C
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 7
+  campo: COD_TRIBUTO
+  descricao: |-
+    Indicador do Tributo da Adição/Exclusão:
+    I – Imposto de Renda Pessoa Jurídica
+    C – Contribuição Social sobre o Lucro Líquido;
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[I; C]'
+  obrigatorio: true
+- numero: 8
+  campo: VL_SALDO_INI
+  descricao: |-
+    Saldo Inicial: Saldo no período inicial desta escrituração.
+    Se M010.DT_AP_LAL for no período da escrituração, então o valor deve ser zero
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 9
+  campo: IND_VL_SALDO_INI
+  descricao: |-
+    Indicador do Saldo Inicial:
+    D – Para prejuízos ou valores que reduzam o lucro real ou a base de cálculo da contribuição social em períodos subsequentes.
+    C – Para valores que aumentem o lucro real ou a base de cálculo da contribuição social em períodos subsequentes.
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[D; C]'
+  obrigatorio: true
+- numero: 10
+  campo: CNPJ_SIT_ESP
+  descricao: |-
+    CNPJ da outra pessoa jurídica relacionada com evento originário da conta.
+    Exemplos:
+    1- Identificar a investida no caso de valores (ganhos/perdas no novo AVJ) da participação societária anterior, nos caso de aquisições em estágios.
+    2- Identificar a investida no caso de amortização de mais-valia e menos-valia.
+    3- Identificar a investida no caso de impairment de goodwill, mais-valia e menos-valia.
+    4- Identificar a investida no caso de ganho por compra vantajosa.
+    5- Identificar a investida no caso registro do ágio gerado na aquisição de participação societária ocorrida até 31/12/2009.
+    6 - Identificar a investida no caso de ágio gerado pela sistemática de transição disciplinada no art. 65, Lei Nº 12.973/14.
+    7 - Identificar a pessoa jurídica antecessora no caso de conta incorporada devido a evento societário.
+  tipo: C
+  tamanho: 14
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+regras_validacao_registro_detalhe:
+- regra: REGRA_EXISTENCIA_M010
+  descricao: Verifica se os saldos recuperados no registro E020 existem no registro M010. A advertência ocorre se 0010.FORMA_TRIB = “1”, “2”, “3” ou “4”, para cada E020 com VL_SALDO_FIN diferente de zero não localizado no registro M010.
+- regra: REGRA_SALDOS_M010_E020
+  descricao: |-
+    Verifica se os saldos recuperados no registro E020 são iguais aos saldos do registro M010. O erro ocorre se 0010.FORMA_TRIB = “1”, “2”, “3” ou “4”, para cada M010 localizado no registro E020 com conteúdo diferente em qualquer dos seguintes campos do registro M010:
+    E020.VL_SALDO_FIN diferente de M010_VL_SALDO_INI
+    Ou
+    E020.IND_VL_SALDO_FIN diferente de M010_IND_VL_SALDO_INI
+regras_validacao_campos:
+- numero: 4
+  campo: DT_AP_LAL
+  regras:
+  - regra: REGRA_MENOR_IGUAL_DT_FIN
+    descricao: Verifica se M010.DT_AP_LAL é menor ou igual a 0000.DT_FIN.
+    tipo: Erro
+  - regra: REGRA_CONTA_PERIODO_ANTERIOR
+    descricao: Caso M010.DT_AP_LAL for menor que 0000.DT_INI e M010.COD_CTA_B e M010.COD_TRIBUTO não existirem no registro E020 (E020.COD_CTA_B e E020.TRIBUTO), o sistema gera um aviso (A data de criação da conta na parte B é anterior à data de início da ECF. Verifique se essa informação está correta).
+    tipo: Erro
+- numero: 5
+  campo: COD_PB_RFB
+  regras:
+  - regra: REGRA_M010_COD_PB_RFB_TRIBUTO
+    descricao: Verifica se o código padrão da Parte B preenchido – M010.COD_PB_RFB – existe na tabela padrão para o tributo informado no campo M010.COD_TRIBUTO.
+    tipo: Erro
+  - regra: REGRA_CONTA_PADRAO_E020_M010
+    descricao: Verifica, quando M010.COD_CTA_B é igual a E020.COD_CTA_B, M010.COD_TRIBUTO é igual a E020.TRIBUTO e E020.COD_PB_RFB é diferente de vazio, se E020.COD_PB_RFB é igual a M010.COD_PB_RFB.
+    tipo: Erro
+  - regra: REGRA_PARTE_B_PARTE_A
+    descricao: |-
+      Verifica, quando é realizada uma adição/exclusão nos registro M300/M350, com relacionamento com conta da parte B, se o código da linha de adição/exclusão dos registros M300/M350 consta na tabela “SPEDECF_LOCAL$SPEDECF_PARTEB_PARTEA” (Relacionamento da Parte B com a ParteA) e se a conta padrão da parte B relacionada tem previsão de utilização com essa linha de adição/exclusão dos registro M300/M350, considerando o tipo de tributo (IRPJ ou CSLL) e a qualificação da pessoa jurídica (PJ em Geral, Financeira ou Seguradora), ou seja, verifica se existe uma linha na tabela “SPEDECF_LOCAL$SPEDECF_PARTEB_PARTEA” (ParteB_ParteA) onde:
+      M010.COD_CTA_B = M305/M355.COD_CTA_B
+      E (No caso de M305, M010.TRIBUTO deve ser igual a “I” (IRPJ) e, no caso de M355, M010.TRIBUTO deve ser igual a “C” (CSLL)) E M010.COD_PB_RFB = ParteB_ParteA.COD_PB_RFB E M300/M350 (pai).CODIGO = ParteB_ParteA.CODIGO_PARTEA E 0010.COD_QUALIF_PJ = ParteB_ParteA.COD_QUALIF.
+    tipo: Erro
+- numero: 8
+  campo: VL_SALDO_INI
+  regras:
+  - regra: REGRA_DT_AP_ZERO
+    descricao: Verifica, quando M010.DT_AP_LAL estiver dentro do período de apuração, se M010.VL_SALDO_INI é igual a zero.
+    tipo: Erro
+- numero: 10
+  campo: CNPJ_SIT_ESP
+  regras:
+  - regra: REGRA_VALIDA_CNPJ
+    descricao: Verifica se a regra de formação do código é válida.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|M010|101|CONTA DA PARTE B|01012018|1.001|31122026|I|1000,00|D||'
+  explicacao:
+  - valor: '|M010|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|101|'
+    descricao: Código da conta na parte B.
+  - valor: '|CONTA DA PARTE B|'
+    descricao: Descrição da conta.
+  - valor: '|01012018|'
+    descricao: Data da criação (01/01/2018).
+  - valor: '|1.001|'
+    descricao: Código padrão da Parte B.
+  - valor: '|31122026|'
+    descricao: Data limite para a exclusão, adição ou compensação do valor controlado (31/12/2026).
+  - valor: '|I|'
+    descricao: Tributo (I = Imposto de Renda Pessoa Jurídica).
+  - valor: '|1000,00|'
+    descricao: Valor do saldo inicial desta escrituração (R$ 1.000,00).
+  - valor: '|D|'
+    descricao: Indicador de saldo inicial.
+  - valor: '||'
+    descricao: CNPJ no caso de situação especial (não há).

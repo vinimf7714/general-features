@@ -1,0 +1,139 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: X480
+nome: Benefícios Fiscais – Parte I
+bloco: X
+nome_tabela_registros: Benefícios Fiscais – Parte I
+paginas_manual:
+- 545
+- 547
+descricao: |-
+  Este registro deverá ser preenchido pela pessoa jurídica:
+  a) habilitada ao Regime Especial de Tributação para a Plataforma de Exportação de Serviços de Tecnologia da Informação (Repes), instituído pela Lei nº 11.196, de 2005, com as alterações introduzidas pela Lei nº 11.774, de 17 de setembro de 2008, regulamentado pelo Decreto nº 5.712, de 2 de março de 2006, com as alterações introduzidas pelo Decreto nº 6.887, de 25 de junho de 2009; ou
+  b) habilitada ao Regime Especial de Aquisição de Bens de Capital para Empresas Exportadoras (Recap) instituído pela Lei nº 11.196, de 2005, com as alterações introduzidas pela Lei nº 11.774, de 2008, regulamentado pelo Decreto nº 5.649, de 29 de dezembro de 2005, com as alterações introduzidas pelo Decreto nº 6.887, de 2009; ou
+  c) executora de projeto aprovado no âmbito do Programa de Apoio ao Desenvolvimento Tecnológico da Indústria de Semicondutores (Padis), instituído pela Lei nº 11.484, de 31 de maio de 2007, com alterações introduzidas pelo art. 20 c/c art. 139, I, “d” da Lei nº 12.249, de 11 de junho de 2010, regulamentado pelo Decreto nº 6.233, de 11 de outubro de 2007, com as alterações introduzidas pelo Decreto nº 6.887, de 2009; ou
+  d) habilitada ou co-habilitada ao Regime Especial de Incentivos para o Desenvolvimento da Infraestrutura (Reidi), instituído pela Lei nº 11.488, de 15 de junho de 2007, com as alterações introduzidas pela Lei nº 11.727, de 23 de junho de 2008, e pelo art. 21 c/c art. 139, I, “d” da Lei nº 12.249, de 2010, regulamentado pelo Decreto nº 6.144, de 3 de julho de 2007, com as alterações introduzidas pelo Decreto nº 6.167, de 24 de julho de 2007 e pelo Decreto nº 6.416, de 28 de março de 2008; ou
+  e) detentora de projeto de exibição cinematográfica aprovado no âmbito do Regime Especial de Tributação para Desenvolvimento da Atividade de Exibição Cinematográfica (Recine), instituído pela Lei nº 12.599, de 23 de março de 2012, regulamentada pelo Decreto nº 7.729, de 25 de maio de 2012; ou
+  f) beneficiária do Regime Especial Tributário para a Indústria de Defesa (Retid), nos termos e condições estabelecidos na Lei nº 12.598, de 22 de março de 2012, ou
+  g) habilitada a usufruir a suspensão do pagamento da Contribuição para o PIS/Pasep e da Cofins incidentes nas vendas no mercado interno de óleo combustível do tipo bunker destinado à navegação de cabotagem e de apoio portuário e marítimo e da Contribuição para o PIS/Pasep-Importação e da Cofins-Importação incidentes na sua importação, criada pelo art. 2º da Lei nº 11.774, de 17 de setembro de 2008.
+  h) habilitada ao Regime Tributário para o Incentivo à Modernização e à Ampliação da Estrutura Portuária (Reporto), instituído pelo art. 13 da Lei nº 11.033, de 2004, regulamentado pelo Decreto nº 6.582, de 2008, e Decreto nº 8.033, de 2013.
+  i) com opção efetivada pela RFB para o Regime Especial de Tributação Aplicável às Incorporações Imobiliárias objeto de patrimônio de afetação (RET-II), de que tratam os arts. 1º a 11-A da Lei nº 10.931, de 2 de agosto de 2004.
+  j) com opção efetivada pela RFB para o Regime Especial de Tributação Aplicável às Construções de Unidades Habitacionais Contratadas no Âmbito do Programa Minha Casa, Minha Vida (RET-PMCMV), de que tratam os arts. 1º a 2º-A da Lei nº 12.024, de 27 de agosto de 2009, ou do Programa Casa Verde e Amarela (RET-PCVA), de que trata a Lei de Conversão da Medida Provisória nº 996, de 25 de agosto de 2020.
+  k) com opção efetivada pela RFB para o Regime Especial de Tributação Aplicável às Construções ou Reformas de Estabelecimentos de Educação Infantil (RET-EEI), de que tratam os arts. 24 a 27 da Lei nº 12.715, de 17 de setembro de 2012, regulamentados pelos arts. 486 a 495 do Decreto nº 9.580, de 22 de novembro de 2018.
+  l) entidade beneficente de assistência social (EBAS) imune de contribuições sociais, de que trata o parágrafo 7º do art. 195 da Constituição da República Federativa do Brasil, de 5 de outubro de 1988, e certificada nos termos da Lei Complementar nº 187, de 16 de dezembro de 2021.
+  m) habilitada ao Regime Especial de Industrialização de Bens Destinados às Atividades de Exploração, de Desenvolvimento e de Produção de Petróleo, de Gás Natural e de Outros Hidrocarbonetos Fluidos (Repetro-Industrialização), instituído pelo art. 6º da Lei nº 13.586, de 28 de dezembro de 2017, regulamentado pelo Decreto nº 9.537, de 24 de outubro de 2018.
+  n) habilitada ao Regime Aduaneiro Especial de Exportação e Importação de Bens Destinados às Atividades de Pesquisa e de Lavra das Jazidas de Petróleo e de Gás Natural (Repetro), de que tratam o art.
+  6º da Lei nº 12.276, de 30 de junho de 2010, o art. 61 da Lei nº 12.351, de 22 de dezembro de 2010, o art. 5º da Lei nº 13.586, de 28 de dezembro de 2017, e regulamentado pelos arts. 458 a 462 do Decreto nº 6.759, de 5 de fevereiro de 2009.
+  o) habilitada ao Regime Tributário e Aduaneiro Especial de Utilização Econômica de Bens Destinados às Atividades de Exploração, Desenvolvimento e Produção das Jazidas de Petróleo e de Gás Natural (Repetro-Sped), de que tratam o art. 6º da Lei nº 12.276, de 30 de junho de 2010, o art. 61 da Lei nº 12.351, de 22 de dezembro de 2010, o art. 5º da Lei nº 13.586, de 28 de dezembro de 2017, e regulamentado pelos arts. 372, 377, 426 e 462 do Decreto nº 6.759, de 5 de fevereiro de 2009.
+  p) Habilitada ao Regime Especial de Tributação para Serviços de Datacenter - REDATA – instituído pela Medida Provisória nº 1.318, de 17 de setembro de 2025, que altera a Lei nº 11.196, de 21 de novembro de 2005. Porém, por conta do Ato Declaratório do Presidente da Mesa do Congresso Nacional nº 11, de 2026, o regime vigeu até a data de 25 de fevereiro de 2026. As pessoas jurídicas que conseguiram habilitar e usufruir do benefício devem prestar informação.
+titulo_leiaute: 'REGISTRO X480: BENEFÍCIOS FISCAIS – PARTE I'
+regras_validacao_registro:
+- REGRA_DUPLICIDADE_DESPREZADA
+- REGRA_LINHA_DESPREZADA
+- REGRA_LINHA_ATUALIZADA
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: CODIGO
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020. IND_PJ_HAB = "S"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: X001
+  filhos: []
+  irmaos:
+  - X280
+  - X292
+  - X340
+  - X360
+  - X365
+  - X370
+  - X390
+  - X400
+  - X410
+  - X420
+  - X430
+  - X450
+  - X460
+  - X470
+  - X485
+  - X490
+  - X500
+  - X510
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (X480).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[X480]'
+  obrigatorio: true
+- numero: 2
+  campo: CODIGO
+  descricao: Código, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: 6
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: DESCRICAO
+  descricao: Descrição, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 4
+  campo: VALOR
+  descricao: Valor
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+regras_validacao_registro_detalhe:
+- regra: REGRA_DUPLICIDADE_DESPREZADA
+  descricao: Verifica se o registro já foi importado anteriormente, de acordo com a chave e os registros pais. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_DESPREZADA
+  descricao: Verifica se o registro existe na importação, mas não será importado por não existir na tabela dinâmica devido às configurações do bloco 0 ou da tabela dinâmica. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_ATUALIZADA
+  descricao: Verifica se o registro está desatualizado em relação à tabela da RFB. Se a regra não for cumprida, a ECF gera um aviso.
+regras_validacao_campos:
+- numero: 4
+  campo: VALOR
+  regras:
+  - regra: REGRA_OBRIGATORIO_TIPO_DIFERENTE_R
+    descricao: Verifica se o campo está preenchido quando o tipo da linha é diferente de “R”.
+    tipo: Erro
+tabelas_dinamicas: |-
+  X480: Benefícios Fiscais – Parte I
+  Vide planilha deste Registro no arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” a partir do link http://sped.rfb.gov.br/pasta/show/1644.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+  Regras de validação da tabela dinâmica X480:
+  Vide arquivo “SPEDECF_DINAMICO_2021$SPEDECF_DINAMICA_X480_REGRAS” no diretório C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas. (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|X480|166|Aquisições, no Mercado Interno, de Óleo Combustível do Tipo Bunker (art. 2°)|100000,00|'
+  explicacao:
+  - valor: '|X480|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|166|'
+    descricao: Código da linha.
+  - valor: '|Aquisições, no Mercado Interno, de Óleo Combustível do Tipo Bunker (art. 2°) |'
+    descricao: Descrição da linha.
+  - valor: '|100000,00|'
+    descricao: Valor da linha (R$ 100.000,00).

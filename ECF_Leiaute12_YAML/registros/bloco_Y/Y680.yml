@@ -1,0 +1,96 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: Y680
+nome: Mês das Informações de Optantes pelo Refis (Lucro Real, Presumido e Arbitrado)
+bloco: Y
+nome_tabela_registros: Mês das Informações de Optantes pelo Refis (Lucro Real, Presumido e Arbitrado)
+paginas_manual:
+- 595
+- 595
+descricao: Apresenta o mês relativo às informações das empresas optantes pelo REFIS.
+titulo_leiaute: 'REGISTRO Y680: MÊS DAS INFORMAÇÕES DE OPTANTES PELO REFIS (LUCRO REAL, PRESUMIDO E ARBITRADO)'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 0:12
+campos_chave: MÊS
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0010.OPT_REFIS="S" E 0010.FORMA_TRIB ≠ “8” e “9”
+  ocorrencia: '[0;12]'
+hierarquia:
+  pai: Y001
+  filhos:
+  - Y681
+  irmaos:
+  - Y520
+  - Y570
+  - Y590
+  - Y600
+  - Y612
+  - Y620
+  - Y630
+  - Y640
+  - Y660
+  - Y672
+  - Y682
+  - Y720
+  - Y730
+  - Y750
+  - Y800
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (Y680).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[Y680]'
+  obrigatorio: true
+- numero: 2
+  campo: MES
+  descricao: |-
+    Mês:
+    01 – Janeiro
+    02 – Fevereiro
+    03 – Março
+    04 – Abril
+    05 – Maio
+    06 – Junho
+    07 – Julho
+    08 – Agosto
+    09 – Setembro
+    10 – Outubro
+    11 – Novembro
+    12 – Dezembro
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: '[01; 02; 03; 04; 05; 06; 07; 08; 09; 10; 11; 12]'
+  obrigatorio: true
+regras_validacao_campos:
+- numero: null
+  campo: MES
+  regras:
+  - regra: REGRA_MES_FORA_PERIODO
+    descricao: Verifica se Y680.MES está compreendido no período informado entre 0000.DT_INI e 0000.DT_FIN.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|Y680|01|'
+  explicacao:
+  - valor: '|Y680|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|01|'
+    descricao: Identificação do mês (janeiro).

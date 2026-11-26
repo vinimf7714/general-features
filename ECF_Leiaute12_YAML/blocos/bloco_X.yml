@@ -1,0 +1,146 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+bloco: X
+nome: Informações Econômicas
+paginas_manual:
+- 465
+- 465
+orientacoes_gerais: null
+tabela_blocos:
+  nome: Informações Econômicas
+  descricao: Apresenta informações econômicas da pessoa jurídica.
+registros:
+- registro: X001
+  nome: Abertura do Bloco X – Informações Econômicas
+  nivel: 1
+  arquivo: ../registros/bloco_X/X001.yml
+- registro: X280
+  nome: Atividades Incentivadas - PJ em Geral
+  nivel: 2
+  arquivo: ../registros/bloco_X/X280.yml
+- registro: X292
+  nome: Operações com o Exterior - Pessoa Não Vinculada/ Não Interposta/País sem Tributação Favorecida
+  nivel: 2
+  arquivo: ../registros/bloco_X/X292.yml
+- registro: X340
+  nome: Identificação da Participação no Exterior
+  nivel: 2
+  arquivo: ../registros/bloco_X/X340.yml
+- registro: X350
+  nome: Participações no Exterior - Resultado do Período de Apuração
+  nivel: 3
+  arquivo: ../registros/bloco_X/X350.yml
+- registro: X351
+  nome: Demonstrativo de Resultados e de Imposto a Pagar no Exterior
+  nivel: 3
+  arquivo: ../registros/bloco_X/X351.yml
+- registro: X352
+  nome: Demonstrativo de Resultados no Exterior Auferidos por Intermédio de Coligada
+  nivel: 3
+  arquivo: ../registros/bloco_X/X352.yml
+- registro: X353
+  nome: Demonstrativo de Consolidação
+  nivel: 3
+  arquivo: ../registros/bloco_X/X353.yml
+- registro: X354
+  nome: Demonstrativo de Prejuízos Acumulados
+  nivel: 3
+  arquivo: ../registros/bloco_X/X354.yml
+- registro: X355
+  nome: Demonstrativo de Rendas Ativas e Passivas
+  nivel: 3
+  arquivo: ../registros/bloco_X/X355.yml
+- registro: X356
+  nome: Demonstrativo de Estrutura Societária
+  nivel: 3
+  arquivo: ../registros/bloco_X/X356.yml
+- registro: X357
+  nome: Investidoras Diretas
+  nivel: 3
+  arquivo: ../registros/bloco_X/X357.yml
+- registro: X360
+  nome: Informações Gerais sobre Preços de Transferência
+  nivel: 2
+  arquivo: ../registros/bloco_X/X360.yml
+- registro: X365
+  nome: Informações Sobre Contrapartes nas Transações Controladas
+  nivel: 2
+  arquivo: ../registros/bloco_X/X365.yml
+- registro: X366
+  nome: Entidades Com as Quais Realiza Transações Controladas
+  nivel: 3
+  arquivo: ../registros/bloco_X/X366.yml
+- registro: X370
+  nome: Informações Sobre as Transações Controladas
+  nivel: 2
+  arquivo: ../registros/bloco_X/X370.yml
+- registro: X371
+  nome: Informações Sobre Ajustes Compensatórios
+  nivel: 3
+  arquivo: ../registros/bloco_X/X371.yml
+- registro: X375
+  nome: Informações Relacionadas ao Método de Preços de Transferência
+  nivel: 3
+  arquivo: ../registros/bloco_X/X375.yml
+- registro: X390
+  nome: Origem e Aplicação de Recursos - Imunes ou Isentas
+  nivel: 2
+  arquivo: ../registros/bloco_X/X390.yml
+- registro: X400
+  nome: Comércio Eletrônico e Tecnologia da Informação – Informações das Vendas
+  nivel: 2
+  arquivo: ../registros/bloco_X/X400.yml
+- registro: X410
+  nome: Comércio Eletrônico – Informação de Homepage/Servidor
+  nivel: 2
+  arquivo: ../registros/bloco_X/X410.yml
+- registro: X420
+  nome: Royalties Recebidos ou Pagos a Beneficiários do Brasil e do Exterior
+  nivel: 2
+  arquivo: ../registros/bloco_X/X420.yml
+- registro: X430
+  nome: Rendimentos Relativos a Serviços, Juros e Dividendos Recebidos do Brasil e do Exterior
+  nivel: 2
+  arquivo: ../registros/bloco_X/X430.yml
+- registro: X450
+  nome: Pagamentos ou Remessas Relativos a Serviços, Juros e Dividendos a Beneficiários do Brasil e do Exterior
+  nivel: 2
+  arquivo: ../registros/bloco_X/X450.yml
+- registro: X451
+  nome: Pagamentos ou Remessas Relativos a Serviços, Juros e Dividendos a Beneficiários do Brasil e do Exterior – Demais informações
+  nivel: 3
+  arquivo: ../registros/bloco_X/X451.yml
+- registro: X460
+  nome: Inovação Tecnológica e Desenvolvimento Tecnológico
+  nivel: 2
+  arquivo: ../registros/bloco_X/X460.yml
+- registro: X470
+  nome: Capacitação de Informática e Inclusão Digital
+  nivel: 2
+  arquivo: ../registros/bloco_X/X470.yml
+- registro: X480
+  nome: Benefícios Fiscais – Parte I
+  nivel: 2
+  arquivo: ../registros/bloco_X/X480.yml
+- registro: X485
+  nome: Benefícios Fiscais – Parte II
+  nivel: 2
+  arquivo: ../registros/bloco_X/X485.yml
+- registro: X490
+  nome: Polo Industrial de Manaus e Amazônia Ocidental
+  nivel: 2
+  arquivo: ../registros/bloco_X/X490.yml
+- registro: X500
+  nome: Zonas de Processamento de Exportação (ZPE)
+  nivel: 2
+  arquivo: ../registros/bloco_X/X500.yml
+- registro: X510
+  nome: Áreas de Livre Comércio (ALC)
+  nivel: 2
+  arquivo: ../registros/bloco_X/X510.yml
+- registro: X990
+  nome: Encerramento do Bloco X
+  nivel: 1
+  arquivo: ../registros/bloco_X/X990.yml

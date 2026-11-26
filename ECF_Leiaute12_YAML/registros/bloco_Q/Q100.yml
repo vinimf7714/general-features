@@ -1,0 +1,138 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: Q100
+nome: Demonstrativo do Livro Caixa
+bloco: Q
+nome_tabela_registros: Demonstrativo do Livro Caixa
+paginas_manual:
+- 352
+- 353
+descricao: |-
+  Este registro passou a existir a partir do leiaute 2 da ECF, sendo de preenchimento facultativo para o ano-calendário 2015, e passando a ser exigido a partir do ano-calendário 2016 para as empresas tributadas pelo Lucro Presumido, quando 0010.TIP_ESC_PRE for igual a “L” (Livro Caixa).
+  O demonstrativo deverá conter todos os registros constantes no “livro caixa” da pessoa jurídica. Não haverá edição deste registro no programa da ECF. Apenas, é possível importar um arquivo da ECF já contendo o registro no seu leiaute ou importar, a partir do PGE, um arquivo .csv com os dados do Livro Caixa (campos 2 a 7 do leiaute abaixo – não contém o campo 1), necessariamente, ordenado por data.
+  Exemplo de Livro Caixa no formato .CSV:
+  DATA;NUM_DOC;HIST;VL_ENTRADA;VL_SAIDA;SLD_FIN
+  01012024;1;SALDO ANTERIOR;1000,00;0;1000,00
+  02012024;2;RECEBIMENTO DE VENDA;10000,00;0;11000,00
+  02012024;3;PAGAMENTO DE FORNECEDORES;0;5000,00;6000,00
+  Observação:
+  O saldo de caixa no início do período deverá ser registrado na primeira ocorrência do registro Q100. Sugestão de Q100.HIST(Histórico): SALDO ANTERIOR.
+titulo_leiaute: 'REGISTRO Q100: DEMONSTRATIVO DO LIVRO CAIXA'
+regras_validacao_registro:
+- REGRA_ENTRADA_SAIDA
+- REGRA_PRIMEIRA_OCORRENCIA
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: null
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: FC
+    condicao: Se (0010.FORMA_TRIB = “2” ou “4” ou “6” ou “7” ou (Se 0010. TIP_ESP_PRE = “L” E 0010.FORMA_TRIB = "3" ou "5" ou "8" ou "9")
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: Q001
+  filhos: []
+  irmaos: []
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto fixo contendo a identificação do registro (Q100).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[Q100]'
+  obrigatorio: true
+- numero: 2
+  campo: DATA
+  descricao: Data da entrada ou da saída dos recursos.
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: NUM_DOC
+  descricao: Número do documento.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 4
+  campo: HIST
+  descricao: Histórico
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: VL_ENTRADA
+  descricao: Valor de entrada dos recursos.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 6
+  campo: VL_SAIDA
+  descricao: Valor de saída dos recursos.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 7
+  campo: SLD_FIN
+  descricao: Saldo Final.
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_registro_detalhe:
+- regra: REGRA_ENTRADA_SAIDA
+  descricao: Somente um dos campos Q100.VL_ENTRADA ou Q100.VL_SAIDA deve estar preenchido. Se a regra não for cumprida, o sistema gera um erro.
+- regra: REGRA_SALDO_LC
+  descricao: O primeiro saldo final (Q100.SLD_FIN) é igual ao valor da entrada (Q100.VL_ENTRADA) menos o valor de saída (Q100.VL_SAIDA), mais o saldo final da linha anterior (a primeira linha não soma a linha final anterior). Se a regra não for cumprida, o sistema gera um erro.
+- regra: REGRA_SALDO_LC_FOLGA
+  descricao: O valor absoluto do resultado saldo final da última linha menos o somatório das entradas mais o somatório das saídas deve ser menor ou igual 1,00. Se a regra não for cumprida, o sistema gera um erro.
+regras_validacao_campos:
+- numero: 2
+  campo: DATA
+  regras:
+  - regra: REGRA_MENOR_IGUAL_DT_FIN
+    descricao: Verifica se Q100.DATA é menor ou igual a 0000.DT_FIN.
+    tipo: Erro
+  - regra: REGRA_MAIOR_IGUAL_DT_INI
+    descricao: Verifica se Q100.DATA é maior ou igual a 0000.DT_INI.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|Q100|01092024|123|HISTORICO|1000,00|0,00|1000,00|'
+  explicacao:
+  - valor: '|Q100|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|01092024|'
+    descricao: Data de início do período (01/09/2024).
+  - valor: '|123|'
+    descricao: Número do documento (123).
+  - valor: '|HISTORICO|'
+    descricao: Histórico.
+  - valor: '|1000,00|'
+    descricao: Valor de entrada (R$ 1.000,00).
+  - valor: '|0,00|'
+    descricao: Valor de saída (R$ 0,00).
+  - valor: '|1000,00|'
+    descricao: Saldo (R$ 1.000,00).

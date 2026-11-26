@@ -1,0 +1,166 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: Y720
+nome: Informações de Períodos Anteriores
+bloco: Y
+nome_tabela_registros: Informações de Períodos Anteriores
+paginas_manual:
+- 600
+- 602
+descricao: |-
+  Este registro é obrigatório para todas as pessoas jurídicas, no caso de transmissão de arquivos da ECF originais. A sua obrigatoriedade será verificada na hora da validação para a transmissão.
+  Para as pessoas jurídicas tributadas pelo lucro presumido, arbitrado ou imunes/isentas, apenas devem ser preenchidos os campos Y720.INTIMACAO e Y720.INT.ATRASO (de acordo com a regra prevista para o campo). Para as pessoas jurídicas tributadas pelo lucro real e para as formas de tributação mistas, além dos campos anteriormente citados e suas regras de obrigatoriedade, os demais campos do registro também serão preenchidos.
+  No caso das pessoas jurídicas tributadas pelo lucro real, a multa incidirá sobre o valor lucro líquido antes do Imposto de Renda da pessoa jurídica e da Contribuição Social sobre o Lucro Líquido, no período a que se refere a apuração.
+  Assim sendo, i) na forma de apuração trimestral, deverá ser considerado como base, o somatório dos resultados líquidos antes da incidência do Imposto de Renda da pessoa jurídica e da Contribuição Social sobre o lucro líquido de todos os trimestres a que se refere a ECF entregue em atraso, e ii) na forma de apuração anual, deverá ser considerado como base, o lucro líquido antes da incidência do Imposto de Renda da pessoa jurídica e da Contribuição Social sobre o lucro líquido do período da ECF entregue em atraso.
+  Observação: No caso de lucro real trimestral, o programa considera a soma dos quatro trimestres de apuração para verificar se há lucro ou prejuízo no período. Portanto, se a soma dos quatro trimestres de apuração for maior que zero, esse será o valor utilizado como base de cálculo da multa por atraso na entrega da ECF. Por outro lado, caso a soma algébrica dos quatro trimestres seja menor que zero, o contribuinte deverá informar o lucro líquido do último período de apuração informado neste registro, conforme previsto no parágrafo 4º do art. 8º-A do Decreto-Lei no 1.598/1977.
+  Nos termos do parágrafo 4º do art. 8º-A do Decreto-Lei no 1.598/1977, para a situação em que a empresa não tenha apresentado lucro líquido no período de apuração a que se refere a ECF, deverá ser utilizado como base de cálculo para a multa, o lucro líquido, antes do Imposto de Renda da Pessoa Jurídica e da Contribuição Social sobre o Lucro Líquido do último período de apuração em que a empresa apresentou lucro, atualizado pela taxa referencial do Sistema Especial de Liquidação e de Custódia - Selic, até o termo final de encerramento do período a que se refere a escrituração.
+  Ou seja, se a empresa não apresentou lucro no período da escrituração, deverá informar o lucro líquido do último período anterior a esse em que obteve lucro, ainda que em outro regime de tributação (Lucro Presumido, Arbitrado ou Simples Nacional) e atualizar esse valor, pela SELIC, até o termo final de encerramento do período a que se refere a escrituração. O programa está preparado para efetuar a atualização pela SELIC, automaticamente; logo deverá ser informado o lucro líquido em valores históricos.
+  Conforme está previsto no parágrafo 1º do art. 8º-A do Decreto-Lei no 1.598/1977, há um limite para o valor da multa, estabelecido em função do valor da receita bruta total do ano-calendário anterior. Por isso, essa informação é exigida pelo programa no preenchimento deste registro (Campo 4 - REC_BRUT_ANT).
+titulo_leiaute: 'REGISTRO Y720: INFORMAÇÕES DE PERÍODOS ANTERIORES'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 0:1
+campos_chave: REG
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Obrigatório se a entrega da escrituração é feita com atraso.
+  ocorrencia: '[0;1]'
+hierarquia:
+  pai: Y001
+  filhos: []
+  irmaos:
+  - Y520
+  - Y570
+  - Y590
+  - Y600
+  - Y612
+  - Y620
+  - Y630
+  - Y640
+  - Y660
+  - Y672
+  - Y680
+  - Y682
+  - Y730
+  - Y750
+  - Y800
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (Y720).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[Y720]'
+  obrigatorio: true
+- numero: 2
+  campo: LUC_LIQ
+  descricao: |-
+    Lucro líquido antes da incidência do imposto sobre a renda e da contribuição social sobre o lucro líquido do último período de apuração informado, sem a atualização pela taxa referencial do Selic, pois o sistema efetuará o cálculo automaticamente.
+    Observação: De acordo com o parágrafo único do art. 6º da Instrução Normativa RFB no 2.004, de 18 de janeiro de 2022, na aplicação da multa de que trata o caput, quando não houver lucro líquido, antes do Imposto de Renda e da Contribuição Social, no período de apuração a que se refere a escrituração, deverá ser utilizado o último lucro líquido, antes do Imposto de Renda e da Contribuição Social informado, atualizado pela taxa referencial do Sistema Especial de Liquidação e de Custódia - Selic, até o termo final de encerramento do período a que se refere a escrituração.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: DT_LUC_LIQ
+  descricao: Data do final do período de apuração do lucro líquido informado acima.
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: REC_BRUT_ANT
+  descricao: Receita bruta do período anterior.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: INTIMACAO
+  descricao: Houve termo de intimação pela RFB para a entrega desta ECF? S – Sim N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 6
+  campo: INT_ATRASO
+  descricao: A transmissão desta ECF está dentro do prazo previsto na intimação? S – Sim N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: false
+regras_validacao_campos:
+- numero: null
+  campo: LUC_LIQ
+  regras:
+  - regra: REGRA_OBRIGATORIO_LUCRO_REAL
+    descricao: Verifica se Y720.LUC_LIQ está preenchido quando 0010.FORMA_TRIB é igual a “1” (lucro real) ou “02” (lucro real/arbitrado) ou “03” (lucro presumido/real) ou “04” (lucro presumido/real/arbitrado).
+    tipo: Erro
+  - regra: REGRA_NAO_PREENCHER_LUCRO_REAL
+    descricao: Verifica se Y720.LUC_LIQ não está preenchido quando 0010.FORMA_TRIB é igual a “5” (lucro presumido) ou “06” (lucro arbitrado) ou “07” (lucro presumido/arbitrado) ou “08” (imune) ou “09” (isenta).
+    tipo: Erro
+- numero: null
+  campo: DT_LUC_LIQ
+  regras:
+  - regra: REGRA_MENOR_DT_INI_ESC
+    descricao: Verifica se Y720.DT_LUC_LIQ é menor ou igual que a 0000.DT_INI.
+    tipo: Erro
+  - regra: REGRA_OBRIGATORIO_LUCRO_REAL
+    descricao: Verifica se Y720.DT_LUC_LIQ está preenchido quando 0010.FORMA_TRIB é igual a “1” (lucro real) ou “02” (lucro real/arbitrado) ou “03” (lucro presumido/real) ou “04” (lucro presumido/real/arbitrado).
+    tipo: Erro
+  - regra: REGRA_NAO_PREENCHER_LUCRO_REAL
+    descricao: Verifica se Y720.DT_LUC_LIQ não está preenchido quando 0010.FORMA_TRIB é igual a “5” (lucro presumido) ou “06” (lucro arbitrado) ou “07” (lucro presumido/arbitrado) ou “08” (imune) ou “09” (isenta).
+- numero: 4
+  campo: REC_BRUT_ANT
+  regras:
+  - regra: REGRA_OBRIGATORIO_LUCRO_REAL
+    descricao: Verifica se Y720.REC_BRUT_ANT está preenchido quando 0010.FORMA_TRIB é igual a “1” (lucro real) ou “02” (lucro real/arbitrado) ou “03” (lucro presumido/real) ou “04” (lucro presumido/real/arbitrado).
+    tipo: Erro
+  - regra: REGRA_NAO_PREENCHER_LUCRO_REAL
+    descricao: Verifica se Y720.REC_BRUT_ANT não está preenchido quando 0010.FORMA_TRIB é igual a “5” (lucro presumido) ou “06” (lucro arbitrado) ou “07” (lucro presumido/arbitrado) ou “08” (imune) ou “09” (isenta).
+    tipo: Erro
+- numero: 6
+  campo: INT_ATRASO
+  regras:
+  - regra: REGRA_PRAZO_INTIMACAO_OBRIGATORIO
+    descricao: Verifica se Y720.INT_ATRASO está preenchido quando Y720.INTIMACAO é igual a “S” (Sim).
+    tipo: Erro
+  - regra: REGRA_PRAZO_INTIMACAO_NAO_PREENCHER
+    descricao: Verifica se Y720.INT_ATRASO não está preenchido quando Y720.INTIMACAO é igual a “N” (Não).
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|Y720|100000,00|31122021|100000000,00|N||'
+  explicacao:
+  - valor: '|Y720|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|100000,00|'
+    descricao: Lucro líquido antes da incidência do imposto sobre a renda e da contribuição social sobre o lucro líquido do último período de apuração informado, atualizado pela taxa referencial do
+  - valor: '|31122021|'
+    descricao: Data final do período de apuração do lucro líquido informado no campo anterior (31/12/2021).
+  - valor: '|100000000,00|'
+    descricao: Receita bruta do período anterior.
+  - valor: '|N|'
+    descricao: Não houve termo de intimação para entrega desta ECF.
+  - valor: '||'
+    descricao: O campo só é preenchido se houve termo de intimação para entrega da ECF.
+  observacoes:
+  - Selic (R$ 100.000,00).

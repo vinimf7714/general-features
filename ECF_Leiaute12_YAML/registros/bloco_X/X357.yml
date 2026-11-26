@@ -1,0 +1,107 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: X357
+nome: Investidoras Diretas
+bloco: X
+nome_tabela_registros: Investidoras Diretas
+paginas_manual:
+- 499
+- 500
+descricao: Este registro será preenchido para informar as investidoras diretas das participações informadas no registro X340 quando o campo indicador de controle do registro X340 (X340.IND_CONTROLE) for diferente de “5 – Filial ou Sucursal”. Quando só houver o declarante como investidora direta, o registro deve ser preenchido somente com as informações do declarante.
+titulo_leiaute: 'REGISTRO X357: INVESTIDORAS DIRETAS'
+regras_validacao_registro:
+- REGRA_X357_PREENCHER
+nivel_hierarquico: 3
+ocorrencia: 0:N
+campos_chave: REG
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: FC
+    condicao: Se X340.IND_CONTROLE for diferente de “5”
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: X340
+  filhos: []
+  irmaos:
+  - X350
+  - X351
+  - X352
+  - X353
+  - X354
+  - X355
+  - X356
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (X357)
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[X357]'
+  obrigatorio: true
+- numero: 2
+  campo: PAIS
+  descricao: |-
+    País: País de cada investidora direta.
+    Código do país, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: N
+  tamanho: 3
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: NIF/CNPJ
+  descricao: |-
+    NIF: Número de identificação fiscal de cada investidora direta (“CNPJ” da investida no exterior) ou CNPJ.
+    Observação:
+    1 – Caso a investidora direta não possua NIF, utilize “0000”
+    2 – Para investidoras diretas de um mesmo país diferente do Brasil que não possuam NIF, utilizar “0000”, “0001”, “0002”, e assim por diante, conforme a quantidade de investidoras diretas.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: RAZAO_SOCIAL
+  descricao: 'Razão Social: Razão social da investidora direta.'
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: PERCENTUAL
+  descricao: 'Percentual: Valor do percentual de participação da investidora direta na investida informada no registro X340.'
+  tipo: N
+  tamanho: 8
+  decimal: 4
+  valores_validos: null
+  obrigatorio: true
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|X357|756|1234567|INVESTIDORA DIRETA|30|'
+  explicacao:
+  - valor: '|X357|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|756|'
+    descricao: 'País: 756 – África do Sul.'
+  - valor: '|1234567|'
+    descricao: 'NIF: 1234567.'
+  - valor: '|INVESTIDORA DIRETA|'
+    descricao: 'Razão Social: INVESTIDORA DIRETA.'
+  - valor: '|30|'
+    descricao: 'Percentual: 30%.'
+informacoes_adicionais:
+- titulo: I – Regra de Validação de Registro
+  conteudo: 'REGRA_X357_PREENCHER: Este registro só ser preenchido/habilitado quando X340.IND_CONTROLE for diferente de “5” (Filial ou Sucursal).'

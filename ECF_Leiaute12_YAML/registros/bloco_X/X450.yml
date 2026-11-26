@@ -1,0 +1,82 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: X450
+nome: Pagamentos ou Remessas a Título de Serviços, Juros e Dividendos a Beneficiários do Brasil e do Exterior
+bloco: X
+nome_tabela_registros: Pagamentos ou Remessas Relativos a Serviços, Juros e Dividendos a Beneficiários do Brasil e do Exterior
+paginas_manual:
+- 536
+- 536
+descricao: Este registro será habilitado somente para as pessoas jurídicas que, durante o ano-calendário, realizaram pagamentos/remessas, a residentes ou domiciliados no exterior ou a pessoas físicas ou jurídicas residentes ou domiciliadas no Brasil ou no exterior (0020. IND_PGTO_REM = “S”).
+titulo_leiaute: 'REGISTRO X450: PAGAMENTOS OU REMESSAS A TÍTULO DE SERVIÇOS, JUROS E DIVIDENDOS A BENEFICIÁRIOS DO BRASIL E DO EXTERIOR'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: PAIS
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020.IND_PGTO_REM = "S"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: X001
+  filhos:
+  - X451
+  irmaos:
+  - X280
+  - X292
+  - X340
+  - X360
+  - X365
+  - X370
+  - X390
+  - X400
+  - X410
+  - X420
+  - X430
+  - X460
+  - X470
+  - X480
+  - X485
+  - X490
+  - X500
+  - X510
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (X450)
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[X450]'
+  obrigatorio: true
+- numero: 2
+  campo: PAIS
+  descricao: |-
+    País: País ou a dependência de país de residência ou domicílio da pessoa física ou jurídica destinatária do pagamento ou da remessa efetuados pela pessoa jurídica declarante, observado o exemplo a seguir:
+    Exemplo: Pessoa jurídica declarante efetua remessa, por conta e ordem do beneficiário do pagamento que é residente no Japão, para conta corrente localizada nos Estados Unidos da América. Nesse caso, o país a ser selecionado é o Japão.
+    Código do país, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: N
+  tamanho: 3
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|X450|105|'
+  explicacao:
+  - valor: '|X450|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|105|'
+    descricao: Código do país (105 = Brasil).

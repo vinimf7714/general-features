@@ -1,0 +1,72 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: L200
+nome: Método de Avaliação do Estoque Final
+bloco: L
+nome_tabela_registros: Método de Avaliação do Estoque Final
+paginas_manual:
+- 230
+- 230
+descricao: Apresenta o método de avaliação de estoques
+titulo_leiaute: 'REGISTRO L200: MÉTODO DE AVALIAÇÃO DO ESTOQUE FINAL'
+regras_validacao_registro: []
+nivel_hierarquico: 3
+ocorrencia: 0:13
+campos_chave: null
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se (COD_QUALIF_PJ = “01”) E (L030.PER_APUR = “A00” OU [T01..T04]) Ou ([A01..A012] E 0010. MES_BAL_RED [1..12] for igual = “B”)
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: L030
+  filhos: []
+  irmaos:
+  - L100
+  - L210
+  - L300
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (L200).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[L200]'
+  obrigatorio: true
+- numero: 2
+  campo: IND_AVAL_ESTOQ
+  descricao: |-
+    Método de Avaliação do Estoque Final:
+    1 – Custo Médio Ponderado
+    2 – PEPS (Primeiro que entra, primeiro que sai)
+    3 – Arbitramento - art. 308, Inc. I e II, do RIR/2018
+    4 – Custo Específico
+    5 – Valor Realizável Líquido
+    6 – Inventário Periódico
+    7 – Outros
+    8 – Não há (Exemplo: Empresas Prestadoras de Serviços)
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[1; 2; 3; 4; 5; 6; 7; 8]'
+  obrigatorio: true
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|L200|2|'
+  explicacao:
+  - valor: '|L200|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|2|'
+    descricao: Método de avaliação do estoque final (2 = PEPS).

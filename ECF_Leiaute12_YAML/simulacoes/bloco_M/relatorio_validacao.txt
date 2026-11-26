@@ -1,0 +1,22 @@
+Linhas geradas: 60 (M990.QTD_LIN = 60)
+Registros: M001=1, M010=9, M030=1, M300=7, M305=8, M310=5, M312=2, M315=1, M350=4, M355=6, M360=3, M362=2, M410=1, M500=9, M990=1
+IRPJ – Lucro real antes da compensação: 1205000,00
+  compensação: 361500,00 (limite 30% = 361500,00; saldo disponível na Parte B = 400000,00)
+IRPJ – Lucro real após compensação (vai para N500/N650): 843500,00
+CSLL – Base de cálculo antes da compensação: 1220000,00
+  compensação: 250000,00 (limite 30% = 366000,00; saldo disponível na Parte B = 250000,00)
+CSLL – Base de cálculo após compensação (vai para N500/N650): 970000,00
+
+Razão da Parte B (saldo inicial + mov. com reflexo na Parte A + mov. sem reflexo = saldo final):
+  PB001  I  ini    300000,00/D  parteA     50000,00/D  parteB   10000,00/D  fim    360000,00/D
+  PB001  C  ini    300000,00/D  parteA     50000,00/D  parteB       0,00/D  fim    350000,00/D
+  PB002  I  ini    120000,00/D  parteA     30000,00/D  parteB   10000,00/C  fim    140000,00/D
+  PB002  C  ini    120000,00/D  parteA     30000,00/D  parteB       0,00/D  fim    150000,00/D
+  PB003  I  ini     80000,00/C  parteA     15000,00/C  parteB       0,00/D  fim     95000,00/C
+  PB004  I  ini         0,00/D  parteA     40000,00/D  parteB       0,00/D  fim     40000,00/D
+  PB004  C  ini         0,00/D  parteA     40000,00/D  parteB       0,00/D  fim     40000,00/D
+  PB900  I  ini    400000,00/D  parteA    361500,00/C  parteB       0,00/D  fim     38500,00/D
+  PB901  C  ini    250000,00/D  parteA    250000,00/C  parteB       0,00/D  fim         0,00/D
+
+Validação de leiaute (YAML): OK
+Validação de regras de negócio: OK

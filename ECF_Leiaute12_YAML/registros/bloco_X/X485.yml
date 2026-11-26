@@ -1,0 +1,320 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: X485
+nome: Benefícios Fiscais – Parte II
+bloco: X
+nome_tabela_registros: Benefícios Fiscais – Parte II
+paginas_manual:
+- 548
+- 553
+descricao: null
+titulo_leiaute: 'REGISTRO X485: BENEFÍCIOS FISCAIS – PARTE II'
+regras_validacao_registro:
+- REGRA_DUPLICIDADE_DESPREZADA
+- REGRA_LINHA_DESPREZADA
+- REGRA_LINHA_ATUALIZADA
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: CODIGO
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020. IND_PJ_HAB = "S"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: X001
+  filhos: []
+  irmaos:
+  - X280
+  - X292
+  - X340
+  - X360
+  - X365
+  - X370
+  - X390
+  - X400
+  - X410
+  - X420
+  - X430
+  - X450
+  - X460
+  - X470
+  - X480
+  - X490
+  - X500
+  - X510
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (X485).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[X485]'
+  obrigatorio: true
+- numero: 2
+  campo: TIPO_BENEF
+  descricao: |-
+    Tipo do Benefício:
+    1 – REPES
+    2 – RECAP
+    3 – PADIS
+    4 – REIDI
+    5 – RECINE
+    6 – RETID
+    7 – ÓLEO BUNKER
+    8 – REPORTO
+    9 – RET II
+    10 - RET - PMCMV e/ou RET – PCVA
+    11 – RET - EEI
+    12 – ENTIDADE BENEFICENTE DE ASSISTÊNCIA SOCIAL IMUNE DE CONTRIBUIÇÕES SOCIAIS
+    13 – REPETRO – INDUSTRIALIZAÇÃO
+    14 – REPETRO - NACIONAL
+    15 – REPETRO – PERMANENTE
+    16 – REPETRO - TEMPORÁRIO
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: '[1;2;3;4;5;6; 7;8;9;10;11; 12;13;14;15; 16]'
+  obrigatorio: true
+- numero: 3
+  campo: ATO_DECL
+  descricao: |-
+    Número do Ato Declaratório:
+    Número do Ato Declaratório Executivo (ADE) emitido pela RFB, que habilitou a pessoa jurídica no:
+    - Repes (Lei nº 11.196, de 2005, art. 1º, § único; Decreto nº 5.712, de 2006, art. 3º, caput; IN SRF nº 630, de 2006, art. 7º, caput).
+    - Recap (Lei nº 11.196, de 2005, art. 12, § único; Decreto nº 5.649, de 2005, art. 2º, caput; IN RFB nº 1911, de 2019, art. 569, caput).
+    - Padis (Decreto nº 10.615, de 2021, art. 8º, caput; IN RFB nº 1976, de 2020, art. 6º, caput).
+    - Reidi (Lei nº 11.488, de 2007, art. 1º, § único; Decreto nº 6.144, de 2007, art. 4º;
+    IN RFB nº 1911, de 2019, art. 587, caput).
+    - Recine (Lei nº 12.599, de 2012, art. 12, § único; Decreto nº 7.729, de 2012, art. 8º, IV; IN RFB nº 1446, de 2014, art. 10, caput).
+    - Retid (Lei nº 12.598, de 2012, art. 8º, § 5º, II; Decreto nº 8.122, de 2013, art. 8º, II;
+    IN RFB nº 1454, de 2014, art. 18, caput).
+    - Habilitou a pessoa jurídica ao regime de suspensão do PIS/Cofins relativo às aquisições no mercado interno e às importações de óleo combustível do tipo bunker (Lei nº 11.774, de 2008, art. 2º; IN RFB nº 2109, de 2022, art. 7º, caput).
+    - Reporto (Lei nº 11.033, de 2004, arts. 15 e 16; IN RFB nº 1370, de 2013, arts. 16 e 17).
+    - Repetro-Industrialização (Lei nº 13.586, de 2017, art. 6º; Decreto nº 9.537, de 2018, art. 3º; IN RFB nº 1901, de 2019, art. 6º, caput).
+    - Repetro - Nacional (Lei nº 13.586, de 2017, art. 6º, § 8º; Decreto nº 9.537, de 2018, art. 8º; IN RFB nº 1.781, art. 2º, inciso VI c/c arts. 4º a 6º).
+    - Repetro - Permanente (Lei nº 13.586, de 2017, art. 5º, § 8º; Decreto nº 6.759, de 2009, art. 458, inciso IV c/c art. 461-A; IN RFB nº 1.781, art. 2º, inciso III c/c arts.
+    4º a 6º).
+    - Repetro - Temporário (Lei nº 9.430, de 1996, art. 79, § único; Decreto nº 6.759, de 2009, art. 461-A; IN RFB nº 1.781, arts. 4º a 6º).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: CNPJ_INCORP
+  descricao: |-
+    Inscrição da “Incorporação Afetada” no Cadastro Nacional da Pessoa Jurídica (CNPJ) Inscrição no CNPJ (formato CC.CCC.CCC/CCCC-CC - deverá ser preenchido sem pontos ou barra) de cada incorporação, quantas forem vinculadas ao evento “109 - Inscrição de Incorporação Imobiliária - Patrimônio de Afetação", consoante art. 3º, II, da IN RFB nº 1.435, de 2013.
+    Somente preencher quando X485.TIPO_BENEF for igual a “9 – RET-II”.
+  tipo: C
+  tamanho: 14
+  decimal: null
+  valores_validos: null
+  obrigatorio: false
+- numero: 5
+  campo: ID_OBRA_2018
+  descricao: |-
+    Identificação da Obra/Construção - CONTRATO FIRMADO OU OBRAS INICIADAS ATÉ 31 DE DEZEMBRO DE 2018.
+    Somente preencher quando X485.TIPO_BENEF for igual a “10 - RET - PMCMV e/ou RET – PCVA”.
+  tipo: N
+  tamanho: 18
+  decimal: null
+  valores_validos: null
+  obrigatorio: false
+- numero: 6
+  campo: ID_OBRA_2020
+  descricao: |-
+    Identificação da Obra/Construção - CONTRATO FIRMADO OU OBRAS INICIADAS A PARTIR DE 1º DE JANEIRO DE 2020.
+    Somente preencher quando X485.TIPO_BENEF for igual a “10 - RET - PMCMV e/ou RET – PCVA”.
+  tipo: N
+  tamanho: 18
+  decimal: null
+  valores_validos: null
+  obrigatorio: false
+- numero: 7
+  campo: ID_OBRA_EEI
+  descricao: |-
+    Identificação da Obra/Construção.
+    Somente preencher quando X485.TIPO_BENEF for igual a “11 – RET-EEI”.
+  tipo: N
+  tamanho: 18
+  decimal: null
+  valores_validos: null
+  obrigatorio: false
+- numero: 8
+  campo: PORT_CEBAS
+  descricao: |-
+    Número da Portaria que concedeu o CEBAS Atual
+    Número da Portaria, publicada no Diário Oficial da União (DOU) que concedeu o Certificado de Entidade Beneficente de Assistência Social (CEBAS) vigente, emitido pela autoridade executiva federal responsável pela área de saúde, educação ou assistência social, conforme a área de atuação preponderante da entidade (Lei Complementar nº 187, de 2021, art. 35).
+    O campo deve ser preenchido no seguinte formato: NNN/AAAA.
+    Somente preencher quando X485.TIPO_BENEF for igual a “12 – ENTIDADE BENEFICENTE DE ASSISTÊNCIA SOCIAL IMUNE DE CONTRIBUIÇÕES SOCIAIS”.
+  tipo: N
+  tamanho: 7
+  decimal: null
+  valores_validos: null
+  obrigatorio: false
+- numero: 9
+  campo: DT_DOU_PORT_CEBAS
+  descricao: |-
+    Data da Publicação da Portaria que concedeu o CEBAS Atual no DOU
+    Data em que a Portaria que concedeu/renovou o Certificado de Entidade Beneficente de Assistência Social (CEBAS) atual, emitido pela autoridade executiva federal responsável pela área de saúde, educação ou assistência social, conforme a área de atuação preponderante da entidade, foi publicada no Diário Oficial da União (DOU) (Lei Complementar nº 187, de 2021, art. 35).
+    Somente preencher quando X485.TIPO_BENEF for igual a “12 – ENTIDADE BENEFICENTE DE ASSISTÊNCIA SOCIAL IMUNE DE CONTRIBUIÇÕES SOCIAIS”.
+  tipo: N
+  tamanho: 8
+  decimal: null
+  valores_validos: DDMMAAAA
+  obrigatorio: false
+- numero: 10
+  campo: DT_INI_PORT_CEBAS
+  descricao: |-
+    Data de Início de Vigência da Portaria que concedeu o CEBAS Atual
+    Data de início de vigência da Portaria, publicada no Diário Oficial da União (DOU) que concedeu/renovou o Certificado de Entidade Beneficente de Assistência Social (CEBAS) atual, emitido pela autoridade executiva federal responsável pela área de saúde, educação ou assistência social, conforme a área de atuação preponderante da entidade (Lei Complementar nº 187, de 2021, arts. 35 a 37).
+    O campo deve ser preenchido no seguinte formato: DD/MM/AAAA.
+    Somente preencher quando X485.TIPO_BENEF for igual a “12 – ENTIDADE BENEFICENTE DE ASSISTÊNCIA SOCIAL IMUNE DE CONTRIBUIÇÕES SOCIAIS”.
+  tipo: N
+  tamanho: 8
+  decimal: null
+  valores_validos: DDMMAAAA
+  obrigatorio: false
+- numero: 11
+  campo: DT_FIN_PORT_CEBAS
+  descricao: Data de Fim de Vigência da Portaria que concedeu o CEBAS Atual
+  tipo: N
+  tamanho: 8
+  decimal: null
+  valores_validos: DDMMAAAA
+  obrigatorio: false
+regras_validacao_registro_detalhe:
+- regra: REGRA_DUPLICIDADE_DESPREZADA
+  descricao: Verifica se o registro já foi importado anteriormente, de acordo com a chave e os registros pais. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_DESPREZADA
+  descricao: Verifica se o registro existe na importação, mas não será importado por não existir na tabela dinâmica devido às configurações do bloco 0 ou da tabela dinâmica. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_ATUALIZADA
+  descricao: Verifica se o registro está desatualizado em relação à tabela da RFB. Se a regra não for cumprida, a ECF gera um aviso.
+regras_validacao_campos:
+- numero: 4
+  campo: CNPJ_INCORP
+  regras:
+  - regra: REGRA_NAO_PREENCHER_INCORP
+    descricao: Verifica se o campo não está preenchido quando X485.TIPO_BENEF for diferente de “9 - RET-II”.
+    tipo: Erro
+  - regra: REGRA_INCORP_OBRIGATÓRIO
+    descricao: Verifica se o campo está preenchido quando X485.TIPO_BENEF for igual a “9 - RET-II”.
+    tipo: Erro
+  - regra: REGRA_CNPJ_DIFERENTE
+    descricao: Verifica se X485.CNPJ é diferente do 0000.CNPJ.
+    tipo: Erro
+  - regra: REGRA_VALIDA_CNPJ
+    descricao: Verifica se a regra de formação do código é válida.
+    tipo: Erro
+- numero: 5
+  campo: ID_OBRA_2018
+  regras:
+  - regra: REGRA_NAO_PREENCHER_ID_OBRA_2018
+    descricao: Verifica se o campo não está preenchido quando X485.TIPO_BENEF for diferente de “10 - RET - PMCMV e/ou RET – PCVA”.
+    tipo: Erro
+  - regra: REGRA_ID_OBRA_2018_OBRIGATÓRIO
+    descricao: Verifica se o campo não está preenchido quando X485.TIPO_BENEF for igual a “10 - RET - PMCMV e/ou RET – PCVA”.
+    tipo: Erro
+- numero: 6
+  campo: ID_OBRA_2020
+  regras:
+  - regra: REGRA_NAO_PREENCHER_ID_OBRA_2020
+    descricao: Verifica se o campo não está preenchido quando X485.TIPO_BENEF for diferente de “10 - RET - PMCMV e/ou RET – PCVA”.
+    tipo: Erro
+  - regra: REGRA_ID_OBRA_2020_OBRIGATÓRIO
+    descricao: Verifica se o campo não está preenchido quando X485.TIPO_BENEF for igual a “10 - RET - PMCMV e/ou RET – PCVA”.
+    tipo: Erro
+- numero: 7
+  campo: ID_OBRA_EEI
+  regras:
+  - regra: REGRA_NAO_PREENCHER_ID_OBRA_EEI
+    descricao: Verifica se o campo não está preenchido quando X485.TIPO_BENEF for diferente de “11 - RET-EEI”.
+    tipo: Erro
+  - regra: REGRA_ID_OBRA_EEI_OBRIGATÓRIO
+    descricao: Verifica se o campo está preenchido quando X485.TIPO_BENEF for igual a “11 RET- EEI”.
+    tipo: Erro
+- numero: 8
+  campo: PORT_CEBAS
+  regras:
+  - regra: REGRA_NAO_PREENCHER_PORT_CEBAS
+    descricao: Verifica se o campo não está preenchido quando X485.TIPO_BENEF for diferente de “12 – ENTIDADE BENEFICENTE DE ASSISTÊNCIA SOCIAL IMUNE DE CONTRIBUIÇÕES SOCIAIS”.
+    tipo: Erro
+  - regra: REGRA_PORT_CEBAS_OBRIGATÓRIO
+    descricao: Verifica se o campo não está preenchido quando X485.TIPO_BENEF for igual a “12 – ENTIDADE BENEFICENTE DE ASSISTÊNCIA SOCIAL IMUNE DE CONTRIBUIÇÕES SOCIAIS”.
+    tipo: Erro
+- numero: 9
+  campo: DT_DOU_PORT_CEBAS
+  regras:
+  - regra: REGRA_NAO_PREENCHER_PORT_CEBAS
+    descricao: Verifica se o campo não está preenchido quando X485.TIPO_BENEF for diferente de “12 – ENTIDADE BENEFICENTE DE ASSISTÊNCIA SOCIAL IMUNE DE CONTRIBUIÇÕES SOCIAIS”.
+    tipo: Erro
+  - regra: REGRA_PORT_CEBAS_OBRIGATÓRIO
+    descricao: Verifica se o campo não está preenchido quando X485.TIPO_BENEF for igual a “12 – ENTIDADE BENEFICENTE DE ASSISTÊNCIA SOCIAL IMUNE DE CONTRIBUIÇÕES SOCIAIS”.
+    tipo: Erro
+- numero: 10
+  campo: DT_INI_PORT_CEBAS
+  regras:
+  - regra: REGRA_NAO_PREENCHER_PORT_CEBAS
+    descricao: Verifica se o campo não está preenchido quando X485.TIPO_BENEF for diferente de “12 – ENTIDADE BENEFICENTE DE ASSISTÊNCIA SOCIAL IMUNE DE CONTRIBUIÇÕES SOCIAIS”.
+    tipo: Erro
+  - regra: REGRA_PORT_CEBAS_OBRIGATÓRIO
+    descricao: Verifica se o campo não está preenchido quando X485.TIPO_BENEF for igual a “12 – ENTIDADE BENEFICENTE DE ASSISTÊNCIA SOCIAL IMUNE DE CONTRIBUIÇÕES SOCIAIS”.
+    tipo: Erro
+- numero: 11
+  campo: DT_FIN_PORT_CEBAS
+  regras:
+  - regra: REGRA_NAO_PREENCHER_PORT_CEBAS
+    descricao: Verifica se o campo não está preenchido quando X485.TIPO_BENEF for diferente de “12 – ENTIDADE BENEFICENTE DE ASSISTÊNCIA SOCIAL IMUNE DE CONTRIBUIÇÕES SOCIAIS”.
+    tipo: Erro
+  - regra: REGRA_PORT_CEBAS_OBRIGATÓRIO
+    descricao: Verifica se o campo não está preenchido quando X485.TIPO_BENEF for igual a “12 – ENTIDADE BENEFICENTE DE ASSISTÊNCIA SOCIAL IMUNE DE CONTRIBUIÇÕES SOCIAIS”
+    tipo: Erro
+  - regra: REGRA_PORT_CEBAS_DT_FIN_MENOR
+    descricao: Verifica se a data informada neste campo é maior que a data informada no campo X485.DT_INI_PORT_CEBAS.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|X485|1|1111111112023|||||||||'
+  explicacao:
+  - valor: '|X485|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|1|'
+    descricao: Tipo do Benefício (1 = REPES).
+  - valor: '|11111111 |'
+    descricao: Número do ato declaratório.
+  - valor: '||'
+    descricao: Incorporação Afetada no CNPJ (Não aplicável).
+  - valor: '||'
+    descricao: Identificação da Obra/Construção até 31/12/2018 (Não aplicável).
+  - valor: '||'
+    descricao: Identificação da Obra/Construção a partir de 01/01/2020 (Não aplicável).
+  - valor: '||'
+    descricao: Identificação da Obra/Construção (Não aplicável).
+  - valor: '||'
+    descricao: Portaria CEBAS (Não aplicável).
+  - valor: '||'
+    descricao: Data da Publicação da Portaria CEBAS (Não aplicável).
+  - valor: '||'
+    descricao: Data de Início da Vigência da Portaria CEBAS (Não aplicável).
+  - valor: '||'
+    descricao: Data de Fim da Vigência da Portaria CEBAS (Não aplicável).
+informacoes_adicionais:
+- conteudo: |-
+    Data de fim de vigência da Portaria, publicada no Diário Oficial da União (DOU) que concedeu/renovou o Certificado de Entidade Beneficente de Assistência Social (CEBAS) atual, emitido pela autoridade executiva federal responsável pela área de saúde, educação ou assistência social, conforme a área de atuação preponderante da entidade (Lei Complementar nº 187, de 2021, arts. 35 a 37).
+    O campo deve ser preenchido no seguinte formato: DD/MM/AAAA.
+    Somente preencher quando X485.TIPO_BENEF for igual a “12 – ENTIDADE
+    BENEFICENTE DE ASSISTÊNCIA SOCIAL IMUNE DE CONTRIBUIÇÕES
+    SOCIAIS”.

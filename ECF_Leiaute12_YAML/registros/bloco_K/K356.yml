@@ -1,0 +1,95 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: K356
+nome: Mapeamento Referencial dos Saldos Finais das Contas Contábeis de Resultado Antes do Encerramento
+bloco: K
+nome_tabela_registros: Mapeamento Referencial dos Saldos Finais das Contas de Resultado Antes do Encerramento
+paginas_manual:
+- 154
+- 155
+descricao: |-
+  Registro onde devem ser mapeados, por conta referencial, os saldo finais de todas as contas de resultado da escrituração societária da pessoa jurídica nos respectivos períodos de apuração. Poderá ser preenchido das seguintes formas:
+  - Edição pelo programa da ECF;
+  - Calculado pelo sistema através da funcionalidade de recuperar ECD; e
+  - Importado de arquivo digital.
+  Observação: Se houver somente uma conta referencial no registro J051 mapeada a partir de uma conta contábil (plano de contas da pessoa jurídica), o próprio sistema preencherá o registro K356 (mapeamento de uma conta contábil para uma conta referencial). Caso contrário, ou seja, a conta contábil foi mapeada para mais de uma conta referencial, o registro K356 deverá ser preenchido pela pessoa jurídica.
+titulo_leiaute: 'REGISTRO K356: MAPEAMENTO REFERENCIAL DOS SALDOS FINAIS DAS CONTA CONTÁBEIS DE RESULTADO ANTES DO ENCERRAMENTO'
+regras_validacao_registro: []
+nivel_hierarquico: 4
+ocorrencia: 1:N
+campos_chave: COD_CTA_REF
+tabela_registros:
+  nivel: 4
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Localizar o J050.COD_CTA = K155.PAI_COD_CTA. (Se J050 possuir mais de uma conta referencial cadastrada no registro J051 para o mesmo centro de custo – Registro)
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: K355
+  filhos: []
+  irmaos: []
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (K356).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[K356]'
+  obrigatorio: true
+- numero: 2
+  campo: COD_CTA_REF
+  descricao: Código da Conta no Plano de Contas Referencial, conforme tabela do Sped. (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: VL_SLD_FIN
+  descricao: Valor do Saldo Final Antes do Lançamento de Encerramento.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: IND_VL_SLD_FIN
+  descricao: |-
+    Indicador da Situação do Saldo Final:
+    D – Devedor
+    C – Credor
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_campos:
+- numero: 2
+  campo: COD_CTA_REF
+  regras:
+  - regra: REGRA_CTA_REF_MAPEADA_J051
+    descricao: Verifica se o K356.COD_CTA_REF informado, foi utilizado no registro J051.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|K356|3.01.01.01.01.01|5000,00|C|'
+  explicacao:
+  - valor: '|K356|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|3.01.01.01.01.01|'
+    descricao: Código da conta referencial (3.01.01.01.01.01 = Receita de Exportação Direta de Mercadorias e Produtos).
+  - valor: '|5000,00|'
+    descricao: Valor do final mapeado (R$ 5.000,00).
+  - valor: '|C|'
+    descricao: Indicador da situação do saldo final (C = Credor).

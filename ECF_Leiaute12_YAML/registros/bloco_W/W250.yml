@@ -1,0 +1,430 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: W250
+nome: Declaração País-a-País – Entidades Integrantes
+bloco: W
+nome_tabela_registros: Declaração País a País - Entidades Integrantes
+paginas_manual:
+- 455
+- 460
+descricao: |-
+  Neste registro deve ser apresenta a identificação de todas as entidades integrantes do grupo multinacional (incluindo a própria entidade declarante da DPP), por jurisdição (conforme as jurisdições indicadas no Registro W200 e a situação de entidades sem jurisdição de residência), e das atividades econômicas por elas desempenhadas.
+  A entidade declarante deve indicar a(s) principal(is) atividade(s) desempenhada(s) pela entidade integrante reportada nos campos 13 a 25 do registro W250, assinalando com “Sim” ao menos um campo dentre as opções disponíveis. As atividades que não sejam desempenhadas pela entidade integrante devem ser preenchidas com “Não”.
+  O campo 25 (“Outros”) somente deve ser preenchido com “Sim” caso as atividades desempenhadas pela entidade integrantes reportadas não possam ser adequadamente informadas dentre as opções disponíveis nos campos anteriores, ou a entidade exerça outra(s) atividades(s) não especificada(s) além da(s) já indicada(s) dentre as opções disponíveis nos campos anteriores. Caso o campo 25 seja assinalado com “Sim”, a(s) atividade(s) desempenhada(s) deve(m) ser descrita(s), em texto livre, no campo 26.
+titulo_leiaute: 'REGISTRO W250: DECLARAÇÃO PAÍS-A-PAÍS - ENTIDADES INTEGRANTES'
+regras_validacao_registro:
+- REGRA_DECLARANTE_INTEGRANTE_PAIS_A_PAIS
+nivel_hierarquico: 4
+ocorrencia: 1:N
+campos_chave: null
+tabela_registros:
+  nivel: 4
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se (W100.IND_CONTROLADORA = "S" e W100.IND_ENTREGA = "2") ou W100.IND_ENTREGA = "3") Ou (Se (W100.IND_CONTROLADORA = "N" e W100.IND_ENTREGA = "3"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: W200
+  filhos: []
+  irmaos: []
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (W250).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[W250]'
+  obrigatorio: true
+- numero: 2
+  campo: JUR_DIFERENTE
+  descricao: 'Jurisdição Tributária de Organização ou Incorporação, se diferente da jurisdição de residência para fins tributários, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas): A entidade declarante deve informar a jurisdição sob cuja legislação a entidade integrante do grupo multinacional está estabelecida, se diferente da jurisdição de residência para fins tributários.'
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 3
+  campo: NOME
+  descricao: |-
+    Nome/Razão Social da Entidade Integrante: Nome legal completo da entidade, incluindo a designação doméstica da forma legal, conforme indicado em seus documentos de constituição ou similares.
+    Caso a entidade seja um estabelecimento permanente, deverá ser reportada com referência à jurisdição onde está situada, e seu nome deve ser seguido por (P.E.), designação que significa, em inglês, “Permanent Establishment” (Estabelecimento Permanente). Além disso, deve ser indicada a entidade legal ao qual o estabelecimento permanente está relacionado. Exemplo: ABC P.E. (XYZ Ltda – China)
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: TIN
+  descricao: |-
+    Tax Identification Number (TIN): Número de identificação fiscal utilizado pela administração tributária da jurisdição de residência para fins tributários da entidade integrante reportada. Caso a entidade integrante reportada possua esse número de identificação, a informação é de fornecimento obrigatório. Para entidades residentes no Brasil, deve ser informado o CNPJ.
+    Observação: Caso não exista o número, deve ser incluída a expressão "NOTIN".
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: JURISDICAO_TIN
+  descricao: Jurisdição de Emissão do TIN, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: NI
+  descricao: 'Número de Identificação (NI): O campo deve ser preenchido em caso de existência de outro número de identificação da entidade, como um número de registro ou um número de identificação global da entidade (“Global Entity Identification Number” – EIN).'
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 7
+  campo: JURISDICAO_NI
+  descricao: |-
+    Jurisdição de Emissão do NI, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+    Observação: Caso a jurisdição de emissão do NI não seja conhecida, o campo deve ser deixado em branco.
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 8
+  campo: TIPO_NI
+  descricao: 'Tipo do NI: Deve ser descrito, em texto livre, o tipo do número de identificação (NI) informado no W250.NI. Exemplo: número de identificação global da entidade (“Global Entity Identification Number” – EIN).'
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 9
+  campo: TIP_END
+  descricao: |-
+    Tipo do Endereço: A entidade declarante deve indicar, dentre as opções disponíveis de preenchimento do campo, o tipo do endereço da entidade integrante que está sendo reportada, o qual deverá ser descrito no campo seguinte.
+    OECD302 - Residencial
+    OECD303 - Comercial
+  tipo: C
+  tamanho: 7
+  decimal: '-'
+  valores_validos: '[OECD301; OECD302; OECD303; OECD304; OECD305]'
+  obrigatorio: true
+- numero: 10
+  campo: ENDEREÇO
+  descricao: Deve ser fornecido, em texto livre, o endereço completo de residência permanente da entidade integrante reportada.
+  tipo: C
+  tamanho: 150
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 11
+  campo: NUM_TEL
+  descricao: Número de telefone completo da entidade integrante reportada.
+  tipo: C
+  tamanho: 15
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 12
+  campo: EMAIL
+  descricao: Endereço de e-mail para contato com a entidade integrante reportada.
+  tipo: C
+  tamanho: 115
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 13
+  campo: ATIV_1
+  descricao: |-
+    Pesquisa e Desenvolvimento:
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 14
+  campo: ATIV_2
+  descricao: |-
+    Gestão de Propriedade Intelectual:
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 15
+  campo: ATIV_3
+  descricao: |-
+    Compras:
+    S - Sim N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 16
+  campo: ATIV_4
+  descricao: |-
+    Manufatura ou Produção:
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 17
+  campo: ATIV_5
+  descricao: |-
+    Vendas, Marketing ou Distribuição:
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 18
+  campo: ATIV_6
+  descricao: |-
+    Serviços Administrativos, de Gestão ou de Suporte:
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 19
+  campo: ATIV_7
+  descricao: |-
+    Prestação de Serviços a Partes Não Relacionadas:
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 20
+  campo: ATIV_8
+  descricao: |-
+    Departamento Financeiro do Grupo:
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 21
+  campo: ATIV_9
+  descricao: |-
+    Serviços Financeiros Regulamentados:
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 22
+  campo: ATIV_10
+  descricao: |-
+    Seguro:
+    S - Sim N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 23
+  campo: ATIV_11
+  descricao: |-
+    Gestão de Ações e Outros Instrumentos de Capital:
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 24
+  campo: ATIV_12
+  descricao: |-
+    Inativa:
+    S - Sim N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 25
+  campo: ATIV_13
+  descricao: |-
+    Outros:
+    S - Sim N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 26
+  campo: DESC_OUTROS
+  descricao: |-
+    Descrição da Atividade Econômica Desempenhada, no caso de W250.ATIV_13 (Outros) igual a "Sim": Campo em texto livre para que a entidade declarante descreva as atividades econômicas desempenhadas pela entidade integrante reportada que não estejam especificadas dentre as opções disponíveis nos campos anteriores.
+    Conforme previsto na Instrução Normativa RFB nº 1.681/2016, artigo 9, § 3º, todas as informações em texto livre da Declaração País-a-País deverão ser fornecidas em um único idioma, a ser escolhido pela entidade declarante dentre as opções de português, inglês e espanhol.
+  tipo: C
+  tamanho: 255
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 27
+  campo: OBSERVAÇÃO
+  descricao: |-
+    Outras Informações: Campo de utilização opcional, para o fornecimento de informações adicionais sobre a entidade reportada.
+    Conforme previsto na Instrução Normativa RFB nº 1.681/2016, artigo 9, § 3º, todas as informações em texto livre da Declaração País-a-País deverão ser fornecidas em um único idioma, a ser escolhido pela entidade declarante dentre as opções de português, inglês e espanhol.
+  tipo: C
+  tamanho: 1000
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+regras_validacao_registro_detalhe:
+- regra: REGRA_DECLARANTE_INTEGRANTE_PAIS_A_PAIS
+  descricao: Deve existir, pelo menos, um registro W250, com as oito primeiras posições do campo W250.TIN igual às oito primeiras posições do campo 0000.CNPJ.
+- regra: REGRA_OBRIGATORIO_CAMPOS_W250
+  descricao: Pelo menos um dos campos 13 a 26 deve estar preenchido com o "S". Se a regra não for cumprida, o sistema gera um erro.
+regras_validacao_campos:
+- numero: 4
+  campo: TIN
+  regras:
+  - regra: REGRA_TIN_UNICO
+    descricao: Verifica se existe somente um registro W250 com o TIN informado em W250.TIN. A regra não é executada caso W250.TIN seja igual a “NOTIN”.
+    tipo: Erro
+  - regra: REGRA_VALIDA_TIN
+    descricao: 'Verifica, quando W250.JURISDICAO_TIN for igual a “BR” (Brasil), se o campo W250.TIN está preenchido com um CNPJ (aplica a REGRA_VALIDA_CNPJ: Verifica se o CNPJ informado é válido).'
+    tipo: Erro
+- numero: 5
+  campo: JURISDICAO_TIN
+  regras:
+  - regra: REGRA_HABILITA_JURISDICAO_TIN
+    descricao: Caso W250.TIN seja diferente de “NOTIN”, o campo W250.JURISDICAO_TIN deve ser habilitado. Caso contrário, o campo W250.JURISDICAO_TIN é desabilitado.
+    tipo: Habilita
+  - regra: REGRA_JURISDICAO_TIN_OBRIGATORIO
+    descricao: |-
+      Verifica, quando W250.TIN é diferente de “NOTIN”, se o campo
+      W250.JURISDICAO_TIN está preenchido ou quando for igual a “NOTIN” e W100.IND_CONTROLADORA é igual a “N” e o campo W100.TIN_CONTROLADORA igual a “NOTIN”.
+    tipo: Erro
+  - regra: REGRA_JURISDICAO_TIN_NAO_PREENCHER
+    descricao: |-
+      Verifica, quando W250.TIN é igual a “NOTIN”, se o campo
+      W250.JURISDICAO_TIN não está preenchido, o campo W100.IND_CONTROLADORA é diferente “N” e o campo W100.TIN_CONTROLADORA diferente de “NOTIN”.
+    tipo: Erro
+- numero: 7
+  campo: JURISDICAO_NI
+  regras:
+  - regra: REGRA_HABILITA_JURISDICAO_NI
+    descricao: |-
+      Caso W250.NI esteja preenchido, o campo W250.JURISDICAO_NI deve ser habilitado.
+      Caso contrário, o campo W250.JURISDICAO_NI é desabilitado.
+    tipo: Habilita
+  - regra: REGRA_JURISDICAO_IN_NAO_PREENCHER
+    descricao: Verifica, quando W250.NI não está preenchido, se o campo W250.JURISDICAO_NI não está preenchido.
+    tipo: Erro
+- numero: 8
+  campo: TIPO_NI
+  regras:
+  - regra: REGRA_HABILITA_TIPO_NI
+    descricao: Caso W250.IN esteja preenchido, o campo W250.TIPO_NI deve ser habilitado. Caso contrário, o campo W250.TIPO_NI é desabilitado.
+    tipo: Habilita
+  - regra: REGRA_TIPO_NI_OBRIGATORIO
+    descricao: Verifica, quando W250.NI está preenchido, se o campo W250.TIPO_NI está preenchido.
+    tipo: Erro
+  - regra: REGRA_TIPO_NI_NAO_PREENCHER
+    descricao: Verifica, quando W250.NI não está preenchido, se o campo W250.TIPO_NI não está preenchido.
+    tipo: Erro
+- numero: 26
+  campo: DESC_OUTROS
+  regras:
+  - regra: REGRA_HABILITA_DESC_OUTROS
+    descricao: Caso W250.ATIV_13 seja igual a “S” (Sim), o campo W250.DESC_OUTROS deve ser habilitado. Caso contrário, o campo W250.DESC_OUTROS é desabilitado.
+    tipo: Habilita
+  - regra: REGRA_DESC_OUTROS_OBRIGATORIO
+    descricao: Verifica, quando W250.ATIV_13 é igual a “S” (Sim), se o campo W250.DESC_OUTROS está preenchido.
+    tipo: Erro
+  - regra: REGRA_DESC_OUTROS_NAO_PREENCHER
+    descricao: Verifica, quando W250.ATIV_13 é igual a “N” (Não), se o campo W250.DESC_OUTROS não está preenchido.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|W250|DE|ENTIDADE INTEGRANTE 1|12345678|25||||OECD303|RUA ALFA 121 – PERDIZES – SÃO PAULO/SP – CEP: 20.000-'
+  explicacao:
+  - valor: '|W200|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|DE|'
+    descricao: Alemanha.
+  - valor: '|ENTIDADE INTEGRANTE 1|'
+    descricao: Nome da entidade integrante.
+  - valor: '|12345678|'
+    descricao: Tax Identification Number (TIN).
+  - valor: '|25|'
+    descricao: Jurisdição de emissão do TIN.
+  - valor: '||'
+    descricao: Número de identificação.
+  - valor: '||'
+    descricao: Jurisdição de emissão do número de identificação.
+  - valor: '||'
+    descricao: Tipo do número de identificação.
+  - valor: '|OECD303|'
+    descricao: Tipo do Endereço (OECD303 = Comercial).
+  - valor: '|RUA ALFA 121 – PERDIZES – SÃO PAULO/SP – CEP: 20.000-000|'
+    descricao: Endereço.
+  - valor: '|551133334444|'
+    descricao: Telefone.
+  - valor: '|EMAIL@EMAIL.COM|'
+    descricao: Email.
+  - valor: '|S|'
+    descricao: Atividade de Pesquisa e Desenvolvimento (S = Sim).
+  - valor: '|N|'
+    descricao: Atividade de Gestão de Propriedade Intelectual (N = Não).
+  - valor: '|N|'
+    descricao: Atividade de Compras (N = Não).
+  - valor: '|N|'
+    descricao: Atividade de Manufatura ou Produção (N = Não).
+  - valor: '|N|'
+    descricao: Atividade de Vendas, Marketing ou Distribuição (N = Não).
+  - valor: '|N|'
+    descricao: Atividade de Serviços Administrativos de Gestão ou de Suporte (N = Não).
+  - valor: '|N|'
+    descricao: Atividade de Prestação de Serviços a Partes Não Relacionadas (N = Não).
+  - valor: '|N|'
+    descricao: Atividade de Departamento Financeito do Grupo (N = Não).
+  - valor: '|N|'
+    descricao: Atividade Serviços Financeiras Regulamentados (N = Não).
+  - valor: '|N|'
+    descricao: Atividade de Seguro (N = Não).
+  - valor: '|N|'
+    descricao: Atividade de Gestão de Ações e Outros Instrumentos de Capital (N = Não).
+  - valor: '|N|'
+    descricao: Inativa (N = Não).
+  - valor: '|N|'
+    descricao: Outros (N = Não).
+  - valor: '||'
+    descricao: Descrição de outras atividades econômicas desempenhadas.
+  - valor: '||'
+    descricao: Outras informações.
+  observacoes:
+  - 000|551133334444|EMAIL@EMAIL.COM|S|N|N|N|N|N|N|N|N|N|N|N|N|||

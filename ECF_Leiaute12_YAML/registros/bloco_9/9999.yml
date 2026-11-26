@@ -1,0 +1,200 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: '9999'
+nome: Encerramento do Arquivo Digital
+bloco: '9'
+nome_tabela_registros: Encerramento do Arquivo Digital
+paginas_manual:
+- 619
+- 622
+descricao: Este registro informa a quantidade total de registros (linhas) do arquivo da ECF. Há que se ressaltar que vários registros ocorrem mais de uma vez. Portanto, na contagem dos registros, deve-se levar em consideração todos os registros informados, ainda que repetidos.
+titulo_leiaute: 'REGISTRO 9999: ENCERRAMENTO DO ARQUIVO DIGITAL'
+regras_validacao_registro: []
+nivel_hierarquico: 1
+ocorrencia: '1:1'
+campos_chave: '[REG]'
+tabela_registros:
+  nivel: 1
+  obrigatoriedade_entrada:
+    codigo: O
+  obrigatoriedade_saida:
+    codigo: O
+  ocorrencia: '[1;1]'
+hierarquia:
+  pai: '0000'
+  filhos: []
+  irmaos:
+  - '0001'
+  - 0990
+  - C001
+  - C990
+  - E001
+  - E990
+  - J001
+  - J990
+  - K001
+  - K990
+  - L001
+  - L990
+  - M001
+  - M990
+  - N001
+  - N990
+  - P001
+  - P990
+  - Q001
+  - Q990
+  - S001
+  - T001
+  - T990
+  - U001
+  - U990
+  - V001
+  - V990
+  - W001
+  - W990
+  - X001
+  - X990
+  - Y001
+  - Y990
+  - '9001'
+  - '9990'
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto fixo contendo a identificação do registro (9999).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[9999]'
+  obrigatorio: true
+- numero: 2
+  campo: QTD_LIN
+  descricao: Quantidade total de registros do arquivo.
+  tipo: N
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|9999|8007|'
+  explicacao:
+  - valor: '|9999|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|8007|'
+    descricao: A quantidade total de registros do arquivo da ECF é 8.007 (oito mil e sete registros).
+  observacoes:
+  - 'Anexos:'
+  - Anexo I – Tabelas Dinâmicas
+  - Arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” acessível no link http://sped.rfb.gov.br/pasta/show/1644.
+  - (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+  - 'Regras de validação das tabelas dinâmicas:'
+  - Arquivos “SPEDECF_DINAMICO_2021$SPEDECF_DINAMICA_AAAA_REGRAS” no diretório C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas.
+  - Onde AAAA = Nome do registro.
+  - (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+  - Anexo II – Alterações do Manual
+  - II.1 Alterações publicadas em 24/04/2026
+  - 'Em relação a este Manual, foram realizadas as seguintes alterações/inclusões:'
+  - a) Adição do item 1.32 Lei Complementar nº 224, de 26 de dezembro de 2025 e Instrução Normativa RFB nº 2.305, de 31 de dezembro de 2025
+  - b) Adição do item 1.33. Outras Exclusões sem Relacionamento
+  - c) Registro 0020
+  - a. Campo IND_ALIQ_CSLL – criação de duas novas alíquotas transitórias – 12% e 17,5% - para os anos de 2026/27, conforme LC 224/25.
+  - b. Campo IND_PJ_HAB – para as pessoas jurídicas que conseguiram, durante o período de vigência da Medida Provisória que concedeu o REDATA, usufruíram do
+  - benefício.
+  - d) Bloco P – item XII. Breve descrição sobre os impactos da Lei Complementar nº 224/25 e IN RFB nº 2.305/25 na ECF.
+  - 'e) Registro L100_A:'
+  - 'a. Linhas convertidas de Analítica para Sintética: 2.01.01.17.12; 2.01.01.17.13'
+  - 'b. Criação das linhas: 2.01.01.17.12.10; 2.01.01.17.12.20; 2.01.01.17.13.10; 2.01.01.17.13.20; 2.02.01.11.11; 2.02.01.11.11.10; 2.02.01.11.11.20; 2.02.01.11.12;'
+  - 2.02.01.11.12.10; 2.02.01.11.12.20
+  - 'f) Registro L100_B:'
+  - 'g) Registro L300_A:'
+  - 'a. Criação da linha: 3.01.01.01.01.35;'
+  - 'h) Registro L300_B:'
+  - 'a. Criação das linhas: 817990100; 817990150; 817990200;'
+  - 'i) Registro M300_A:'
+  - 'a. Criação das linhas: 8.1101; 8.1401 e 8.1601;'
+  - b. Criação de novas regras no registro.
+  - 'j) Registro M300_R:'
+  - 'a. Criação das linhas: 183.1101; 183.1401 e 183.1601;'
+  - b. Criação de novas regras no registro.
+  - 'k) Registro M300_B:'
+  - 'a. Criação das linhas: 6.1101; 6.1401 e 6.1601;'
+  - b. Criação de novas regras no registro.
+  - 'l) Registro M300_C:'
+  - 'a. Criação das linhas: 6.1101; 6.1401 e 6.1601;'
+  - b. Criação de novas regras no registro.
+  - 'm) Registro M350_A:'
+  - 'a. Criação das linhas: 8.1101; 8.1401 e 8.1601;'
+  - b. Criação de novas regras no registro.
+  - 'n) Registro M350_R:'
+  - 'a. Criação das linhas: 183.1101; 183.1401 e 183.1601;'
+  - b. Criação de novas regras no registro.
+  - 'o) Registro M300_B:'
+  - 'a. Criação das linhas: 6.1101; 6.1401 e 6.1601;'
+  - b. Criação de novas regras no registro.
+  - 'p) Registro M300_C:'
+  - 'a. Criação das linhas: 6.1101; 6.1401 e 6.1601;'
+  - b. Criação de novas regras no registro.
+  - 'q) Registro N620:'
+  - 'a. Criação das linhas: 9.1; 11.1; 12.1; 13.1; 14.1; 15.1; 16.1 e 17.001'
+  - b. Criação de novas regras no registro.
+  - r) Registro N630A
+  - 'a. Criação das linhas: 6.1: 8.1; 10.1; 11.1; 12.1; 13.1; 14.1; 15.1; 16.01.01; 16.15'
+  - b. Criação de novas regras no registro.
+  - s) Registro N630B
+  - 'a. Criação das linhas: 6.1; 8.1; 9.1; 10.1; 11.1; 12.1; 13.1; 14.1; 15.001; 15.15'
+  - b. Criação de novas regras no registro.
+  - t) Registro N630C
+  - 'a. Criação das linhas: 6.1; 8.1; 9.1; 10.1; 11.1; 12.1; 13.1; 14.1; 15.01.01; 15.15'
+  - b. Criação de novas regras no registro.
+  - u) Registro N670
+  - a. Linha 2 – alteração da fórmula para cálculo das novas alíquotas de CSLL.
+  - b. Criação de novas regras no registro.
+  - v) Registro P200
+  - 'a. Criadas as linhas: 25.100; 25.110; 25.120; 25.130; 25.140; 25.150; 25.160; 25.170; 25.180; 25.190; 25.200; 25.210; 25.220; 25.230; 25.240; 25.250.'
+  - b. Criação de novas regras no registro.
+  - w) Registro P300
+  - 'a. Criadas as linhas: 14.10; 18; 18.100; 18.200; 18.300'
+  - b. Criação de novas regras no registro.
+  - x) Registro P400
+  - 'a. Criadas as linhas: 20.100; 20.110; 20.120; 20.130; 20.140; 20.150; 20.160; 20.170; 20.180; 20.190; 20.200; 20.210; 20.220; 20.230.'
+  - b. Criação de novas regras no registro.
+  - y) Registro P500
+  - 'a. Criadas as linhas: 12.10; 18; 18.100; 18.200; 18.300;'
+  - b. Criação de novas regras no registro.
+  - c. Linha 6 - recebeu data final de 07/01/2026, em virtude da Lei Complementar nº 225/26 ter revogado o dispositivo.
+  - d. Linha 2 – alteração da fórmula para cálculo das novas alíquotas de CSLL.
+  - z) Bloco S
+  - 'a. Criação dos registros: S001, S030, S100, S150, S300, S500 e S700, bem como suas respectivas regras.'
+  - aa) Registro T181
+  - a. Linha 6 – alteração da fórmula para cálculo das novas alíquotas de CSLL.
+  - b. Criação de novas regras no registro.
+  - bb) Registro X480
+  - a. Linhas 307 a 309.40 – informações acerca do Redata.
+  - b. Criação de novas regras no registro.
+  - II.2 Alterações publicadas em 20/05/2026
+  - 'Em relação a este Manual, foram realizadas as seguintes alterações/inclusões:'
+  - a) Adição do flag 10 - TEF - Tributação Específica do Futebol no campo FORMA_TRIB do registro 0010.
+  - b) Adição do flag 04 – SAF – Sociedade Anônima de Futebol no campo COD_QUALIF_PJ do registro 0010.
+  - c) Adição do flag S – SAF/TEF no campo FORMA_TRIB_PER do registro 0010.
+  - d) Adição de regras no registro 0010 para validação das informações relacionadas a SAF (as regras estão em amarelo nas regras de validação dos campos do registro 0010.)
+  - e) Adição do flag 11 - TEF - Tributação Específica do Futebol no campo COD_PLAN_REF do registro C040.
+  - II.3 Alterações publicadas em 09/07/2026
+  - 'Em relação a este Manual, foi realizada a seguinte alteração:'
+  - a) Alteração de obrigatoriedade de campos no registro Y600
+  - II.4 Alterações publicadas em 23/07/2026
+  - 'Em relação a este Manual, foram realizadas as seguintes alterações:'
+  - a) Criação do campo EVENTOS_SCP no registro 0000.
+  - b) Inclusão da opção 8 – Alteração do Sócio Ostensivo no campo IND_SIT_INI_PER do registro 0000
+  - c) Criação de regras relacionada ao campo EVENTOS_SCP do registro 0000
+  - d) Alteração da regra relacionada a DATA_FIN do registro 0000
+  - e) Adição de informações no item 1.31.

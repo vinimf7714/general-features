@@ -1,0 +1,485 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: '0000'
+nome: Abertura do Arquivo Digital e Identificação da Pessoa Jurídica
+bloco: '0'
+nome_tabela_registros: Abertura do Arquivo Digital e Identificação da Pessoa Jurídica
+paginas_manual:
+- 61
+- 69
+descricao: |-
+  Este registro identifica unicamente uma escrituração no PGE por meio dos seguintes campos:
+  - 0000.CNPJ – Campo CNPJ (CNPJ BÁSICO – 8 primeiras posições);
+  - 0000.COD_SCP – Campo CNPJ da SCP; e
+  - 0000.DT_FIN – Campo data fim da ECF.
+  Considerando a existência de apenas uma situação especial ou evento no ano, conforme tabela a seguir:
+
+  | SITUAÇÃO ESPECIAL OU EVENTO | ESCRITURAÇÕES | PRAZO DE ENTREGA | EXCEÇÕES |
+  |---|---|---|---|
+  | 1 – Extinção | Uma única ECF com data final igual a data da situação especial. | Até o último dia útil do 3º (terceiro) mês subsequente à data da situação especial. | Para situações especiais que ocorrerem entre janeiro e abril do ano calendário, a entrega é até o último dia útil do mês de julho. |
+  | 2 – Fusão | Uma única ECF com data final igual a data da situação especial. | Até o último dia útil do 3º (terceiro) mês subsequente à data da situação especial. | Para situações especiais que ocorrerem entre janeiro e abril do ano calendário, a entrega é até o último dia útil do mês de julho. |
+  | 3 - Incorporação \ Incorporada | Uma única ECF com data final igual a data da situação especial. | Até o último dia útil do 3º (terceiro) mês subsequente à data da situação especial. | Para situações especiais que ocorrerem entre janeiro e abril do ano calendário, a entrega é até o último dia útil do mês de julho. |
+  | 4 - Incorporação \ Incorporadora | Duas ECF: • Uma com data final igual a data da situação especial. • Outra com data inicial igual a data imediatamente posterior à situação especial. O indicador de início do período deve ser igual a 2 (resultante de cisão/fusão ou remanescente de cisão, ou realizou incorporação). O campo situação especial deve ser preenchido com “0” (Normal). | • A primeira deve ser entregue até o último dia útil do 3º (terceiro) mês subsequente à data da situação especial. • A segunda deve ser entregue no prazo das ECF normais. | • Para situações especiais que ocorrerem entre janeiro e abril do ano calendário, a entrega é até o último dia útil do mês de julho. • No caso de incorporada e incorporadora estiverem sobre o mesmo controle societário desde o ano calendário anterior ao evento não é necessária a entrega de ECF de situação especial. |
+  | 5 - Cisão total | Uma única ECF com data final igual a data da situação especial. | Até o último dia útil do 3º (terceiro) mês subsequente à data da situação especial. | Para situações especiais que ocorrerem entre janeiro e abril do ano calendário, a entrega é até o último dia útil do mês de julho. |
+
+  | SITUAÇÃO ESPECIAL OU EVENTO | ESCRITURAÇÕES | PRAZO DE ENTREGA | EXCEÇÕES |
+  |---|---|---|---|
+  | 6 - Cisão parcial | Duas ECF: • Uma com data final igual a data da situação especial. • Outra com data inicial igual a data imediatamente posterior à situação especial. O indicador de início do período deve ser igual a 6 – Realizou incorporação ou resultante de cisão parcial O campo situação especial deve ser preenchido com “0” (Normal). | • A primeira deve ser entregue até o último dia útil do 3º (terceiro) mês subsequente à data da situação especial. • A segunda deve ser entregue no prazo das ECF normais. | Para situações especiais que ocorrerem entre janeiro e abril do ano calendário, a entrega é até o último dia útil do mês de julho. |
+  | 7 – Mudança de Qualificação de Pessoa Jurídica Observação: Será utilizado quando a pessoa jurídica mudar a qualificação de “PJ em Geral” para “Financeira”, de “PJ em Geral” para “Seguradora”, de “Financeira” para “PJ em Geral”, de “Financeira” para “Seguradora”, de “Seguradora” para “PJ em Geral” ou de “Seguradora” para “Financeira”. | Duas ECF: • Uma com data final igual a data do evento. • Outra com data inicial igual a data imediatamente posterior ao evento. O indicador de início do período deve ser igual a 3 (Resultante de mudança de qualificação de pessoa jurídica). O campo situação especial deve ser preenchido com “0” (Normal). | As duas ECF devem ser entregues no prazo das ECF normais. | |
+  | 8 – Desenquadramento de Imune/Isenta | Duas ECF: • Uma com data final igual a data do evento. • Outra com data inicial igual a data imediatamente posterior ao evento. O indicador de início do período deve ser igual a 4 (Início de obrigatoriedade da entrega no curso do ano calendário). O campo situação especial deve ser preenchido com “0” (Normal). | As duas ECF devem ser entregues no prazo das ECF normais. | |
+  | 9 – Inclusão no Simples nacional: Esse evento indica que a empresa passou a ser do simples nacional. | Uma ECF: • Uma com data final igual a data do evento menos um dia. | A ECF deve ser entregue no prazo das ECF normais. | |
+
+  Observação: No caso de situação especial ocorrida em 31 de dezembro, somente será exigida do contribuinte a apresentação de uma ECF, de 1o de janeiro até 31 de dezembro do ano-calendário, com a informação de situação especial no campo 11 (indicador de situação especial).
+titulo_leiaute: 'REGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICAÇÃO DA PESSOA JURÍDICA'
+regras_validacao_registro: []
+nivel_hierarquico: 0
+ocorrencia: '1:1'
+campos_chave: '[REG]'
+tabela_registros:
+  nivel: 0
+  obrigatoriedade_entrada:
+    codigo: O
+  obrigatoriedade_saida:
+    codigo: O
+  ocorrencia: '[1;1]'
+hierarquia:
+  pai: null
+  filhos:
+  - '0001'
+  - 0990
+  - C001
+  - C990
+  - E001
+  - E990
+  - J001
+  - J990
+  - K001
+  - K990
+  - L001
+  - L990
+  - M001
+  - M990
+  - N001
+  - N990
+  - P001
+  - P990
+  - Q001
+  - Q990
+  - S001
+  - T001
+  - T990
+  - U001
+  - U990
+  - V001
+  - V990
+  - W001
+  - W990
+  - X001
+  - X990
+  - Y001
+  - Y990
+  - '9001'
+  - '9990'
+  - '9999'
+  irmaos: []
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto fixo contendo a identificação do registro (0000).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[0000]'
+  obrigatorio: true
+- numero: 2
+  campo: NOME_ESC
+  descricao: Texto fixo contendo a identificação do tipo de Sped (LECF).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[LECF]'
+  obrigatorio: true
+- numero: 3
+  campo: COD_VER
+  descricao: |-
+    Código da versão do leiaute.
+    Observação: Para o ano-calendário 2025 e situações especiais de 2026, o leiaute é o 0012.
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: CNPJ
+  descricao: |-
+    Preencher este campo com o número de inscrição no Cadastro Nacional da Pessoa Jurídica (CNPJ) do declarante.
+    Observação: No caso de arquivo de Sociedade em Conta de Participação (SCP), deve ser informado neste campo o CNPJ do sócio ostensivo. O CNPJ da SCP, no caso de arquivo da SCP, será informado no campo 0000.COD_SCP.
+  tipo: C
+  tamanho: 14
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: NOME
+  descricao: Nome empresarial da pessoa jurídica ou da Sociedade em Conta de Participação (SCP).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: IND_SIT_INI_PER
+  descricao: |-
+    Indicador do Início do Período:
+    0 – Regular (Início no primeiro dia do ano).
+    1 – Abertura (Início de atividades no ano-calendário).
+    2 – Resultante de fusão ou cisão total.
+    3 – Resultante de Mudança de Qualificação da Pessoa Jurídica.
+    4 – Início de obrigatoriedade da entrega no curso do ano calendário - Exclusão do Simples.
+    5 – Resultante de desenquadramento como imune ou isenta do IRPJ).
+    6 – Realizou incorporação ou remanescente de cisão parcial.
+    7 – Retorno às atividades de empresas inativas
+    8 – Alteração do Sócio Ostensivo
+  tipo: N
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[0; 1; 2; 3; 4;5;6;7;8]'
+  obrigatorio: true
+- numero: 7
+  campo: SIT_ESPECIAL
+  descricao: |-
+    Indicador de Situação Especial e Outros Eventos:
+    0 – Normal (Sem ocorrência de situação especial ou evento)
+    1 – Extinção
+    2 – Fusão
+    3 – Incorporação \ Incorporada
+    4 – Incorporação \ Incorporadora
+    5 – Cisão Total
+    6 – Cisão Parcial
+    7 – Mudança de Qualificação da Pessoa Jurídica
+    8 – Desenquadramento de Imune/Isenta;
+    9 – Inclusão no Simples Nacional
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[0; 1; 2; 3; 4; 5; 6; 7; 8; 9]'
+  obrigatorio: true
+- numero: 8
+  campo: PAT_REMAN_CIS
+  descricao: |-
+    Patrimônio Remanescente em Caso de Cisão (%).
+    Observação: Necessário para o controle de saldos na conta da parte B do LALUR.
+  tipo: N
+  tamanho: 8
+  decimal: 4
+  valores_validos: '[0 a 100]'
+  obrigatorio: false
+- numero: 9
+  campo: DT_SIT_ESP
+  descricao: 'Data da Situação Especial ou Evento: Informar a data da deliberação do evento ou, em caso de extinção da pessoa jurídica, a data em que se ultimou a sua liquidação.'
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 10
+  campo: DT_INI
+  descricao: 'Data do Início do Período: Data inicial das informações contidas no arquivo. Este campo deve ser preenchido com a data inicial do período correspondente ao ano- calendário a que se referir a ECF.'
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 11
+  campo: DT_FIN
+  descricao: |-
+    Data do Fim do Período: Data final das informações contidas no arquivo. A data correspondente ao período final é 31 de dezembro, no caso de situação normal. Nos demais casos, o período final é deve ser com base na data do evento.
+    Atenção: Considera-se período final, nos casos de situação especial, as seguintes datas: a) Extinção: A data em que se ultimou a liquidação da pessoa jurídica; b) Fusão, Incorporação/Incorporada, Incorporação/Incorporadora, Cisão Total, Cisão Parcial e Inclusão no Simples Nacional: A data da deliberação do evento de incorporação, fusão ou cisão.
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 12
+  campo: RETIFICADORA
+  descricao: |-
+    A pessoa jurídica deve assinalar este campo no caso de escrituração retificadora ou escrituração com mudança de forma de tributação:
+    S – ECF retificadora
+    N – ECF original
+    F – ECF original com mudança de forma de tributação (Art. 7º, § 2º, da Instrução Normativa RFB nº 2.004/2021).
+    A pessoa jurídica poderá efetuar a remessa de arquivo em retificação ao arquivo anteriormente remetido, observando-se a permissão, as regras e prazos estabelecidos pela Secretaria da Receita Federal do Brasil (RFB).
+    Atenção: A substituição das ECF já transmitidas deverá ser feita na sua íntegra, pois a ECF não aceita arquivos complementares para o mesmo período informado. Como há controle de saldos, se houver substituição de uma ECF, pode haver a necessidade de substituição de ECF já transmitidas de anos posteriores.
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N; F]'
+  obrigatorio: true
+- numero: 13
+  campo: NUM_REC
+  descricao: 'Número do Recibo da ECF Anterior (hashcode): Este campo deve ser preenchido com o número constante no recibo de entrega da ECF a ser retificada, nos casos de 0000.RETIFICADORA = “S” ou “F”.'
+  tipo: C
+  tamanho: 40
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 14
+  campo: TIP_ECF
+  descricao: |-
+    Indicador do Tipo da ECF:
+    0 – ECF de empresa não participante de SCP como sócio ostensivo.
+    1 – ECF de empresa participante de SCP como sócio ostensivo.
+    2 – ECF da SCP.
+  tipo: N
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[0; 1; 2]'
+  obrigatorio: true
+- numero: 15
+  campo: COD_SCP
+  descricao: |-
+    CNPJ da SCP (ANEXOS I e VIII, da Instrução Normativa RFB nº 2.119, de 08 de dezembro de 2022).
+    Observação: Só deve ser preenchido pela própria SCP (Não é preenchido pelo sócio ostensivo).
+  tipo: C
+  tamanho: 14
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 16
+  campo: EVENTO_SCP
+  descricao: |-
+    Situações de eventos, sem ser especial, que envolvem as SCPs.
+    Indicador de Eventos de ECP:
+    0 – Normal (Sem ocorrência de evento de SCP)
+    1 – Alteração do Sócio Ostensiva
+  tipo: N
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[0;1]'
+  obrigatorio: false
+regras_validacao_campos:
+- numero: 3
+  campo: COD_VER
+  regras:
+  - regra: REGRA_LEIAUTE_VIGENTE
+    descricao: Verifica se o leiaute utilizado é válido para o período da escrituração.
+    tipo: Erro
+- numero: 4
+  campo: CNPJ
+  regras:
+  - regra: REGRA_VALIDA_CNPJ
+    descricao: Verifica se a regra de formação do código é válida.
+    tipo: Erro
+- numero: 8
+  campo: PAT_REMAN_CIS
+  regras:
+  - regra: REGRA_PAT_REMAN_CIS_OBRIGATORIO
+    descricao: Verifica se o campo foi preenchido quando 0000.SIT_ESPECIAL for igual a “6” (Cisão Parcial).
+    tipo: Erro
+  - regra: REGRA_NAO_PREENCHER_SIT_ESP_CISAO_PARCIAL
+    descricao: Verifica se o campo está em branco quando 0000.SIT_ESPECIAL for diferente de “6” (Cisão Parcial).
+    tipo: Erro
+- numero: 9
+  campo: DT_SIT_ESP
+  regras:
+  - regra: REGRA_DT_SIT_OBRIGATORIO
+    descricao: Verifica se o campo foi preenchido quando 0000.SIT_ESPECIAL estiver preenchido e for diferente de “0” (Normal = Sem situação especial no período).
+    tipo: Erro
+  - regra: REGRA_NAO_PREENCHER_SIT_ESP_NORMAL
+    descricao: Verifica se campo está em branco quando 0000.SIT_ESPECIAL for igual a “0” (Normal = Sem situação especial no período).
+    tipo: Erro
+- numero: 10
+  campo: DT_INI
+  regras:
+  - regra: REGRA_DATA_MINIMA
+    descricao: Verifica se 0000.DT_INI é maior que 01/01/2014.
+    tipo: Erro
+  - regra: REGRA_DT_INICIO_ESCRITURACAO
+    descricao: Verifica, quando o 0000.IND_SIT_INI_PER é igual a “0” (Normal), se 0000.DT_INI é igual a 01/01/XXXX.
+    tipo: Erro
+  - regra: REGRA_SEM_LEIAUTE
+    descricao: Verifica se, para o ano informado, há leiaute disponível.
+    tipo: Erro
+  - regra: REGRA_INTERPOLACAO_PGE
+    descricao: Verifica se existe no programa da ECF outra escrituração que compreende ou está compreendicda no período da escrituração a ser criada ou importada.
+    tipo: Aviso
+  - regra: REGRA_DATA_INI_MAIOR
+    descricao: Verifica se 0000.DT_FIN foi preenchido com a data maior que a data informada em 0000.DT_INI.
+    tipo: Erro
+  - regra: REGRA_ANO_DIFERENTE
+    descricao: Verifica se o ano informado em 0000.DT_FIN é igual ao ano informado em 0000.DT_INI.
+    tipo: Erro
+- numero: 11
+  campo: DT_FIN
+  regras:
+  - regra: REGRA_DT_FINAL_ESCRITURACAO
+    descricao: Verifica, quando 0000.SIT_ESPECIAL for igual a “0” (Normal) OU 0000.EVENTO_SCP for igual 0 – Normal (Sem ocorrência de evento SCP), se o dia e o mês em 0000.DT_FIN é igual a 31/12.
+    tipo: Erro
+  - regra: REGRA_EVENTO_ACONTECIMENTO
+    descricao: |-
+      Verifica:
+      - Quando 0000.SIT_ESPECIAL for igual a “1” (Extinção), “2” (Fusão), “3” (Incorporação/Incorporada), “4” (Incorporação/Incorporadora), “5” (Cisão Total) ou “6” (Cisão Parcial), se 0000.DT_FIN é igual a 0000.DT_SIT_ESP.
+      - Quando 0000.SIT_ESPECIAL for “7” (Transformação), “8” (Desenquadramento de Imune e Isenta” ou “9” (Inclusão no Simples Nacional), se 0000.DT_FIN é igual a 0000.DT_SIT_ESP – 1.
+    tipo: Erro
+- numero: 13
+  campo: NUM_REC
+  regras:
+  - regra: REGRA_REC_ANTERIOR_OBRIGATORIO
+    descricao: Verifica, quando o campo 0000.RETIFICADORA é igual a “S” (ECF Retificadora) ou “F” (ECF original com mudança de forma de tributação), se 0000.NUM_REC está preenchido.
+    tipo: Erro
+  - regra: REGRA_DV_RECIBO
+    descricao: Verifica se o número do recibo informado é válido.
+    tipo: Erro
+  - regra: REGRA_NRO_REC_ANTERIOR_NAO_SE_APLICA
+    descricao: Verifica, quando 0000.RETIFICADORA é igual a “N” (ECF Original), se 0000.NUM_REC não está preenchido.
+    tipo: Erro
+regras_validacao_campos_observacoes: |-
+  Nº Campo Regras de Validação do Campo Tipo
+  15 COD_SCP REGRA_SCP_OBRIGATORIO: Verifica, quando 0000.TIP_ECF é igual a “2” (ECF da SCP), se 0000.COD_SCP está preenchido. Erro
+  REGRA_SCP_NAO_PREENCHER: Verifica, quando 0000.TIP_ECF é igual a “0” (ECF de empresa não participante de SCP como sócio ostensivo) Erro ou “1” (ECF de empresa participante de SCP como sócio ostensivo), se 0000.COD_SCP não está preenchido.
+  REGRA_VALIDA_TAM_SCP: O campo 0000.COD_SCP da SCP deve conter exatamente 14 números. Erro
+  REGRA_CNPJ_DIFERENTE_SCP: Verifica se 0000.COD_SCP é diferente de 0000.CNPJ. Erro
+  REGRA_VALIDA_CNPJ: Verifica se a regra de formação do código é válida. Erro
+  16 EVENTO_SCP REGRA_EVENTO_SCP_OBRIGATORIO: Verifica, quando 0000.TIP_ECF é igual a “2” (ECF da SCP) E 0000.SIT_ESPECIAL é igual a 0 – Erro
+  Normal (Sem ocorrência de evento especial) E 0000.EVENTO_SCP não está preenchido.
+  REGRA_EVENTO_SCP_NAO_PREENCHER: Verifica 0000.EVENTO_SCP está preenchido E (0000.TIP_ECF é diferente de 2 OU Erro
+  0000.SIT_ESPECIAL diferente de zero).
+secoes_repetidas_no_manual:
+- chave: regras_validacao_campos
+  titulo_secao: I – Regras de Validação dos Campos
+  nota: O manual repete esta seção para o mesmo registro (possivelmente com redação diferente); ambas as versões foram preservadas.
+  conteudo:
+  - numero: 3
+    campo: COD_VER
+    regras:
+    - regra: REGRA_LEIAUTE_VIGENTE
+      descricao: Verifica se o leiaute utilizado é válido para o período da escrituração.
+      tipo: Erro
+  - numero: 4
+    campo: CNPJ
+    regras:
+    - regra: REGRA_VALIDA_CNPJ
+      descricao: Verifica se a regra de formação do código é válida.
+      tipo: Erro
+  - numero: 8
+    campo: PAT_REMAN_CIS
+    regras:
+    - regra: REGRA_PAT_REMAN_CIS_OBRIGATORIO
+      descricao: Verifica se o campo foi preenchido quando 0000.SIT_ESPECIAL for igual a “6” (Cisão Parcial).
+      tipo: Erro
+    - regra: REGRA_NAO_PREENCHER_SIT_ESP_CISAO_PARCIAL
+      descricao: Verifica se o campo está em branco quando 0000.SIT_ESPECIAL for diferente de “6” (Cisão Parcial).
+      tipo: Erro
+  - numero: 9
+    campo: DT_SIT_ESP
+    regras:
+    - regra: REGRA_DT_SIT_OBRIGATORIO
+      descricao: Verifica se o campo foi preenchido quando 0000.SIT_ESPECIAL estiver preenchido e for diferente de “0” (Normal = Sem situação especial no período).
+      tipo: Erro
+    - regra: REGRA_NAO_PREENCHER_SIT_ESP_NORMAL
+      descricao: Verifica se campo está em branco quando 0000.SIT_ESPECIAL for igual a “0” (Normal = Sem situação especial no período).
+      tipo: Erro
+  - numero: 10
+    campo: DT_INI
+    regras:
+    - regra: REGRA_DATA_MINIMA
+      descricao: Verifica se 0000.DT_INI é maior que 01/01/2014.
+      tipo: Erro
+    - regra: REGRA_DT_INICIO_ESCRITURACAO
+      descricao: Verifica, quando o 0000.IND_SIT_INI_PER é igual a “0” (Normal), se 0000.DT_INI é igual a 01/01/XXXX.
+      tipo: Erro
+    - regra: REGRA_SEM_LEIAUTE
+      descricao: Verifica se, para o ano informado, há leiaute disponível.
+      tipo: Erro
+    - regra: REGRA_INTERPOLACAO_PGE
+      descricao: Verifica se existe no programa da ECF outra escrituração que compreende ou está compreendicda no período da escrituração a ser criada ou importada.
+      tipo: Aviso
+    - regra: REGRA_DATA_INI_MAIOR
+      descricao: Verifica se 0000.DT_FIN foi preenchido com a data maior que a data informada em 0000.DT_INI.
+      tipo: Erro
+    - regra: REGRA_ANO_DIFERENTE
+      descricao: Verifica se o ano informado em 0000.DT_FIN é igual ao ano informado em 0000.DT_INI.
+      tipo: Erro
+  - numero: 11
+    campo: DT_FIN
+    regras:
+    - regra: REGRA_DT_FINAL_ESCRITURACAO
+      descricao: Verifica, quando 0000.SIT_ESPECIAL for igual a “0” (Normal), se o dia e o mês em 0000.DT_FIN é igual a 31/12.
+      tipo: Erro
+    - regra: REGRA_EVENTO_ACONTECIMENTO
+      descricao: |-
+        Verifica:
+        - Quando 0000.SIT_ESPECIAL for igual a “1” (Extinção), “2” (Fusão), “3” (Incorporação/Incorporada), “4” (Incorporação/Incorporadora), “5” (Cisão Total) ou “6” (Cisão Parcial), se 0000.DT_FIN é igual a 0000.DT_SIT_ESP.
+        - Quando 0000.SIT_ESPECIAL for “7” (Transformação), “8” (Desenquadramento de Imune e Isenta” ou “9” (Inclusão no Simples Nacional), se 0000.DT_FIN é igual a 0000.DT_SIT_ESP – 1.
+      tipo: Erro
+  - numero: 13
+    campo: NUM_REC
+    regras:
+    - regra: REGRA_REC_ANTERIOR_OBRIGATORIO
+      descricao: Verifica, quando o campo 0000.RETIFICADORA é igual a “S” (ECF Retificadora) ou “F” (ECF original com mudança de forma de tributação), se 0000.NUM_REC está preenchido.
+      tipo: Erro
+    - regra: REGRA_DV_RECIBO
+      descricao: Verifica se o número do recibo informado é válido.
+      tipo: Erro
+    - regra: REGRA_NRO_REC_ANTERIOR_NAO_SE_APLICA
+      descricao: Verifica, quando 0000.RETIFICADORA é igual a “N” (ECF Original), se 0000.NUM_REC não está preenchido.
+      tipo: Erro
+  - numero: 15
+    campo: COD_SCP
+    regras:
+    - regra: REGRA_SCP_OBRIGATORIO
+      descricao: Verifica, quando 0000.TIP_ECF é igual a “2” (ECF da SCP), se 0000.COD_SCP está preenchido.
+      tipo: Erro
+    - regra: REGRA_SCP_NAO_PREENCHER
+      descricao: Verifica, quando 0000.TIP_ECF é igual a “0” (ECF de empresa não participante de SCP como sócio ostensivo) ou “1” (ECF de empresa participante de SCP como sócio ostensivo), se 0000.COD_SCP não está preenchido.
+      tipo: Erro
+    - regra: REGRA_VALIDA_TAM_SCP
+      descricao: O campo 0000.COD_SCP da SCP deve conter exatamente 14 números.
+      tipo: Erro
+    - regra: REGRA_CNPJ_DIFERENTE_SCP
+      descricao: Verifica se 0000.COD_SCP é diferente de 0000.CNPJ.
+      tipo: Erro
+    - regra: REGRA_VALIDA_CNPJ
+      descricao: Verifica se a regra de formação do código é válida.
+      tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|0000|LECF|0011|11111111000191|EMPRESA TESTE|0|0|||01012025|31122025|N||0||'
+  explicacao:
+  - valor: '|0000|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|LECF|'
+    descricao: Identificação do tipo de Sped (LECF = Escrituração Contábil Fiscal).
+  - valor: '|0009|'
+    descricao: Código da versão do leiaute (Versão 0011).
+  - valor: '|11111111000191|'
+    descricao: 'CNPJ: (11.111.111/0001-91).'
+  - valor: '|EMPRESA TESTE|'
+    descricao: Nome empresarial.
+  - valor: '|0|'
+    descricao: Indicador de início do período (0 = Regular – início no primeiro dia do ano).
+  - valor: '|0|'
+    descricao: Situação especial (0 = Normal – sem ocorrência de situação especial ou evento).
+  - valor: '||'
+    descricao: Patrimônio remanescente em caso de cisão (Não há).
+  - valor: '||'
+    descricao: Data da situação especial ou evento (Não há).
+  - valor: '|01012025|'
+    descricao: Data inicial das informações contidas no arquivo (01/01/2025).
+  - valor: '|31122025|'
+    descricao: Data final das informações contidas no arquivo (31/12/2025).
+  - valor: '|N|'
+    descricao: Escrituração original (não é retificadora).
+  - valor: '||'
+    descricao: Número do recibo da ECF a ser retificada (Não há).
+  - valor: '|0|'
+    descricao: Tipo da ECF (0 = ECF da empresa não participante de SCP).
+  - valor: '||'
+    descricao: Identificação da SCP (Não há).

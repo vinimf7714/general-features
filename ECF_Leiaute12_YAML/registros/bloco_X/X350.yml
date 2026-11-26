@@ -1,0 +1,378 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: X350
+nome: Participações no Exterior – Resultado do Período de Apuração
+bloco: X
+nome_tabela_registros: Participações no Exterior - Resultado do Período de Apuração
+paginas_manual:
+- 483
+- 486
+descricao: |-
+  Este registro deve ser preenchido pela pessoa jurídica domiciliada no Brasil que tenha, no ano-calendário, obtido resultados no exterior decorrente de participação no capital de pessoa jurídica domiciliada no exterior. Este registro também deve ser preenchido pela pessoa jurídica optante pelo Refis que se submeteu ao regime de tributação pelo lucro presumido. Todos os valores são informados em reais.
+  Atenção:
+  1) A pessoa jurídica que arbitrar os lucros das filiais, sucursais e controladas, conforme o disposto no art. 16 da Lei nº 9.430, de 1996, deve preencher somente X350.LUC_ARB_ANT_IMP, X350.
+  IMP_DEV_ARB e X350.LUC_ARB_PER_APUR.
+  2) A conversão em Reais dos valores das demonstrações financeiras elaboradas pelas filiais, sucursais, controladas e coligadas, no exterior, deve ser efetuada tomando-se por base a taxa de câmbio para venda, do dia das demonstrações financeiras em que tenham sido apurados os lucros, fixada pelo Banco Central do Brasil, da moeda do país onde estiver domiciliada a filial, sucursal, controlada ou coligada (Lei nº 9.249, de 1995, art. 25, § 4º; IN SRF nº 213, de 2002, art. 6º, § 3º).
+  3) Caso a moeda do país de domicílio da filial, sucursal, controlada ou coligada não tenha cotação no Brasil, os valores devem ser primeiramente convertidos em Dólares dos Estados Unidos da América e depois em Reais (IN SRF nº 213, de 2002, art. 6º, § 4º).
+  4) As informações contidas neste registro referem-se à demonstração do resultado da investida no exterior e devem ser informadas pelo valor integral (100%) e não pelo valor correspondente à participação da investidora nos resultados da investida.
+  Observação: Todos os campos devem ser informados, ainda que o valor a ser informado seja “zero”.
+titulo_leiaute: 'REGISTRO X350: PARTICIPAÇÕES NO EXTERIOR – RESULTADO DO PERÍODO DE APURAÇÃO'
+regras_validacao_registro: []
+nivel_hierarquico: 3
+ocorrencia: 0:1
+campos_chave: REG
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: null
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020. IND_PART_EXT = "S"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: X340
+  filhos: []
+  irmaos:
+  - X351
+  - X352
+  - X353
+  - X354
+  - X355
+  - X356
+  - X357
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (X350).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[X350]'
+  obrigatorio: true
+- numero: 2
+  campo: REC_LIQ
+  descricao: 'Receita Líquida: Receita líquida de todas as atividades exploradas pela filial, sucursal, controlada ou coligada residente ou domiciliada no exterior.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: CUSTOS
+  descricao: 'Custos dos Bens e Serviços Vendidos: Total dos custos das atividades exploradas pela filial, sucursal, controlada ou coligada domiciliada no exterior.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: LUC_BRUTO
+  descricao: 'Lucro Bruto: Deve ser igual a (X350.REC_LIQ – X350.CUSTOS)'
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: REC_AUFERIDAS
+  descricao: 'Receitas Financeiras Auferidas com a Vinculada no Brasil: Valor total das receitas financeiras auferidas pela filial, sucursal, controlada ou coligada domiciliada no exterior nas operações efetuadas com a pessoa jurídica vinculada domiciliada no Brasil.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: REC_OUTRAS_OPER
+  descricao: 'Outras Receitas Operacionais: Valor total das outras receitas operacionais da filial, sucursal, controlada ou coligada domiciliada no exterior.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 7
+  campo: DESP_BRASIL
+  descricao: 'Despesas Financeiras Pagas ou Creditadas à Vinculada no Brasil: Valor total das despesas financeiras pagas ou creditadas pela filial, sucursal, controlada ou coligada domiciliada no exterior nas operações efetuadas com a pessoa jurídica vinculada domiciliada no Brasil.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 8
+  campo: DESP_OPER
+  descricao: 'Despesa Operacionais: Valor total das despesas operacionais da filial, sucursal, controlada ou coligada residente ou domiciliada no exterior.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 9
+  campo: LUC_OPER
+  descricao: 'Lucro Operacional: Deve ser igual a (X350.LUC_BRUTO + X350.REC_AUFERIDAS + X350.REC_OUTRAS_OPER – X350.DESP_BRASIL – X350.DESP_OPER)'
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 10
+  campo: REC_PARTIC
+  descricao: 'Receitas de Participação em Controladas, Coligadas, Filiais ou Sucursais: Valor total das receitas de participação em controladas, coligadas, filiais ou sucursais residentes ou domiciliadas no exterior.'
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 11
+  campo: REC_OUTRAS
+  descricao: 'Outras Receitas: Valor total das demais receitas, ou seja, daquelas que não estão ligadas a atividade principal ou acessória da filial, sucursal, controlada ou coligada domiciliada no exterior.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 12
+  campo: DESP_OUTRAS
+  descricao: 'Outras Despesas: Valor total das demais despesas, ou seja, daquelas que não estão ligadas a atividade principal ou acessória da filial, sucursal, controlada ou coligada domiciliada no exterior.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 13
+  campo: LUC_LIQ_ANT_IR
+  descricao: Lucro Líquido Antes do Imposto de Renda. Deve ser igual a (X350.LUC_OPER + X350.REC_PARTIC + X350.REC_OUTRAS – X350.DESP_OUTRAS)
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 14
+  campo: LUC_ARB_ANT_IR
+  descricao: Lucro Arbitrado Antes do Imposto de Renda.
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 15
+  campo: IMP_DEV
+  descricao: 'Imposto Devido: Valor do tributo incidente sobre o lucro devido no país de domicílio da filial, sucursal, controlada ou coligada. O tributo pago no exterior, a ser compensado com o imposto devido no Brasil, deve ser convertido em Reais.'
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 16
+  campo: LUC_LIQ
+  descricao: Lucro líquido do Período de Apuração. Deve ser igual a (X350.LUC_LIQ_ANT_IR+ LUC_ARB_ANT_IR – X350.IMP_DEV)
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_campos:
+- numero: 2
+  campo: REC_LIQ
+  regras:
+  - regra: REGRA_CAMPO_X350_OBRIGATORIO
+    descricao: Verifica se o campo não está preenchido e o campo 0010.forma_trib for diferente de 2 ou 4 ou 6 ou 7.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_NAO_PREENCHER
+    descricao: Verifica se se o campo está preenchido e o campo 0010.forma_trib é igual a 6.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_OPCIONAL
+    descricao: Verifica se o campo está preenchido e o campo 0010.forma_trib é igual a 2 ou 4 ou 7.
+    tipo: Aviso
+- numero: 3
+  campo: CUSTOS
+  regras:
+  - regra: REGRA_CAMPO_X350_OBRIGATORIO
+    descricao: Verifica se o campo não está preenchido e o campo 0010.forma_trib é diferente de 2 ou 4 ou 6 ou 7.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_NAO_PREENCHER
+    descricao: Verifica se se o campo está preenchido e o campo 0010.forma_trib é igual a 6.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_OPCIONAL
+    descricao: Verifica se o campo está preenchido e o campo 0010.forma_trib é igual a 2 ou 4 ou 7.
+    tipo: Aviso
+- numero: 4
+  campo: LUC_BRUTO
+  regras:
+  - regra: REGRA_LUC_BRUTO_VALOR
+    descricao: Verifica se X350.LUC_BRUTO é igual ao resultado da subtração de X350.REC_LIQ por X350.CUSTOS.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_OBRIGATORIO
+    descricao: Verifica se o campo não está preenchido e o campo 0010.forma_trib é diferente de 2 ou 4 ou 6 ou 7.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_NAO_PREENCHER
+    descricao: Verifica se se o campo está preenchido e o campo 0010.forma_trib é igual a 6.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_OPCIONAL
+    descricao: Verifica se o campo está preenchido e o campo 0010.forma_trib é igual a 2 ou 4 ou 7.
+    tipo: Aviso
+- numero: 5
+  campo: REC_AUFERIDAS
+  regras:
+  - regra: REGRA_CAMPO_X350_OBRIGATORIO
+    descricao: Verifica se o campo não está preenchido e o campo 0010.forma_trib é diferente de 2 ou 4 ou 6 ou 7.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_NAO_PREENCHER
+    descricao: Verifica se se o campo está preenchido e o campo 0010.forma_trib é igual a 6.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_OPCIONAL
+    descricao: Verifica se o campo está preenchido e o campo 0010.forma_trib é igual a 2 ou 4 ou 7.
+    tipo: Aviso
+- numero: 6
+  campo: REC_OUTRAS_OPER
+  regras:
+  - regra: REGRA_CAMPO_X350_OBRIGATORIO
+    descricao: Verifica se o campo não está preenchido e o campo 0010.forma_trib é diferente de 2 ou 4 ou 6 ou 7.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_NAO_PREENCHER
+    descricao: Verifica se se o campo está preenchido e o campo 0010.forma_trib é igual a 6.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_OPCIONAL
+    descricao: Verifica se o campo está preenchido e o campo 0010.forma_trib é igual a 2 ou 4 ou 7.
+    tipo: Aviso
+- numero: 7
+  campo: DESP_BRASIL
+  regras:
+  - regra: REGRA_CAMPO_X350_OBRIGATORIO
+    descricao: Verifica se o campo não está preenchido e o campo 0010.forma_trib é diferente de 2 ou 4 ou 6 ou 7.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_NAO_PREENCHER
+    descricao: Verifica se se o campo está preenchido e o campo 0010.forma_trib é igual a 6.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_OPCIONAL
+    descricao: Verifica se o campo está preenchido e o campo 0010.forma_trib é igual a 2 ou 4 ou 7.
+    tipo: Aviso
+- numero: 8
+  campo: DESP_OPER
+  regras:
+  - regra: REGRA_CAMPO_X350_OBRIGATORIO
+    descricao: Verifica se o campo não está preenchido e o campo 0010.forma_trib é diferente de 2 ou 4 ou 6 ou 7.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_NAO_PREENCHER
+    descricao: Verifica se se o campo está preenchido e o campo 0010.forma_trib é igual a 6.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_OPCIONAL
+    descricao: Verifica se o campo está preenchido e o campo 0010.forma_trib é igual a 2 ou 4 ou 7.
+    tipo: Aviso
+- numero: 9
+  campo: LUC_OPER
+  regras:
+  - regra: REGRA_LUC_OPER_VALOR
+    descricao: |-
+      Verifica se X350.LUC_OPER é igual a:
+      X350.LUC_BRUTO + X350.REC_AUFERIDAS + X350.REC_OUTAS_OPER – X350.DESP_BRASIL – X350.DESP_OPER
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_OBRIGATORIO
+    descricao: Verifica se o campo não está preenchido e o campo 0010.forma_trib é diferente de 2 ou 4 ou 6 ou 7.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_NAO_PREENCHER
+    descricao: Verifica se se o campo está preenchido e o campo 0010.forma_trib é igual a 6.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_OPCIONAL
+    descricao: Verifica se o campo está preenchido e o campo 0010.forma_trib é igual a 2 ou 4 ou 7.
+    tipo: Aviso
+- numero: 10
+  campo: REC_PARTIC
+  regras:
+  - regra: REGRA_CAMPO_X350_OBRIGATORIO
+    descricao: Verifica se o campo não está preenchido e o campo 0010.forma_trib é diferente de 2 ou 4 ou 6 ou 7.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_NAO_PREENCHER
+    descricao: Verifica se se o campo está preenchido e o campo 0010.forma_trib é igual a 6.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_OPCIONAL
+    descricao: Verifica se o campo está preenchido e o campo 0010.forma_trib é igual a 2 ou 4 ou 7.
+    tipo: Aviso
+- numero: 11
+  campo: REC_OUTRAS
+  regras:
+  - regra: REGRA_CAMPO_X350_OBRIGATORIO
+    descricao: Verifica se o campo não está preenchido e o campo 0010.forma_trib é diferente de 2 ou 4 ou 6 ou 7.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_NAO_PREENCHER
+    descricao: Verifica se se o campo está preenchido e o campo 0010.forma_trib é igual a 6.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_OPCIONAL
+    descricao: Verifica se o campo está preenchido e o campo 0010.forma_trib é igual a 2 ou 4 ou 7.
+    tipo: Aviso
+- numero: 12
+  campo: DESP_OUTRAS
+  regras:
+  - regra: REGRA_CAMPO_X350_OBRIGATORIO
+    descricao: Verifica se o campo não está preenchido e o campo 0010.forma_trib é diferente de 2 ou 4 ou 6 ou 7.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_NAO_PREENCHER
+    descricao: Verifica se se o campo está preenchido e o campo 0010.forma_trib é igual a 6.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_OPCIONAL
+    descricao: Verifica se o campo está preenchido e o campo 0010.forma_trib é igual a 2 ou 4 ou 7.
+    tipo: Aviso
+- numero: 13
+  campo: LUC_LIQ_ANT_IR
+  regras:
+  - regra: REGRA_LUC_LIQ_ANT_IR_VALOR
+    descricao: |-
+      Verifica se X350.LUC_LIQ_ANT_IR é igual a:
+      X350.LUC_OPER + X350.REC_PARTIC + X350.REC_OUTRAS – X350.DESP_OUTRAS
+    tipo: Erro
+- numero: 14
+  campo: LUC_ARB_ANT_IR
+  regras:
+  - regra: REGRA_CAMPO_X350_ARB_OBRIGATORIO
+    descricao: Verifica se o campo não está preenchido e o campo 0010.forma_trib é igual a 2 ou 4 ou 6 ou 7.
+    tipo: Erro
+  - regra: REGRA_CAMPO_X350_ARB_NAO_PREENCHER
+    descricao: Verifica se o campo está preenchido e o campo 0010.forma_trib é diferente de 2 ou 4 ou 6 ou 7.
+    tipo: Erro
+- numero: 16
+  campo: LUC_LIQ
+  regras:
+  - regra: REGRA_LUC_LIQ_VALOR
+    descricao: Verifica se X350.LUC_LIQ é igual ao resultado da subtração de X350.LUC_LIQ_ANT_IR por X350.IMP_DEV.
+    tipo: Erro
+regras_validacao_campos_observacoes: OBS. Na condição de erro, os campos que não devem ser preenchidos são desabilitados.
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|X350|1000000,00|600000,00|400000,00|100000,00|0,00|40000,00|10000,00|450000,00|50000,00|0,00|0,00|500000,00|100000,00|400000,00|'
+  explicacao:
+  - valor: '|X350|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|1000000,00|'
+    descricao: Receita líquida de todas as atividades exploradas pela filial, sucursal, controlada ou coligada residente ou domiciliada no exterior (R$ 1.000.000,00).
+  - valor: '|600000,00|'
+    descricao: Total dos custos das atividades exploradas pela filial, sucursal, controlada ou coligada domiciliada no exterior (R$ 600.000,00).
+  - valor: '|400000,00|'
+    descricao: Lucro bruto (R$ 400.000,00 = R$ 1.000.000,00 – R$ 600.000,00).
+  - valor: '|100000,00|'
+    descricao: Receitas financeiras auferidas pela filial, sucursal, controlada ou coligada residente ou domiciliada no exterior (R$ 100.000,00).
+  - valor: '|0,00|'
+    descricao: Não há outras receitas operacionais.
+  - valor: '|40000,00|'
+    descricao: Despesas financeiras pagas ou creditadas pela filial, sucursal, controlada ou coligada residente ou domiciliada no exterior (R$ 40.000,00).
+  - valor: '|10000,00|'
+    descricao: Despesas operacionais da filial, sucursal, controlada ou coligada residente ou domiciliada no exterior (R$ 10.000,00).
+  - valor: '|450000,00|'
+    descricao: Lucro Operacional (R$ 450.000,00 = R$ 400.000,00 + R$ 100.000,00 + R$ 0,00 – R$ 40.000,00 – R$ 10.000,00).
+  - valor: '|50000,00|'
+    descricao: Receita de participação em controladas, coligadas, filiais ou sucursais residentes ou domiciliadas no exterior (R$ 50.000,00).
+  - valor: '|0,00|'
+    descricao: Não há outras receitas.
+  - valor: '|0,00|'
+    descricao: Não há outras despesas.
+  - valor: '|500000,00|'
+    descricao: Lucro líquido antes do imposto de renda (R$ 500.000,00).
+  - valor: '|100000,00|'
+    descricao: Imposto devido em reais (R$ 100.000,00).
+  - valor: '|400000,00|'
+    descricao: Lucro líquido do período de apuração (R$ 400.000,00 = R$ 500.000,00 – R$ 100.000,00).

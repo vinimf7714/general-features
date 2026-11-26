@@ -1,0 +1,30 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+bloco: Q
+nome: Livro Caixa
+paginas_manual:
+- 351
+- 351
+orientacoes_gerais: |-
+  Este bloco deverá estar preenchido para as pessoas jurídicas optantes pela sistemática do lucro presumido que se utilizem da prerrogativa prevista no parágrafo único do art. 45 da Lei nº 8.981, de 20 de janeiro 1995, e cuja receita bruta no ano seja superior a R$ 1.200.000,00 (um milhão e duzentos mil reais), ou proporcionalmente ao período a que se refere, de acordo com a regra abaixo:
+  Se 0010.IND_ESC_PRE = “L” E SOMA (P200(2) + P200(4) + P200(6) + P200(8)) > 100.000 x (Número de Meses da ECF) então Bloco Q é obrigatório.
+tabela_blocos:
+  nome: Demonstrativo do Livro Caixa
+  descricao: |-
+    Apresenta o demonstrativo do livro caixa para os casos previstos na legislação - A
+    partir do leiaute 2.
+registros:
+- registro: Q001
+  nome: Abertura do Bloco Q – Livro Caixa
+  nivel: 1
+  arquivo: ../registros/bloco_Q/Q001.yml
+- registro: Q100
+  nome: Demonstrativo do Livro Caixa
+  nivel: 2
+  arquivo: ../registros/bloco_Q/Q100.yml
+- registro: Q990
+  nome: Encerramento do Bloco Q
+  nivel: 1
+  arquivo: ../registros/bloco_Q/Q990.yml

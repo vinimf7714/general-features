@@ -1,0 +1,248 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  documento: Manual de Orientação do Leiaute 12 da Escrituração Contábil Fiscal (ECF)
+  ato: Anexo ao Ato Declaratório Executivo Cofis nº 02/2026
+  atualizacao: julho/2026
+  ano_calendario: 2025 e situações especiais de 2026
+  leiaute: 12
+  orgao: RFB/Subsecretaria de Fiscalização/Coordenação Geral de Fiscalização/Div. de Captação de Dados
+  total_paginas: 622
+capitulo: 2
+titulo: Dados Técnicos para Geração do Arquivo da ECF
+paginas_manual:
+- 32
+- 38
+secoes:
+- secao: 2.1. Introdução
+  paginas_manual:
+  - 32
+  - 32
+  conteudo: |-
+    É possível o preenchimento da ECF no próprio programa gerador da ECF, em virtude da funcionalidade de edição de campos. No entanto, a empresa poderá gerar o arquivo da ECF com recursos próprios. O arquivo será obrigatoriamente submetido ao programa gerador da ECF para validação de conteúdo, assinatura digital, transmissão e visualização.
+    A recuperação de dados da ECD é obrigatória para empresas que são obrigadas a entregar a ECD.
+- secao: 2.2. Características do Arquivo
+  paginas_manual:
+  - 32
+  - 33
+  conteudo: |-
+    O arquivo a ser importado para o programa gerador da ECF deve ser no formato texto, codificado em ASCII - ISO 8859-1 (Latin-1), não sendo aceitos campos compactados (packed decimal), zonados, binários, ponto flutuante (float point), etc., ou quaisquer outras codificações de texto, tais como EBCDIC.
+    Ademais, o arquivo possui organização hierárquica, assim definida pela citação do nível hierárquico ao qual pertence cada registro.
+    Exemplo: Seja a estrutura hipotética de um arquivo com registros organizados hierarquicamente nos moldes da ECF, conforme abaixo:
+    Registro 10 - Nível hierárquico 1
+    Registro 20 - Nível hierárquico 1
+    Registro 30 - Nível hierárquico 2
+    Registro 40 - Nível hierárquico 3
+    Registro 50 - Nível hierárquico 3
+    Registro 60 - Nível hierárquico 2
+    Registro 70 - Nível hierárquico 1
+    Registros “Pais”: 10 (não possui registros “filhos”), 20 (possui registros “filhos”) e 70 (não possui registros “filhos”).
+    Registro 20: Possui os registros 30 (possui registros “filhos”) e 60 (não possui registros “filhos”) como “filhos”.
+    Registro 30: Possui os registros 40 (não possui registros “filhos”) e 50 (não possui registros “filhos”) como “filhos”.
+    Os registros são sempre iniciados na primeira coluna (posição 1) e têm tamanho variável.
+    A linha do arquivo digital deve conter os campos na exata ordem em que estão listados nos respectivos registros.
+    Ao início do registro e ao final de cada campo deve ser inserido o caractere delimitador "|” (Pipe ou Barra Vertical: caractere 124 da Tabela ASCII). O caractere delimitador "|" (Pipe) não deve ser incluído como parte integrante do conteúdo de quaisquer campos numéricos ou alfanuméricos.
+    Todos os registros devem conter, ao final de cada linha do arquivo digital, após o caractere delimitador “|” (Pipe), os caracteres "CR" (Carriage Return) e "LF" (Line Feed) correspondentes a "retorno do carro" e "salto de linha", respectivamente (CR e LF: caracteres 13 e 10, respectivamente, da Tabela ASCII).
+    Exemplo (campos do registro):
+    1o 2o 3o 4o
+    REG NOME CNPJ IE
+    |I550|José Silva & Irmãos Ltda|60001556000257|01238578455|CRLF
+    |I550|Armando Silva ME|99222333000150||CRLF
+    Na ausência de informação, o campo vazio (campo sem conteúdo ou nulo ou null) deverá ser imediatamente encerrado com o caractere "|" (Pipe) delimitador de campo.
+    Exemplos (conteúdo do campo):
+    
+    Campo alfanumérico: José da Silva & Irmãos Ltda
+    |José da Silva & Irmãos Ltda|
+    
+    Campo numérico: 1234,56
+    |1234,56|
+    
+    Campo numérico ou alfanumérico vazio ||
+    Exemplo (campo vazio no meio da linha):
+    |123,00||123654788000354|
+    Exemplo (campo vazio em fim de linha):
+    ||CRLF
+- secao: 2.3. Regras Gerais de Preenchimento
+  paginas_manual:
+  - 33
+  - 33
+  conteudo: Esta seção apresenta as regras que devem ser respeitadas em todos os registros gerados, quando não excepcionadas por regra específica referente a um dado registro.
+- secao: 2.3.1. Formato dos Campos
+  paginas_manual:
+  - 33
+  - 33
+  conteudo: |-
+    ALFANUMÉRICO: Representados por "C" - todos os caracteres das posições da Tabela ASCII, excetuados os caracteres "|" (Pipe ou Barra Vertical: caractere 124 da Tabela ASCII) e os não imprimíveis (caracteres 00 a 31 da Tabela ASCII).
+    NUMÉRICO: Representados por "N" - algarismos das posições de 48 a 57 da Tabela ASCII e o caractere “,” (vírgula: caractere 44 da tabela ASCII).
+    NUMÉRICO SINALIZADO: Representados por “NS” – um único caractere de sinal “+” ou “-”, posições 43 e 45 respectivamente da Tabela ASCII, acrescidos de um ou mais algarismos das posições de 48 a 57 da Tabela ASCII. Quando o sinal for omitido, o número será considerado positivo “+”.
+- secao: 2.3.2. Regras de Preenchimento dos Campos com Conteúdo Alfanumérico (C)
+  paginas_manual:
+  - 33
+  - 33
+  conteudo: |-
+    Todos os campos alfanuméricos terão tamanho máximo de 255 caracteres, exceto se houver indicação distinta.
+    Exemplo:
+
+    | COD_INF | C | - |
+    |---|---|---|
+    | TXT | C | 65.536 |
+- secao: 2.3.3. Regras de Preenchimento dos Campos Numéricos (N) com Casas Decimais
+  paginas_manual:
+  - 34
+  - 34
+  conteudo: |-
+    Deverão ser preenchidos sem os separadores de milhar, sinais ou quaisquer outros caracteres (tais como: "."; "-" ou "%"), devendo a vírgula ser utilizada como separador decimal (Vírgula: caractere 44 da Tabela ASCII). Observar a quantidade máxima de casas decimais que constar no respectivo campo. Preencher os valores percentuais desprezando-se o símbolo (%), sem nenhuma convenção matemática.
+    Exemplos (valores monetários, quantidades, percentuais etc.):
+    $ 1.129.998,99 ➔ |1129989,99|
+    1.255,42 ➔ |1255,42|
+    234,567 ➔ |234,567|
+    10.000 ➔ |10000|
+    10.000,00 ➔ |10000| ou |10000,00|
+    17,00% ➔ |17,00| ou |17|
+    18,50% ➔ |18,5| ou |18,50|
+    30 ➔ |30|
+    1.123,456 Kg ➔ |1123,456|
+    0,010 litros ➔ |0,010|
+    0,00 ➔ |0| ou |0,00|
+    0 ➔ |0|
+    Campo Vazio ➔ ||
+- secao: 2.3.4. Regras de Preenchimento de Campos Numéricos (N) que Representam Data
+  paginas_manual:
+  - 34
+  - 34
+  conteudo: |-
+    Devem ser informados conforme o padrão “ddmmaaaa”, excluindo-se quaisquer caracteres de separação (tais como: "."; "/"; "-"; etc.), onde:
+    dd = dia mm = mês aaaa = ano com 4 dígitos
+    Exemplos (data):
+    01 de Janeiro de 2024 ➔ |01012025|
+    11.11.1911 ➔ |11111911|
+    21-03-1999 ➔ |21031999|
+    09/08/04 ➔ |09082004|
+    Campo Vazio ➔ ||
+- secao: 2.3.5. Regras de Preenchimento de Campos Numéricos (N) que Representam Período
+  paginas_manual:
+  - 34
+  - 35
+  conteudo: |-
+    Devem ser informados conforme o padrão “mmaaaa”, excluindo-se quaisquer caracteres de separação (tais como: "."; "/"; "-"; etc.), onde:
+    mm = mês aaaa = ano com 4 dígitos
+    Exemplos (período):
+    Janeiro de 2024 ➔ |012024|
+    11.1911 ➔ |111911|
+    03-1999 ➔ |031999|
+    08/04 ➔ |082004|
+    Campo Vazio ➔ ||
+- secao: 2.3.6. Edição de Campos Identificados Como Cálculos Alteráveis
+  paginas_manual:
+  - 35
+  - 35
+  conteudo: |-
+    Caso seja necessário fazer a edição de campos identificados como “CA” (Cálculo Alterável), o procedimento é o seguinte:
+    I – Clicar na escrituração;
+    II – Clicar em “Configurações” => “Configura Parâmetros da ECF”;
+    III – Clicar em “Não – Eu escolho quais registros terão os campos atualizados pelo sistema.”;
+    IV – Selecione os registros que deseja editar; e
+    V – Edite os campos necessários.
+- secao: 2.3.7. Pesquisa nos registros
+  paginas_manual:
+  - 35
+  - 35
+  conteudo: |-
+    Ao utilizar a opção de “Pesquisar” na interface do programa da ECF, no caso de pesquisa em relação a campos no formato texto, é possível utilizar %XXXX% para pesquisar palavras específicas.
+    Exemplo: Registro P100 – É possível fazer uma pesquisa, no campo “Descrição”, que mostre todas as linhas que contém a palavra “circulante”. Para isso, deve ser informado no campo pesquisa (descrição): %Circulante%.
+- secao: 2.4. Códigos de Identificação
+  paginas_manual:
+  - 35
+  - 36
+  conteudo: |-
+    Os códigos de identificação são campos numéricos ou alfanuméricos onde é necessário registrar CNPJ, CPF, CEP, Inscrição Estadual, Inscrição Municipal, dentre outros.
+    Estes campos deverão ser informados com todos os dígitos, inclusive os zeros (0) à esquerda. As máscaras (caracteres especiais de formatação, tais como: "."; "/"; "-"; etc.) não devem ser informadas. Os campos numéricos cujo tamanho é expresso na coluna própria deverão conter exatamente a quantidade de caracteres indicada.
+    Exemplo (códigos de identificação numéricos com indicação de tamanho):
+
+    | CNPJ | C | 014 |
+    |---|---|---|
+    | CPF | N | 011 |
+    | NIRE | N | 011 |
+    | CEP | N | 008 |
+
+    CNPJ: 123.456.789/0001-10 ➔ |123456789000110|
+    CNPJ: 000.456.789/0001-10 ➔ |000456789000110|
+    CNPJ: AAA.AA.AAA/AAAA-10➔ |AAAAAAAAAAAA10|
+    CPF: 882.440.449-40 ➔ |88244044940|
+    CPF: 002.333.449-40 ➔ |00233344940|
+    Campo Vazio ➔ ||
+    Exemplos (códigos de identificação alfanuméricos):
+
+    | IE | C | - |
+    |---|---|---|
+    | IM | C | - |
+
+    IE: 129.876.543.215-77 ➔ |12987654321577|
+    IE: 04.123.123-7 ➔ |041231237|
+    IM: 876.543.219-21 ➔ |00087654321921|
+    Campo Vazio ➔ ||
+    Nos campos onde é necessário registrar algarismos ou caracteres que identifiquem ou façam parte da identificação de objeto documento (número do documento de arrecadação, número do processo, etc.) deverão ser informados com todos os dígitos válidos, aí incluídos os caracteres especiais de formatação (tais como: "."; "/"; "-", etc.).
+    Os campos que contiverem informações com algarismos ou caracteres que identifiquem um documento devem ter a exata quantidade de caracteres indicada no objeto original.
+    Exemplo (algarismos ou caracteres de identificação):
+
+    | NUM_DA | C | - |
+    |---|---|---|
+    | NUM_PROC | C | - |
+
+    Documento de arrecadação: 98.765-43 ➔ |98.765-43|
+    Documento de arrecadação: A1B2C-34 ➔ |A1B2C-34|
+    Autenticação do documento de arrecadação: 001-1234/02120512345 ➔ |001-234/02120512345|
+    Número do processo: 2002/123456-78 ➔ |2002/123456-78|
+    Campo Vazio ➔ ||
+- secao: 2.5. Tabelas Externas
+  paginas_manual:
+  - 36
+  - 36
+  conteudo: |-
+    São tabelas oficiais criadas e mantidas por outros atos normativos e cujos códigos são necessários à elaboração do arquivo digital. Deverão seguir a codificação definida pelo respectivo órgão regulador.
+    Exemplo: Tabela de Municípios do Instituto Brasileiro de Geografia e Estatística - IBGE.
+- secao: 2.6. Tabelas Internas
+  paginas_manual:
+  - 37
+  - 37
+  conteudo: |-
+    São as tabelas necessárias para a elaboração do arquivo a ser utilizado no programa gerador da ECF.
+    Exemplo: Registro 0000 – Abertura do Arquivo Digital e Identificação da Pessoa Jurídica
+    Campo 7: Indicador de Situação Especial (SIT_ESPECIAL)
+    Código Descrição
+    0 Normal (sem ocorrência de situação especial ou evento)
+    1 Extinção
+    2 Fusão
+    3 Incorporação/Incorporada
+    4 Incorporação/Incorporadora
+    5 Cisão Total
+    6 Cisão Parcial
+    8 Desenquadramento de Imune/Isenta
+    9 Inclusão no Simples Nacional
+- secao: 2.7. Tabelas Intrínsecas ao Campo
+  paginas_manual:
+  - 37
+  - 37
+  conteudo: |-
+    Constam no leiaute do arquivo e são o seu domínio (conteúdos válidos para o campo). As referências a estas tabelas seguirão a codificação definida no respectivo campo.
+    Exemplo:
+    IND_DAD Indicador de movimento:
+    0- Bloco com dados informados
+    1- Bloco sem dados informados
+- secao: 2.8. Tabelas Elaboradas pela Pessoa Jurídica
+  paginas_manual:
+  - 37
+  - 37
+  conteudo: 'São as tabelas em que o código a ser utilizado é de livre atribuição pela pessoa jurídica. É facultativa a inclusão da máscara no próprio código, exceto quando necessária para a sua perfeita identificação (Exemplo: Discriminar entre 1.01 e 10.1. Neste caso, a inclusão é obrigatória). Para cada código utilizado em um dos registros do arquivo deve existir um correspondente na tabela elaborada pela pessoa jurídica.'
+- secao: 2.9. Tabelas Dinâmicas e Registros Dinâmicos
+  paginas_manual:
+  - 38
+  - 38
+  conteudo: |-
+    São tabelas externas publicadas pela RFB.
+    Os registros dinâmicos são compostos por linhas importadas das tabelas dinâmicas. Para cada linha importada, existem campos a mais no registro que podem ser editados.
+    As linhas das tabelas dinâmicas podem ser dos seguintes tipos:
+    R– Rótulo: Utilizado como um label separador na tela
+    E – Editável
+    CA – Cálculo alterável
+    CNA – Cálculo não alterável
+    No arquivo para importação, esses registros necessitam somente do preenchimento do código e do valor das linhas do tipo "E". As demais linhas e colunas, serão inseridas pelo próprio sistema.

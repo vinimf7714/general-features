@@ -1,0 +1,104 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: J051
+nome: Plano de Contas Referencial
+bloco: J
+nome_tabela_registros: Plano de Contas Referencial
+paginas_manual:
+- 136
+- 137
+descricao: |-
+  Registro destinado a informar o plano de contas referencial da instituição gestora, referenciando com as respectivas contas do plano de contas da pessoa jurídica.
+  Somente devem ser referenciadas as contas analíticas com natureza de conta (J050.COD_NAT) igual a “01” (contas de ativo), “02” (contas de passivo), “03” (patrimônio líquido) e “04” (contas de resultado).
+  Observação:
+  1.- Caso a empresa se utilize de centro de custos para referenciamento na ECD, da mesma forma deve proceder para referenciamento na ECF
+  2.- Caso a pessoa jurídica utilize subcontas auxiliares conforme previsão dos arts. 295, 296, 298 e 299 da Instrução Normativa RFB nº 1.700, de 14 de março de 2017, as subcontas auxiliares devem ser mapeadas para a conta referencial “pai” da respectiva subconta.
+  Exemplo:
+  Plano de Contas da Empresa (J050) Mapeamento para o Plano de Contas Referencial (J051)
+  1020010001 - Veículos 1.02.03.01.08 – Veículos
+  1020011001 - Veículos – Subconta Auxiliar 1.02.03.01.08 – Veículos
+  1020019001 - Subconta AVP (Ajuste a Valor Presente) 1.02.03.01.75 - Subconta - Ajuste Valor Presente – Imobilizado
+titulo_leiaute: 'REGISTRO J051: PLANO DE CONTAS REFERENCIAL'
+regras_validacao_registro:
+- REGRA_CCUS_UNICO
+nivel_hierarquico: 3
+ocorrencia: 0:N
+campos_chave: COD_CTA_REF + COD_CCUS
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se (J050.IND_CTA = “A”) E (J050.COD_NAT = “01” ou “02” ou “03” “4) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”
+  ocorrencia: Se J050.IND_CTA = “A” [1:N] Senão [0]
+hierarquia:
+  pai: J050
+  filhos: []
+  irmaos:
+  - J053
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (J051).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[J051]'
+  obrigatorio: true
+- numero: 2
+  campo: COD_CCUS
+  descricao: Código do Centro de Custos.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 3
+  campo: COD_CTA_REF
+  descricao: Código da Conta no Plano de Contas Referencial Definido em 0010.COD_QUALIF_PJ, conforme tabela publicada no Sped.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_campos:
+- numero: 2
+  campo: COD_CCUS
+  regras:
+  - regra: REGRA_CCUS_NO_CENTRO_CUSTOS
+    descricao: Verifica se o código do centro de custos J051.COD_CCUS existe no registro J100 (Centro de Custos).
+    tipo: Erro
+- numero: 3
+  campo: COD_CTA_REF
+  regras:
+  - regra: REGRA_NAO_EXISTE_COD_CTA_REF
+    descricao: Verifica se o J051.COD_CTA_REF existe no plano de contas referencial.
+    tipo: Erro
+  - regra: REGRA_COD_CTA_REF_SINTETICA
+    descricao: Verifica se conta informada é sintética no plano de contas referencial.
+    tipo: Erro
+  - regra: REGRA_NATUREZA_REF
+    descricao: Verifica se a natureza da conta referencial utilizada é igual a natureza da conta contábil do registro J050.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|J051||1.01.01.01.01|'
+  explicacao:
+  - valor: '|J051|'
+    descricao: Identificação do tipo do registro.
+  - valor: '||'
+    descricao: Código do centro de custo (Não há).
+  - valor: '|1.01.01.01.01|'
+    descricao: Código da conta referencial (1.01.01.01.01 = Caixa Matriz).
+informacoes_adicionais:
+- titulo: I – Regras de Validação de Registro
+  conteudo: 'REGRA_CCUS_UNICO: Verifica, quando for utilizado o centro de custos vazio, se os demais filhos (J051) também constam no centro de custos vazio. O erro ocorre quando, entre os filhos J051 de um mesmo J050, existem centros de custos diferentes (mais de um) e pelo menos um deles é vazio.'

@@ -1,0 +1,192 @@
+# Cenário de simulação do Bloco M (e-Lalur / e-Lacs) – ECF Leiaute 12, ano-calendário 2025.
+# Empresa fictícia do lucro real anual (0010.FORMA_TRIB = 1, FORMA_APUR = A), PJ em geral (tabelas M300A / M350A).
+#
+# IMPORTANTE – códigos das tabelas dinâmicas:
+#   O PDF do manual não traz as tabelas dinâmicas (estão na planilha Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx).
+#   Os códigos marcados "fonte: manual" aparecem no texto do manual; os marcados "fonte: ilustrativo" são exemplos
+#   e DEVEM ser conferidos/substituídos pelos códigos reais da planilha (M300A, M350A e PARTEB_PADRAO) antes de importar no PGE.
+#
+# Convenções:
+#   valores em reais (ponto decimal aqui; o gerador grava com vírgula);
+#   ind D/C = débito/crédito na conta da Parte B (D = saldo a excluir no futuro / prejuízo; C = saldo a adicionar no futuro).
+#   VALOR do M300/M350 é calculado pelo gerador a partir dos filhos (REGRA_VALOR_DETALHADO), exceto em lançamentos sem filhos.
+
+empresa:
+  nome: EMPRESA SIMULADA LTDA
+  cnpj: '11111111000191'
+
+periodo:
+  dt_ini: '01012025'
+  dt_fin: '31122025'
+  per_apur: A00          # anual (lucro real anual). Para trimestral use vários períodos T01..T04.
+
+# Plano de contas contábil referenciado pelos M310/M360 (deve existir no J050; natureza 1-ativo 2-passivo 3-PL 4-resultado)
+contas_contabeis:
+  '3.01.02.001': {descricao: Despesa com provisão para contingências trabalhistas, natureza: 4}
+  '3.01.02.002': {descricao: Despesa com perdas estimadas em créditos (PECLD), natureza: 4}
+  '3.01.02.003': {descricao: Despesa com provisão para garantias, natureza: 4}
+  '3.03.01.001': {descricao: Reversão de provisões (receita), natureza: 4}
+  '3.09.01.002': {descricao: Despesa com CSLL corrente, natureza: 4}
+  '2.01.05.001': {descricao: Provisão para contingências trabalhistas (passivo), natureza: 2}
+
+# Contas da Parte B (M010). Cada conta pode existir para IRPJ (I) e/ou CSLL (C): a chave do M010 é COD_CTA_B + COD_TRIBUTO.
+contas_parte_b:
+  - codigo: PB001
+    descricao: PROVISAO PARA CONTINGENCIAS TRABALHISTAS
+    dt_ap: '31122022'
+    cod_pb_rfb: {I: '1.005', C: '2.005'}       # fonte: ilustrativo
+    saldos_iniciais: {I: [300000.00, D], C: [300000.00, D]}
+  - codigo: PB002
+    descricao: PERDAS ESTIMADAS EM CREDITOS DE LIQUIDACAO DUVIDOSA
+    dt_ap: '31122023'
+    cod_pb_rfb: {I: '1.006', C: '2.006'}       # fonte: ilustrativo
+    saldos_iniciais: {I: [120000.00, D], C: [120000.00, D]}
+  - codigo: PB003
+    descricao: DEPRECIACAO ACELERADA INCENTIVADA
+    dt_ap: '31122021'
+    cod_pb_rfb: {I: '1.020'}                   # fonte: ilustrativo (só IRPJ)
+    saldos_iniciais: {I: [80000.00, C]}
+  - codigo: PB004
+    descricao: PROVISAO PARA GARANTIAS
+    dt_ap: '31122025'                          # criada no período: saldo inicial deve ser zero (REGRA_DT_AP_ZERO)
+    cod_pb_rfb: {I: '1.007', C: '2.007'}       # fonte: ilustrativo
+    saldos_iniciais: {I: [0.00, D], C: [0.00, D]}
+  - codigo: PB900
+    descricao: PREJUIZOS FISCAIS DE PERIODOS ANTERIORES
+    dt_ap: '31122020'
+    cod_pb_rfb: {I: '1.100'}                   # fonte: ilustrativo
+    saldos_iniciais: {I: [400000.00, D]}
+  - codigo: PB901
+    descricao: BASE DE CALCULO NEGATIVA DA CSLL DE PERIODOS ANTERIORES
+    dt_ap: '31122020'
+    cod_pb_rfb: {C: '2.100'}                   # fonte: ilustrativo
+    saldos_iniciais: {C: [250000.00, D]}
+
+# Contas extras geradas automaticamente com --n-contas-extra N (provisões diversas), todas penduradas
+# no MESMO lançamento de adição de provisões -> demonstra N registros M305 sob um único M300.
+contas_extras_modelo:
+  prefixo: PB1
+  descricao: PROVISAO NAO DEDUTIVEL DIVERSA
+  cod_pb_rfb: {I: '1.005', C: '2.005'}         # fonte: ilustrativo
+  dt_ap: '31122025'
+  conta_contabil: '3.01.02.003'
+  valor_base: 5000.00                          # conta n recebe valor_base * n
+  lancamento_alvo: ADICAO_PROVISOES
+
+# ---------------------------------------------------------------- Parte A
+# tipo: L (lucro), A (adição), E (exclusão), P (compensação de prejuízo / base negativa)
+# relacao: 1 com conta da Parte B (M305/M355) | 2 com conta contábil (M310/M360) | 3 ambos | 4 sem relacionamento
+parte_a:
+  I:   # IRPJ -> M300
+    - id: LUCRO
+      codigo: '1'              # fonte: ilustrativo
+      descricao: Lucro Líquido antes do IRPJ
+      tipo: L
+      relacao: 4
+      valor: 1000000.00
+    - id: ADICAO_CSLL
+      codigo: '2'              # fonte: ilustrativo
+      descricao: Contribuição Social sobre o Lucro Líquido
+      tipo: A
+      relacao: 2
+      historico: ADICAO DA DESPESA DE CSLL DO PERIODO
+      contas_contabeis:
+        - {cod_cta: '3.09.01.002', valor: 100000.00, ind: D}
+    - id: ADICAO_PROVISOES
+      codigo: '24'             # fonte: ilustrativo
+      descricao: Provisões não dedutíveis
+      tipo: A
+      relacao: 3
+      historico: CONSTITUICAO DE PROVISOES NAO DEDUTIVEIS DO PERIODO
+      contas_parte_b:          # N registros M305 sob o mesmo M300
+        - {conta: PB001, valor: 150000.00, ind: D}
+        - {conta: PB002, valor: 60000.00, ind: D}
+        - {conta: PB004, valor: 40000.00, ind: D}
+      contas_contabeis:        # M310 (+ M312 quando o valor é só parte do saldo da conta)
+        - {cod_cta: '3.01.02.001', valor: 150000.00, ind: D, lancamentos: ['LC2025-0451', 'LC2025-0987']}
+        - {cod_cta: '3.01.02.002', valor: 60000.00, ind: D}
+        - {cod_cta: '3.01.02.003', valor: 40000.00, ind: D}
+    - id: ADICAO_REALIZ_DEPREC
+      codigo: '80'             # fonte: ilustrativo
+      descricao: Realização da depreciação acelerada incentivada
+      tipo: A
+      relacao: 1
+      historico: ADICAO PELA REALIZACAO DE BENS COM DEPRECIACAO ACELERADA EXCLUIDA
+      contas_parte_b:
+        - {conta: PB003, valor: 20000.00, ind: D}     # utilização de saldo credor para adição
+    - id: EXCLUSAO_REVERSAO
+      codigo: '120'            # fonte: ilustrativo
+      descricao: Reversão de provisões não dedutíveis
+      tipo: E
+      relacao: 3
+      historico: REVERSAO/BAIXA DE PROVISOES ADICIONADAS EM PERIODOS ANTERIORES
+      contas_parte_b:
+        - {conta: PB001, valor: 100000.00, ind: C}    # utilização de saldo devedor para exclusão
+        - {conta: PB002, valor: 30000.00, ind: C}
+      contas_contabeis:
+        - {cod_cta: '3.03.01.001', valor: 130000.00, ind: C}
+      processos:
+        - {ind_proc: '1', num_proc: '00012345620254025001'}
+    - id: EXCLUSAO_DEPREC_ACEL
+      codigo: '140'            # fonte: ilustrativo
+      descricao: Depreciação acelerada incentivada
+      tipo: E
+      relacao: 1
+      historico: EXCLUSAO DA DEPRECIACAO ACELERADA INCENTIVADA DO PERIODO
+      contas_parte_b:
+        - {conta: PB003, valor: 35000.00, ind: C}     # constituição de saldo para posterior adição
+    - id: COMPENSACAO
+      codigo: '173'            # fonte: manual (item 1.8 – linhas 173/174 de compensação)
+      descricao: (-) Compensação de Prejuízos Fiscais
+      tipo: P
+      relacao: 1
+      historico: COMPENSACAO DE PREJUIZOS FISCAIS LIMITADA A 30% DO LUCRO REAL
+      compensacao: {conta: PB900, limite_pct: 30}     # valor calculado pelo gerador
+  C:   # CSLL -> M350
+    - id: LUCRO
+      codigo: '1'              # fonte: ilustrativo
+      descricao: Lucro Líquido antes da CSLL
+      tipo: L
+      relacao: 4
+      valor: 1100000.00
+    - id: ADICAO_PROVISOES
+      codigo: '24'             # fonte: ilustrativo
+      descricao: Provisões não dedutíveis
+      tipo: A
+      relacao: 3
+      historico: CONSTITUICAO DE PROVISOES NAO DEDUTIVEIS DO PERIODO
+      contas_parte_b:
+        - {conta: PB001, valor: 150000.00, ind: D}
+        - {conta: PB002, valor: 60000.00, ind: D}
+        - {conta: PB004, valor: 40000.00, ind: D}
+      contas_contabeis:
+        - {cod_cta: '3.01.02.001', valor: 150000.00, ind: D, lancamentos: ['LC2025-0451', 'LC2025-0987']}
+        - {cod_cta: '3.01.02.002', valor: 60000.00, ind: D}
+        - {cod_cta: '3.01.02.003', valor: 40000.00, ind: D}
+    - id: EXCLUSAO_REVERSAO
+      codigo: '120'            # fonte: ilustrativo
+      descricao: Reversão de provisões não dedutíveis
+      tipo: E
+      relacao: 1
+      historico: REVERSAO/BAIXA DE PROVISOES ADICIONADAS EM PERIODOS ANTERIORES
+      contas_parte_b:
+        - {conta: PB001, valor: 100000.00, ind: C}
+        - {conta: PB002, valor: 30000.00, ind: C}
+    - id: COMPENSACAO
+      codigo: '173'            # fonte: manual (item 1.9 – linhas 173/174 do M350)
+      descricao: (-) Compensação de Base de Cálculo Negativa da CSLL
+      tipo: P
+      relacao: 1
+      historico: COMPENSACAO DE BASE NEGATIVA LIMITADA A 30%
+      compensacao: {conta: PB901, limite_pct: 30}
+
+# ---------------------------------------------------------------- Parte B sem reflexo na Parte A (M410)
+lancamentos_parte_b:
+  - conta: PB002
+    tributo: I
+    valor: 10000.00
+    ind: CR                    # CR crédito | DB débito | PF prejuízo do período | BC base negativa do período
+    contrapartida: PB001       # transferência de saldo entre contas da Parte B (mesmo tributo)
+    historico: RECLASSIFICACAO DE SALDO DE PECLD PARA CONTINGENCIAS TRABALHISTAS
+    realizacao_diferida: N
+    processos: []

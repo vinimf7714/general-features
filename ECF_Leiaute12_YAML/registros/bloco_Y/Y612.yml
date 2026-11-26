@@ -1,0 +1,141 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: Y612
+nome: Identificação e Rendimentos de Dirigentes e Conselheiros – Imunes ou Isentas
+bloco: Y
+nome_tabela_registros: Identificação e Rendimentos de Dirigentes e Conselheiros - Imunes ou Isentas
+paginas_manual:
+- 577
+- 578
+descricao: Este registro deve ser preenchido pelas imunes ou isentas com dados dos 999 (novecentos e noventa e nove) maiores dirigentes e conselheiros, no período de apuração, inclusive os dirigentes e conselheiros que tenham saído das imunes ou isentas no período de apuração e não fazem parte das imunes ou isentas na data final do período de apuração. Os dirigentes e conselheiros devem ser informados, ainda não tenham recebido rendimento no período (nessa situação, o valor a ser informado será zero).
+titulo_leiaute: 'REGISTRO Y612: IDENTIFICAÇÃO E RENDIMENTOS DE DIRIGENTES E CONSELHEIROS – IMUNES OU ISENTAS'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: CPF + QUALIF
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0010.FORMA_TRIB = "8" ou "9"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: Y001
+  filhos: []
+  irmaos:
+  - Y520
+  - Y570
+  - Y590
+  - Y600
+  - Y620
+  - Y630
+  - Y640
+  - Y660
+  - Y672
+  - Y680
+  - Y682
+  - Y720
+  - Y730
+  - Y750
+  - Y800
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (Y612).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[Y612]'
+  obrigatorio: true
+- numero: 2
+  campo: CPF
+  descricao: 'CPF: CPF do dirigente ou conselheiro beneficiário dos rendimentos.'
+  tipo: N
+  tamanho: 11
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: NOME
+  descricao: 'Nome: Nome do dirigente ou conselheiro beneficiário dos rendimentos.'
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: QUALIF
+  descricao: |-
+    Qualificação: Qualificação do dirigente ou conselheiro beneficiário dos rendimentos:
+    10 - Administrador sem Vínculo Empregatício
+    11 - Diretor sem Vínculo Empregatício
+    12 – Presidente sem Vínculo Empregatício
+    13 - Administrador com Vínculo Empregatício
+    14 - Conselheiro de Administração ou Fiscal
+    15 - Diretor com Vínculo Empregatício
+    16 - Fundador
+    17 - Presidente com Vínculo Empregatício
+  tipo: N
+  tamanho: 2
+  decimal: '-'
+  valores_validos: '[10; 11; 12; 13; 14; 15; 16; 17]'
+  obrigatorio: true
+- numero: 5
+  campo: VL_REM_TRAB
+  descricao: 'Rendimentos do Trabalho: Valor dos rendimentos pagos e escriturados, nos livros da escrituração contábil ou no livro Caixa, a título de remuneração a dirigentes ou conselheiros pela prestação de serviços, ou quaisquer outros pagamentos, tais como: pró- labore e aluguéis. Esses valores sujeitam-se à incidência do imposto de renda na fonte e na declaração de rendimentos dos beneficiários.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: VL_DEM_REND
+  descricao: 'Demais Rendimentos: Valor de outros rendimentos não classificados como rendimento do trabalho, escriturados nos livros da escrituração contábil ou no livro Caixa, pagos aos dirigentes ou conselheiros. Esses valores sujeitam-se à incidência do imposto de renda na fonte e na declaração de rendimentos dos beneficiários.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 7
+  campo: VL_IR_RET
+  descricao: 'IR Retido na Fonte: Valor do imposto de renda retido na fonte por ocasião do pagamento dos rendimentos a dirigentes ou conselheiros da pessoa jurídica imune ou isenta de IRPJ.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_campos:
+- numero: null
+  campo: QUALIF
+  regras:
+  - regra: REGRA_Y612_QUALIF
+    descricao: Verifica se o código utilizado em Y612.QUALIF é um dos códigos existentes na tabela de qualificação de dirigentes ou conselheiros.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|Y612|00000000000|FULANO DIRIGENTE|12|50000,00|10000,00|8000,00|'
+  explicacao:
+  - valor: '|Y612|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|00000000000|'
+    descricao: CPF do dirigente ou conselheiro (000.000.000-00).
+  - valor: '|FULANO DIRIGENTE|'
+    descricao: Nome do dirigente ou conselheiro.
+  - valor: '|12|'
+    descricao: Qualificação do dirigente ou conselheiro (12 = Presidente sem vínculo empregatício).
+  - valor: '|50000,00|'
+    descricao: Rendimentos do trabalho do dirigente ou conselheiro pagos e escriturados (R$ 50.000,00).
+  - valor: '|10000,00|'
+    descricao: Demais rendimento do dirigente ou conselheiro pagos e escriturados (R$ 10.000,00).
+  - valor: '|8000,00|'
+    descricao: Imposto de renda retido na fonte em função do pagamento de rendimentos a dirigentes ou conselheiros (R$ 8.000,00).

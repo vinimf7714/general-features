@@ -1,0 +1,101 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: U030
+nome: Identificação dos Períodos e Formas de Apuração do IRPJ e da CSLL das Empresas Imunes e Isentas
+bloco: U
+nome_tabela_registros: Identificação dos Períodos e Formas de Apuração do IPRJ e da CSLL das Empresas Imunes e Isentas
+paginas_manual:
+- 402
+- 403
+descricao: Registro de identificação dos períodos da escrituração necessários conforme definições de parâmetros do Bloco 0.
+titulo_leiaute: 'REGISTRO U030: IDENTIFICAÇÃO DOS PERÍODO E FORMAS DE APURAÇÃO DO IRPJ E DA CSLL DAS EMPRESAS IMUNES E ISENTAS'
+regras_validacao_registro:
+- REGRA_DUPLICIDADE_DESPREZADA
+- REGRA_PERIODO_DESPREZADO
+- REGRA_LINHA_ALTERADA
+nivel_hierarquico: 2
+ocorrencia: 0:13
+campos_chave: PER_APUR
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0010. FORMA_TRIB = “8” ou “9”
+  ocorrencia: '[0;4]'
+hierarquia:
+  pai: U001
+  filhos:
+  - U100
+  - U150
+  - U180
+  - U182
+  irmaos: []
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (U030).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[U030]'
+  obrigatorio: true
+- numero: 2
+  campo: DT_INI
+  descricao: Data do Início do Período
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: DT_FIN
+  descricao: Data do Fim do período
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: PER_APUR
+  descricao: |-
+    Período de apuração (para 0010.APUR_CSLL = “A”):
+    A00 – Anual
+    A01 – Rec. Bruta de janeiro /Balanço suspensão redução até janeiro A02 – Rec. Bruta de fevereiro /Balanço suspensão redução até fevereiro A03 – Rec. Bruta de março /Balanço suspensão redução até março A04 – Rec. Bruta de abril /Balanço suspensão redução até abril A05 – Rec. Bruta de maio /Balanço suspensão redução até maio A06 – Rec. Bruta de junho /Balanço suspensão redução até junho A07 – Rec. Bruta de julho /Balanço suspensão redução até julho A08 – Rec. Bruta de agosto /Balanço suspensão redução até agosto A09 – Rec. Bruta de setembro /Balanço suspensão redução até setembro A10 – Rec. Bruta de outubro/Balanço suspensão redução até outubro A11 – Rec. Bruta de novembro /Balanço suspensão redução até novembro A12 – Rec. Bruta de dezembro/Balanço suspensão redução até dezembro Período de apuração (para 0010.APUR_CSLL = “T”):
+    T01 – 1º Trimestre
+    T02 – 2º Trimestre
+    T03 – 3º Trimestre
+    T04 – 4º Trimestre
+  tipo: C
+  tamanho: 3
+  decimal: '-'
+  valores_validos: '[A00; A01; A02; A03; A04; A05; A06; A07; A08; A09; A10; A11; A12; T01; T02; T03; T04]'
+  obrigatorio: true
+regras_validacao_registro_detalhe:
+- regra: REGRA_DUPLICIDADE_DESPREZADA
+  descricao: Verifica se o registro já foi importado anteriormente, de acordo com a chave e os registros pais. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_PERIODO_DESPREZADO
+  descricao: Verifica se a linha deste período existe no arquivo de importação, mas não deve ser importado, pois as datas não compatíveis com o período da ECF. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_ALTERADA
+  descricao: Verifica se a linha deste período existe no arquivo de importação, mas deve ser alterada, pois as datas não compatíveis com o período da ECF. Se a regra não for cumprida, a ECF gera um aviso.
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|U030|01012024|31032024|T01|'
+  explicacao:
+  - valor: '|U030|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|01012024|'
+    descricao: Data de início do período (01/01/2024).
+  - valor: '|31032024|'
+    descricao: Data de fim do período (31/03/2024).
+  - valor: '|T01|'
+    descricao: Período de apuração (T01 = 1o Trimestre).

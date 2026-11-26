@@ -1,0 +1,6397 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  documento: Manual de Orientação do Leiaute 12 da Escrituração Contábil Fiscal (ECF)
+  ato: Anexo ao Ato Declaratório Executivo Cofis nº 02/2026
+  atualizacao: julho/2026
+  ano_calendario: 2025 e situações especiais de 2026
+  leiaute: 12
+  orgao: RFB/Subsecretaria de Fiscalização/Coordenação Geral de Fiscalização/Div. de Captação de Dados
+  total_paginas: 622
+  descricao: Árvore hierárquica de registros da ECF conforme a Tabela de Registros (item 4.2 do manual). O pai de cada registro é o registro imediatamente anterior com nível hierárquico menor. A ordem dos registros é a ordem obrigatória de apresentação no arquivo.
+legenda:
+  obrigatoriedade:
+    O: Obrigatório
+    F: Facultativo
+    OC: Obrigatório Condicional
+    FC: Facultativo Condicional
+    N: Não Deve Existir
+  obrigatoriedade_entrada: Preenchimento obrigatório no momento da importação do arquivo da ECF para o programa da ECF.
+  obrigatoriedade_saida: Obrigatório no momento da geração do arquivo da ECF para transmissão.
+  ocorrencia:
+    '[0]': não há ocorrência
+    '[1:1]': 1 ocorrência
+    '[0:12]': de zero a 12 ocorrências
+    '[1:N]': de uma até n ocorrências
+    '[0:N]': de zero até n ocorrências
+ordem_blocos:
+- '0'
+- C
+- E
+- J
+- K
+- L
+- M
+- N
+- P
+- Q
+- S
+- T
+- U
+- V
+- W
+- X
+- Y
+- '9'
+arvore:
+- registro: '0000'
+  nome: Abertura do Arquivo Digital e Identificação da Pessoa Jurídica
+  nivel: 0
+  obrigatoriedade_entrada: O
+  obrigatoriedade_saida: O
+  ocorrencia: '[1;1]'
+  filhos:
+  - registro: '0001'
+    nome: Abertura do Bloco 0
+    nivel: 1
+    obrigatoriedade_entrada: O
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+    filhos:
+    - registro: '0010'
+      nome: Parâmetros de Tributação
+      nivel: 2
+      obrigatoriedade_entrada: O
+      obrigatoriedade_saida: O
+      ocorrencia: '[1;1]'
+    - registro: '0020'
+      nome: Parâmetros Complementares
+      nivel: 2
+      obrigatoriedade_entrada: O
+      obrigatoriedade_saida: O
+      ocorrencia: '[1;1]'
+    - registro: '0021'
+      nome: Parâmetros de Identificação dos Tipos de Programa
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020.IND_PJ_HAB = S)
+      ocorrencia: '[0;1]'
+    - registro: '0030'
+      nome: Dados Cadastrais
+      nivel: 2
+      obrigatoriedade_entrada: O
+      obrigatoriedade_saida: O
+      ocorrencia: '[1;1]'
+    - registro: '0035'
+      nome: Identificação das SCP
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0000.TIP_ECF = 1)
+      ocorrencia: '[0:N]'
+    - registro: 0930
+      nome: Identificação dos Signatários da ECF
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: O
+      ocorrencia: '[1;N]'
+  - registro: 0990
+    nome: Encerramento do Bloco 0
+    nivel: 1
+    obrigatoriedade_entrada: O
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+  - registro: C001
+    nome: Abertura do Bloco C - Informações Recuperadas da ECD
+    nivel: 1
+    obrigatoriedade_entrada: O
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+    filhos:
+    - registro: C040
+      nome: Identificador da ECD
+      nivel: 2
+      obrigatoriedade_entrada: N
+      obrigatoriedade_saida: OC (Se houver recuperação de dados da ECD)
+      ocorrencia: '[0;12]'
+      filhos:
+      - registro: C050
+        nome: Plano de Contas da ECD
+        nivel: 3
+        obrigatoriedade_entrada: N
+        obrigatoriedade_saida: OC (Se houver recuperação de dados da ECD)
+        ocorrencia: '[0;N]'
+        filhos:
+        - registro: C051
+          nome: Plano de Contas Referencial Preenchido na ECD
+          nivel: 4
+          obrigatoriedade_entrada: N
+          obrigatoriedade_saida: OC (Se houver recuperação de dados da ECD)
+          ocorrencia: Se C050.IND_CTA = “A” [0:N] Senão [0]
+        - registro: C053
+          nome: Subcontas Correlatas
+          nivel: 4
+          obrigatoriedade_entrada: N
+          obrigatoriedade_saida: OC (Se houver recuperação de dados da ECD)
+          ocorrencia: '[0;N]'
+      - registro: C100
+        nome: Centro de Custos
+        nivel: 3
+        obrigatoriedade_entrada: N
+        obrigatoriedade_saida: OC (Se houver recuperação de dados da ECD)
+        ocorrencia: '[0;N]'
+      - registro: C150
+        nome: Identificação do Período dos Saldos Periódicos das Contas Patrimoniais
+        nivel: 3
+        obrigatoriedade_entrada: N
+        obrigatoriedade_saida: OC (Se houver recuperação de dados da ECD)
+        ocorrencia: '[0;13]'
+        filhos:
+        - registro: C155
+          nome: Detalhes dos Saldos Contábeis das Contas Patrimoniais
+          nivel: 4
+          obrigatoriedade_entrada: N
+          obrigatoriedade_saida: OC (Se houver recuperação de dados da ECD)
+          ocorrencia: '[0; N]'
+          filhos:
+          - registro: C157
+            nome: Transferência de Saldos do Plano de Contas Anterior
+            nivel: 5
+            obrigatoriedade_entrada: N
+            obrigatoriedade_saida: OC (Se houver recuperação de dados da ECD)
+            ocorrencia: '[0;N]'
+      - registro: C350
+        nome: Identificação da Data dos Saldos das Contas de Resultado Antes do Encerramento
+        nivel: 3
+        obrigatoriedade_entrada: N
+        obrigatoriedade_saida: OC (Se houver recuperação de dados da ECD)
+        ocorrencia: '[0; N]'
+        filhos:
+        - registro: C355
+          nome: Detalhes dos Saldos das Contas de Resultado Antes do Encerramento
+          nivel: 4
+          obrigatoriedade_entrada: N
+          obrigatoriedade_saida: OC (Se houver recuperação de dados da ECD)
+          ocorrencia: '[0;N]'
+  - registro: C990
+    nome: Encerramento do Bloco C
+    nivel: 1
+    obrigatoriedade_entrada: O
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+  - registro: E001
+    nome: Abertura do Bloco E – Informações Recuperadas da ECF Anterior e Cálculo Fiscal dos Dados Recuperados da ECD
+    nivel: 1
+    obrigatoriedade_entrada: O
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+    filhos:
+    - registro: E010
+      nome: Saldos Finais Recuperados da ECF Anterior
+      nivel: 2
+      obrigatoriedade_entrada: N
+      obrigatoriedade_saida: OC (Se houver recuperação de dados da ECD)
+      ocorrencia: '[0;N]'
+      filhos:
+      - registro: E015
+        nome: Contas Contábeis Mapeadas
+        nivel: 3
+        obrigatoriedade_entrada: N
+        obrigatoriedade_saida: OC (Se houver recuperação de dados da ECD)
+        ocorrencia: '[0;N]'
+    - registro: E020
+      nome: Saldos Finais das Contas da Parte B do e-Lalur da ECF Imediatamente Anterior
+      nivel: 2
+      obrigatoriedade_entrada: N
+      obrigatoriedade_saida: OC (Se houver recuperação de dados da ECD)
+      ocorrencia: '[0;N]'
+    - registro: E030
+      nome: Identificação do Período
+      nivel: 2
+      obrigatoriedade_entrada: N
+      obrigatoriedade_saida: OC (Se houver recuperação de dados da ECD)
+      ocorrencia: '[0;13]'
+      filhos:
+      - registro: E155
+        nome: Detalhes dos Saldos Contábeis Calculados com Base nas ECD
+        nivel: 3
+        obrigatoriedade_entrada: N
+        obrigatoriedade_saida: OC (Se houver recuperação de dados da ECD)
+        ocorrencia: '[0;N]'
+      - registro: E355
+        nome: Detalhes dos Saldos das Contas de Resultado Antes do Encerramento
+        nivel: 3
+        obrigatoriedade_entrada: N
+        obrigatoriedade_saida: OC (Se houver recuperação de dados da ECD)
+        ocorrencia: '[0;N]'
+  - registro: E990
+    nome: Encerramento do Bloco E
+    nivel: 1
+    obrigatoriedade_entrada: N
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+  - registro: J001
+    nome: Abertura do Bloco J – Plano de Contas e Mapeamento
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+    filhos:
+    - registro: J050
+      nome: Plano de Contas do Contribuinte
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se (0010. FORMA_TRIB = “1”, “2”, “3”,“4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”))
+      ocorrencia: '[0;N]'
+      filhos:
+      - registro: J051
+        nome: Plano de Contas Referencial
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se (J050.IND_CTA = “A”) E (J050.COD_NAT = “01” ou “02” ou “03” “4) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”)
+        ocorrencia: Se J050.IND_CTA = “A” [1:N] Senão [0]
+      - registro: J053
+        nome: Subcontas Correlatas
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: F
+        ocorrencia: '[0;N]'
+    - registro: J100
+      nome: Centro de Custos
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: FC (Se (0010.FORMA_TRIB = “1” ou “2” ou “3”,“4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”))
+      ocorrencia: '[0;N]'
+  - registro: J990
+    nome: Encerramento do Bloco J
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+  - registro: K001
+    nome: Abertura do Bloco K – Saldos das Contas Contábeis e Referenciais
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+    filhos:
+    - registro: K030
+      nome: Identificação dos Períodos e Formas de Apuração do IRPJ e da CSLL no Ano-Calendário
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se (0010. FORMA_TRIB = “1”, “2”, “3”, “4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”))
+      ocorrencia: '[0;13]'
+      filhos:
+      - registro: K155
+        nome: Detalhes dos Saldos Contábeis (Depois do Encerramento do Resultado do Período)
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se (0010. FORMA_TRIB = “1”, “2”, “3” , “4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”))
+        ocorrencia: '[0;N]'
+        filhos:
+        - registro: K156
+          nome: Mapeamento Referencial do Saldo
+          nivel: 4
+          obrigatoriedade_entrada: F
+          obrigatoriedade_saida: OC Localizar o J050.COD_CTA = K155.PAI_COD_CTA. (Se J050 possuir mais de uma conta referencial cadastrada no registro J051 para o mesmo centro de custo – Registro)
+          ocorrencia: '[0;N]'
+      - registro: K355
+        nome: Saldos Finais das Contas Contábeis de Resultado Antes do Encerramento
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: F
+        ocorrencia: '[0;N]'
+        filhos:
+        - registro: K356
+          nome: Mapeamento Referencial dos Saldos Finais das Contas de Resultado Antes do Encerramento
+          nivel: 4
+          obrigatoriedade_entrada: F
+          obrigatoriedade_saida: OC Localizar o J050.COD_CTA = K155.PAI_COD_CTA. (Se J050 possuir mais de uma conta referencial cadastrada no registro J051 para o mesmo centro de custo – Registro)
+          ocorrencia: '[0;N]'
+    - registro: K915
+      nome: Justificativa para Divergência nas Contas Patrimoniais
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: FC (Se (0010.FORMA_TRIB = “1” ou “2” ou “3”, “4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”))
+      ocorrencia: '[0;N]'
+    - registro: K935
+      nome: Justificativa para Divergência nas Contas de Resultado
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: FC (Se (0010.FORMA_TRIB = “1” ou “2” ou “3”, “4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”))
+      ocorrencia: '[0;N]'
+  - registro: K990
+    nome: Encerramento do Bloco K
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+  - registro: L001
+    nome: Abertura do Bloco L – Lucro Real
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+    filhos:
+    - registro: L030
+      nome: Identificação dos Períodos e Formas de Apuração do IRPJ e da CSLL no Ano-Calendário
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB = “1”, “2”, “3” ou “4”)
+      ocorrencia: '[0;13]'
+      filhos:
+      - registro: L100
+        nome: Balanço Patrimonial
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se (L030.PER_APUR = “A00” OU [T01..T04]) Ou ([A01..A012] E 0010. MES_BAL_RED [1..12] for igual = “B”)
+        ocorrencia: '[0;N]'
+      - registro: L200
+        nome: Método de Avaliação do Estoque Final
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se (COD_QUALIF_PJ = “01”) E (L030.PER_APUR = “A00” OU [T01..T04]) Ou ([A01..A012] E 0010. MES_BAL_RED [1..12] for igual = “B”))
+        ocorrencia: '[0;N]'
+      - registro: L210
+        nome: Informativo da Composição de Custos
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se (COD_QUALIF_PJ = “01”) E (L030.PER_APUR = “A00” OU [T01..T04]) Ou ([A01..A012] E 0010. MES_BAL_RED [1..12] for igual = “B”))
+        ocorrencia: '[0;N]'
+      - registro: L300
+        nome: Demonstração do Resultado Líquido no Período Fiscal
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se (COD_QUALIF_PJ = “01”) E (L030.PER_APUR = “A00” OU [T01..T04]) Ou ([A01..A012] E 0010. MES_BAL_RED [1..12] for igual = “B”))
+        ocorrencia: '[0;N]'
+  - registro: L990
+    nome: Encerramento do Bloco L
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+  - registro: M001
+    nome: Abertura do Bloco M – Livro Eletrônico de Apuração do Lucro Real (e-Lalur) e Livro Eletrônico de Apuração da Base de Cálculo da CSLL (e-Lacs)
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+    filhos:
+    - registro: M010
+      nome: Identificação da Conta na Parte B e-Lalur e do e-Lacs
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: FC (Se 0010. FORMA_TRIB = “1”, “2”, “3” ou “4”).
+      ocorrencia: '[0;N]'
+    - registro: M030
+      nome: Identificação do Período e Forma de Apuração do IRPJ e da CSLL das Empresas Tributadas pelo Lucro Real
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB = “1”, “2”, “3” ou “4”)
+      ocorrencia: '[0;13]'
+      filhos:
+      - registro: M300
+        nome: Demonstração do Lucro Real
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB_PER = “R” ou “E”)
+        ocorrencia: '[0;N]'
+        filhos:
+        - registro: M305
+          nome: Contas da Parte B Relacionadas ao Lançamento da Parte A do e-Lalur
+          nivel: 4
+          obrigatoriedade_entrada: F
+          obrigatoriedade_saida: OC (Se M300.IND_RELACAO = “1” ou “3”)
+          ocorrencia: '[0;N]'
+        - registro: M310
+          nome: Contas Contábeis Relacionadas ao Lançamento da Parte A do e-Lalur
+          nivel: 4
+          obrigatoriedade_entrada: F
+          obrigatoriedade_saida: OC (Se M300.IND_RELACAO = “2” ou “3”)
+          ocorrencia: '[0;N]'
+          filhos:
+          - registro: M312
+            nome: Números dos Lançamentos Relacionados à Conta Contábil
+            nivel: 5
+            obrigatoriedade_entrada: F
+            obrigatoriedade_saida: OC (Se M310.VL_CTA < M300.VR_LAN_LAL; ou M310.VL_CTA < K155.VL_SLD_FIN; ou M310.VL_CTA < (K155.VL_SLD_FIN – K155.VL_SLD_INI); ou M310.VL_CTA < K155.VL_DEB; ou M310.VL_CTA < K155.VL_CRED)
+            ocorrencia: '[0;N]'
+        - registro: M315
+          nome: Identificação de Processos Judiciais e Administrativos Referentes ao Lançamento
+          nivel: 4
+          obrigatoriedade_entrada: F
+          obrigatoriedade_saida: F
+          ocorrencia: '[0;N]'
+      - registro: M350
+        nome: Demonstração da Base de Cálculo da CSLL
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB_PER = “R” ou “E”)
+        ocorrencia: '[0;N]'
+        filhos:
+        - registro: M355
+          nome: Contas da Parte B Relacionadas ao Lançamento da Parte A do e-Lacs
+          nivel: 4
+          obrigatoriedade_entrada: F
+          obrigatoriedade_saida: OC (Se M350.IND_RELACAO = “1” ou “3”)
+          ocorrencia: '[0;N]'
+        - registro: M360
+          nome: Contas Contábeis Relacionadas ao Lançamento da Parte A do e-Lacs
+          nivel: 4
+          obrigatoriedade_entrada: F
+          obrigatoriedade_saida: OC (Se M350.IND_RELACAO = “2” ou “3”)
+          ocorrencia: '[0;N]'
+          filhos:
+          - registro: M362
+            nome: Números dos Lançamentos Relacionados à Conta Contábil
+            nivel: 5
+            obrigatoriedade_entrada: F
+            obrigatoriedade_saida: F
+            ocorrencia: '[0;N]'
+        - registro: M365
+          nome: Identificação de Processos Judiciais e Administrativos Referentes ao Lançamento
+          nivel: 4
+          obrigatoriedade_entrada: F
+          obrigatoriedade_saida: F
+          ocorrencia: '[0;N]'
+      - registro: M410
+        nome: Lançamentos na Conta da Parte B do e-Lalur e do e- Lacs Sem Reflexo na Parte A
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: F
+        ocorrencia: '[0;N]'
+        filhos:
+        - registro: M415
+          nome: Identificação de Processos Judiciais e Administrativos Referentes ao Lançamento
+          nivel: 4
+          obrigatoriedade_entrada: F
+          obrigatoriedade_saida: F
+          ocorrencia: '[0;N]'
+      - registro: M500
+        nome: Controle de Saldos das Contas da Parte B do e-Lalur e do e-Lacs
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: F
+        ocorrencia: '[0;N]'
+      - registro: M510
+        nome: Controle de Saldos das Contas Padrão da Parte B do e- Lalur e do e-Lacs
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: F
+        ocorrencia: '[0;N]'
+  - registro: M990
+    nome: Encerramento do Bloco M
+    nivel: 1
+    obrigatoriedade_entrada: N
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+  - registro: N001
+    nome: Abertura do bloco N – Cálculo do IRPJ e da CSLL
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+    filhos:
+    - registro: N030
+      nome: Identificação do Período e Forma de Apuração do IRPJ e da CSLL das Empresas Tributadas pelo Lucro Real
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB = “1”, “2”, “3” ou “4”)
+      ocorrencia: '[0;13]'
+      filhos:
+      - registro: N500
+        nome: Base de Cálculo do IRPJ Sobre o Lucro Real Após as Compensações de Prejuízos
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB = “1”, “2”, “3” ou “4”)
+        ocorrencia: '[0;N]'
+      - registro: N600
+        nome: Demonstração do Lucro da Exploração
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se (N030.PER_APUR = “A00” OU [T01..T04] OU ([A01..A012]) E (0010. MES_BAL_RED [1..12] = “B”) E 0020.IND_LUC_EXP = “S”)
+        ocorrencia: '[0;N]'
+      - registro: N605
+        nome: Contas Contábeis Envolvidas na Apuração do Lucro da Exploração
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se N600(48.05) = “ 2” - Contabilidade)
+        ocorrencia: '[0;N]'
+      - registro: N610
+        nome: Cálculo da Isenção e Redução do Imposto sobre Lucro Real
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0020.IND_LUC_EXP = “S”) Não deve existir Se (N030.PER_APUR = [A01..A012] E 0010. MES_BAL_RED[1..12] = “E”)
+        ocorrencia: '[0;N]'
+      - registro: N615
+        nome: Informações da Base de Cálculo de Incentivos Fiscais
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se N030 E 0020.IND_FIN="S" Exceto Se (N030.PER_APUR = [A01..A012] E 0010. MES_BAL_RED [1..12] = “E”))
+        ocorrencia: '[0;N]'
+      - registro: N620
+        nome: Apuração do IRPJ Mensal por Estimativa
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se N030.PER_APUR = [A01..A12])
+        ocorrencia: '[0;N]'
+      - registro: N630
+        nome: Apuração do IRPJ Com Base no Lucro Real
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se N030.PER_APUR = “A00” OU [T01..T04])
+        ocorrencia: '[0;N]'
+      - registro: N650
+        nome: Base de Cálculo da CSLL Após Compensações das Bases de Cálculo Negativa
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB = “1”, “2”, “3” ou “4”)
+        ocorrencia: '[0;N]'
+      - registro: N660
+        nome: Apuração da CSLL Mensal por Estimativa
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se N030.PER_APUR = [A01..A12])
+        ocorrencia: '[0;N]'
+      - registro: N670
+        nome: Apuração da CSLL Com Base no Lucro Real
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se N030.PER_APUR = “A00” OU [T01..T04])
+        ocorrencia: '[0;N]'
+  - registro: N990
+    nome: Encerramento do Bloco N
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+  - registro: P001
+    nome: Abertura do Bloco P – Lucro Presumido
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+    filhos:
+    - registro: P030
+      nome: Identificação dos Períodos e Forma de Apuração do IRPJ e da CSLL das Empresas Tributadas pelo Lucro Presumido
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB = “3”, “4”, “5” ou “7” E 0010.FORMA_TRIB_PER = “P”)
+      ocorrencia: '[0;4]'
+      filhos:
+      - registro: P100
+        nome: Balanço Patrimonial
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010. TIP_ESP_PRE = “C” E 0010.IND_REC_RECEITA = “2”)
+        ocorrencia: '[0;N]'
+      - registro: P130
+        nome: Demonstração das Receitas Incentivadas do Lucro Presumido
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0020. IND_RED_ISEN = "S" E 0010.OPT_REFIS = "S")
+        ocorrencia: '[0;N]'
+      - registro: P150
+        nome: Demonstração do Resultado
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010. TIP_ESP_PRE = “C” E 0010.IND_REC_RECEITA = “2”)
+        ocorrencia: '[0;N]'
+      - registro: P200
+        nome: Apuração da Base de Cálculo do Lucro Presumido
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: O
+        ocorrencia: '[1;N]'
+      - registro: P230
+        nome: Cálculo da Isenção e Redução do Lucro Presumido
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0020.IND_RED_ISEN="S" E 0010.OPT_REFIS="S")
+        ocorrencia: '[0;N]'
+      - registro: P300
+        nome: Cálculo do IRPJ com Base no Lucro Presumido
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: O
+        ocorrencia: '[1;N]'
+      - registro: P400
+        nome: Apuração da Base de Cálculo da CSLL com Base no Lucro Presumido
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: O
+        ocorrencia: '[1;N]'
+      - registro: P500
+        nome: Cálculo da CSLL com Base no Lucro Líquido
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: O
+        ocorrencia: '[1;N]'
+  - registro: P990
+    nome: Encerramento do Bloco P
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+  - registro: Q001
+    nome: Abertura do Bloco Q – Livro Caixa
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+    filhos:
+    - registro: Q100
+      nome: Demonstrativo do Livro Caixa
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: FC Se (0010.FORMA_TRIB = “2” ou “4” ou “6” ou “7” ou (Se 0010. TIP_ESP_PRE = “L” E 0010.FORMA_TRIB = "3" ou "5" ou "8" ou "9")
+      ocorrencia: '[0;N]'
+  - registro: Q990
+    nome: Encerramento do Bloco Q
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+  - registro: S001
+    nome: Abertura do Bloco S -TEF/SAF
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1:1]'
+    filhos:
+    - registro: S030
+      nome: Identificação dos Períodos e Forma de Apuração do IRPJ e da CSLL das Empresas Tributadas pelo TEF/SAF
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB = “10”)
+      ocorrencia: '[0:12]'
+      filhos:
+      - registro: S100
+        nome: Balanço Patrimonial das entidades TEF/SAF.
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB = “10”)
+        ocorrencia: '[0:12]'
+      - registro: S150
+        nome: Demonstração do Resultado do Exercício das entidades TEF/SAF.
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB = “10”)
+        ocorrencia: '[0:12]'
+      - registro: S200
+        nome: Apuração dos Tributos a Pagar Incidentes em TEF/SAF
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB = “10”)
+        ocorrencia: '[0:12]'
+      - registro: S300
+        nome: Cálculo do IRPJ
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB = “10”)
+        ocorrencia: '[0:12]'
+      - registro: S500
+        nome: Cálculo da CSLL
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB = “10”)
+        ocorrencia: '[0:12]'
+      - registro: S700
+        nome: Cálculo dos Demais Tributos
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB = “10”)
+        ocorrencia: '[0:12]'
+  - registro: T001
+    nome: Abertura do Bloco T – Lucro Arbitrado
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+    filhos:
+    - registro: T030
+      nome: Identificação dos Períodos e Forma de Apuração do IRPJ e CSLL das Empresas Tributadas pelo Lucro Arbitrado
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB = “2”, “4”, “6” ou “7” E 0010.FORMA_TRIB_PER = “A”)
+      ocorrencia: '[0;4]'
+      filhos:
+      - registro: T120
+        nome: Apuração da Base de Cálculo do IRPJ com Base no Lucro Arbitrado
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010.FORMA_TRIB_PER = “A”)
+        ocorrencia: '[0;N]'
+      - registro: T150
+        nome: Cálculo do Imposto de Renda com Base no Lucro Arbitrado
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010.FORMA_TRIB_PER = “A”)
+        ocorrencia: '[0;N]'
+      - registro: T170
+        nome: Apuração da Base de Cálculo da CSLL com Base no Lucro Arbitrado
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010.FORMA_TRIB_PER = “A”)
+        ocorrencia: '[0;N]'
+      - registro: T181
+        nome: Cálculo da CSLL com Base no Lucro Arbitrado
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010.FORMA_TRIB_PER = “A”)
+        ocorrencia: '[0;N]'
+  - registro: T990
+    nome: Encerramento do Bloco T
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+  - registro: U001
+    nome: Abertura do Bloco U – Imunes e Isentas
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+    filhos:
+    - registro: U030
+      nome: Identificação dos Períodos e Formas de Apuração do IPRJ e da CSLL das Empresas Imunes e Isentas
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB = “8” ou “9”)
+      ocorrencia: '[0;4]'
+      filhos:
+      - registro: U100
+        nome: Balanço Patrimonial
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB = “8” ou “9” E 0010. TIP_ESP_PRE = “C”)
+        ocorrencia: '[0;N]'
+      - registro: U150
+        nome: Demonstração do Resultado
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB = “8” ou “9” E 0010. TIP_ESP_PRE = “C”)
+        ocorrencia: '[0;N]'
+      - registro: U180
+        nome: Cálculo do IRPJ das Empresas Imunes ou Isentas
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB = “8” ou “9” E 0010. FORMA_APUR_I = “A” ou “T”)
+        ocorrencia: '[0;N]'
+      - registro: U182
+        nome: Cálculo da CSLL das Empresas Imunes ou Isentas
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010. FORMA_TRIB = “8” ou “9” E ((0010.APUR_CSLL = “A” ou “T”) OU (0010. FORMA_APUR_I = “A” ou “T”))
+        ocorrencia: '[0;N]'
+  - registro: U990
+    nome: Encerramento do Bloco U
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+  - registro: V001
+    nome: Abertura do Bloco V – DEREX
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+    filhos:
+    - registro: V010
+      nome: DEREX – Instituição
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC Obrigatório se 0020.ind_derex = S Senão Não deve Existir
+      ocorrencia: '[0;N]'
+      filhos:
+      - registro: V020
+        nome: DEREX - Responsável pela Movimentação
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: O Obrigatório se existir V010.
+        ocorrencia: '[1;N]'
+      - registro: V030
+        nome: DEREX - Período – Mês
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: O Obrigatório se existir V010.
+        ocorrencia: '[1;12]'
+        filhos:
+        - registro: V100
+          nome: Demonstrativo dos recursos em moeda estrangeira decorrentes do recebimento de exportações
+          nivel: 4
+          obrigatoriedade_entrada: F
+          obrigatoriedade_saida: O Obrigatório se existir V010.
+          ocorrencia: '[1;N]'
+  - registro: V990
+    nome: Encerramento do Bloco V
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O Obrigatório se existir V010.
+    ocorrencia: '[1;1]'
+  - registro: W001
+    nome: Abertura do Bloco W - Declaração País-a-País
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+    filhos:
+    - registro: W100
+      nome: Informações Sobre o Grupo Multinacional e a Entidade Declarante
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020.IND_PAIS_A_PAIS = "S")
+      ocorrencia: '[0;1]'
+      filhos:
+      - registro: W200
+        nome: Declaração País a País
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se (W100.IND_CONTROLADORA = "S" e W100.IND_ENTREGA = "2") ou W100.IND_ENTREGA = "3") Ou (Se (W100.IND_CONTROLADORA = "N" e W100.IND_ENTREGA = "3")
+        ocorrencia: '[0;N] Observação: Quando for obrigatório, deverá aparecer, no mínimo, duas vezes.'
+        filhos:
+        - registro: W250
+          nome: Declaração País a País - Entidades Integrantes
+          nivel: 4
+          obrigatoriedade_entrada: F
+          obrigatoriedade_saida: OC (Se (W100.IND_CONTROLADORA = "S" e W100.IND_ENTREGA = "2") ou W100.IND_ENTREGA = "3") Ou (Se (W100.IND_CONTROLADORA = "N" e W100.IND_ENTREGA = "3")
+          ocorrencia: '[0;N]'
+    - registro: W300
+      nome: Observações Adicionais
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: F
+      ocorrencia: '[0;N]'
+  - registro: W990
+    nome: Encerramento do Bloco W
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+  - registro: X001
+    nome: Abertura do Bloco X – Informações Econômicas
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+    filhos:
+    - registro: X280
+      nome: Atividades Incentivadas - PJ em Geral
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020. IND_LUC_EXP = "S" OU 0020.IND_RED_ISEN = "S")
+      ocorrencia: '[0;N]'
+    - registro: X292
+      nome: Operações com o Exterior - Pessoa Não Vinculada/ Não Interposta/País sem Tributação Favorecida
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020. IND_OP_EXT = "S” E 0020.IND_OP_VINC = "N")
+      ocorrencia: '[0;N]'
+    - registro: X340
+      nome: Identificação da Participação no Exterior
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020. IND_PART_EXT = "S")
+      ocorrencia: '[0;N]'
+      filhos:
+      - registro: X350
+        nome: Participações no Exterior - Resultado do Período de Apuração
+        nivel: 3
+        obrigatoriedade_entrada: ''
+        obrigatoriedade_saida: OC (Se 0020. IND_PART_EXT = "S")
+        ocorrencia: '[0;N]'
+      - registro: X351
+        nome: Demonstrativo de Resultados e de Imposto a Pagar no Exterior
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: F Não deve existir Se X340.IND_CONTROLE = “6”
+        ocorrencia: '[0;N]'
+      - registro: X352
+        nome: Demonstrativo de Resultados no Exterior Auferidos por Intermédio de Coligada
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC Deve existir se X340.IND_CONTROLE = “4” ou “6” ou “10” ou “11”
+        ocorrencia: '[0;N]'
+      - registro: X353
+        nome: Demonstrativo de Consolidação
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC Deve existir se X340.IND_CONTROLE = “1” ou “2” ou “3” e X340.IND_CONSOL igual a “S” (Sim).
+        ocorrencia: '[0;N]'
+      - registro: X354
+        nome: Demonstrativo de Prejuízos Acumulados
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: F Não deve existir Se X340.IND_CONTROLE = “6”
+        ocorrencia: '[0;N]'
+      - registro: X355
+        nome: Demonstrativo de Rendas Ativas e Passivas
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC Não deve existir se X340.IND_CONTROLE = “6” e “11”
+        ocorrencia: '[0;N]'
+      - registro: X356
+        nome: Demonstrativo de Estrutura Societária
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC Não deve existir se X340.IND_CONTROLE = “6” e “11”
+        ocorrencia: '[0;N]'
+      - registro: X357
+        nome: Investidoras Diretas
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: FC Se X340.IND_CONTROLE for diferente de “5”
+        ocorrencia: '[0;N]'
+    - registro: X360
+      nome: Informações Gerais sobre Preços de Transferência
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020. IND_OP_EXT = "S" E 0020.IND_OP_VINC = "S")
+      ocorrencia: '[0;N]'
+    - registro: X365
+      nome: Informações Sobre Contrapartes nas Transações Controladas
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020. IND_OP_EXT = "S" E 0020.IND_OP_VINC = "S")
+      ocorrencia: '[0;N]'
+      filhos:
+      - registro: X366
+        nome: Entidades Com as Quais Realiza Transações Controladas
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0020. IND_OP_EXT = "S" E 0020.IND_OP_VINC = "S")
+        ocorrencia: '[0;N]'
+    - registro: X370
+      nome: Informações Sobre as Transações Controladas
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020. IND_OP_EXT = "S" E 0020.IND_OP_VINC = "S")
+      ocorrencia: '[0;N]'
+      filhos:
+      - registro: X371
+        nome: Informações Sobre Ajustes Compensatórios
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se X370.VL_COMPENSATORIO maior que zero)
+        ocorrencia: '[0;N]'
+      - registro: X375
+        nome: Informações Relacionadas ao Método de Preços de Transferência
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se Obrigatório se X370.metodo igual a “PRL” – X375A; "MCL" – X375B; “MLT” – X375C; “MDL” – X375D e “PIC” – X375E”)
+        ocorrencia: '[0;N]'
+    - registro: X390
+      nome: Origem e Aplicação de Recursos - Imunes ou Isentas
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0010.FORMA_TRIB = “8” ou “9” )
+      ocorrencia: '[0;N]'
+    - registro: X400
+      nome: Comércio Eletrônico e Tecnologia da Informação – Informações das Vendas
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020. IND_E-COM_TI="S")
+      ocorrencia: '[0;N]'
+    - registro: X410
+      nome: Comércio Eletrônico – Informação de Homepage/Servidor
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020. IND_E-COM_TI="S")
+      ocorrencia: '[0;N]'
+    - registro: X420
+      nome: Royalties Recebidos ou Pagos a Beneficiários do Brasil e do Exterior
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020.IND_ROY_REC = "S" OU 0020.IND_ROY_PAG = "S")
+      ocorrencia: '[0;N]'
+    - registro: X430
+      nome: Rendimentos Relativos a Serviços, Juros e Dividendos Recebidos do Brasil e do Exterior
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020.IND_REND_SERV = "S")
+      ocorrencia: '[0;N]'
+    - registro: X450
+      nome: Pagamentos ou Remessas Relativos a Serviços, Juros e Dividendos a Beneficiários do Brasil e do Exterior
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020.IND_PGTO_REM = "S")
+      ocorrencia: '[0;N]'
+      filhos:
+      - registro: X451
+        nome: Pagamentos ou Remessas Relativos a Serviços, Juros e Dividendos a Beneficiários do Brasil e do Exterior – Demais informações
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0020.IND_PGTO_REM = "S")
+        ocorrencia: '[0;N]'
+        nota: 'Divergência no manual: a Tabela de Registros (item 4.2) indica nível 2, mas o leiaute do registro indica nível 3. A árvore usa o nível do leiaute.'
+    - registro: X460
+      nome: Inovação Tecnológica e Desenvolvimento Tecnológico
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020. IND_INOV_TEC = "S")
+      ocorrencia: '[0;N]'
+    - registro: X470
+      nome: Capacitação de Informática e Inclusão Digital
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020. IND_CAP_INF = "S")
+      ocorrencia: '[0;N]'
+    - registro: X480
+      nome: Benefícios Fiscais – Parte I
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020. IND_PJ_HAB = "S")
+      ocorrencia: '[0;N]'
+    - registro: X485
+      nome: Benefícios Fiscais – Parte II
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020. IND_PJ_HAB = "S")
+      ocorrencia: '[0;N]'
+    - registro: X490
+      nome: Polo Industrial de Manaus e Amazônia Ocidental
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020. IND_POLO_AM = "S")
+      ocorrencia: '[0;N]'
+    - registro: X500
+      nome: Zonas de Processamento de Exportação (ZPE)
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020. IND_ZON_EXP = "S")
+      ocorrencia: '[0;N]'
+    - registro: X510
+      nome: Áreas de Livre Comércio (ALC)
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020. IND_AREA_COM = "S")
+      ocorrencia: '[0;N]'
+  - registro: X990
+    nome: Encerramento do Bloco X
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+  - registro: Y001
+    nome: Abertura do Bloco Y – Informações Gerais
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+    filhos:
+    - registro: Y520
+      nome: Pagamentos/Recebimentos do Exterior ou de Não Residentes
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020.IND_ REC_EXT = "S" OU 0020.IND_PGTO_EXT = "S")
+      ocorrencia: '[0;N]'
+    - registro: Y570
+      nome: Demonstrativo do Imposto de Renda e CSLL Retidos na Fonte
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: F Não deve existir se 0010.FORMA_APUR_I = “D” E 0010.APUR_CSLL = “D”
+      ocorrencia: '[0;N]'
+    - registro: Y590
+      nome: Ativos no Exterior
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020.IND_ATIV_EXT = "S")
+      ocorrencia: '[0;N]'
+    - registro: Y600
+      nome: Identificação e Remuneração de Sócios, Titulares, Dirigentes e Conselheiro
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0010.FORMA_TRIB = "1" a "7")
+      ocorrencia: '[0;N]'
+    - registro: Y612
+      nome: Identificação e Rendimentos de Dirigentes e Conselheiros - Imunes ou Isentas
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0010.FORMA_TRIB = "8" ou "9")
+      ocorrencia: '[0;N]'
+    - registro: Y620
+      nome: Participações Avaliadas pelo Método de Equivalência Patrimonial
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020.IND_PART_COLIG = "S")
+      ocorrencia: '[0;N]'
+    - registro: Y630
+      nome: Fundos/Clubes de Investimento
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020.IND_ADM_FUN_CLU = "S")
+      ocorrencia: '[0;N]'
+    - registro: Y640
+      nome: Participações em Consórcios de Empresas
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0020.IND_PART_CONS = "S")
+      ocorrencia: '[0;N]'
+      filhos:
+      - registro: Y650
+        nome: Participantes do Consórcio
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se Y640.COND_DECL="1")
+        ocorrencia: '[0;N]'
+        nota: 'Divergência no manual: a Tabela de Registros (item 4.2) indica nível 2, mas o leiaute do registro indica nível 3. A árvore usa o nível do leiaute.'
+    - registro: Y660
+      nome: Dados de Sucessoras
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0010.SIT_ESPECIAL = “2”, “3”, “5” ou “6”)
+      ocorrencia: '[0;N]'
+    - registro: Y672
+      nome: Outras Informações (Lucro Presumido ou Lucro Arbitrado)
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0010.FORMA_TRIB = “6” Ou Se 0010.FORMA_TRIB = “5” ou “7” e 0010.TIP_ESC_PRE = “L”)
+      ocorrencia: '[0;1]'
+    - registro: Y680
+      nome: Mês das Informações de Optantes pelo Refis (Lucro Real, Presumido e Arbitrado)
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0010.OPT_REFIS="S" E 0010.FORMA_TRIB ≠ “8” e “9”)
+      ocorrencia: '[0;12]'
+      filhos:
+      - registro: Y681
+        nome: Informações de Optantes pelo Refis (Lucro Real, Presumido e Arbitrado)
+        nivel: 3
+        obrigatoriedade_entrada: F
+        obrigatoriedade_saida: OC (Se 0010.OPT_REFIS="S" E 0010.FORMA_TRIB ≠ “8” e “9”)
+        ocorrencia: '[0;12]'
+    - registro: Y682
+      nome: Informações de Optantes pelo Refis - Imunes ou Isentas
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC (Se 0010.OPT_REFIS="S" E 0010.FORMA_TRIB = “8” e “9”)
+      ocorrencia: '[0;12]'
+    - registro: Y720
+      nome: Informações de Períodos Anteriores
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC Obrigatório se a entrega da escrituração é feita com atraso.
+      ocorrencia: '[0;1]'
+    - registro: Y730
+      nome: Identificação de donatários/destinatários de deduções do IRPJ/CSLL
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: OC Obrigatório se houver alguma dedução do IRPJ/CSLL, conforme regras do registro.
+      ocorrencia: '[0;N]'
+    - registro: Y750
+      nome: Informações da ECF Calculadas pelo PGE
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: O
+      ocorrencia: '[0;N]'
+    - registro: Y800
+      nome: Outras Informações
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: F
+      ocorrencia: '[0;N]'
+  - registro: Y990
+    nome: Encerramento do Bloco Y
+    nivel: 1
+    obrigatoriedade_entrada: F
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+  - registro: '9001'
+    nome: Abertura do Bloco 9
+    nivel: 1
+    obrigatoriedade_entrada: O
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+    filhos:
+    - registro: '9100'
+      nome: Avisos da Escrituração
+      nivel: 2
+      obrigatoriedade_entrada: F
+      obrigatoriedade_saida: O
+      ocorrencia: '[1;N]'
+    - registro: '9900'
+      nome: Registros do Arquivo
+      nivel: 2
+      obrigatoriedade_entrada: O
+      obrigatoriedade_saida: O
+      ocorrencia: '[1;N]'
+  - registro: '9990'
+    nome: Encerramento do Bloco 9
+    nivel: 1
+    obrigatoriedade_entrada: O
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+    nota: Na Tabela de Registros (item 4.2) do manual consta "9099"; o leiaute do registro (página 618) e o padrão SPED definem "9990". Código normalizado para 9990.
+  - registro: '9999'
+    nome: Encerramento do Arquivo Digital
+    nivel: 1
+    obrigatoriedade_entrada: O
+    obrigatoriedade_saida: O
+    ocorrencia: '[1;1]'
+indice:
+  '0000':
+    nome: Abertura do Arquivo Digital e Identificação da Pessoa Jurídica
+    bloco: '0'
+    nivel: 0
+    obrigatoriedade_entrada:
+      codigo: O
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: null
+    filhos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    irmaos: []
+    ordem_no_arquivo: 1
+    arquivo_detalhe: registros/bloco_0/0000.yml
+  '0001':
+    nome: Abertura do Bloco 0
+    bloco: '0'
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: O
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos:
+    - '0010'
+    - '0020'
+    - '0021'
+    - '0030'
+    - '0035'
+    - 0930
+    irmaos:
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 2
+    arquivo_detalhe: registros/bloco_0/0001.yml
+  '0010':
+    nome: Parâmetros de Tributação
+    bloco: '0'
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: O
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0001'
+    filhos: []
+    irmaos:
+    - '0020'
+    - '0021'
+    - '0030'
+    - '0035'
+    - 0930
+    ordem_no_arquivo: 3
+    arquivo_detalhe: registros/bloco_0/0010.yml
+  '0020':
+    nome: Parâmetros Complementares
+    bloco: '0'
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: O
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0001'
+    filhos: []
+    irmaos:
+    - '0010'
+    - '0021'
+    - '0030'
+    - '0035'
+    - 0930
+    ordem_no_arquivo: 4
+    arquivo_detalhe: registros/bloco_0/0020.yml
+  '0021':
+    nome: Parâmetros de Identificação dos Tipos de Programa
+    bloco: '0'
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020.IND_PJ_HAB = S
+    ocorrencia: '[0;1]'
+    pai: '0001'
+    filhos: []
+    irmaos:
+    - '0010'
+    - '0020'
+    - '0030'
+    - '0035'
+    - 0930
+    ordem_no_arquivo: 5
+    arquivo_detalhe: registros/bloco_0/0021.yml
+  '0030':
+    nome: Dados Cadastrais
+    bloco: '0'
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: O
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0001'
+    filhos: []
+    irmaos:
+    - '0010'
+    - '0020'
+    - '0021'
+    - '0035'
+    - 0930
+    ordem_no_arquivo: 6
+    arquivo_detalhe: registros/bloco_0/0030.yml
+  '0035':
+    nome: Identificação das SCP
+    bloco: '0'
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0000.TIP_ECF = 1
+    ocorrencia: '[0:N]'
+    pai: '0001'
+    filhos: []
+    irmaos:
+    - '0010'
+    - '0020'
+    - '0021'
+    - '0030'
+    - 0930
+    ordem_no_arquivo: 7
+    arquivo_detalhe: registros/bloco_0/0035.yml
+  0930:
+    nome: Identificação dos Signatários da ECF
+    bloco: '0'
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;N]'
+    pai: '0001'
+    filhos: []
+    irmaos:
+    - '0010'
+    - '0020'
+    - '0021'
+    - '0030'
+    - '0035'
+    ordem_no_arquivo: 8
+    arquivo_detalhe: registros/bloco_0/0930.yml
+  0990:
+    nome: Encerramento do Bloco 0
+    bloco: '0'
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: O
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos: []
+    irmaos:
+    - '0001'
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 9
+    arquivo_detalhe: registros/bloco_0/0990.yml
+  C001:
+    nome: Abertura do Bloco C - Informações Recuperadas da ECD
+    bloco: C
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: O
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos:
+    - C040
+    irmaos:
+    - '0001'
+    - 0990
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 10
+    arquivo_detalhe: registros/bloco_C/C001.yml
+  C040:
+    nome: Identificador da ECD
+    bloco: C
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: N
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se houver recuperação de dados da ECD
+    ocorrencia: '[0;12]'
+    pai: C001
+    filhos:
+    - C050
+    - C100
+    - C150
+    - C350
+    irmaos: []
+    ordem_no_arquivo: 11
+    arquivo_detalhe: registros/bloco_C/C040.yml
+  C050:
+    nome: Plano de Contas da ECD
+    bloco: C
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: N
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se houver recuperação de dados da ECD
+    ocorrencia: '[0;N]'
+    pai: C040
+    filhos:
+    - C051
+    - C053
+    irmaos:
+    - C100
+    - C150
+    - C350
+    ordem_no_arquivo: 12
+    arquivo_detalhe: registros/bloco_C/C050.yml
+  C051:
+    nome: Plano de Contas Referencial Preenchido na ECD
+    bloco: C
+    nivel: 4
+    obrigatoriedade_entrada:
+      codigo: N
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se houver recuperação de dados da ECD
+    ocorrencia: Se C050.IND_CTA = “A” [0:N] Senão [0]
+    pai: C050
+    filhos: []
+    irmaos:
+    - C053
+    ordem_no_arquivo: 13
+    arquivo_detalhe: registros/bloco_C/C051.yml
+  C053:
+    nome: Subcontas Correlatas
+    bloco: C
+    nivel: 4
+    obrigatoriedade_entrada:
+      codigo: N
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se houver recuperação de dados da ECD
+    ocorrencia: '[0;N]'
+    pai: C050
+    filhos: []
+    irmaos:
+    - C051
+    ordem_no_arquivo: 14
+    arquivo_detalhe: registros/bloco_C/C053.yml
+  C100:
+    nome: Centro de Custos
+    bloco: C
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: N
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se houver recuperação de dados da ECD
+    ocorrencia: '[0;N]'
+    pai: C040
+    filhos: []
+    irmaos:
+    - C050
+    - C150
+    - C350
+    ordem_no_arquivo: 15
+    arquivo_detalhe: registros/bloco_C/C100.yml
+  C150:
+    nome: Identificação do Período dos Saldos Periódicos das Contas Patrimoniais
+    bloco: C
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: N
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se houver recuperação de dados da ECD
+    ocorrencia: '[0;13]'
+    pai: C040
+    filhos:
+    - C155
+    irmaos:
+    - C050
+    - C100
+    - C350
+    ordem_no_arquivo: 16
+    arquivo_detalhe: registros/bloco_C/C150.yml
+  C155:
+    nome: Detalhes dos Saldos Contábeis das Contas Patrimoniais
+    bloco: C
+    nivel: 4
+    obrigatoriedade_entrada:
+      codigo: N
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se houver recuperação de dados da ECD
+    ocorrencia: '[0; N]'
+    pai: C150
+    filhos:
+    - C157
+    irmaos: []
+    ordem_no_arquivo: 17
+    arquivo_detalhe: registros/bloco_C/C155.yml
+  C157:
+    nome: Transferência de Saldos do Plano de Contas Anterior
+    bloco: C
+    nivel: 5
+    obrigatoriedade_entrada:
+      codigo: N
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se houver recuperação de dados da ECD
+    ocorrencia: '[0;N]'
+    pai: C155
+    filhos: []
+    irmaos: []
+    ordem_no_arquivo: 18
+    arquivo_detalhe: registros/bloco_C/C157.yml
+  C350:
+    nome: Identificação da Data dos Saldos das Contas de Resultado Antes do Encerramento
+    bloco: C
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: N
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se houver recuperação de dados da ECD
+    ocorrencia: '[0; N]'
+    pai: C040
+    filhos:
+    - C355
+    irmaos:
+    - C050
+    - C100
+    - C150
+    ordem_no_arquivo: 19
+    arquivo_detalhe: registros/bloco_C/C350.yml
+  C355:
+    nome: Detalhes dos Saldos das Contas de Resultado Antes do Encerramento
+    bloco: C
+    nivel: 4
+    obrigatoriedade_entrada:
+      codigo: N
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se houver recuperação de dados da ECD
+    ocorrencia: '[0;N]'
+    pai: C350
+    filhos: []
+    irmaos: []
+    ordem_no_arquivo: 20
+    arquivo_detalhe: registros/bloco_C/C355.yml
+  C990:
+    nome: Encerramento do Bloco C
+    bloco: C
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: O
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos: []
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 21
+    arquivo_detalhe: registros/bloco_C/C990.yml
+  E001:
+    nome: Abertura do Bloco E – Informações Recuperadas da ECF Anterior e Cálculo Fiscal dos Dados Recuperados da ECD
+    bloco: E
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: O
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos:
+    - E010
+    - E020
+    - E030
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 22
+    arquivo_detalhe: registros/bloco_E/E001.yml
+  E010:
+    nome: Saldos Finais Recuperados da ECF Anterior
+    bloco: E
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: N
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se houver recuperação de dados da ECD
+    ocorrencia: '[0;N]'
+    pai: E001
+    filhos:
+    - E015
+    irmaos:
+    - E020
+    - E030
+    ordem_no_arquivo: 23
+    arquivo_detalhe: registros/bloco_E/E010.yml
+  E015:
+    nome: Contas Contábeis Mapeadas
+    bloco: E
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: N
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se houver recuperação de dados da ECD
+    ocorrencia: '[0;N]'
+    pai: E010
+    filhos: []
+    irmaos: []
+    ordem_no_arquivo: 24
+    arquivo_detalhe: registros/bloco_E/E015.yml
+  E020:
+    nome: Saldos Finais das Contas da Parte B do e-Lalur da ECF Imediatamente Anterior
+    bloco: E
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: N
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se houver recuperação de dados da ECD
+    ocorrencia: '[0;N]'
+    pai: E001
+    filhos: []
+    irmaos:
+    - E010
+    - E030
+    ordem_no_arquivo: 25
+    arquivo_detalhe: registros/bloco_E/E020.yml
+  E030:
+    nome: Identificação do Período
+    bloco: E
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: N
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se houver recuperação de dados da ECD
+    ocorrencia: '[0;13]'
+    pai: E001
+    filhos:
+    - E155
+    - E355
+    irmaos:
+    - E010
+    - E020
+    ordem_no_arquivo: 26
+    arquivo_detalhe: registros/bloco_E/E030.yml
+  E155:
+    nome: Detalhes dos Saldos Contábeis Calculados com Base nas ECD
+    bloco: E
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: N
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se houver recuperação de dados da ECD
+    ocorrencia: '[0;N]'
+    pai: E030
+    filhos: []
+    irmaos:
+    - E355
+    ordem_no_arquivo: 27
+    arquivo_detalhe: registros/bloco_E/E155.yml
+  E355:
+    nome: Detalhes dos Saldos das Contas de Resultado Antes do Encerramento
+    bloco: E
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: N
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se houver recuperação de dados da ECD
+    ocorrencia: '[0;N]'
+    pai: E030
+    filhos: []
+    irmaos:
+    - E155
+    ordem_no_arquivo: 28
+    arquivo_detalhe: registros/bloco_E/E355.yml
+  E990:
+    nome: Encerramento do Bloco E
+    bloco: E
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: N
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos: []
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 29
+    arquivo_detalhe: registros/bloco_E/E990.yml
+  J001:
+    nome: Abertura do Bloco J – Plano de Contas e Mapeamento
+    bloco: J
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos:
+    - J050
+    - J100
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 30
+    arquivo_detalhe: registros/bloco_J/J001.yml
+  J050:
+    nome: Plano de Contas do Contribuinte
+    bloco: J
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se (0010. FORMA_TRIB = “1”, “2”, “3”,“4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”)
+    ocorrencia: '[0;N]'
+    pai: J001
+    filhos:
+    - J051
+    - J053
+    irmaos:
+    - J100
+    ordem_no_arquivo: 31
+    arquivo_detalhe: registros/bloco_J/J050.yml
+  J051:
+    nome: Plano de Contas Referencial
+    bloco: J
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se (J050.IND_CTA = “A”) E (J050.COD_NAT = “01” ou “02” ou “03” “4) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”
+    ocorrencia: Se J050.IND_CTA = “A” [1:N] Senão [0]
+    pai: J050
+    filhos: []
+    irmaos:
+    - J053
+    ordem_no_arquivo: 32
+    arquivo_detalhe: registros/bloco_J/J051.yml
+  J053:
+    nome: Subcontas Correlatas
+    bloco: J
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: F
+    ocorrencia: '[0;N]'
+    pai: J050
+    filhos: []
+    irmaos:
+    - J051
+    ordem_no_arquivo: 33
+    arquivo_detalhe: registros/bloco_J/J053.yml
+  J100:
+    nome: Centro de Custos
+    bloco: J
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: FC
+      condicao: Se (0010.FORMA_TRIB = “1” ou “2” ou “3”,“4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”)
+    ocorrencia: '[0;N]'
+    pai: J001
+    filhos: []
+    irmaos:
+    - J050
+    ordem_no_arquivo: 34
+    arquivo_detalhe: registros/bloco_J/J100.yml
+  J990:
+    nome: Encerramento do Bloco J
+    bloco: J
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos: []
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 35
+    arquivo_detalhe: registros/bloco_J/J990.yml
+  K001:
+    nome: Abertura do Bloco K – Saldos das Contas Contábeis e Referenciais
+    bloco: K
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos:
+    - K030
+    - K915
+    - K935
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 36
+    arquivo_detalhe: registros/bloco_K/K001.yml
+  K030:
+    nome: Identificação dos Períodos e Formas de Apuração do IRPJ e da CSLL no Ano-Calendário
+    bloco: K
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se (0010. FORMA_TRIB = “1”, “2”, “3”, “4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”)
+    ocorrencia: '[0;13]'
+    pai: K001
+    filhos:
+    - K155
+    - K355
+    irmaos:
+    - K915
+    - K935
+    ordem_no_arquivo: 37
+    arquivo_detalhe: registros/bloco_K/K030.yml
+  K155:
+    nome: Detalhes dos Saldos Contábeis (Depois do Encerramento do Resultado do Período)
+    bloco: K
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se (0010. FORMA_TRIB = “1”, “2”, “3” , “4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”)
+    ocorrencia: '[0;N]'
+    pai: K030
+    filhos:
+    - K156
+    irmaos:
+    - K355
+    ordem_no_arquivo: 38
+    arquivo_detalhe: registros/bloco_K/K155.yml
+  K156:
+    nome: Mapeamento Referencial do Saldo
+    bloco: K
+    nivel: 4
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Localizar o J050.COD_CTA = K155.PAI_COD_CTA. (Se J050 possuir mais de uma conta referencial cadastrada no registro J051 para o mesmo centro de custo – Registro)
+    ocorrencia: '[0;N]'
+    pai: K155
+    filhos: []
+    irmaos: []
+    ordem_no_arquivo: 39
+    arquivo_detalhe: registros/bloco_K/K156.yml
+  K355:
+    nome: Saldos Finais das Contas Contábeis de Resultado Antes do Encerramento
+    bloco: K
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: F
+    ocorrencia: '[0;N]'
+    pai: K030
+    filhos:
+    - K356
+    irmaos:
+    - K155
+    ordem_no_arquivo: 40
+    arquivo_detalhe: registros/bloco_K/K355.yml
+  K356:
+    nome: Mapeamento Referencial dos Saldos Finais das Contas de Resultado Antes do Encerramento
+    bloco: K
+    nivel: 4
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Localizar o J050.COD_CTA = K155.PAI_COD_CTA. (Se J050 possuir mais de uma conta referencial cadastrada no registro J051 para o mesmo centro de custo – Registro)
+    ocorrencia: '[0;N]'
+    pai: K355
+    filhos: []
+    irmaos: []
+    ordem_no_arquivo: 41
+    arquivo_detalhe: registros/bloco_K/K356.yml
+  K915:
+    nome: Justificativa para Divergência nas Contas Patrimoniais
+    bloco: K
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: FC
+      condicao: Se (0010.FORMA_TRIB = “1” ou “2” ou “3”, “4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”)
+    ocorrencia: '[0;N]'
+    pai: K001
+    filhos: []
+    irmaos:
+    - K030
+    - K935
+    ordem_no_arquivo: 42
+    arquivo_detalhe: registros/bloco_K/K915.yml
+  K935:
+    nome: Justificativa para Divergência nas Contas de Resultado
+    bloco: K
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: FC
+      condicao: Se (0010.FORMA_TRIB = “1” ou “2” ou “3”, “4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”)
+    ocorrencia: '[0;N]'
+    pai: K001
+    filhos: []
+    irmaos:
+    - K030
+    - K915
+    ordem_no_arquivo: 43
+    arquivo_detalhe: registros/bloco_K/K935.yml
+  K990:
+    nome: Encerramento do Bloco K
+    bloco: K
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos: []
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 44
+    arquivo_detalhe: registros/bloco_K/K990.yml
+  L001:
+    nome: Abertura do Bloco L – Lucro Real
+    bloco: L
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos:
+    - L030
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 45
+    arquivo_detalhe: registros/bloco_L/L001.yml
+  L030:
+    nome: Identificação dos Períodos e Formas de Apuração do IRPJ e da CSLL no Ano-Calendário
+    bloco: L
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB = “1”, “2”, “3” ou “4”
+    ocorrencia: '[0;13]'
+    pai: L001
+    filhos:
+    - L100
+    - L200
+    - L210
+    - L300
+    irmaos: []
+    ordem_no_arquivo: 46
+    arquivo_detalhe: registros/bloco_L/L030.yml
+  L100:
+    nome: Balanço Patrimonial
+    bloco: L
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se (L030.PER_APUR = “A00” OU [T01..T04]) Ou ([A01..A012] E 0010. MES_BAL_RED [1..12] for igual = “B”
+    ocorrencia: '[0;N]'
+    pai: L030
+    filhos: []
+    irmaos:
+    - L200
+    - L210
+    - L300
+    ordem_no_arquivo: 47
+    arquivo_detalhe: registros/bloco_L/L100.yml
+  L200:
+    nome: Método de Avaliação do Estoque Final
+    bloco: L
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se (COD_QUALIF_PJ = “01”) E (L030.PER_APUR = “A00” OU [T01..T04]) Ou ([A01..A012] E 0010. MES_BAL_RED [1..12] for igual = “B”)
+    ocorrencia: '[0;N]'
+    pai: L030
+    filhos: []
+    irmaos:
+    - L100
+    - L210
+    - L300
+    ordem_no_arquivo: 48
+    arquivo_detalhe: registros/bloco_L/L200.yml
+  L210:
+    nome: Informativo da Composição de Custos
+    bloco: L
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se (COD_QUALIF_PJ = “01”) E (L030.PER_APUR = “A00” OU [T01..T04]) Ou ([A01..A012] E 0010. MES_BAL_RED [1..12] for igual = “B”)
+    ocorrencia: '[0;N]'
+    pai: L030
+    filhos: []
+    irmaos:
+    - L100
+    - L200
+    - L300
+    ordem_no_arquivo: 49
+    arquivo_detalhe: registros/bloco_L/L210.yml
+  L300:
+    nome: Demonstração do Resultado Líquido no Período Fiscal
+    bloco: L
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se (COD_QUALIF_PJ = “01”) E (L030.PER_APUR = “A00” OU [T01..T04]) Ou ([A01..A012] E 0010. MES_BAL_RED [1..12] for igual = “B”)
+    ocorrencia: '[0;N]'
+    pai: L030
+    filhos: []
+    irmaos:
+    - L100
+    - L200
+    - L210
+    ordem_no_arquivo: 50
+    arquivo_detalhe: registros/bloco_L/L300.yml
+  L990:
+    nome: Encerramento do Bloco L
+    bloco: L
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos: []
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 51
+    arquivo_detalhe: registros/bloco_L/L990.yml
+  M001:
+    nome: Abertura do Bloco M – Livro Eletrônico de Apuração do Lucro Real (e-Lalur) e Livro Eletrônico de Apuração da Base de Cálculo da CSLL (e-Lacs)
+    bloco: M
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos:
+    - M010
+    - M030
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 52
+    arquivo_detalhe: registros/bloco_M/M001.yml
+  M010:
+    nome: Identificação da Conta na Parte B e-Lalur e do e-Lacs
+    bloco: M
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: FC
+      condicao: (Se 0010. FORMA_TRIB = “1”, “2”, “3” ou “4”).
+    ocorrencia: '[0;N]'
+    pai: M001
+    filhos: []
+    irmaos:
+    - M030
+    ordem_no_arquivo: 53
+    arquivo_detalhe: registros/bloco_M/M010.yml
+  M030:
+    nome: Identificação do Período e Forma de Apuração do IRPJ e da CSLL das Empresas Tributadas pelo Lucro Real
+    bloco: M
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB = “1”, “2”, “3” ou “4”
+    ocorrencia: '[0;13]'
+    pai: M001
+    filhos:
+    - M300
+    - M350
+    - M410
+    - M500
+    - M510
+    irmaos:
+    - M010
+    ordem_no_arquivo: 54
+    arquivo_detalhe: registros/bloco_M/M030.yml
+  M300:
+    nome: Demonstração do Lucro Real
+    bloco: M
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB_PER = “R” ou “E”
+    ocorrencia: '[0;N]'
+    pai: M030
+    filhos:
+    - M305
+    - M310
+    - M315
+    irmaos:
+    - M350
+    - M410
+    - M500
+    - M510
+    ordem_no_arquivo: 55
+    arquivo_detalhe: registros/bloco_M/M300.yml
+  M305:
+    nome: Contas da Parte B Relacionadas ao Lançamento da Parte A do e-Lalur
+    bloco: M
+    nivel: 4
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se M300.IND_RELACAO = “1” ou “3”
+    ocorrencia: '[0;N]'
+    pai: M300
+    filhos: []
+    irmaos:
+    - M310
+    - M315
+    ordem_no_arquivo: 56
+    arquivo_detalhe: registros/bloco_M/M305.yml
+  M310:
+    nome: Contas Contábeis Relacionadas ao Lançamento da Parte A do e-Lalur
+    bloco: M
+    nivel: 4
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se M300.IND_RELACAO = “2” ou “3”
+    ocorrencia: '[0;N]'
+    pai: M300
+    filhos:
+    - M312
+    irmaos:
+    - M305
+    - M315
+    ordem_no_arquivo: 57
+    arquivo_detalhe: registros/bloco_M/M310.yml
+  M312:
+    nome: Números dos Lançamentos Relacionados à Conta Contábil
+    bloco: M
+    nivel: 5
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se M310.VL_CTA < M300.VR_LAN_LAL; ou M310.VL_CTA < K155.VL_SLD_FIN; ou M310.VL_CTA < (K155.VL_SLD_FIN – K155.VL_SLD_INI); ou M310.VL_CTA < K155.VL_DEB; ou M310.VL_CTA < K155.VL_CRED
+    ocorrencia: '[0;N]'
+    pai: M310
+    filhos: []
+    irmaos: []
+    ordem_no_arquivo: 58
+    arquivo_detalhe: registros/bloco_M/M312.yml
+  M315:
+    nome: Identificação de Processos Judiciais e Administrativos Referentes ao Lançamento
+    bloco: M
+    nivel: 4
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: F
+    ocorrencia: '[0;N]'
+    pai: M300
+    filhos: []
+    irmaos:
+    - M305
+    - M310
+    ordem_no_arquivo: 59
+    arquivo_detalhe: registros/bloco_M/M315.yml
+  M350:
+    nome: Demonstração da Base de Cálculo da CSLL
+    bloco: M
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB_PER = “R” ou “E”
+    ocorrencia: '[0;N]'
+    pai: M030
+    filhos:
+    - M355
+    - M360
+    - M365
+    irmaos:
+    - M300
+    - M410
+    - M500
+    - M510
+    ordem_no_arquivo: 60
+    arquivo_detalhe: registros/bloco_M/M350.yml
+  M355:
+    nome: Contas da Parte B Relacionadas ao Lançamento da Parte A do e-Lacs
+    bloco: M
+    nivel: 4
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se M350.IND_RELACAO = “1” ou “3”
+    ocorrencia: '[0;N]'
+    pai: M350
+    filhos: []
+    irmaos:
+    - M360
+    - M365
+    ordem_no_arquivo: 61
+    arquivo_detalhe: registros/bloco_M/M355.yml
+  M360:
+    nome: Contas Contábeis Relacionadas ao Lançamento da Parte A do e-Lacs
+    bloco: M
+    nivel: 4
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se M350.IND_RELACAO = “2” ou “3”
+    ocorrencia: '[0;N]'
+    pai: M350
+    filhos:
+    - M362
+    irmaos:
+    - M355
+    - M365
+    ordem_no_arquivo: 62
+    arquivo_detalhe: registros/bloco_M/M360.yml
+  M362:
+    nome: Números dos Lançamentos Relacionados à Conta Contábil
+    bloco: M
+    nivel: 5
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: F
+    ocorrencia: '[0;N]'
+    pai: M360
+    filhos: []
+    irmaos: []
+    ordem_no_arquivo: 63
+    arquivo_detalhe: registros/bloco_M/M362.yml
+  M365:
+    nome: Identificação de Processos Judiciais e Administrativos Referentes ao Lançamento
+    bloco: M
+    nivel: 4
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: F
+    ocorrencia: '[0;N]'
+    pai: M350
+    filhos: []
+    irmaos:
+    - M355
+    - M360
+    ordem_no_arquivo: 64
+    arquivo_detalhe: registros/bloco_M/M365.yml
+  M410:
+    nome: Lançamentos na Conta da Parte B do e-Lalur e do e- Lacs Sem Reflexo na Parte A
+    bloco: M
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: F
+    ocorrencia: '[0;N]'
+    pai: M030
+    filhos:
+    - M415
+    irmaos:
+    - M300
+    - M350
+    - M500
+    - M510
+    ordem_no_arquivo: 65
+    arquivo_detalhe: registros/bloco_M/M410.yml
+  M415:
+    nome: Identificação de Processos Judiciais e Administrativos Referentes ao Lançamento
+    bloco: M
+    nivel: 4
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: F
+    ocorrencia: '[0;N]'
+    pai: M410
+    filhos: []
+    irmaos: []
+    ordem_no_arquivo: 66
+    arquivo_detalhe: registros/bloco_M/M415.yml
+  M500:
+    nome: Controle de Saldos das Contas da Parte B do e-Lalur e do e-Lacs
+    bloco: M
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: F
+    ocorrencia: '[0;N]'
+    pai: M030
+    filhos: []
+    irmaos:
+    - M300
+    - M350
+    - M410
+    - M510
+    ordem_no_arquivo: 67
+    arquivo_detalhe: registros/bloco_M/M500.yml
+  M510:
+    nome: Controle de Saldos das Contas Padrão da Parte B do e- Lalur e do e-Lacs
+    bloco: M
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: F
+    ocorrencia: '[0;N]'
+    pai: M030
+    filhos: []
+    irmaos:
+    - M300
+    - M350
+    - M410
+    - M500
+    ordem_no_arquivo: 68
+    arquivo_detalhe: registros/bloco_M/M510.yml
+  M990:
+    nome: Encerramento do Bloco M
+    bloco: M
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: N
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos: []
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 69
+    arquivo_detalhe: registros/bloco_M/M990.yml
+  N001:
+    nome: Abertura do bloco N – Cálculo do IRPJ e da CSLL
+    bloco: N
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos:
+    - N030
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 70
+    arquivo_detalhe: registros/bloco_N/N001.yml
+  N030:
+    nome: Identificação do Período e Forma de Apuração do IRPJ e da CSLL das Empresas Tributadas pelo Lucro Real
+    bloco: N
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB = “1”, “2”, “3” ou “4”
+    ocorrencia: '[0;13]'
+    pai: N001
+    filhos:
+    - N500
+    - N600
+    - N605
+    - N610
+    - N615
+    - N620
+    - N630
+    - N650
+    - N660
+    - N670
+    irmaos: []
+    ordem_no_arquivo: 71
+    arquivo_detalhe: registros/bloco_N/N030.yml
+  N500:
+    nome: Base de Cálculo do IRPJ Sobre o Lucro Real Após as Compensações de Prejuízos
+    bloco: N
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB = “1”, “2”, “3” ou “4”
+    ocorrencia: '[0;N]'
+    pai: N030
+    filhos: []
+    irmaos:
+    - N600
+    - N605
+    - N610
+    - N615
+    - N620
+    - N630
+    - N650
+    - N660
+    - N670
+    ordem_no_arquivo: 72
+    arquivo_detalhe: registros/bloco_N/N500.yml
+  N600:
+    nome: Demonstração do Lucro da Exploração
+    bloco: N
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se (N030.PER_APUR = “A00” OU [T01..T04] OU ([A01..A012]) E (0010. MES_BAL_RED [1..12] = “B”) E 0020.IND_LUC_EXP = “S”
+    ocorrencia: '[0;N]'
+    pai: N030
+    filhos: []
+    irmaos:
+    - N500
+    - N605
+    - N610
+    - N615
+    - N620
+    - N630
+    - N650
+    - N660
+    - N670
+    ordem_no_arquivo: 73
+    arquivo_detalhe: registros/bloco_N/N600.yml
+  N605:
+    nome: Contas Contábeis Envolvidas na Apuração do Lucro da Exploração
+    bloco: N
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se N600(48.05) = “ 2” - Contabilidade
+    ocorrencia: '[0;N]'
+    pai: N030
+    filhos: []
+    irmaos:
+    - N500
+    - N600
+    - N610
+    - N615
+    - N620
+    - N630
+    - N650
+    - N660
+    - N670
+    ordem_no_arquivo: 74
+    arquivo_detalhe: registros/bloco_N/N605.yml
+  N610:
+    nome: Cálculo da Isenção e Redução do Imposto sobre Lucro Real
+    bloco: N
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020.IND_LUC_EXP = “S”) Não deve existir Se (N030.PER_APUR = [A01..A012] E 0010. MES_BAL_RED[1..12] = “E”
+    ocorrencia: '[0;N]'
+    pai: N030
+    filhos: []
+    irmaos:
+    - N500
+    - N600
+    - N605
+    - N615
+    - N620
+    - N630
+    - N650
+    - N660
+    - N670
+    ordem_no_arquivo: 75
+    arquivo_detalhe: registros/bloco_N/N610.yml
+  N615:
+    nome: Informações da Base de Cálculo de Incentivos Fiscais
+    bloco: N
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se N030 E 0020.IND_FIN="S" Exceto Se (N030.PER_APUR = [A01..A012] E 0010. MES_BAL_RED [1..12] = “E”)
+    ocorrencia: '[0;N]'
+    pai: N030
+    filhos: []
+    irmaos:
+    - N500
+    - N600
+    - N605
+    - N610
+    - N620
+    - N630
+    - N650
+    - N660
+    - N670
+    ordem_no_arquivo: 76
+    arquivo_detalhe: registros/bloco_N/N615.yml
+  N620:
+    nome: Apuração do IRPJ Mensal por Estimativa
+    bloco: N
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se N030.PER_APUR = [A01..A12]
+    ocorrencia: '[0;N]'
+    pai: N030
+    filhos: []
+    irmaos:
+    - N500
+    - N600
+    - N605
+    - N610
+    - N615
+    - N630
+    - N650
+    - N660
+    - N670
+    ordem_no_arquivo: 77
+    arquivo_detalhe: registros/bloco_N/N620.yml
+  N630:
+    nome: Apuração do IRPJ Com Base no Lucro Real
+    bloco: N
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se N030.PER_APUR = “A00” OU [T01..T04]
+    ocorrencia: '[0;N]'
+    pai: N030
+    filhos: []
+    irmaos:
+    - N500
+    - N600
+    - N605
+    - N610
+    - N615
+    - N620
+    - N650
+    - N660
+    - N670
+    ordem_no_arquivo: 78
+    arquivo_detalhe: registros/bloco_N/N630.yml
+  N650:
+    nome: Base de Cálculo da CSLL Após Compensações das Bases de Cálculo Negativa
+    bloco: N
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB = “1”, “2”, “3” ou “4”
+    ocorrencia: '[0;N]'
+    pai: N030
+    filhos: []
+    irmaos:
+    - N500
+    - N600
+    - N605
+    - N610
+    - N615
+    - N620
+    - N630
+    - N660
+    - N670
+    ordem_no_arquivo: 79
+    arquivo_detalhe: registros/bloco_N/N650.yml
+  N660:
+    nome: Apuração da CSLL Mensal por Estimativa
+    bloco: N
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se N030.PER_APUR = [A01..A12]
+    ocorrencia: '[0;N]'
+    pai: N030
+    filhos: []
+    irmaos:
+    - N500
+    - N600
+    - N605
+    - N610
+    - N615
+    - N620
+    - N630
+    - N650
+    - N670
+    ordem_no_arquivo: 80
+    arquivo_detalhe: registros/bloco_N/N660.yml
+  N670:
+    nome: Apuração da CSLL Com Base no Lucro Real
+    bloco: N
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se N030.PER_APUR = “A00” OU [T01..T04]
+    ocorrencia: '[0;N]'
+    pai: N030
+    filhos: []
+    irmaos:
+    - N500
+    - N600
+    - N605
+    - N610
+    - N615
+    - N620
+    - N630
+    - N650
+    - N660
+    ordem_no_arquivo: 81
+    arquivo_detalhe: registros/bloco_N/N670.yml
+  N990:
+    nome: Encerramento do Bloco N
+    bloco: N
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos: []
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 82
+    arquivo_detalhe: registros/bloco_N/N990.yml
+  P001:
+    nome: Abertura do Bloco P – Lucro Presumido
+    bloco: P
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos:
+    - P030
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 83
+    arquivo_detalhe: registros/bloco_P/P001.yml
+  P030:
+    nome: Identificação dos Períodos e Forma de Apuração do IRPJ e da CSLL das Empresas Tributadas pelo Lucro Presumido
+    bloco: P
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB = “3”, “4”, “5” ou “7” E 0010.FORMA_TRIB_PER = “P”
+    ocorrencia: '[0;4]'
+    pai: P001
+    filhos:
+    - P100
+    - P130
+    - P150
+    - P200
+    - P230
+    - P300
+    - P400
+    - P500
+    irmaos: []
+    ordem_no_arquivo: 84
+    arquivo_detalhe: registros/bloco_P/P030.yml
+  P100:
+    nome: Balanço Patrimonial
+    bloco: P
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. TIP_ESP_PRE = “C” E 0010.IND_REC_RECEITA = “2”
+    ocorrencia: '[0;N]'
+    pai: P030
+    filhos: []
+    irmaos:
+    - P130
+    - P150
+    - P200
+    - P230
+    - P300
+    - P400
+    - P500
+    ordem_no_arquivo: 85
+    arquivo_detalhe: registros/bloco_P/P100.yml
+  P130:
+    nome: Demonstração das Receitas Incentivadas do Lucro Presumido
+    bloco: P
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020. IND_RED_ISEN = "S" E 0010.OPT_REFIS = "S"
+    ocorrencia: '[0;N]'
+    pai: P030
+    filhos: []
+    irmaos:
+    - P100
+    - P150
+    - P200
+    - P230
+    - P300
+    - P400
+    - P500
+    ordem_no_arquivo: 86
+    arquivo_detalhe: registros/bloco_P/P130.yml
+  P150:
+    nome: Demonstração do Resultado
+    bloco: P
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. TIP_ESP_PRE = “C” E 0010.IND_REC_RECEITA = “2”
+    ocorrencia: '[0;N]'
+    pai: P030
+    filhos: []
+    irmaos:
+    - P100
+    - P130
+    - P200
+    - P230
+    - P300
+    - P400
+    - P500
+    ordem_no_arquivo: 87
+    arquivo_detalhe: registros/bloco_P/P150.yml
+  P200:
+    nome: Apuração da Base de Cálculo do Lucro Presumido
+    bloco: P
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;N]'
+    pai: P030
+    filhos: []
+    irmaos:
+    - P100
+    - P130
+    - P150
+    - P230
+    - P300
+    - P400
+    - P500
+    ordem_no_arquivo: 88
+    arquivo_detalhe: registros/bloco_P/P200.yml
+  P230:
+    nome: Cálculo da Isenção e Redução do Lucro Presumido
+    bloco: P
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020.IND_RED_ISEN="S" E 0010.OPT_REFIS="S"
+    ocorrencia: '[0;N]'
+    pai: P030
+    filhos: []
+    irmaos:
+    - P100
+    - P130
+    - P150
+    - P200
+    - P300
+    - P400
+    - P500
+    ordem_no_arquivo: 89
+    arquivo_detalhe: registros/bloco_P/P230.yml
+  P300:
+    nome: Cálculo do IRPJ com Base no Lucro Presumido
+    bloco: P
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;N]'
+    pai: P030
+    filhos: []
+    irmaos:
+    - P100
+    - P130
+    - P150
+    - P200
+    - P230
+    - P400
+    - P500
+    ordem_no_arquivo: 90
+    arquivo_detalhe: registros/bloco_P/P300.yml
+  P400:
+    nome: Apuração da Base de Cálculo da CSLL com Base no Lucro Presumido
+    bloco: P
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;N]'
+    pai: P030
+    filhos: []
+    irmaos:
+    - P100
+    - P130
+    - P150
+    - P200
+    - P230
+    - P300
+    - P500
+    ordem_no_arquivo: 91
+    arquivo_detalhe: registros/bloco_P/P400.yml
+  P500:
+    nome: Cálculo da CSLL com Base no Lucro Líquido
+    bloco: P
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;N]'
+    pai: P030
+    filhos: []
+    irmaos:
+    - P100
+    - P130
+    - P150
+    - P200
+    - P230
+    - P300
+    - P400
+    ordem_no_arquivo: 92
+    arquivo_detalhe: registros/bloco_P/P500.yml
+  P990:
+    nome: Encerramento do Bloco P
+    bloco: P
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos: []
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 93
+    arquivo_detalhe: registros/bloco_P/P990.yml
+  Q001:
+    nome: Abertura do Bloco Q – Livro Caixa
+    bloco: Q
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos:
+    - Q100
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 94
+    arquivo_detalhe: registros/bloco_Q/Q001.yml
+  Q100:
+    nome: Demonstrativo do Livro Caixa
+    bloco: Q
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: FC
+      condicao: Se (0010.FORMA_TRIB = “2” ou “4” ou “6” ou “7” ou (Se 0010. TIP_ESP_PRE = “L” E 0010.FORMA_TRIB = "3" ou "5" ou "8" ou "9")
+    ocorrencia: '[0;N]'
+    pai: Q001
+    filhos: []
+    irmaos: []
+    ordem_no_arquivo: 95
+    arquivo_detalhe: registros/bloco_Q/Q100.yml
+  Q990:
+    nome: Encerramento do Bloco Q
+    bloco: Q
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos: []
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 96
+    arquivo_detalhe: registros/bloco_Q/Q990.yml
+  S001:
+    nome: Abertura do Bloco S -TEF/SAF
+    bloco: S
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1:1]'
+    pai: '0000'
+    filhos:
+    - S030
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 97
+    arquivo_detalhe: registros/bloco_S/S001.yml
+  S030:
+    nome: Identificação dos Períodos e Forma de Apuração do IRPJ e da CSLL das Empresas Tributadas pelo TEF/SAF
+    bloco: S
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB = “10”
+    ocorrencia: '[0:12]'
+    pai: S001
+    filhos:
+    - S100
+    - S150
+    - S200
+    - S300
+    - S500
+    - S700
+    irmaos: []
+    ordem_no_arquivo: 98
+    arquivo_detalhe: registros/bloco_S/S030.yml
+  S100:
+    nome: Balanço Patrimonial das entidades TEF/SAF.
+    bloco: S
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB = “10”
+    ocorrencia: '[0:12]'
+    pai: S030
+    filhos: []
+    irmaos:
+    - S150
+    - S200
+    - S300
+    - S500
+    - S700
+    ordem_no_arquivo: 99
+    arquivo_detalhe: registros/bloco_S/S100.yml
+  S150:
+    nome: Demonstração do Resultado do Exercício das entidades TEF/SAF.
+    bloco: S
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB = “10”
+    ocorrencia: '[0:12]'
+    pai: S030
+    filhos: []
+    irmaos:
+    - S100
+    - S200
+    - S300
+    - S500
+    - S700
+    ordem_no_arquivo: 100
+    arquivo_detalhe: registros/bloco_S/S150.yml
+  S200:
+    nome: Apuração dos Tributos a Pagar Incidentes em TEF/SAF
+    bloco: S
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB = “10”
+    ocorrencia: '[0:12]'
+    pai: S030
+    filhos: []
+    irmaos:
+    - S100
+    - S150
+    - S300
+    - S500
+    - S700
+    ordem_no_arquivo: 101
+    arquivo_detalhe: registros/bloco_S/S200.yml
+  S300:
+    nome: Cálculo do IRPJ
+    bloco: S
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB = “10”
+    ocorrencia: '[0:12]'
+    pai: S030
+    filhos: []
+    irmaos:
+    - S100
+    - S150
+    - S200
+    - S500
+    - S700
+    ordem_no_arquivo: 102
+    arquivo_detalhe: registros/bloco_S/S300.yml
+  S500:
+    nome: Cálculo da CSLL
+    bloco: S
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB = “10”
+    ocorrencia: '[0:12]'
+    pai: S030
+    filhos: []
+    irmaos:
+    - S100
+    - S150
+    - S200
+    - S300
+    - S700
+    ordem_no_arquivo: 103
+    arquivo_detalhe: registros/bloco_S/S500.yml
+  S700:
+    nome: Cálculo dos Demais Tributos
+    bloco: S
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB = “10”
+    ocorrencia: '[0:12]'
+    pai: S030
+    filhos: []
+    irmaos:
+    - S100
+    - S150
+    - S200
+    - S300
+    - S500
+    ordem_no_arquivo: 104
+    arquivo_detalhe: registros/bloco_S/S700.yml
+  T001:
+    nome: Abertura do Bloco T – Lucro Arbitrado
+    bloco: T
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos:
+    - T030
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 105
+    arquivo_detalhe: registros/bloco_T/T001.yml
+  T030:
+    nome: Identificação dos Períodos e Forma de Apuração do IRPJ e CSLL das Empresas Tributadas pelo Lucro Arbitrado
+    bloco: T
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB = “2”, “4”, “6” ou “7” E 0010.FORMA_TRIB_PER = “A”
+    ocorrencia: '[0;4]'
+    pai: T001
+    filhos:
+    - T120
+    - T150
+    - T170
+    - T181
+    irmaos: []
+    ordem_no_arquivo: 106
+    arquivo_detalhe: registros/bloco_T/T030.yml
+  T120:
+    nome: Apuração da Base de Cálculo do IRPJ com Base no Lucro Arbitrado
+    bloco: T
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010.FORMA_TRIB_PER = “A”
+    ocorrencia: '[0;N]'
+    pai: T030
+    filhos: []
+    irmaos:
+    - T150
+    - T170
+    - T181
+    ordem_no_arquivo: 107
+    arquivo_detalhe: registros/bloco_T/T120.yml
+  T150:
+    nome: Cálculo do Imposto de Renda com Base no Lucro Arbitrado
+    bloco: T
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010.FORMA_TRIB_PER = “A”
+    ocorrencia: '[0;N]'
+    pai: T030
+    filhos: []
+    irmaos:
+    - T120
+    - T170
+    - T181
+    ordem_no_arquivo: 108
+    arquivo_detalhe: registros/bloco_T/T150.yml
+  T170:
+    nome: Apuração da Base de Cálculo da CSLL com Base no Lucro Arbitrado
+    bloco: T
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010.FORMA_TRIB_PER = “A”
+    ocorrencia: '[0;N]'
+    pai: T030
+    filhos: []
+    irmaos:
+    - T120
+    - T150
+    - T181
+    ordem_no_arquivo: 109
+    arquivo_detalhe: registros/bloco_T/T170.yml
+  T181:
+    nome: Cálculo da CSLL com Base no Lucro Arbitrado
+    bloco: T
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010.FORMA_TRIB_PER = “A”
+    ocorrencia: '[0;N]'
+    pai: T030
+    filhos: []
+    irmaos:
+    - T120
+    - T150
+    - T170
+    ordem_no_arquivo: 110
+    arquivo_detalhe: registros/bloco_T/T181.yml
+  T990:
+    nome: Encerramento do Bloco T
+    bloco: T
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos: []
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 111
+    arquivo_detalhe: registros/bloco_T/T990.yml
+  U001:
+    nome: Abertura do Bloco U – Imunes e Isentas
+    bloco: U
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos:
+    - U030
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 112
+    arquivo_detalhe: registros/bloco_U/U001.yml
+  U030:
+    nome: Identificação dos Períodos e Formas de Apuração do IPRJ e da CSLL das Empresas Imunes e Isentas
+    bloco: U
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB = “8” ou “9”
+    ocorrencia: '[0;4]'
+    pai: U001
+    filhos:
+    - U100
+    - U150
+    - U180
+    - U182
+    irmaos: []
+    ordem_no_arquivo: 113
+    arquivo_detalhe: registros/bloco_U/U030.yml
+  U100:
+    nome: Balanço Patrimonial
+    bloco: U
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB = “8” ou “9” E 0010. TIP_ESP_PRE = “C”
+    ocorrencia: '[0;N]'
+    pai: U030
+    filhos: []
+    irmaos:
+    - U150
+    - U180
+    - U182
+    ordem_no_arquivo: 114
+    arquivo_detalhe: registros/bloco_U/U100.yml
+  U150:
+    nome: Demonstração do Resultado
+    bloco: U
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB = “8” ou “9” E 0010. TIP_ESP_PRE = “C”
+    ocorrencia: '[0;N]'
+    pai: U030
+    filhos: []
+    irmaos:
+    - U100
+    - U180
+    - U182
+    ordem_no_arquivo: 115
+    arquivo_detalhe: registros/bloco_U/U150.yml
+  U180:
+    nome: Cálculo do IRPJ das Empresas Imunes ou Isentas
+    bloco: U
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB = “8” ou “9” E 0010. FORMA_APUR_I = “A” ou “T”
+    ocorrencia: '[0;N]'
+    pai: U030
+    filhos: []
+    irmaos:
+    - U100
+    - U150
+    - U182
+    ordem_no_arquivo: 116
+    arquivo_detalhe: registros/bloco_U/U180.yml
+  U182:
+    nome: Cálculo da CSLL das Empresas Imunes ou Isentas
+    bloco: U
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010. FORMA_TRIB = “8” ou “9” E ((0010.APUR_CSLL = “A” ou “T”) OU (0010. FORMA_APUR_I = “A” ou “T”)
+    ocorrencia: '[0;N]'
+    pai: U030
+    filhos: []
+    irmaos:
+    - U100
+    - U150
+    - U180
+    ordem_no_arquivo: 117
+    arquivo_detalhe: registros/bloco_U/U182.yml
+  U990:
+    nome: Encerramento do Bloco U
+    bloco: U
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos: []
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 118
+    arquivo_detalhe: registros/bloco_U/U990.yml
+  V001:
+    nome: Abertura do Bloco V – DEREX
+    bloco: V
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos:
+    - V010
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 119
+    arquivo_detalhe: registros/bloco_V/V001.yml
+  V010:
+    nome: DEREX – Instituição
+    bloco: V
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Obrigatório se 0020.ind_derex = S Senão Não deve Existir
+    ocorrencia: '[0;N]'
+    pai: V001
+    filhos:
+    - V020
+    - V030
+    irmaos: []
+    ordem_no_arquivo: 120
+    arquivo_detalhe: registros/bloco_V/V010.yml
+  V020:
+    nome: DEREX - Responsável pela Movimentação
+    bloco: V
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+      condicao: Obrigatório se existir V010.
+    ocorrencia: '[1;N]'
+    pai: V010
+    filhos: []
+    irmaos:
+    - V030
+    ordem_no_arquivo: 121
+    arquivo_detalhe: registros/bloco_V/V020.yml
+  V030:
+    nome: DEREX - Período – Mês
+    bloco: V
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+      condicao: Obrigatório se existir V010.
+    ocorrencia: '[1;12]'
+    pai: V010
+    filhos:
+    - V100
+    irmaos:
+    - V020
+    ordem_no_arquivo: 122
+    arquivo_detalhe: registros/bloco_V/V030.yml
+  V100:
+    nome: Demonstrativo dos recursos em moeda estrangeira decorrentes do recebimento de exportações
+    bloco: V
+    nivel: 4
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+      condicao: Obrigatório se existir V010.
+    ocorrencia: '[1;N]'
+    pai: V030
+    filhos: []
+    irmaos: []
+    ordem_no_arquivo: 123
+    arquivo_detalhe: registros/bloco_V/V100.yml
+  V990:
+    nome: Encerramento do Bloco V
+    bloco: V
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+      condicao: Obrigatório se existir V010.
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos: []
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 124
+    arquivo_detalhe: registros/bloco_V/V990.yml
+  W001:
+    nome: Abertura do Bloco W - Declaração País-a-País
+    bloco: W
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos:
+    - W100
+    - W300
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 125
+    arquivo_detalhe: registros/bloco_W/W001.yml
+  W100:
+    nome: Informações Sobre o Grupo Multinacional e a Entidade Declarante
+    bloco: W
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020.IND_PAIS_A_PAIS = "S"
+    ocorrencia: '[0;1]'
+    pai: W001
+    filhos:
+    - W200
+    irmaos:
+    - W300
+    ordem_no_arquivo: 126
+    arquivo_detalhe: registros/bloco_W/W100.yml
+  W200:
+    nome: Declaração País a País
+    bloco: W
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se (W100.IND_CONTROLADORA = "S" e W100.IND_ENTREGA = "2") ou W100.IND_ENTREGA = "3") Ou (Se (W100.IND_CONTROLADORA = "N" e W100.IND_ENTREGA = "3"
+    ocorrencia: '[0;N] Observação: Quando for obrigatório, deverá aparecer, no mínimo, duas vezes.'
+    pai: W100
+    filhos:
+    - W250
+    irmaos: []
+    ordem_no_arquivo: 127
+    arquivo_detalhe: registros/bloco_W/W200.yml
+  W250:
+    nome: Declaração País a País - Entidades Integrantes
+    bloco: W
+    nivel: 4
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se (W100.IND_CONTROLADORA = "S" e W100.IND_ENTREGA = "2") ou W100.IND_ENTREGA = "3") Ou (Se (W100.IND_CONTROLADORA = "N" e W100.IND_ENTREGA = "3"
+    ocorrencia: '[0;N]'
+    pai: W200
+    filhos: []
+    irmaos: []
+    ordem_no_arquivo: 128
+    arquivo_detalhe: registros/bloco_W/W250.yml
+  W300:
+    nome: Observações Adicionais
+    bloco: W
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: F
+    ocorrencia: '[0;N]'
+    pai: W001
+    filhos: []
+    irmaos:
+    - W100
+    ordem_no_arquivo: 129
+    arquivo_detalhe: registros/bloco_W/W300.yml
+  W990:
+    nome: Encerramento do Bloco W
+    bloco: W
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos: []
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 130
+    arquivo_detalhe: registros/bloco_W/W990.yml
+  X001:
+    nome: Abertura do Bloco X – Informações Econômicas
+    bloco: X
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos:
+    - X280
+    - X292
+    - X340
+    - X360
+    - X365
+    - X370
+    - X390
+    - X400
+    - X410
+    - X420
+    - X430
+    - X450
+    - X460
+    - X470
+    - X480
+    - X485
+    - X490
+    - X500
+    - X510
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 131
+    arquivo_detalhe: registros/bloco_X/X001.yml
+  X280:
+    nome: Atividades Incentivadas - PJ em Geral
+    bloco: X
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020. IND_LUC_EXP = "S" OU 0020.IND_RED_ISEN = "S"
+    ocorrencia: '[0;N]'
+    pai: X001
+    filhos: []
+    irmaos:
+    - X292
+    - X340
+    - X360
+    - X365
+    - X370
+    - X390
+    - X400
+    - X410
+    - X420
+    - X430
+    - X450
+    - X460
+    - X470
+    - X480
+    - X485
+    - X490
+    - X500
+    - X510
+    ordem_no_arquivo: 132
+    arquivo_detalhe: registros/bloco_X/X280.yml
+  X292:
+    nome: Operações com o Exterior - Pessoa Não Vinculada/ Não Interposta/País sem Tributação Favorecida
+    bloco: X
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020. IND_OP_EXT = "S” E 0020.IND_OP_VINC = "N"
+    ocorrencia: '[0;N]'
+    pai: X001
+    filhos: []
+    irmaos:
+    - X280
+    - X340
+    - X360
+    - X365
+    - X370
+    - X390
+    - X400
+    - X410
+    - X420
+    - X430
+    - X450
+    - X460
+    - X470
+    - X480
+    - X485
+    - X490
+    - X500
+    - X510
+    ordem_no_arquivo: 133
+    arquivo_detalhe: registros/bloco_X/X292.yml
+  X340:
+    nome: Identificação da Participação no Exterior
+    bloco: X
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020. IND_PART_EXT = "S"
+    ocorrencia: '[0;N]'
+    pai: X001
+    filhos:
+    - X350
+    - X351
+    - X352
+    - X353
+    - X354
+    - X355
+    - X356
+    - X357
+    irmaos:
+    - X280
+    - X292
+    - X360
+    - X365
+    - X370
+    - X390
+    - X400
+    - X410
+    - X420
+    - X430
+    - X450
+    - X460
+    - X470
+    - X480
+    - X485
+    - X490
+    - X500
+    - X510
+    ordem_no_arquivo: 134
+    arquivo_detalhe: registros/bloco_X/X340.yml
+  X350:
+    nome: Participações no Exterior - Resultado do Período de Apuração
+    bloco: X
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: null
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020. IND_PART_EXT = "S"
+    ocorrencia: '[0;N]'
+    pai: X340
+    filhos: []
+    irmaos:
+    - X351
+    - X352
+    - X353
+    - X354
+    - X355
+    - X356
+    - X357
+    ordem_no_arquivo: 135
+    arquivo_detalhe: registros/bloco_X/X350.yml
+  X351:
+    nome: Demonstrativo de Resultados e de Imposto a Pagar no Exterior
+    bloco: X
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: F
+      condicao: Não deve existir Se X340.IND_CONTROLE = “6”
+    ocorrencia: '[0;N]'
+    pai: X340
+    filhos: []
+    irmaos:
+    - X350
+    - X352
+    - X353
+    - X354
+    - X355
+    - X356
+    - X357
+    ordem_no_arquivo: 136
+    arquivo_detalhe: registros/bloco_X/X351.yml
+  X352:
+    nome: Demonstrativo de Resultados no Exterior Auferidos por Intermédio de Coligada
+    bloco: X
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Deve existir se X340.IND_CONTROLE = “4” ou “6” ou “10” ou “11”
+    ocorrencia: '[0;N]'
+    pai: X340
+    filhos: []
+    irmaos:
+    - X350
+    - X351
+    - X353
+    - X354
+    - X355
+    - X356
+    - X357
+    ordem_no_arquivo: 137
+    arquivo_detalhe: registros/bloco_X/X352.yml
+  X353:
+    nome: Demonstrativo de Consolidação
+    bloco: X
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Deve existir se X340.IND_CONTROLE = “1” ou “2” ou “3” e X340.IND_CONSOL igual a “S” (Sim).
+    ocorrencia: '[0;N]'
+    pai: X340
+    filhos: []
+    irmaos:
+    - X350
+    - X351
+    - X352
+    - X354
+    - X355
+    - X356
+    - X357
+    ordem_no_arquivo: 138
+    arquivo_detalhe: registros/bloco_X/X353.yml
+  X354:
+    nome: Demonstrativo de Prejuízos Acumulados
+    bloco: X
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: F
+      condicao: Não deve existir Se X340.IND_CONTROLE = “6”
+    ocorrencia: '[0;N]'
+    pai: X340
+    filhos: []
+    irmaos:
+    - X350
+    - X351
+    - X352
+    - X353
+    - X355
+    - X356
+    - X357
+    ordem_no_arquivo: 139
+    arquivo_detalhe: registros/bloco_X/X354.yml
+  X355:
+    nome: Demonstrativo de Rendas Ativas e Passivas
+    bloco: X
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Não deve existir se X340.IND_CONTROLE = “6” e “11”
+    ocorrencia: '[0;N]'
+    pai: X340
+    filhos: []
+    irmaos:
+    - X350
+    - X351
+    - X352
+    - X353
+    - X354
+    - X356
+    - X357
+    ordem_no_arquivo: 140
+    arquivo_detalhe: registros/bloco_X/X355.yml
+  X356:
+    nome: Demonstrativo de Estrutura Societária
+    bloco: X
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Não deve existir se X340.IND_CONTROLE = “6” e “11”
+    ocorrencia: '[0;N]'
+    pai: X340
+    filhos: []
+    irmaos:
+    - X350
+    - X351
+    - X352
+    - X353
+    - X354
+    - X355
+    - X357
+    ordem_no_arquivo: 141
+    arquivo_detalhe: registros/bloco_X/X356.yml
+  X357:
+    nome: Investidoras Diretas
+    bloco: X
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: FC
+      condicao: Se X340.IND_CONTROLE for diferente de “5”
+    ocorrencia: '[0;N]'
+    pai: X340
+    filhos: []
+    irmaos:
+    - X350
+    - X351
+    - X352
+    - X353
+    - X354
+    - X355
+    - X356
+    ordem_no_arquivo: 142
+    arquivo_detalhe: registros/bloco_X/X357.yml
+  X360:
+    nome: Informações Gerais sobre Preços de Transferência
+    bloco: X
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020. IND_OP_EXT = "S" E 0020.IND_OP_VINC = "S"
+    ocorrencia: '[0;N]'
+    pai: X001
+    filhos: []
+    irmaos:
+    - X280
+    - X292
+    - X340
+    - X365
+    - X370
+    - X390
+    - X400
+    - X410
+    - X420
+    - X430
+    - X450
+    - X460
+    - X470
+    - X480
+    - X485
+    - X490
+    - X500
+    - X510
+    ordem_no_arquivo: 143
+    arquivo_detalhe: registros/bloco_X/X360.yml
+  X365:
+    nome: Informações Sobre Contrapartes nas Transações Controladas
+    bloco: X
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020. IND_OP_EXT = "S" E 0020.IND_OP_VINC = "S"
+    ocorrencia: '[0;N]'
+    pai: X001
+    filhos:
+    - X366
+    irmaos:
+    - X280
+    - X292
+    - X340
+    - X360
+    - X370
+    - X390
+    - X400
+    - X410
+    - X420
+    - X430
+    - X450
+    - X460
+    - X470
+    - X480
+    - X485
+    - X490
+    - X500
+    - X510
+    ordem_no_arquivo: 144
+    arquivo_detalhe: registros/bloco_X/X365.yml
+  X366:
+    nome: Entidades Com as Quais Realiza Transações Controladas
+    bloco: X
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020. IND_OP_EXT = "S" E 0020.IND_OP_VINC = "S"
+    ocorrencia: '[0;N]'
+    pai: X365
+    filhos: []
+    irmaos: []
+    ordem_no_arquivo: 145
+    arquivo_detalhe: registros/bloco_X/X366.yml
+  X370:
+    nome: Informações Sobre as Transações Controladas
+    bloco: X
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020. IND_OP_EXT = "S" E 0020.IND_OP_VINC = "S"
+    ocorrencia: '[0;N]'
+    pai: X001
+    filhos:
+    - X371
+    - X375
+    irmaos:
+    - X280
+    - X292
+    - X340
+    - X360
+    - X365
+    - X390
+    - X400
+    - X410
+    - X420
+    - X430
+    - X450
+    - X460
+    - X470
+    - X480
+    - X485
+    - X490
+    - X500
+    - X510
+    ordem_no_arquivo: 146
+    arquivo_detalhe: registros/bloco_X/X370.yml
+  X371:
+    nome: Informações Sobre Ajustes Compensatórios
+    bloco: X
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se X370.VL_COMPENSATORIO maior que zero
+    ocorrencia: '[0;N]'
+    pai: X370
+    filhos: []
+    irmaos:
+    - X375
+    ordem_no_arquivo: 147
+    arquivo_detalhe: registros/bloco_X/X371.yml
+  X375:
+    nome: Informações Relacionadas ao Método de Preços de Transferência
+    bloco: X
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se Obrigatório se X370.metodo igual a “PRL” – X375A; "MCL" – X375B; “MLT” – X375C; “MDL” – X375D e “PIC” – X375E”
+    ocorrencia: '[0;N]'
+    pai: X370
+    filhos: []
+    irmaos:
+    - X371
+    ordem_no_arquivo: 148
+    arquivo_detalhe: registros/bloco_X/X375.yml
+  X390:
+    nome: Origem e Aplicação de Recursos - Imunes ou Isentas
+    bloco: X
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: 'Se 0010.FORMA_TRIB = “8” ou “9” '
+    ocorrencia: '[0;N]'
+    pai: X001
+    filhos: []
+    irmaos:
+    - X280
+    - X292
+    - X340
+    - X360
+    - X365
+    - X370
+    - X400
+    - X410
+    - X420
+    - X430
+    - X450
+    - X460
+    - X470
+    - X480
+    - X485
+    - X490
+    - X500
+    - X510
+    ordem_no_arquivo: 149
+    arquivo_detalhe: registros/bloco_X/X390.yml
+  X400:
+    nome: Comércio Eletrônico e Tecnologia da Informação – Informações das Vendas
+    bloco: X
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020. IND_E-COM_TI="S"
+    ocorrencia: '[0;N]'
+    pai: X001
+    filhos: []
+    irmaos:
+    - X280
+    - X292
+    - X340
+    - X360
+    - X365
+    - X370
+    - X390
+    - X410
+    - X420
+    - X430
+    - X450
+    - X460
+    - X470
+    - X480
+    - X485
+    - X490
+    - X500
+    - X510
+    ordem_no_arquivo: 150
+    arquivo_detalhe: registros/bloco_X/X400.yml
+  X410:
+    nome: Comércio Eletrônico – Informação de Homepage/Servidor
+    bloco: X
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020. IND_E-COM_TI="S"
+    ocorrencia: '[0;N]'
+    pai: X001
+    filhos: []
+    irmaos:
+    - X280
+    - X292
+    - X340
+    - X360
+    - X365
+    - X370
+    - X390
+    - X400
+    - X420
+    - X430
+    - X450
+    - X460
+    - X470
+    - X480
+    - X485
+    - X490
+    - X500
+    - X510
+    ordem_no_arquivo: 151
+    arquivo_detalhe: registros/bloco_X/X410.yml
+  X420:
+    nome: Royalties Recebidos ou Pagos a Beneficiários do Brasil e do Exterior
+    bloco: X
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020.IND_ROY_REC = "S" OU 0020.IND_ROY_PAG = "S"
+    ocorrencia: '[0;N]'
+    pai: X001
+    filhos: []
+    irmaos:
+    - X280
+    - X292
+    - X340
+    - X360
+    - X365
+    - X370
+    - X390
+    - X400
+    - X410
+    - X430
+    - X450
+    - X460
+    - X470
+    - X480
+    - X485
+    - X490
+    - X500
+    - X510
+    ordem_no_arquivo: 152
+    arquivo_detalhe: registros/bloco_X/X420.yml
+  X430:
+    nome: Rendimentos Relativos a Serviços, Juros e Dividendos Recebidos do Brasil e do Exterior
+    bloco: X
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020.IND_REND_SERV = "S"
+    ocorrencia: '[0;N]'
+    pai: X001
+    filhos: []
+    irmaos:
+    - X280
+    - X292
+    - X340
+    - X360
+    - X365
+    - X370
+    - X390
+    - X400
+    - X410
+    - X420
+    - X450
+    - X460
+    - X470
+    - X480
+    - X485
+    - X490
+    - X500
+    - X510
+    ordem_no_arquivo: 153
+    arquivo_detalhe: registros/bloco_X/X430.yml
+  X450:
+    nome: Pagamentos ou Remessas Relativos a Serviços, Juros e Dividendos a Beneficiários do Brasil e do Exterior
+    bloco: X
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020.IND_PGTO_REM = "S"
+    ocorrencia: '[0;N]'
+    pai: X001
+    filhos:
+    - X451
+    irmaos:
+    - X280
+    - X292
+    - X340
+    - X360
+    - X365
+    - X370
+    - X390
+    - X400
+    - X410
+    - X420
+    - X430
+    - X460
+    - X470
+    - X480
+    - X485
+    - X490
+    - X500
+    - X510
+    ordem_no_arquivo: 154
+    arquivo_detalhe: registros/bloco_X/X450.yml
+  X451:
+    nome: Pagamentos ou Remessas Relativos a Serviços, Juros e Dividendos a Beneficiários do Brasil e do Exterior – Demais informações
+    bloco: X
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020.IND_PGTO_REM = "S"
+    ocorrencia: '[0;N]'
+    pai: X450
+    filhos: []
+    irmaos: []
+    ordem_no_arquivo: 155
+    arquivo_detalhe: registros/bloco_X/X451.yml
+    nota: 'Divergência no manual: a Tabela de Registros (item 4.2) indica nível 2, mas o leiaute do registro indica nível 3. A árvore usa o nível do leiaute.'
+  X460:
+    nome: Inovação Tecnológica e Desenvolvimento Tecnológico
+    bloco: X
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020. IND_INOV_TEC = "S"
+    ocorrencia: '[0;N]'
+    pai: X001
+    filhos: []
+    irmaos:
+    - X280
+    - X292
+    - X340
+    - X360
+    - X365
+    - X370
+    - X390
+    - X400
+    - X410
+    - X420
+    - X430
+    - X450
+    - X470
+    - X480
+    - X485
+    - X490
+    - X500
+    - X510
+    ordem_no_arquivo: 156
+    arquivo_detalhe: registros/bloco_X/X460.yml
+  X470:
+    nome: Capacitação de Informática e Inclusão Digital
+    bloco: X
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020. IND_CAP_INF = "S"
+    ocorrencia: '[0;N]'
+    pai: X001
+    filhos: []
+    irmaos:
+    - X280
+    - X292
+    - X340
+    - X360
+    - X365
+    - X370
+    - X390
+    - X400
+    - X410
+    - X420
+    - X430
+    - X450
+    - X460
+    - X480
+    - X485
+    - X490
+    - X500
+    - X510
+    ordem_no_arquivo: 157
+    arquivo_detalhe: registros/bloco_X/X470.yml
+  X480:
+    nome: Benefícios Fiscais – Parte I
+    bloco: X
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020. IND_PJ_HAB = "S"
+    ocorrencia: '[0;N]'
+    pai: X001
+    filhos: []
+    irmaos:
+    - X280
+    - X292
+    - X340
+    - X360
+    - X365
+    - X370
+    - X390
+    - X400
+    - X410
+    - X420
+    - X430
+    - X450
+    - X460
+    - X470
+    - X485
+    - X490
+    - X500
+    - X510
+    ordem_no_arquivo: 158
+    arquivo_detalhe: registros/bloco_X/X480.yml
+  X485:
+    nome: Benefícios Fiscais – Parte II
+    bloco: X
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020. IND_PJ_HAB = "S"
+    ocorrencia: '[0;N]'
+    pai: X001
+    filhos: []
+    irmaos:
+    - X280
+    - X292
+    - X340
+    - X360
+    - X365
+    - X370
+    - X390
+    - X400
+    - X410
+    - X420
+    - X430
+    - X450
+    - X460
+    - X470
+    - X480
+    - X490
+    - X500
+    - X510
+    ordem_no_arquivo: 159
+    arquivo_detalhe: registros/bloco_X/X485.yml
+  X490:
+    nome: Polo Industrial de Manaus e Amazônia Ocidental
+    bloco: X
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020. IND_POLO_AM = "S"
+    ocorrencia: '[0;N]'
+    pai: X001
+    filhos: []
+    irmaos:
+    - X280
+    - X292
+    - X340
+    - X360
+    - X365
+    - X370
+    - X390
+    - X400
+    - X410
+    - X420
+    - X430
+    - X450
+    - X460
+    - X470
+    - X480
+    - X485
+    - X500
+    - X510
+    ordem_no_arquivo: 160
+    arquivo_detalhe: registros/bloco_X/X490.yml
+  X500:
+    nome: Zonas de Processamento de Exportação (ZPE)
+    bloco: X
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020. IND_ZON_EXP = "S"
+    ocorrencia: '[0;N]'
+    pai: X001
+    filhos: []
+    irmaos:
+    - X280
+    - X292
+    - X340
+    - X360
+    - X365
+    - X370
+    - X390
+    - X400
+    - X410
+    - X420
+    - X430
+    - X450
+    - X460
+    - X470
+    - X480
+    - X485
+    - X490
+    - X510
+    ordem_no_arquivo: 161
+    arquivo_detalhe: registros/bloco_X/X500.yml
+  X510:
+    nome: Áreas de Livre Comércio (ALC)
+    bloco: X
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020. IND_AREA_COM = "S"
+    ocorrencia: '[0;N]'
+    pai: X001
+    filhos: []
+    irmaos:
+    - X280
+    - X292
+    - X340
+    - X360
+    - X365
+    - X370
+    - X390
+    - X400
+    - X410
+    - X420
+    - X430
+    - X450
+    - X460
+    - X470
+    - X480
+    - X485
+    - X490
+    - X500
+    ordem_no_arquivo: 162
+    arquivo_detalhe: registros/bloco_X/X510.yml
+  X990:
+    nome: Encerramento do Bloco X
+    bloco: X
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos: []
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 163
+    arquivo_detalhe: registros/bloco_X/X990.yml
+  Y001:
+    nome: Abertura do Bloco Y – Informações Gerais
+    bloco: Y
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos:
+    - Y520
+    - Y570
+    - Y590
+    - Y600
+    - Y612
+    - Y620
+    - Y630
+    - Y640
+    - Y660
+    - Y672
+    - Y680
+    - Y682
+    - Y720
+    - Y730
+    - Y750
+    - Y800
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y990
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 164
+    arquivo_detalhe: registros/bloco_Y/Y001.yml
+  Y520:
+    nome: Pagamentos/Recebimentos do Exterior ou de Não Residentes
+    bloco: Y
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020.IND_ REC_EXT = "S" OU 0020.IND_PGTO_EXT = "S"
+    ocorrencia: '[0;N]'
+    pai: Y001
+    filhos: []
+    irmaos:
+    - Y570
+    - Y590
+    - Y600
+    - Y612
+    - Y620
+    - Y630
+    - Y640
+    - Y660
+    - Y672
+    - Y680
+    - Y682
+    - Y720
+    - Y730
+    - Y750
+    - Y800
+    ordem_no_arquivo: 165
+    arquivo_detalhe: registros/bloco_Y/Y520.yml
+  Y570:
+    nome: Demonstrativo do Imposto de Renda e CSLL Retidos na Fonte
+    bloco: Y
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: F
+      condicao: Não deve existir se 0010.FORMA_APUR_I = “D” E 0010.APUR_CSLL = “D”
+    ocorrencia: '[0;N]'
+    pai: Y001
+    filhos: []
+    irmaos:
+    - Y520
+    - Y590
+    - Y600
+    - Y612
+    - Y620
+    - Y630
+    - Y640
+    - Y660
+    - Y672
+    - Y680
+    - Y682
+    - Y720
+    - Y730
+    - Y750
+    - Y800
+    ordem_no_arquivo: 166
+    arquivo_detalhe: registros/bloco_Y/Y570.yml
+  Y590:
+    nome: Ativos no Exterior
+    bloco: Y
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020.IND_ATIV_EXT = "S"
+    ocorrencia: '[0;N]'
+    pai: Y001
+    filhos: []
+    irmaos:
+    - Y520
+    - Y570
+    - Y600
+    - Y612
+    - Y620
+    - Y630
+    - Y640
+    - Y660
+    - Y672
+    - Y680
+    - Y682
+    - Y720
+    - Y730
+    - Y750
+    - Y800
+    ordem_no_arquivo: 167
+    arquivo_detalhe: registros/bloco_Y/Y590.yml
+  Y600:
+    nome: Identificação e Remuneração de Sócios, Titulares, Dirigentes e Conselheiro
+    bloco: Y
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010.FORMA_TRIB = "1" a "7"
+    ocorrencia: '[0;N]'
+    pai: Y001
+    filhos: []
+    irmaos:
+    - Y520
+    - Y570
+    - Y590
+    - Y612
+    - Y620
+    - Y630
+    - Y640
+    - Y660
+    - Y672
+    - Y680
+    - Y682
+    - Y720
+    - Y730
+    - Y750
+    - Y800
+    ordem_no_arquivo: 168
+    arquivo_detalhe: registros/bloco_Y/Y600.yml
+  Y612:
+    nome: Identificação e Rendimentos de Dirigentes e Conselheiros - Imunes ou Isentas
+    bloco: Y
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010.FORMA_TRIB = "8" ou "9"
+    ocorrencia: '[0;N]'
+    pai: Y001
+    filhos: []
+    irmaos:
+    - Y520
+    - Y570
+    - Y590
+    - Y600
+    - Y620
+    - Y630
+    - Y640
+    - Y660
+    - Y672
+    - Y680
+    - Y682
+    - Y720
+    - Y730
+    - Y750
+    - Y800
+    ordem_no_arquivo: 169
+    arquivo_detalhe: registros/bloco_Y/Y612.yml
+  Y620:
+    nome: Participações Avaliadas pelo Método de Equivalência Patrimonial
+    bloco: Y
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020.IND_PART_COLIG = "S"
+    ocorrencia: '[0;N]'
+    pai: Y001
+    filhos: []
+    irmaos:
+    - Y520
+    - Y570
+    - Y590
+    - Y600
+    - Y612
+    - Y630
+    - Y640
+    - Y660
+    - Y672
+    - Y680
+    - Y682
+    - Y720
+    - Y730
+    - Y750
+    - Y800
+    ordem_no_arquivo: 170
+    arquivo_detalhe: registros/bloco_Y/Y620.yml
+  Y630:
+    nome: Fundos/Clubes de Investimento
+    bloco: Y
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020.IND_ADM_FUN_CLU = "S"
+    ocorrencia: '[0;N]'
+    pai: Y001
+    filhos: []
+    irmaos:
+    - Y520
+    - Y570
+    - Y590
+    - Y600
+    - Y612
+    - Y620
+    - Y640
+    - Y660
+    - Y672
+    - Y680
+    - Y682
+    - Y720
+    - Y730
+    - Y750
+    - Y800
+    ordem_no_arquivo: 171
+    arquivo_detalhe: registros/bloco_Y/Y630.yml
+  Y640:
+    nome: Participações em Consórcios de Empresas
+    bloco: Y
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0020.IND_PART_CONS = "S"
+    ocorrencia: '[0;N]'
+    pai: Y001
+    filhos:
+    - Y650
+    irmaos:
+    - Y520
+    - Y570
+    - Y590
+    - Y600
+    - Y612
+    - Y620
+    - Y630
+    - Y660
+    - Y672
+    - Y680
+    - Y682
+    - Y720
+    - Y730
+    - Y750
+    - Y800
+    ordem_no_arquivo: 172
+    arquivo_detalhe: registros/bloco_Y/Y640.yml
+  Y650:
+    nome: Participantes do Consórcio
+    bloco: Y
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se Y640.COND_DECL="1"
+    ocorrencia: '[0;N]'
+    pai: Y640
+    filhos: []
+    irmaos: []
+    ordem_no_arquivo: 173
+    arquivo_detalhe: registros/bloco_Y/Y650.yml
+    nota: 'Divergência no manual: a Tabela de Registros (item 4.2) indica nível 2, mas o leiaute do registro indica nível 3. A árvore usa o nível do leiaute.'
+  Y660:
+    nome: Dados de Sucessoras
+    bloco: Y
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010.SIT_ESPECIAL = “2”, “3”, “5” ou “6”
+    ocorrencia: '[0;N]'
+    pai: Y001
+    filhos: []
+    irmaos:
+    - Y520
+    - Y570
+    - Y590
+    - Y600
+    - Y612
+    - Y620
+    - Y630
+    - Y640
+    - Y672
+    - Y680
+    - Y682
+    - Y720
+    - Y730
+    - Y750
+    - Y800
+    ordem_no_arquivo: 174
+    arquivo_detalhe: registros/bloco_Y/Y660.yml
+  Y672:
+    nome: Outras Informações (Lucro Presumido ou Lucro Arbitrado)
+    bloco: Y
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010.FORMA_TRIB = “6” Ou Se 0010.FORMA_TRIB = “5” ou “7” e 0010.TIP_ESC_PRE = “L”
+    ocorrencia: '[0;1]'
+    pai: Y001
+    filhos: []
+    irmaos:
+    - Y520
+    - Y570
+    - Y590
+    - Y600
+    - Y612
+    - Y620
+    - Y630
+    - Y640
+    - Y660
+    - Y680
+    - Y682
+    - Y720
+    - Y730
+    - Y750
+    - Y800
+    ordem_no_arquivo: 175
+    arquivo_detalhe: registros/bloco_Y/Y672.yml
+  Y680:
+    nome: Mês das Informações de Optantes pelo Refis (Lucro Real, Presumido e Arbitrado)
+    bloco: Y
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010.OPT_REFIS="S" E 0010.FORMA_TRIB ≠ “8” e “9”
+    ocorrencia: '[0;12]'
+    pai: Y001
+    filhos:
+    - Y681
+    irmaos:
+    - Y520
+    - Y570
+    - Y590
+    - Y600
+    - Y612
+    - Y620
+    - Y630
+    - Y640
+    - Y660
+    - Y672
+    - Y682
+    - Y720
+    - Y730
+    - Y750
+    - Y800
+    ordem_no_arquivo: 176
+    arquivo_detalhe: registros/bloco_Y/Y680.yml
+  Y681:
+    nome: Informações de Optantes pelo Refis (Lucro Real, Presumido e Arbitrado)
+    bloco: Y
+    nivel: 3
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010.OPT_REFIS="S" E 0010.FORMA_TRIB ≠ “8” e “9”
+    ocorrencia: '[0;12]'
+    pai: Y680
+    filhos: []
+    irmaos: []
+    ordem_no_arquivo: 177
+    arquivo_detalhe: registros/bloco_Y/Y681.yml
+  Y682:
+    nome: Informações de Optantes pelo Refis - Imunes ou Isentas
+    bloco: Y
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Se 0010.OPT_REFIS="S" E 0010.FORMA_TRIB = “8” e “9”
+    ocorrencia: '[0;12]'
+    pai: Y001
+    filhos: []
+    irmaos:
+    - Y520
+    - Y570
+    - Y590
+    - Y600
+    - Y612
+    - Y620
+    - Y630
+    - Y640
+    - Y660
+    - Y672
+    - Y680
+    - Y720
+    - Y730
+    - Y750
+    - Y800
+    ordem_no_arquivo: 178
+    arquivo_detalhe: registros/bloco_Y/Y682.yml
+  Y720:
+    nome: Informações de Períodos Anteriores
+    bloco: Y
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Obrigatório se a entrega da escrituração é feita com atraso.
+    ocorrencia: '[0;1]'
+    pai: Y001
+    filhos: []
+    irmaos:
+    - Y520
+    - Y570
+    - Y590
+    - Y600
+    - Y612
+    - Y620
+    - Y630
+    - Y640
+    - Y660
+    - Y672
+    - Y680
+    - Y682
+    - Y730
+    - Y750
+    - Y800
+    ordem_no_arquivo: 179
+    arquivo_detalhe: registros/bloco_Y/Y720.yml
+  Y730:
+    nome: Identificação de donatários/destinatários de deduções do IRPJ/CSLL
+    bloco: Y
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: OC
+      condicao: Obrigatório se houver alguma dedução do IRPJ/CSLL, conforme regras do registro.
+    ocorrencia: '[0;N]'
+    pai: Y001
+    filhos: []
+    irmaos:
+    - Y520
+    - Y570
+    - Y590
+    - Y600
+    - Y612
+    - Y620
+    - Y630
+    - Y640
+    - Y660
+    - Y672
+    - Y680
+    - Y682
+    - Y720
+    - Y750
+    - Y800
+    ordem_no_arquivo: 180
+    arquivo_detalhe: registros/bloco_Y/Y730.yml
+  Y750:
+    nome: Informações da ECF Calculadas pelo PGE
+    bloco: Y
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[0;N]'
+    pai: Y001
+    filhos: []
+    irmaos:
+    - Y520
+    - Y570
+    - Y590
+    - Y600
+    - Y612
+    - Y620
+    - Y630
+    - Y640
+    - Y660
+    - Y672
+    - Y680
+    - Y682
+    - Y720
+    - Y730
+    - Y800
+    ordem_no_arquivo: 181
+    arquivo_detalhe: registros/bloco_Y/Y750.yml
+  Y800:
+    nome: Outras Informações
+    bloco: Y
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: F
+    ocorrencia: '[0;N]'
+    pai: Y001
+    filhos: []
+    irmaos:
+    - Y520
+    - Y570
+    - Y590
+    - Y600
+    - Y612
+    - Y620
+    - Y630
+    - Y640
+    - Y660
+    - Y672
+    - Y680
+    - Y682
+    - Y720
+    - Y730
+    - Y750
+    ordem_no_arquivo: 182
+    arquivo_detalhe: registros/bloco_Y/Y800.yml
+  Y990:
+    nome: Encerramento do Bloco Y
+    bloco: Y
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos: []
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - '9001'
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 183
+    arquivo_detalhe: registros/bloco_Y/Y990.yml
+  '9001':
+    nome: Abertura do Bloco 9
+    bloco: '9'
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: O
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos:
+    - '9100'
+    - '9900'
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9990'
+    - '9999'
+    ordem_no_arquivo: 184
+    arquivo_detalhe: registros/bloco_9/9001.yml
+  '9100':
+    nome: Avisos da Escrituração
+    bloco: '9'
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: F
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;N]'
+    pai: '9001'
+    filhos: []
+    irmaos:
+    - '9900'
+    ordem_no_arquivo: 185
+    arquivo_detalhe: registros/bloco_9/9100.yml
+  '9900':
+    nome: Registros do Arquivo
+    bloco: '9'
+    nivel: 2
+    obrigatoriedade_entrada:
+      codigo: O
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;N]'
+    pai: '9001'
+    filhos: []
+    irmaos:
+    - '9100'
+    ordem_no_arquivo: 186
+    arquivo_detalhe: registros/bloco_9/9900.yml
+  '9990':
+    nome: Encerramento do Bloco 9
+    bloco: '9'
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: O
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos: []
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9999'
+    ordem_no_arquivo: 187
+    arquivo_detalhe: registros/bloco_9/9990.yml
+    nota: Na Tabela de Registros (item 4.2) do manual consta "9099"; o leiaute do registro (página 618) e o padrão SPED definem "9990". Código normalizado para 9990.
+  '9999':
+    nome: Encerramento do Arquivo Digital
+    bloco: '9'
+    nivel: 1
+    obrigatoriedade_entrada:
+      codigo: O
+    obrigatoriedade_saida:
+      codigo: O
+    ocorrencia: '[1;1]'
+    pai: '0000'
+    filhos: []
+    irmaos:
+    - '0001'
+    - 0990
+    - C001
+    - C990
+    - E001
+    - E990
+    - J001
+    - J990
+    - K001
+    - K990
+    - L001
+    - L990
+    - M001
+    - M990
+    - N001
+    - N990
+    - P001
+    - P990
+    - Q001
+    - Q990
+    - S001
+    - T001
+    - T990
+    - U001
+    - U990
+    - V001
+    - V990
+    - W001
+    - W990
+    - X001
+    - X990
+    - Y001
+    - Y990
+    - '9001'
+    - '9990'
+    ordem_no_arquivo: 188
+    arquivo_detalhe: registros/bloco_9/9999.yml

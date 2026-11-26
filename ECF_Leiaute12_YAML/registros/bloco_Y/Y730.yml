@@ -1,0 +1,196 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: Y730
+nome: Identificação de donatários/destinatários de deduções do IRPJ/CSLL
+bloco: Y
+nome_tabela_registros: Identificação de donatários/destinatários de deduções do IRPJ/CSLL
+paginas_manual:
+- 603
+- 606
+descricao: |-
+  É dever do contribuinte verificar se cumpre os requisitos legais relacionados à dedução que utilizar.
+  Este registro é obrigatório para todas as pessoas jurídicas tributadas pelo lucro real que utilizarem alguma das seguintes deduções:
+  ▪ Operações de Caráter Cultural e Artístico
+  ▪ Programa de Alimentação do Trabalhador
+  ▪ Desenvolvimento Tecnológico Industrial/Agropecuário
+  ▪ Atividade Audiovisual
+  ▪ Fundos dos Direitos da Criança e do Adolescente
+  ▪ Fundos Nacional, Estaduais ou Municipais do Idoso
+  ▪ Atividades de Caráter Desportivo
+  ▪ Programa Nacional de Apoio à Atenção Oncológica – PRONON
+  ▪ Programa Nacional de Apoio à Atenção da Saúde da Pessoa com Deficiência – PRONAS/PCD
+  ▪ Valor da Remuneração da Prorrogação da Licença-Maternidade e da Licença Paternidade
+  ▪ Incentivo a Projetos de Reciclagem
+  ▪ Outras Deduções
+  Em relação à dedução do Programa de Alimentação do Trabalhador – PAT, caso o sujeito passivo mantenha serviço próprio ou distribua alimentos, deverá indicar seu próprio CNPJ no campo DESTINATÁRIO. Porém, caso firme contratos com entidades de alimentação coletiva, informar o CNPJ da entidade contratada que presta o serviço.
+  Não devem ser informados nesse registro:
+  - Valores de deduções não utilizados, por opção da pessoa jurídica, na apuração do IRPJ/CSLL.
+titulo_leiaute: 'REGISTRO Y730: IDENTIFICAÇÃO DOS DONATÁRIOS/DESTINATÁRIOS DE DEDUÇÕES DO IRPJ/CSLL'
+regras_validacao_registro:
+- REGRA_OBRIGATORIEDADE_REG
+- REGRA_DUPLICIDADE_REGI
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: DEDUCAO + TIPO_DOACAO + DT_DOACAO + DESTINATARIO
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Obrigatório se houver alguma dedução do IRPJ/CSLL, conforme regras do registro.
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: Y001
+  filhos: []
+  irmaos:
+  - Y520
+  - Y570
+  - Y590
+  - Y600
+  - Y612
+  - Y620
+  - Y630
+  - Y640
+  - Y660
+  - Y672
+  - Y680
+  - Y682
+  - Y720
+  - Y750
+  - Y800
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (Y730).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[Y730]'
+  obrigatorio: true
+- numero: 2
+  campo: DEDUCAO
+  descricao: Tipo da dedução, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas/ SPEDECF_DEDUCOES_IRPJ_CSLL).
+  tipo: N
+  tamanho: 4
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: TIPO
+  descricao: Tipo da dedução, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas/ SPEDECF_TIPO_DOACAO).
+  tipo: N
+  tamanho: 4
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: DATA
+  descricao: Data que a doação foi efetuada.
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: TIPO_DESTINATARIO
+  descricao: Identificação se o destinatário da dedução é pessoa física ou jurídica.
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: '[PF;PJ]'
+  obrigatorio: true
+- numero: 6
+  campo: DESTINATARIO
+  descricao: Identificação do destinatário. Deve ser informado um CNPJ (14 dígitos) ou CNP (11 dígitos)
+  tipo: C
+  tamanho: 14
+  decimal: null
+  valores_validos: null
+  obrigatorio: true
+- numero: 7
+  campo: VALOR
+  descricao: Valor utilizado na dedução do IRPJ/CSLL.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 8
+  campo: OBSERVACAO
+  descricao: |-
+    Texto livre a ser utilizado pelo contribuinte, podendo citar:
+    • Artigo e lei que refere a dedução;
+    • Número do processo judicial e/ou Tribunal que originou eventual processo.
+  tipo: C
+  tamanho: '-'
+  decimal: null
+  valores_validos: null
+  obrigatorio: false
+regras_validacao_registro_detalhe:
+- regra: REGRA_OBRIGATORIEDADE_REG
+  descricao: Verifica se alguma dedução do IRPJ/CSLL validada por esse registro possui valor maior que zero no registro N630. Em caso afirmativo, então deve existir pelo menos um registro Y730 para cada dedução com valor maior que zero. Se a regra for descumprida, a ECF gera um erro.
+- regra: REGRA_DUPLICIDADE_REGI
+  descricao: Verifica se há algum registro Y730 com mais de uma DEDUCAO E TIPO E DATA E DESTINATARIO com o mesmo valor. Se existir, a ECF gera um erro.
+regras_validacao_campos:
+- numero: null
+  campo: null
+  nota: Continuação de regras de campo iniciadas na página anterior do manual (ver regras_validacao_campos_observacoes).
+  regras:
+  - regra: null
+    descricao: 'PRONAS_PCD_PJ: Verifica se a DEDUÇÃO for igual a 90 – Programa Nacional de Apoio à Atenção da Saúde da Pessoa com Deficiência - PRONAS/PCD (Lei nº 12.715/2012, arts. 3º e 4º) E TIPO_DESTINATARIO for igual a “PF” OU DESTINATARIO for igual a um CPF. PROJETOS_RECICLAGEM_PJ: Verifica se a DEDUÇÃO for igual a 110 – Incentivo a Projetos de Reciclagem (Art. 3º, da Lei nº 14.260/2021) E TIPO_DESTINATARIO for igual a “PF” OU DESTINATARIO for igual a um CPF. PAT_PJ: Verifica se a DEDUÇÃO for igual a 20 – Programa de Alimentação do Trabalhador E TIPO_DESTINATARIO for igual a “PF”.'
+- numero: null
+  campo: DATA
+  regras:
+  - regra: REGRA_DT_DOACAO_ENTRE_DT_INICIA_DT_FINAL
+    descricao: Verifica se a data informada é menor à data inicial definida em 0000.DT_INI OU maior à data final definida em 0000.DT_FIN.
+    tipo: Erro
+- numero: null
+  campo: TIPO_DESTINATARIO
+  regras:
+  - regra: REGRA_CPF_IND_QUALIF_PJ_Y730
+    descricao: Verifique se o campo TIPO_DESTINATARIO estiver preenchido com valor “PJ” – Pessoa Jurídica, então o campo DESTINATARIO tem que ter um CNPJ – 14 dígitos e válido.
+    tipo: Erro
+  - regra: REGRA_CPF_IND_QUALIF_PF_Y730
+    descricao: Verifique se o campo TIPO_DESTINATARIO estiver preenchido com valor “PF” – Pessoa Física, então o campo DESTINATARIO tem que ter um CPF – 11 dígitos e válido.
+    tipo: Erro
+  - regra: REGRA_CNPJ_CONTRIBUINTE
+    descricao: Exceto para a dedução 20 – Programa de Alilmentação do Trabalhador, não pode o contribuinte informar o próprio CNPJ como destinatário de uma dedução.
+    tipo: Erro
+regras_validacao_campos_observacoes: |-
+  Nº Campo Regras de Validação do Campo Tipo
+  3 TIPO TIPO_DOACAO_PESSOA_FISICA_LICENCA_PATERNIDADE_MATERNIDADE: Verifica se a DEDUCAO for igual a 100 - Valor da Erro
+  Remuneração da Prorrogação da Licença-Maternidade e da Licença-Paternidade E TIPO_DESTINATARIO for igual a “PJ” OU DESTINATARIO for igual a um CNPJ.
+  FUNDO_CRIANCA_ADOLESCENTE_PJ: Verifica se a DEDUÇÃO for igual a 50 – Fundos dos Direitos da Criança e do Adolescente E Erro
+  TIPO_DESTINATARIO for igual a “PF” OU DESTINATARIO for igual a um CPF.
+  FUNDO_IDOSO_PJ: Verifica se a DEDUÇÃO for igual a 60 – Fundos Nacional, Estaduais ou Municipais do Idoso (Lei nº 12.213/2010, art. 3º) E Erro TIPO_DESTINATARIO for igual a “PF” OU DESTINATARIO for igual a um CPF.
+  PRONON_PJ: Verifica se a DEDUÇÃO for igual a 80 – |Programa Nacional de Apoio à Atenção Oncológica - PRONON (Lei nº 12.715/2012, arts. Erro
+  1º e 4º) E TIPO_DESTINATARIO for igual a “PF” OU DESTINATARIO for igual a um CPF.
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|Y730|10|50|31122025|PJ|00394460000141|999,99||'
+  explicacao:
+  - valor: '|Y730|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|10|'
+    descricao: Dinheiro.
+  - valor: '|50|'
+    descricao: Fundos dos Direitos da Criança e do Adolescente.
+  - valor: '|31122025|'
+    descricao: Data que a doação foi efetuada.
+  - valor: '|PJ|'
+    descricao: O destinatário da doação/dedução é uma pessoa jurídica.
+  - valor: '|00394460000141|'
+    descricao: CNPJ do destinatário
+  - valor: '|999,99|'
+    descricao: Valor da doação/dedução.
+  - valor: '||'
+    descricao: Texto de preenchimento opcional pelo contribuinte.

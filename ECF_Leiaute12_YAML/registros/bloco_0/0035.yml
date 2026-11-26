@@ -1,0 +1,85 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: '0035'
+nome: Identificação das SCP
+bloco: '0'
+nome_tabela_registros: Identificação das SCP
+paginas_manual:
+- 103
+- 103
+descricao: O registro só deve ser utilizado nas ECF das pessoas jurídicas sócias ostensivas que possuem Sociedades em Conta de Participação (SCP), para identificação das SCP da pessoa jurídica no período da escrituração.
+titulo_leiaute: 'REGISTRO 0035: IDENTIFICAÇÃO DAS SCP'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: '[REG]'
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0000.TIP_ECF = 1
+  ocorrencia: '[0:N]'
+hierarquia:
+  pai: '0001'
+  filhos: []
+  irmaos:
+  - '0010'
+  - '0020'
+  - '0021'
+  - '0030'
+  - 0930
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto fixo contendo a identificação do registro (0035).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[0035]'
+  obrigatorio: true
+- numero: 2
+  campo: COD_SCP
+  descricao: CNPJ da SCP (ANEXOS I, VIII e XV, da Instrução Normativa RFB nº 2.119, de 08 de dezembro de 2022).
+  tipo: C
+  tamanho: 14
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: NOME_SCP
+  descricao: Descrição da SCP
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+regras_validacao_campos:
+- numero: 2
+  campo: COD_SCP
+  regras:
+  - regra: REGRA_VALIDA_TAM_SCP
+    descricao: Verifica se o campo 0035.COD_SCP possui 14 caracteres.
+    tipo: Erro
+  - regra: REGRA_CNPJ_DIFERENTE_SCP
+    descricao: Verifica se o campo 0035.COD_SCP é diferente do campo 0000.CNPJ.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|0035|11111111000291|SCP TESTE 1|'
+  explicacao:
+  - valor: '|0035|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|111111111000291|'
+    descricao: CNPJ da SCP (11.111.111/0001-91).
+  - valor: '|SCP TESTE 1|'
+    descricao: Nome da SCP.

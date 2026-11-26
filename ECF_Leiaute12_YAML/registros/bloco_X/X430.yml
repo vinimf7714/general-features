@@ -1,0 +1,172 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: X430
+nome: Rendimentos Relativos a Serviços, Juros e Dividendos Recebidos do Brasil e do Exterior
+bloco: X
+nome_tabela_registros: Rendimentos Relativos a Serviços, Juros e Dividendos Recebidos do Brasil e do Exterior
+paginas_manual:
+- 529
+- 535
+descricao: |-
+  Este registro será habilitado somente para as pessoas jurídicas, durante o ano-calendário, com rendimentos relativos a (0020.IND_REND_SERV = "S"):
+  - Serviços de assistência técnica, científica, administrativa e semelhantes que impliquem transferência de tecnologia;
+  - Serviços técnicos e de assistência que não impliquem transferência de tecnologia, prestados no Brasil ou no exterior à pessoa jurídica declarante;
+  - Juros sobre capital próprio, bem como juros decorrentes de contratos de mútuo entre empresas ligadas e juros decorrentes de contratos de financiamento;
+  - Dividendos decorrentes de participações em outras empresas.
+  A pessoa jurídica deverá informar os valores consolidados por país, conforme registrado na sua apuração contábil.
+  Observação: As informações deste registro são requeridas considerando o regime de caixa (valores efetivamente recebidos).
+titulo_leiaute: 'REGISTRO X430: RENDIMENTOS RELATIVOS A SERVIÇOS, JUROS E DIVIDENDOS RECEBIDOS DO BRASIL E DO EXTERIOR'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: PAIS
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020.IND_REND_SERV = "S"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: X001
+  filhos: []
+  irmaos:
+  - X280
+  - X292
+  - X340
+  - X360
+  - X365
+  - X370
+  - X390
+  - X400
+  - X410
+  - X420
+  - X450
+  - X460
+  - X470
+  - X480
+  - X485
+  - X490
+  - X500
+  - X510
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (X430)
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[X430]'
+  obrigatorio: true
+- numero: 2
+  campo: PAIS
+  descricao: |-
+    País: País ou a dependência de país de residência ou de domicílio da pessoa física ou jurídica que efetuou o pagamento ou a remessa dos valores recebidos pela pessoa jurídica declarante, observado o exemplo a seguir:
+    Exemplo: Pessoa jurídica domiciliada na França possui conta corrente no Canadá e a partir desta remete valor pela prestação de serviço de assistência técnica para a pessoa jurídica declarante. Nesse caso, o país a ser selecionado é a França.
+    Código do país, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: N
+  tamanho: 3
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: VL_SERV_ASSIST
+  descricao: 'Valor dos Serviços de Assistência Técnica, Científica, Administrativa e Assemelhados com Transferência de Tecnologia: Rendimentos recebidos a título de serviços de assistência técnica, científica, administrativa e assemelhados referentes aos contratos que, em conformidade com a Lei nº 9.279, de 14 de maio de 1996, estipulam as condições de obtenção de técnicas, métodos de planejamento e programação, bem como pesquisas, estudos e projetos destinados à execução ou à prestação de serviços especializados e que tenham sido objeto de registro no Instituto Nacional de Propriedade Industrial (INPI).'
+  tipo: N
+  tamanho: '-'
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 4
+  campo: VL_SERV_SEM_ASSIST
+  descricao: |-
+    Valor dos Serviços Técnicos e de Assistência sem Transferência de Tecnologia Prestados no Brasil: Rendimentos recebidos a título de serviços técnicos e de assistência, prestados no Brasil, referentes aos contratos dispensados de averbação no Instituto Nacional de Propriedade Industrial (INPI) por não constituírem transferência de tecnologia, tais como: i) Agenciamento de compras, inclusive serviços de logística relativos ao embarque de mercadorias e liberação alfandegária e outros de natureza similar; ii) Beneficiamento de produtos; iii) Homologação e certificação de qualidade de produtos brasileiros com o objetivo de promover a exportação; iv) Consultoria nas áreas comercial, financeira, jurídica, reorganização societária e licitações; v) Estudos de viabilidade econômica; vi) Serviços de marketing; vii) Serviços realizados sem a presença de técnicos da empresa tomadora do serviço e que não gerem quaisquer relatórios ou documentos; viii) Serviços de manutenção de software realizados sem a presença dos técnicos da empresa tomadora no local da prestação, tais como os efetuados por meio de “help-desk”.
+    As pessoas jurídicas que exercem atividades no mercado financeiro, também, devem informar, neste campo, os rendimentos recebidos pelos seguintes serviços: i) Administração de fundos, loterias, sociedades de investimento, dentre outros de natureza similar; ii) Taxas de administração de consórcios e similares; iii) Tarifas e portes e comissões por prestação de serviços de cobrança, colocação de títulos e valores mobiliários por conta e ordem de terceiros; iv) Serviços prestados na contratação de operações de câmbio, comissão “del credere” relativa à administração de ativos redescontados junto ao Bacen; v) Serviços prestados na intermediação de bolsas, custódia, bem como serviços prestados a partes ligadas;
+    vi) Portes e comissões decorrentes de serviços de ordem de pagamento, crédito e outras transferências de fundos; vii) Outros serviços de natureza similar aos descritos acima.
+    Atenção:
+    1) Serviço prestado no Brasil é aquele em que o prestador do serviço se fez presente dentro do território brasileiro para executar a prestação do serviço.
+    2) Não informar neste campo o valor dos rendimentos correspondentes a direitos autorais relativos a contratos que envolvam o licenciamento ou a cessão de softwares para reprodução, distribuição e comercialização ou para uso próprio do adquirente, sob a modalidade de cópia única. O valor referente a essas transações deve ser informado no campo “Exploração Econômica dos Direitos Patrimoniais do Autor relativos a Software” do Registro X420 – “Royalties Recebidos ou Pagos do Brasil e do Exterior”.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 5
+  campo: VL_SERV_SEM_ASSIST_EXT
+  descricao: |-
+    Valor dos Serviços Técnicos e de Assistência sem Transferência de Tecnologia Prestados no Exterior: Rendimentos recebidos a título de serviços técnicos e de assistência, prestados no Brasil, referentes aos contratos dispensados de averbação no Instituto Nacional de Propriedade Industrial (INPI) por não constituírem transferência de tecnologia, tais como: i) Agenciamento de compras, inclusive serviços de logística relativos ao embarque de mercadorias e liberação alfandegária e outros de natureza similar; ii) Beneficiamento de produtos; iii) Homologação e certificação de qualidade de produtos brasileiros com o objetivo de promover a exportação; iv) Consultoria nas áreas comercial, financeira, jurídica, reorganização societária e licitações; v) Estudos de viabilidade econômica; vi) Serviços de marketing; vii) Serviços realizados sem a presença de técnicos da empresa tomadora do serviço e que não gerem quaisquer relatórios ou documentos; viii) Serviços de manutenção de software realizados sem a presença dos técnicos da empresa tomadora no local da prestação, tais como os efetuados por meio de “help-desk”.
+    As pessoas jurídicas que exercem atividades no mercado financeiro, também, devem informar, neste campo, os rendimentos recebidos pelos seguintes serviços: i) Administração de fundos, loterias, sociedades de investimento, dentre outros de natureza similar; ii) Taxas de administração de consórcios e similares; iii) Tarifas e portes e comissões por prestação de serviços de cobrança, colocação de títulos e valores mobiliários por conta e ordem de terceiros; iv) Serviços prestados na contratação de operações de câmbio, comissão “del credere” relativa à administração de ativos redescontados junto ao Bacen; v) Serviços prestados na intermediação de bolsas, custódia, bem como serviços prestados a partes ligadas;
+    vi) Portes e comissões decorrentes de serviços de ordem de pagamento, crédito e outras transferências de fundos; vii) Outros serviços de natureza similar aos descritos acima.
+    Atenção:
+    1) Serviço prestado no Brasil é aquele em que o prestador do serviço se fez presente dentro do território brasileiro para executar a prestação do serviço.
+    2) Não informar neste campo o valor dos rendimentos correspondentes a direitos autorais relativos a contratos que envolvam o licenciamento ou a cessão de softwares para reprodução, distribuição e comercialização ou para uso próprio do adquirente, sob a modalidade de cópia única. O valor referente a essas transações deve ser informado no campo “Exploração Econômica dos Direitos Patrimoniais do Autor relativos a Software” do Registro X420 – “Royalties Recebidos ou Pagos do Brasil e do Exterior”.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 6
+  campo: VL_JURO
+  descricao: |-
+    Valor dos Juros sobre o Capital Próprio: Valor recebido a título de remuneração dos recursos investidos pela pessoa jurídica em outra pessoa jurídica domiciliada no Brasil, de que trata o art. 9º da Lei nº 9.249, de 26 de dezembro de 1995.
+    Informar, também, neste campo o valor recebido a título de juros sobre o capital próprio correspondente à participação da pessoa jurídica em empresas residentes ou domiciliadas no exterior.
+    Atenção:
+    1) Não informar neste campo o valor correspondente aos juros recebidos durante o período que anteceder o início das operações sociais ou de implantação do empreendimento inicial de que trata a alínea “b” do parágrafo 1º do art. 15 do Decreto-Lei nº 1.598, de 26 de dezembro de 2012.
+    2) Não informar neste campo o valor relativo aos juros recebidos de cooperativa da qual a pessoa jurídica seja associada correspondentes à remuneração de até 12% sobre o capital integralizado, de que trata o parágrafo único do art. 49 da Lei nº 4.506, de 30 de novembro de 1964, c/c parágrafo 3º do art. 24 da Lei nº 5.764, de 16 de dezembro de 1971, e o 357 do Decreto nº 9.580/2018.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 7
+  campo: VL_DEMAIS_JUROS
+  descricao: |-
+    Valor dos Demais Juros: Valor recebido a título de juros decorrentes da remuneração de recursos emprestados pela pessoa jurídica a outras pessoas físicas ou jurídicas, residentes ou domiciliadas no Brasil ou no exterior por meio de contratos de financiamento ou de mútuo registrados ou não no Banco Central do Brasil. Também deve ser informado neste campo o valor correspondente aos:
+    - juros recebidos durante o período que anteceder o início das operações sociais ou de implantação do empreendimento inicial de que trata alínea “b” do parágrafo 1º do art. 15 do Decreto-Lei nº 1.598, de 26 de dezembro de 2012;
+    - juros recebidos de cooperativa da qual a pessoa jurídica seja associada correspondentes à remuneração de até 12% sobre o capital integralizado, de que trata o parágrafo único do art. 49 da Lei nº 4.506, de 30 de novembro de 1964, c/c parágrafo 3º do art. 24 da Lei nº 5.764, de 16 de dezembro de 1971, e art. 357 do Decreto nº 9.580/2018;
+    - juros recebidos correspondentes a quaisquer transações realizadas pela pessoa jurídica.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 8
+  campo: VL_DIVID
+  descricao: 'Valor dos Dividendos: Lucros ou dividendos recebidos pela pessoa jurídica em decorrência de participação societária avaliada pelo método da equivalência patrimonial ou pelo custo de aquisição em outras sociedades no Brasil ou no exterior.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|X430|105|50000,00|10000,00|5000,00|6000,00|7000,00|8000,00|'
+  explicacao:
+  - valor: '|X430|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|105|'
+    descricao: Código do país (105 = Brasil).
+  - valor: '|50000,00|'
+    descricao: Valor dos Serviços de Assistência Técnica, Científica, Administrativa e Assemelhados com Transferência de Tecnologia (R$ 50.000,00).
+  - valor: '|10000,00|'
+    descricao: Valor dos Serviços Técnicos e de Assistência sem Transferência de Tecnologia Prestados no Brasil (R$ 10.000,00).
+  - valor: '|5000,00|'
+    descricao: Valor dos Serviços Técnicos e de Assistência sem Transferência de Tecnologia Prestados no Exterior (R$ 5.000,00).
+  - valor: '|6000,00|'
+    descricao: Valor dos Juros sobre o Capital Próprio (R$ 6.000,00).
+  - valor: '|7000,00|'
+    descricao: Valor dos Demais Juros (R$ 7.000,00).
+  - valor: '|8000,00|'
+    descricao: Valor dos Dividendos (R$ 8.000,00).
+informacoes_adicionais:
+- titulo: I – Regra de Validação de Registro
+  conteudo: 'REGRA_CAMPOS_X430: Verifica se, pelo menos, um dos campos 3 a 8 está preenchido, quando os campos 1 e 2 estiverem preenchidos. Se a regra não cumprida, o sistema gera um erro.'

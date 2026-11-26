@@ -1,0 +1,231 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: X351
+nome: Demonstrativo de Resultados e de Imposto Pago no Exterior
+bloco: X
+nome_tabela_registros: Demonstrativo de Resultados e de Imposto a Pagar no Exterior
+paginas_manual:
+- 487
+- 490
+descricao: |-
+  Este registro deve ser preenchido pelas pessoas jurídicas para demonstrar os resultados e o imposto pago no exterior.
+  Observação:
+  1) Este demonstrativo é o que se refere os incisos I e V do art. 35 da Instrução Normativa RFB no 1.520, de 4 de dezembro de 2014.
+  2) As informações contidas neste registro referem-se à demonstração do resultado da investida no exterior e devem ser informadas pelo valor integral (100%) e não pelo valor correspondente à participação da investidora nos resultados da investida.
+  Observação: Todos os campos devem ser informados, ainda que o valor a ser informado seja “zero”.
+titulo_leiaute: 'REGISTRO X351: DEMONSTRATIVO DE RESULTADOS E DE IMPOSTO PAGO NO EXTERIOR'
+regras_validacao_registro:
+- REGRA_X351_PREENCHER
+nivel_hierarquico: 3
+ocorrencia: 0:1
+campos_chave: REG
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: F
+    condicao: Não deve existir Se X340.IND_CONTROLE = “6”
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: X340
+  filhos: []
+  irmaos:
+  - X350
+  - X352
+  - X353
+  - X354
+  - X355
+  - X356
+  - X357
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (X351).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[X351]'
+  obrigatorio: true
+- numero: 2
+  campo: RES_INV_PER
+  descricao: Resultado (positivo ou negativo) da Própria Investida em Moeda do País de Domicílio. Devem ser expurgados o valor do resultado positivo ou negativo de eventuais controladas indiretas.
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: RES_INV_PER_REAL
+  descricao: Resultado (positivo ou negativo) da Própria Investida em Reais. Devem ser expurgados o valor do resultado positivo ou negativo de eventuais controladas indiretas.
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: RES_ISEN_PETR_PER
+  descricao: 'Resultado da Investida em Operações que Gozem de Isenção Relacionada à Prospecção e Exploração de Petróleo e Gás: Resultado (positivo ou negativo) da própria investida em moeda do país de domicílio apenas em operações decorrentes de afretamento por tempo ou casco nu, arrendamento mercantil operacional, aluguel, empréstimo de bens ou prestação de serviços diretamente relacionados à prospecção e exploração de petróleo e gás, em território brasileiro, que gozem de isenção nos termos do art. 77, §3º, da Lei nº 12.973, de 13 de maio de 2014. Deve ser expurgado o valor do resultado positivo ou negativo de eventuais controladas indiretas.'
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: RES_ISEN_PETR_PER_REAL
+  descricao: 'Resultado da Investida em Operações que Gozem de Isenção Relacionada à Prospecção e Exploração de Petróleo e Gás em Reais (R$): Resultado (positivo ou negativo) da própria investida em Reais apenas em operações decorrentes de afretamento por tempo ou casco nu, arrendamento mercantil operacional, aluguel, empréstimo de bens ou prestação de serviços diretamente relacionados à prospecção e exploração de petróleo e gás, em território brasileiro, que gozem de isenção nos termos do art. 77, §3º, da Lei nº 12.973, de 13 de maio de 2014. Deve ser expurgado o valor do resultado positivo ou negativo de eventuais controladas indiretas.'
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: RES_NEG_ACUM
+  descricao: 'Resultado Negativo Acumulado de Anos Anteriores: Resultado negativo acumulado de anos anteriores da própria investida utilizado na compensação, na moeda do país de domicílio.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 7
+  campo: RES_NEG_ACUM_REAL
+  descricao: 'Resultado Negativo Acumulado de Anos Anteriores: Resultado negativo acumulado de anos anteriores da própria investida utilizado na compensação, em Reais (R$).'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 8
+  campo: RES_POS_TRIB
+  descricao: 'Resultado Positivo a Tributar: Resultado positivo a tributar na moeda do país de domicílio (deve ser informado o valor de (X351. RES_INV_PER – X351.RES_ISEN_PETR_PER), caso seja resultado positivo e maior que o valor do campo do campo X351.RES_NEG_ACUM).'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 9
+  campo: RES_POS_TRIB_REAL
+  descricao: Resultado Positivo a Tributar em Reais (R$).
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 10
+  campo: IMP_LUCR
+  descricao: |-
+    Imposto Efetivamente Pago: Imposto incidente sobre o lucro distribuído no país de domicílio na moeda do país de domicílio (Instrução Normativa RFB no 1.520,
+    art. 40, V).
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 11
+  campo: IMP_LUCR_REAL
+  descricao: |-
+    Imposto Efetivamente Pago em Reais (R$): Imposto incidente sobre o lucro distribuído no país de domicílio em reais (R$) (Instrução Normativa RFB no
+    1.520, art. 40, V).
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 12
+  campo: IMP_PAG_REND
+  descricao: Imposto Efetivamente Pago no Exterior Sobre Rendimentos Recebidos na Moeda do País de Domicílio (Instrução Normativa RFB no 1.520, art. 36, X e art. 40, III).
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 13
+  campo: IMP_PAG_REND_REAL
+  descricao: Imposto Efetivamente Pago no Exterior Sobre Rendimentos Recebidos em Reais (R$) (Instrução Normativa RFB no 1.520, art. 36, X e art. 40, III).
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 14
+  campo: IMP_RET_EXT
+  descricao: |-
+    Imposto Retido na Fonte no Exterior: Imposto retido na fonte no exterior decorrente de rendimentos recebidos pela filial, sucursal ou controlada domiciliada no exterior, na moeda estrangeira (Instrução Normativa RFB no
+    1.520, art. 40, IV).
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 15
+  campo: IMP_RET_EXT_REAL
+  descricao: |-
+    Imposto Retido na Fonte no Exterior em Reais: Imposto retido na fonte no exterior decorrente de rendimentos recebidos pela filial, sucursal ou controlada domiciliada no exterior, em reais (Instrução Normativa RFB no 1.520, art. 40,
+    IV).
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 16
+  campo: IMP_RET_BR
+  descricao: 'Imposto Retido na Fonte no Brasil: Imposto retido na fonte no Brasil decorrente de rendimentos recebidos pela filial, sucursal ou controlada domiciliada no exterior, em Reais (Instrução Normativa RFB no 1.520, art. 40, IV).'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_campos:
+- numero: null
+  campo: RES_NEG_ACUM_REAL
+  regras:
+  - regra: REGRA_RES_NEG_ACUM_VALOR_1
+    descricao: Verifica quando (X351.RES_INV_PER_REAL - X351.RES_ISEN_PETR_PER_REAL) maior que 0 E (X351.RES_NEG_ACUM_REAL maior que (X351.RES_INV_PER_REAL - X351.RES_ISEN_PETR_PER_REAL)).
+    tipo: Erro
+  - regra: REGRA_RES_NEG_ACUM_VALOR_2
+    descricao: Verifica quando X351.RES_NEG_ACUM_REAL é maior que X354.RES_NEG_ANT_REAL.
+    tipo: Erro
+- numero: null
+  campo: RES_POS_TRIB
+  regras:
+  - regra: REGRA_POS_TRIB_VALOR
+    descricao: Verifica, quando (X351.RES_INV_PER - X351.RES_ISEN_PETR_PER) for positivo e maior que X351.RES_NEG_ACUM, se o resultado da subtração de (X351.RES_INV_PER - X351.RES_ISEN_PETR_PER) por X351.RES_NEG_ACUM é igual ao valor informado em X351.RES_POS_TRIB.
+    tipo: Aviso
+  - regra: REGRA_POS_TRIB_NAO_PREENCHER
+    descricao: Verifica, quando (X351.RES_INV_PER - X351.RES_ISEN_PETR_PER) for negativo ou quando (X351.RES_INV_PER - X351.RES_ISEN_PETR_PER) for menor ou igual a X351.RES_NEG_ACUM, se valor informado em X351.RES_POS_TRIB é igual a zero.
+    tipo: Aviso
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|X351|100000,00|250000,00|10000,00|90000,00|235000,00|50000,00|125000,00|20000,00|50000,00|'
+  explicacao:
+  - valor: '|X351|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|100000,00|'
+    descricao: Resultado do período da própria investida na moeda do país de domicílio (U$ 100.000,00).
+  - valor: '|250000,00|'
+    descricao: Resultado do período da própria investida em reais (R$ 250.000,00).
+  - valor: '|10000,00|'
+    descricao: Resultado negativo acumulado de anos anteriores na moeda do país de domicílio (U$ 10.000,00).
+  - valor: '|90000,00|'
+    descricao: Resultado positivo a tributar na moeda do país de domicílio (U$ 90.000,00 = U$ 100.000,00 – U$ 10.000,00).
+  - valor: '|225000,00|'
+    descricao: Resultado positivo a tributar em reais (R$ 225.000,00).
+  - valor: '|50000,00|'
+    descricao: Imposto pago no país de domicílio na moeda do país de domicílio (U$ 50.000,00).
+  - valor: '|125000,00|'
+    descricao: Imposto pago no país de domicílio na moeda do país de domicílio (R$ 125.000,00).
+  - valor: '|20000,00|'
+    descricao: Imposto pago no exterior sobre rendimentos recebidos na moeda do país de domicílio (U$ 20.000,00).
+  - valor: '|50000,00|'
+    descricao: Imposto pago no exterior sobre rendimentos recebidos em reais (R$ 50.000,00).
+informacoes_adicionais:
+- titulo: I – Regra de Validação de Registro
+  conteudo: 'REGRA_X351_PREENCHER: Este registro só ser preenchido/habilitado quando X340.IND_CONTROLE for diferente de “6” (Coligada em Regime de Caixa).'

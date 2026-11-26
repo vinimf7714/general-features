@@ -1,0 +1,132 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: N600
+nome: Demonstração do Lucro da Exploração
+bloco: N
+nome_tabela_registros: Demonstração do Lucro da Exploração
+paginas_manual:
+- 283
+- 285
+descricao: |-
+  Devem preencher este registro as pessoas jurídicas submetidas à apuração trimestral ou anual do imposto sobre a renda com base no lucro real que gozem de benefícios fiscais calculados com base no lucro da exploração, tais como (PN CST nº 49, de 1979):
+  a) empresas instaladas nas áreas de atuação da Superintendência do Desenvolvimento do Nordeste (Sudene) e/ou da Superintendência do Desenvolvimento da Amazônia (Sudam), que tenham direito à isenção ou redução do imposto, de acordo com as legislações respectivas;
+  b) empresas que tenham empreendimentos industriais ou agroindustriais, inclusive de construção civil, em operação nas áreas de atuação da Sudam e da Sudene, que optarem por depositar parte do imposto devido para reinvestimento, conforme a legislação aplicável;
+  c) a pessoa jurídica que tenha projeto aprovado no âmbito do Programa de Apoio ao Desenvolvimento Tecnológico da Indústria de Semicondutores (Padis), em ato conjunto do Ministério da Fazenda, do Ministério da Ciência e Tecnologia e do Ministério do Desenvolvimento, Indústria e Comércio Exterior, nos termos e condições estabelecidos pelo Poder Executivo (Lei nº 11.484, de 2007, art. 5º).
+  d) empresas que tenham empreendimentos fabricantes de máquinas, equipamentos, instrumentos e dispositivos, baseados em tecnologia digital, voltados para o programa de inclusão digital, cujo projeto tenha sido aprovado nos termos do caput do art. 1º da MP nº 2.199-14, de 24 de agosto de 2001;
+  e) a Subsidiária da Fifa no Brasil e a Emissora Fonte da Fifa, na hipótese de ser pessoa jurídica domiciliada no Brasil em relação às atividades próprias e diretamente vinculadas à organização ou realização dos Eventos (Competições e as seguintes atividades relacionadas às Competições, oficialmente organizadas, chanceladas, patrocinadas ou apoiadas pela Subsidiária Fifa no Brasil) de que trata o inciso VI do art. 2º da Lei nº 12.350, de 2010;
+  f) o Prestador de Serviços da Fifa de atividades diretamente relacionadas à realização dos Eventos (Competições e as seguintes atividades relacionadas às Competições, oficialmente organizadas, chanceladas, patrocinadas ou apoiadas pela Subsidiária Fifa no Brasil) de que trata o inciso VI do art. 2º da Lei nº 12.350, de 2010;
+  g) as empresas vinculadas ao Comité International Olympique - CIO, e domiciliadas no Brasil, em relação aos fatos geradores decorrentes das atividades próprias e diretamente vinculadas à organização ou realização dos Eventos (Jogos e as atividades a eles relacionadas, oficialmente organizadas, chanceladas, patrocinadas, ou apoiadas pelo CIO, APO ou RIO 2016) de que trata o art.
+  9º da Lei nº 12.780, de 2013;
+  h) O Comitê Organizador dos Jogos Olímpicos Rio 2016 - RIO 2016, em relação aos fatos geradores decorrentes das atividades próprias e diretamente vinculadas à organização ou realização dos Eventos (Jogos e as atividades a eles relacionadas, oficialmente organizadas, chanceladas, patrocinadas, ou apoiadas pelo CIO, APO ou RIO 2016, de que trata o art. 10 da Lei nº 12.780, de 2013.
+  i) as empresas com receitas vinculadas ao Programa Emergencial de Retomada do Setor de Eventos (Perse), de acordo com a Instrução Normativa RFB nº 2195, de 23 de maio de 2024.
+  I) Considerações Gerais:
+  1) no caso de empresas que explorem a atividade rural (Lei nº 8.023, de 1990, art. 2º, com a redação dada pelo art. 17 da Lei nº 9.250, de 1995), conjuntamente ou não com atividades em geral, a atividade rural não será segregada para fins de cálculo do lucro da exploração, sendo a receita auferida informada na linha correspondente à atividade incentivada a que fizer jus ou, caso não se enquadre nas linhas N600/2 a N600/17, incluída na linha N600/17;
+  2) a proporção que a receita líquida de cada atividade representa em relação à receita líquida total, calculada com base nas receitas líquidas informadas nas linhas N600/2 a N600/18, aplicada sobre o lucro da exploração do período de apuração (trimestral ou anual) do imposto, determina a parcela do lucro da exploração que corresponde a cada uma das atividades da empresa.
+  Atenção:
+  1) Os valores das linhas N600/50 a N600/66 serão calculados automaticamente pela ECF. Caso o sistema de contabilidade da empresa ofereça condições para apurar o lucro da exploração resultante de cada atividade incentivada, as informações prestadas nas linhas N600/2 a N600/48 terão caráter apenas informativo, podendo a pessoa jurídica alterar os valores das linhas N600/50 a N600/66 informando os efetivamente apurados (PN CST nº 49, de 1979);
+  2) A pessoa jurídica que se utilizar indevidamente dos benefícios está sujeita ao pagamento do imposto em relação a cada período de apuração, acrescido de juros e multa, sem prejuízo das sanções penais cabíveis.
+  3) A isenção e as reduções do IRPJ e Adicional nos percentuais 50% a 12,5% encontram com prazo de vigência expirado a partir de 1º de janeiro de 2014. (Medida Provisória nº2199-14, de 2001, art. 1º, § 7º e Lei nº 9.532, de 1997, art. 3º, § 3º).
+  4) As reduções do IRPJ e Adicional nos percentuais de 70% a 33% de hotéis e outros empreendimentos turísticos, conforme projetos de construção aprovados até 31 de dezembro de 1985, pelo extinto Conselho Nacional de Turismo - CNTur, também encontram-se com prazo de vigência expirado, tendo em conta seus projetos tiveram prazo de aprovação até 31 de dezembro de 1985, com direito ao benefício até o total de dez anos, a partir da data da conclusão das obras (Decreto-Lei nº 1.439, de 30 de dezembro de 1975, art. 4º, Decreto-Lei nº 1.598, de 1977, art. 19, § 1º, alínea "e" , e Decreto-Lei nº 1.730, de 1979, art. 1º, inciso I).
+titulo_leiaute: 'REGISTRO N600: DEMONSTRAÇÃO DO LUCRO DA EXPLORAÇÃO'
+regras_validacao_registro:
+- REGRA_DUPLICIDADE_DESPREZADA
+- REGRA_LINHA_DESPREZADA
+- REGRA_LINHA_ATUALIZADA
+nivel_hierarquico: 3
+ocorrencia: 0:N
+campos_chave: CODIGO
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se (N030.PER_APUR = “A00” OU [T01..T04] OU ([A01..A012]) E (0010. MES_BAL_RED [1..12] = “B”) E 0020.IND_LUC_EXP = “S”
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: N030
+  filhos: []
+  irmaos:
+  - N500
+  - N605
+  - N610
+  - N615
+  - N620
+  - N630
+  - N650
+  - N660
+  - N670
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (N600).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[N600]'
+  obrigatorio: true
+- numero: 2
+  campo: CODIGO
+  descricao: Código, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: DESCRICAO
+  descricao: Descrição, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 4
+  campo: VALOR
+  descricao: Valor
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+regras_validacao_registro_detalhe:
+- regra: REGRA_DUPLICIDADE_DESPREZADA
+  descricao: Verifica se o registro já foi importado anteriormente, de acordo com a chave e os registros pais. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_DESPREZADA
+  descricao: Verifica se o registro existe na importação, mas não será importado por não existir na tabela dinâmica devido às configurações do bloco 0 ou da tabela dinâmica. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_ATUALIZADA
+  descricao: Verifica se o registro está desatualizado em relação à tabela da RFB. Se a regra não for cumprida, a ECF gera um aviso.
+regras_validacao_campos:
+- numero: 4
+  campo: VALOR
+  regras:
+  - regra: REGRA_OBRIGATORIO_TIPO_DIFERENTE_R
+    descricao: Verifica se o campo está preenchido quando o tipo da linha é diferente de “R”.
+    tipo: Erro
+tabelas_dinamicas: |-
+  N600 - Demonstrativo do Lucro da Exploração
+  Vide planilha deste Registro no arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” a partir do link http://sped.rfb.gov.br/pasta/show/1644.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+  Regras de validação da tabela dinâmica N600:
+  Vide arquivo “SPEDECF_DINAMICO_2021$SPEDECF_DINAMICA_N600_REGRAS” no diretório C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|N600|66|Parcela Correspondente às Demais Atividades|10000,00|'
+  explicacao:
+  - valor: '|N600|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|66|'
+    descricao: Código da linha.
+  - valor: '|Parcela Correspondente às Demais Atividades|'
+    descricao: Descrição da linha.
+  - valor: '|10000,00|'
+    descricao: Valor da linha (R$ 10.000,00).

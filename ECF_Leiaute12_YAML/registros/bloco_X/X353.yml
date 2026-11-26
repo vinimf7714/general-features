@@ -1,0 +1,124 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: X353
+nome: Demonstrativo de Consolidação
+bloco: X
+nome_tabela_registros: Demonstrativo de Consolidação
+paginas_manual:
+- 492
+- 493
+descricao: |-
+  Este registro deve ser preenchido pelas pessoas jurídicas para demonstrar os resultados consolidados no exterior de controladas, diretas ou indiretas, equiparadas.
+  Observação 1: Este demonstrativo é o que se refere o inciso II do art. 35 da Instrução Normativa RFB no 1.520, de 4 de dezembro de 2014.
+  Observação 2: Todos os campos devem ser informados, ainda que o valor a ser informado seja “zero”.
+titulo_leiaute: 'REGISTRO X353: DEMONSTRATIVO DE CONSOLIDAÇÃO'
+regras_validacao_registro:
+- REGRA_X353_PREENCHER
+nivel_hierarquico: 3
+ocorrencia: 0:1
+campos_chave: REG
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Deve existir se X340.IND_CONTROLE = “1” ou “2” ou “3” e X340.IND_CONSOL igual a “S” (Sim).
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: X340
+  filhos: []
+  irmaos:
+  - X350
+  - X351
+  - X352
+  - X354
+  - X355
+  - X356
+  - X357
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (X353).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[X353]'
+  obrigatorio: true
+- numero: 2
+  campo: RES_NEG_UTIL
+  descricao: Resultado Negativo Utilizado na Consolidação na Moeda do País de Domicílio.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: RES_NEG_UTIL_REAL
+  descricao: Resultado Negativo Utilizado na Consolidação em Reais.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: SALDO_RES_NEG_NAO_UTIL
+  descricao: Saldo do Resultado Negativo Não Utilizado na Moeda do País de Domicílio.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: SALDO_RES_NEG_NAO_UTIL_REAL
+  descricao: Saldo do Resultado Negativo Não Utilizado em Reais.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: RES_PROP
+  descricao: Resultado (positivo ou negativo) Próprio da Controlada no Período na Moeda do País de Domicílio.
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 7
+  campo: RES_PROP_REAL
+  descricao: Resultado (positivo ou negativo) Próprio da Controlada no Período em Reais.
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|X353|100000,00|250000,00|50000,00|125000,00|10000,00|50000,00|'
+  explicacao:
+  - valor: '|X353|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|100000,00|'
+    descricao: Resultado negativo utilizado na consolidação na moeda do país de domicílio (U$ 100.000,00).
+  - valor: '|250000,00|'
+    descricao: Resultado negativo utilizado na consolidação em reais (R$ 250.000,00).
+  - valor: '|50000,00|'
+    descricao: Resultado negativo não utilizado na moeda do país de domicílio (U$ 50.000,00).
+  - valor: '|125000,00|'
+    descricao: Resultado negativo não utilizado em reais (R$ 125.000,00).
+  - valor: '|10000,00|'
+    descricao: Resultado positivo próprio da controlada no período na moeda do país de domicílio. (R$ 10.000,00).
+  - valor: '|50000,00|'
+    descricao: Resultado positivo próprio da controlada no período na moeda do país de domicílio. (R$ 50.000,00).
+informacoes_adicionais:
+- titulo: I – Regra de Validação de Registro
+  conteudo: 'REGRA_X353_PREENCHER: Este registro só ser preenchido/habilitado quando X340.IND_CONTROLE for igual a 1” (Controlada Direta), “2” (Controlada Indireta), “3” (Equiparada a Controlada e quando X340.IND_CONSOL igual a “S” (Sim).'

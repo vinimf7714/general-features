@@ -1,0 +1,203 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: K155
+nome: Detalhes dos Saldos Contábeis (Depois do Encerramento do Resultado do Período)
+bloco: K
+nome_tabela_registros: Detalhes dos Saldos Contábeis (Depois do Encerramento do Resultado do Período)
+paginas_manual:
+- 147
+- 149
+descricao: |-
+  Registro onde devem ser informados os saldos iniciais, os saldos finais, os totais de débitos e os totais de créditos de todas as contas patrimoniais da escrituração societária da pessoa jurídica (Ativo, Passivo e Patrimonio Liquido), no período de apuração. Poderá ser preenchido das seguintes formas:
+  - Edição pelo programa da ECF;
+  - Calculado pelo sistema através da funcionalidade de recuperar ECD; e
+  - Importado de arquivo digital.
+  Observações:
+  1) Apresentar registros para todas as contas analíticas que tenham saldo (societário) ou movimento no período;
+  2) K155.IND_VL_SLD_INI e K155.IND_VL_SLD_FIN: Quando saldos iguais a zero, preencher com “D” ou “C”;
+  3) K155.VL_SLD_INI, K155.VL_DEB, K155.VL_CRED ou K155.VL_SLD_FIN: Na inexistência de saldo inicial, final ou de movimentação, preencher com zero.
+  4) K155.COD_CTA e K155.COD_CCUS: Informe o código constante do registro J050 e J051 respectivamente.
+  5) K155.VL_SLD_INI: Informe o valor do saldo da conta no início do período de apuração (K030.DT_FIN).
+  6) K155.VL_DEB e K155.VL_CRED: Informe os valores de movimentação em todo o período de apuração (entre K030.DT_INI e K030.DT_FIN).
+  7) K155.VL_SLD_FIN: Informe o valor do saldo da conta no fim do período de apuração (K030.DT_FIN).
+  Atenção: Os valores devem ser apurados e informados considerando todos os lançamentos (inclusive os de encerramento).
+titulo_leiaute: 'REGISTRO K155: DETALHES DOS SALDOS CONTÁBEIS (DEPOIS DO ENCERRAMENTO DO RESULTADO DO PERÍODO)'
+regras_validacao_registro:
+- REGRA_NATUREZA_PERMITIDA_PATRIMONIAL
+- REGRA_VALIDACAO_SOMA_SALDO_INICIAL
+- REGRA_VALIDACAO_SOMA_SALDO_FINAL
+- REGRA_VALIDACAO_DEB_DIF_CRED
+- REGRA_BATIMENTO_K155
+- REGRA_CONTA_ANALITICA
+- REGRA_COMPATIBILIDADE_K155_E155
+- REGRA_COMPATIBILIDADE_E155_K155
+- REGRA_EXISTENCIA_E015_K155
+nivel_hierarquico: 3
+ocorrencia: 0:N
+campos_chave: COD_CTA + COD_CCUS
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se (0010. FORMA_TRIB = “1”, “2”, “3” , “4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”)
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: K030
+  filhos:
+  - K156
+  irmaos:
+  - K355
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (K155).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[K155]'
+  obrigatorio: true
+- numero: 2
+  campo: COD_CTA
+  descricao: Código da Conta Analítica Patrimonial.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: COD_CCUS
+  descricao: Código do Centro de Custos.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 4
+  campo: VL_SLD_INI
+  descricao: Valor do Saldo Inicial do Período.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: IND_VL_SLD_INI
+  descricao: |-
+    Indicador da Situação do Saldo Inicial:
+    D – Devedor
+    C – Credor
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[D; C]'
+  obrigatorio: true
+- numero: 6
+  campo: VL_DEB
+  descricao: Valor Total dos Débitos no Período.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 7
+  campo: VL_CRED
+  descricao: Valor Total dos Créditos no Período.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 8
+  campo: VL_SLD_FIN
+  descricao: Valor do Saldo Final do Período.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 9
+  campo: IND_VL_SLD_FIN
+  descricao: |-
+    Indicador da Situação do Saldo Final:
+    D – Devedor
+    C – Credor
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[D; C]'
+  obrigatorio: true
+regras_validacao_registro_detalhe:
+- regra: REGRA_NATUREZA_PERMITIDA_PATRIMONIAL
+  descricao: Verifica se a conta informada no registro K155 possui J050.COD_NAT igual a “01” (Contas do Ativo), “2” (Contas do Passivo) ou “3” (Contas do Patrimônio Líquido). Se a regra não for cumprida, o sistema gera um erro.
+- regra: REGRA_VALIDACAO_SOMA_SALDO_INICIAL
+  descricao: Verifica se soma de K155.VL_SLD_INI é igual a zero para cada período informado no registro K030 (considerando os indicadores de saldo devedor e credor). Se a regra não for cumprida e 0010.FORMA_TRIB_PER for igual a “R” (Lucro Real), o sistema gera um erro. Caso contrário, o sistema gera um aviso.
+- regra: REGRA_VALIDACAO_SOMA_SALDO_FINAL
+  descricao: Verifica se soma de K155.VL_SLD_FIN é igual a zero para cada período informado no registro K030 (considerando os indicadores de saldo devedor e credor). Se a regra não for cumprida e 0010.FORMA_TRIB_PER for igual a “R” (Lucro Real), o sistema gera um erro. Caso contrário, o sistema gera um aviso.
+- regra: REGRA_VALIDACAO_DEB_DIF_CRED
+  descricao: Verifica se a soma de K155.VL_DEB é igual à soma de K155.VL_CRED para cada período informado no registro K030 (considerando os indicadores de saldo devedor e credor). Se a regra não for cumprida e 0010.FORMA_TRIB_PER for igual a “R” (Lucro Real), o sistema gera um erro. Caso contrário, o sistema gera um aviso.
+- regra: REGRA_BATIMENTO_K155
+  descricao: Verifica se todos os saldos finais dos códigos de conta e centro de custos constantes no registro K155 do período anterior são iguais aos saldos iniciais dos códigos de conta e centro de custos constantes no registro K155 do período atual. Se a regra não for cumprida, o sistema gera um erro.
+- regra: REGRA_CONTA_ANALITICA
+  descricao: Verifica se a conta e o centro de custos estão no plano de contas (J050) como conta analítica. Se a regra não for cumprida, o sistema gera um erro.
+- regra: REGRA_COMPATIBILIDADE_K155_E155
+  descricao: Verifica se os valores utilizados no registro K155 são iguais aos valores calculados do registro E155. Se a regra não for cumprida, o sistema gera um aviso.
+- regra: REGRA_COMPATIBILIDADE_E155_K155
+  descricao: |-
+    Verifica se os campos do registro E155 com algum valor maior que zero, são referenciados no registro K155 para o mesmo período de apuração.
+    Se a regra não for cumprida, o sistema gera um aviso.
+- regra: REGRA_SALDO_CONTABIL_MENOR
+  descricao: |-
+    Verifica, para o mesmo período de apuração:
+    - Se K155.IND_VL_CTA = M310.IND_VL_SLD_FIN e K155.VL_SLD_FIN é menor que o somatório de M310.VL_CTA.
+    - Se K155.IND_VL_CTA = M360.IND_VL_SLD_FIN e K155.VL_SLD_FIN é menor que o somatório de M360.VL_CTA.
+    Se a regra não for cumprida, o sistema gera um erro.
+- regra: REGRA_EXISTENCIA_E015_K155
+  descricao: |-
+    Verifica se os saldos recuperados existem no registro K155 atual. O erro ocorre se (0010.FORMA_TRIB = “1”, “2”, “3” ou “4”) ou (0010.FORMA_TRIB = “5”, “7”, “8” ou “9” e 0010.TIP_ESC_PRE = “C”) e se existir ECF anterior recuperada (0000.HASH_ECF_ANTERIOR é diferente de vazio) e, para cada conta e centro de custo existente no registro E015 com valor maior que zero, não existir pelo menos um registro K155, considerando para cada período K030.DT_INI = 0000.DT_INI (períodos de apuração iniciais) e:
+    E015.COD_CTA = K155.COD_CTA; e E010.COD_CCUS = K155.COD_CCUS. e se não existir um registro C157 para a mesma conta e centro de custo subordinado a um C150, onde:
+    C150.DT_INI é maior ou igual a K030.DT_INI; e C150.DT_FIN é menor ou igual a K030.DT_FIN. Se a regra não for cumprida, o sistema gera um aviso.
+regras_validacao_campos:
+- numero: 8
+  campo: VL_SLD_FIN
+  regras:
+  - regra: REGRA_MAPEAMENTO
+    descricao: Verifica se o somatório de K156.VAL_CTA_REF_FIN é igual ao K155.VL_SLD_FIN.
+    tipo: Erro
+- numero: 9
+  campo: IND_VL_SLD_FIN
+  regras:
+  - regra: REGRA_VALIDACAO_SALDO_FINAL
+    descricao: Verifica se o valor de K155.VL_SLD_FIN é igual ao valor de K155.VL_SLD_INI somado aos valores dos campos K155.VL_DEB e K155.VL_CRED, considerando os indicadores de saldo devedor e credor do saldo inicial e do saldo final. Se a regra não for cumprida, o sistema gera um erro.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|K155|2328.2.0001||0,00|D|7500,00|5000,00|2500,00|D|'
+  explicacao:
+  - valor: '|K155|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|2328.2.0001|'
+    descricao: Código da conta analítica.
+  - valor: '||'
+    descricao: Código do centro de custos (Não há).
+  - valor: '|0,00|'
+    descricao: Valor do saldo inicial (R$ 0,00).
+  - valor: '|D|'
+    descricao: Indicador da situação do saldo inicial (D = Devedor).
+  - valor: '|7500,00|'
+    descricao: Valor total de débitos (R$ 7.500,00).
+  - valor: '|5000,00|'
+    descricao: Valor total de créditos (R$ 5.000,00).
+  - valor: '|2500,00|'
+    descricao: Valor do saldo final (R$ 2.500,00 = R$ 7.500,00 – R$ 5.000,00).
+  - valor: '|D|'
+    descricao: Indicador da situação do saldo final (D = Devedor).

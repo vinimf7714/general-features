@@ -1,0 +1,89 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: X365
+nome: Informações Sobre as Contrapartes nas Transações Controladas
+bloco: X
+nome_tabela_registros: Informações Sobre Contrapartes nas Transações Controladas
+paginas_manual:
+- 503
+- 503
+descricao: null
+titulo_leiaute: 'REGISTRO X365: INFORMAÇÕES SOBRE AS CONTRAPARTES NAS TRANSAÇÕES CONTROLADAS'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: IDENTIFICADOR
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020. IND_OP_EXT = "S" E 0020.IND_OP_VINC = "S"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: X001
+  filhos:
+  - X366
+  irmaos:
+  - X280
+  - X292
+  - X340
+  - X360
+  - X370
+  - X390
+  - X400
+  - X410
+  - X420
+  - X430
+  - X450
+  - X460
+  - X470
+  - X480
+  - X485
+  - X490
+  - X500
+  - X510
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (X365).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[X365]'
+  obrigatorio: true
+- numero: 2
+  campo: IDENTIFICADOR
+  descricao: Código da entidade (definido pela própria empresa que preenche a ECF).
+  tipo: C
+  tamanho: 6
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: NOME_ENT
+  descricao: Nome da Entidade
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|X365|E1|Entidade 1|'
+  explicacao:
+  - valor: '|X365|'
+    descricao: Identificação do tipo de registro.
+  - valor: '|E1|'
+    descricao: Código da entidade.
+  - valor: '|Entidade 1|'
+    descricao: Nome da entidade.

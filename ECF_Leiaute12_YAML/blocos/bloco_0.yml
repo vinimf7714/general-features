@@ -1,0 +1,47 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+bloco: '0'
+nome: Abertura, Identificação e Referências
+paginas_manual:
+- 61
+- 61
+orientacoes_gerais: null
+registros:
+- registro: '0000'
+  nome: Abertura do Arquivo Digital e Identificação da Pessoa Jurídica
+  nivel: 0
+  arquivo: ../registros/bloco_0/0000.yml
+- registro: '0001'
+  nome: Abertura do Bloco 0
+  nivel: 1
+  arquivo: ../registros/bloco_0/0001.yml
+- registro: '0010'
+  nome: Parâmetros de Tributação
+  nivel: 2
+  arquivo: ../registros/bloco_0/0010.yml
+- registro: '0020'
+  nome: Parâmetros Complementares
+  nivel: 2
+  arquivo: ../registros/bloco_0/0020.yml
+- registro: '0021'
+  nome: Parâmetros de Identificação dos Tipos de Programa
+  nivel: 2
+  arquivo: ../registros/bloco_0/0021.yml
+- registro: '0030'
+  nome: Dados Cadastrais
+  nivel: 2
+  arquivo: ../registros/bloco_0/0030.yml
+- registro: '0035'
+  nome: Identificação das SCP
+  nivel: 2
+  arquivo: ../registros/bloco_0/0035.yml
+- registro: 0930
+  nome: Identificação dos Signatários da ECF
+  nivel: 2
+  arquivo: ../registros/bloco_0/0930.yml
+- registro: 0990
+  nome: Encerramento do Bloco 0
+  nivel: 1
+  arquivo: ../registros/bloco_0/0990.yml

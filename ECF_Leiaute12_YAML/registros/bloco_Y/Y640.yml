@@ -1,0 +1,142 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: Y640
+nome: Participações em Consórcios de Empresas
+bloco: Y
+nome_tabela_registros: Participações em Consórcios de Empresas
+paginas_manual:
+- 585
+- 586
+descricao: Este registro deve ser preenchido pela pessoa jurídica participante de consórcio constituído nos termos do disposto nos arts. 278 e 279 da Lei no 6.404, de 15 de dezembro de 1976.
+titulo_leiaute: 'REGISTRO Y640: PARTICIPAÇÕES EM CONSÓRCIOS DE EMPRESAS'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: CNPJ
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020.IND_PART_CONS = "S"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: Y001
+  filhos:
+  - Y650
+  irmaos:
+  - Y520
+  - Y570
+  - Y590
+  - Y600
+  - Y612
+  - Y620
+  - Y630
+  - Y660
+  - Y672
+  - Y680
+  - Y682
+  - Y720
+  - Y730
+  - Y750
+  - Y800
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (Y640).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[Y640]'
+  obrigatorio: true
+- numero: 2
+  campo: CNPJ
+  descricao: 'CNPJ: CNPJ do consórcio no qual a pessoa jurídica participou no período a que se refere esta declaração.'
+  tipo: C
+  tamanho: 14
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: COND_DECL
+  descricao: |-
+    Condição do Declarante no Consórcio:
+    1 – Líder
+    2 – Participante
+    Atenção: No caso de alteração da condição de liderança do consórcio no decorrer do ano- calendário, considera-se líder a pessoa jurídica que se enquadrar nessa condição no último dia do período a que se refere esta declaração ou na data de extinção do consórcio.
+  tipo: N
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[1; 2]'
+  obrigatorio: true
+- numero: 4
+  campo: VL_CONS
+  descricao: |-
+    Receita do Consórcio: O líder indicará, neste campo, o valor do somatório das receitas auferidas por todos os consorciados no período considerado.
+    Atenção: Este campo não deve ser preenchido para participante que não seja líder.
+    Obrigatório se COND_DECL="1".
+    Senão, não deve ser preenchido.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 5
+  campo: CNPJ_LID
+  descricao: CNPJ da Empresa Líder do Consórcio.
+  tipo: C
+  tamanho: 14
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: VL_DECL
+  descricao: |-
+    Receita do Declarante no Consórcio: Receita auferida pelo declarante no período a que se refere esta declaração, observado o disposto no caput do art. 3o da IN RFB no 1.199, de
+    2011.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_campos:
+- numero: 5
+  campo: CNPJ_LID
+  regras:
+  - regra: REGRA_CNPJ_LID
+    descricao: Verifica, caso Y640.COND_DECL = “1” (empresa líder), se Y640.CNPJ_LID é igual a 0000.CNPJ.
+    tipo: Erro
+  - regra: REGRA_VALIDA_CNPJ
+    descricao: Verifica se a regra de formação do código é válida.
+    tipo: Erro
+- numero: 6
+  campo: VL_DECL
+  regras:
+  - regra: REGRA_VL_DECL_MENOR_VL_CONS
+    descricao: Verifica se o valor informado em Y640.VL_DECL é menor ou igual que o valor informado em Y640.VL_CONS.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|Y640|44444444000191|1|500000,00|22222222000191|400000,00|'
+  explicacao:
+  - valor: '|Y640|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|44444444000191|'
+    descricao: CNPJ do consórcio (44.444.444/0001-91).
+  - valor: '|1|'
+    descricao: Condição da declarante (1 = empresa líder – nesse caso, é obrigatório o preenchimento do Y650).
+  - valor: '|500000,00|'
+    descricao: Receita do consórcio (R$ 500.000,00).
+  - valor: '|22222222000191|'
+    descricao: CNPJ da empresa líder do consórcio (22.222.222/0001-91).
+  - valor: '|400000,00|'
+    descricao: Receita do declarante (R$ 400.000,00).

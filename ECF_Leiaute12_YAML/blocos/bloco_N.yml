@@ -1,0 +1,68 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+bloco: N
+nome: Cálculo do IRPJ e da CSLL – Lucro Real
+paginas_manual:
+- 277
+- 277
+orientacoes_gerais: null
+tabela_blocos:
+  nome: Cálculo do IRPJ e da CSLL – Lucro Real
+  descricao: |-
+    Calcula o IRPJ e a CSLL com base no lucro real (estimativas mensais e ajuste anual ou
+    valores trimestrais).
+registros:
+- registro: N001
+  nome: Abertura do bloco N – Cálculo do IRPJ e da CSLL
+  nivel: 1
+  arquivo: ../registros/bloco_N/N001.yml
+- registro: N030
+  nome: Identificação do Período e Forma de Apuração do IRPJ e da CSLL das Empresas Tributadas pelo Lucro Real
+  nivel: 2
+  arquivo: ../registros/bloco_N/N030.yml
+- registro: N500
+  nome: Base de Cálculo do IRPJ Sobre o Lucro Real Após as Compensações de Prejuízos
+  nivel: 3
+  arquivo: ../registros/bloco_N/N500.yml
+- registro: N600
+  nome: Demonstração do Lucro da Exploração
+  nivel: 3
+  arquivo: ../registros/bloco_N/N600.yml
+- registro: N605
+  nome: Contas Contábeis Envolvidas na Apuração do Lucro da Exploração
+  nivel: 3
+  arquivo: ../registros/bloco_N/N605.yml
+- registro: N610
+  nome: Cálculo da Isenção e Redução do Imposto sobre Lucro Real
+  nivel: 3
+  arquivo: ../registros/bloco_N/N610.yml
+- registro: N615
+  nome: Informações da Base de Cálculo de Incentivos Fiscais
+  nivel: 3
+  arquivo: ../registros/bloco_N/N615.yml
+- registro: N620
+  nome: Apuração do IRPJ Mensal por Estimativa
+  nivel: 3
+  arquivo: ../registros/bloco_N/N620.yml
+- registro: N630
+  nome: Apuração do IRPJ Com Base no Lucro Real
+  nivel: 3
+  arquivo: ../registros/bloco_N/N630.yml
+- registro: N650
+  nome: Base de Cálculo da CSLL Após Compensações das Bases de Cálculo Negativa
+  nivel: 3
+  arquivo: ../registros/bloco_N/N650.yml
+- registro: N660
+  nome: Apuração da CSLL Mensal por Estimativa
+  nivel: 3
+  arquivo: ../registros/bloco_N/N660.yml
+- registro: N670
+  nome: Apuração da CSLL Com Base no Lucro Real
+  nivel: 3
+  arquivo: ../registros/bloco_N/N670.yml
+- registro: N990
+  nome: Encerramento do Bloco N
+  nivel: 1
+  arquivo: ../registros/bloco_N/N990.yml

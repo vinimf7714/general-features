@@ -1,0 +1,302 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  documento: Manual de Orientação do Leiaute 12 da Escrituração Contábil Fiscal (ECF)
+  ato: Anexo ao Ato Declaratório Executivo Cofis nº 02/2026
+  atualizacao: julho/2026
+  ano_calendario: 2025 e situações especiais de 2026
+  leiaute: 12
+  orgao: RFB/Subsecretaria de Fiscalização/Coordenação Geral de Fiscalização/Div. de Captação de Dados
+  total_paginas: 622
+  descricao: Base de conhecimento estruturada (YAML) extraída do Manual de Orientação do Leiaute 12 da ECF, para consulta por agentes de IA.
+estrutura:
+  arvore_registros.yaml / arvore_registros.json: Árvore hierárquica completa (pai → filhos) + índice plano por registro com pai, filhos, irmãos, nível, obrigatoriedade, ocorrência e ordem no arquivo.
+  registros/bloco_<B>/<REG>.yml: 'Um arquivo por registro (ex.: registros/bloco_M/M300.yml): descrição, nível, ocorrência, campos-chave, hierarquia, campos (nº, nome, descrição, tipo, tamanho, decimal, valores válidos, obrigatório), regras de validação do registro e dos campos, tabelas dinâmicas e exemplos de preenchimento.'
+  blocos/bloco_<B>.yml: 'Um arquivo por bloco: orientações gerais do bloco (texto introdutório do manual) e lista dos registros.'
+  geral/capitulo_<N>_*.yml: Capítulos 1 a 4 (informações gerais, dados técnicos do arquivo, regras de validação, blocos e registros), divididos por seção.
+  _gerador/: Scripts Python usados para gerar esta base a partir do PDF (permite regenerar para novas versões do manual).
+esquema_registro:
+  registro: Código do registro (4 caracteres)
+  nome: Nome do registro (título da seção no leiaute)
+  bloco: Bloco ao qual pertence
+  paginas_manual: '[página inicial, página final] no PDF'
+  descricao: Texto explicativo antes do leiaute (tabelas em markdown)
+  regras_validacao_registro: Nomes das regras aplicadas ao registro
+  nivel_hierarquico: Nível conforme o leiaute do registro
+  ocorrencia: Ocorrência conforme o leiaute do registro
+  campos_chave: Campos que formam a chave do registro
+  tabela_registros: 'Dados da Tabela de Registros (item 4.2): nível, obrigatoriedade de entrada/saída (código + condição), ocorrência'
+  hierarquia: pai, filhos e irmãos (registros com o mesmo pai)
+  campos: Lista ordenada de campos do leiaute
+  regras_validacao_registro_detalhe: Descrição de cada regra de validação do registro
+  regras_validacao_campos: 'Regras por campo: [{numero, campo, regras: [{regra, descricao, tipo (Erro/Aviso)}]}]'
+  tabelas_dinamicas: Referências às tabelas dinâmicas do registro
+  exemplos_preenchimento: Linhas de exemplo e explicação de cada valor
+  informacoes_adicionais: Outras seções do registro no manual
+  secoes_repetidas_no_manual: Quando o manual repete uma seção, a repetição é preservada aqui
+observacoes_de_qualidade:
+- Textos extraídos automaticamente do PDF e normalizados (quebras de linha do PDF unidas, cabeçalhos/rodapés removidos). Em caso de dúvida, confira a página indicada em paginas_manual.
+- 'Errata: a Tabela de Registros (4.2) do manual lista "9099 - Encerramento do Bloco 9"; foi normalizado para 9990, conforme o leiaute do registro.'
+- 'Divergência: X451 e Y650 aparecem com nível 2 na Tabela 4.2, mas nível 3 no leiaute do registro; a árvore usa o nível 3 (X451 filho de X450; Y650 filho de Y640).'
+- Valores de "tamanho" e "decimal" foram mantidos como no manual ("-" tem significado próprio — ver _meta.legenda_campos em cada registro).
+- O conteúdo das tabelas dinâmicas (planilha Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx) não faz parte do PDF e não está incluído.
+blocos:
+- bloco: '0'
+  nome: Abertura, Identificação e Referências
+  arquivo: blocos/bloco_0.yml
+  registros:
+  - '0000'
+  - '0001'
+  - '0010'
+  - '0020'
+  - '0021'
+  - '0030'
+  - '0035'
+  - 0930
+  - 0990
+- bloco: C
+  nome: Informações Recuperadas da ECD
+  arquivo: blocos/bloco_C.yml
+  registros:
+  - C001
+  - C040
+  - C050
+  - C051
+  - C053
+  - C100
+  - C150
+  - C155
+  - C157
+  - C350
+  - C355
+  - C990
+- bloco: E
+  nome: Informações Recuperadas da ECF Anterior e Cálculo Fiscal dos Dados Recuperados da ECD
+  arquivo: blocos/bloco_E.yml
+  registros:
+  - E001
+  - E010
+  - E015
+  - E020
+  - E030
+  - E155
+  - E355
+  - E990
+- bloco: J
+  nome: Plano de Contas e Mapeamento
+  arquivo: blocos/bloco_J.yml
+  registros:
+  - J001
+  - J050
+  - J051
+  - J053
+  - J100
+  - J990
+- bloco: K
+  nome: Saldos das Contas Contábeis e Referenciais
+  arquivo: blocos/bloco_K.yml
+  registros:
+  - K001
+  - K030
+  - K155
+  - K156
+  - K355
+  - K356
+  - K915
+  - K935
+  - K990
+- bloco: L
+  nome: Lucro Líquido – Lucro Real
+  arquivo: blocos/bloco_L.yml
+  registros:
+  - L001
+  - L030
+  - L100
+  - L200
+  - L210
+  - L300
+  - L990
+- bloco: M
+  nome: Livro Eletrônico de Apuração do Lucro Real (e-Lalur) e Livro Eletrônico de Apuração da Base de Cálculo da CSLL (e-Lacs)
+  arquivo: blocos/bloco_M.yml
+  registros:
+  - M001
+  - M010
+  - M030
+  - M300
+  - M305
+  - M310
+  - M312
+  - M315
+  - M350
+  - M355
+  - M360
+  - M362
+  - M365
+  - M410
+  - M415
+  - M500
+  - M510
+  - M990
+- bloco: N
+  nome: Cálculo do IRPJ e da CSLL – Lucro Real
+  arquivo: blocos/bloco_N.yml
+  registros:
+  - N001
+  - N030
+  - N500
+  - N600
+  - N605
+  - N610
+  - N615
+  - N620
+  - N630
+  - N650
+  - N660
+  - N670
+  - N990
+- bloco: P
+  nome: Lucro Presumido
+  arquivo: blocos/bloco_P.yml
+  registros:
+  - P001
+  - P030
+  - P100
+  - P130
+  - P150
+  - P200
+  - P230
+  - P300
+  - P400
+  - P500
+  - P990
+- bloco: Q
+  nome: Livro Caixa
+  arquivo: blocos/bloco_Q.yml
+  registros:
+  - Q001
+  - Q100
+  - Q990
+- bloco: S
+  nome: TEF/SAF – Tributação das Entidades de Futebol / Sociedade Anônima de Futebol
+  arquivo: blocos/bloco_S.yml
+  registros:
+  - S001
+  - S030
+  - S100
+  - S150
+  - S200
+  - S300
+  - S500
+  - S700
+- bloco: T
+  nome: Lucro Arbitrado
+  arquivo: blocos/bloco_T.yml
+  registros:
+  - T001
+  - T030
+  - T120
+  - T150
+  - T170
+  - T181
+  - T990
+- bloco: U
+  nome: Imunes e Isentas
+  arquivo: blocos/bloco_U.yml
+  registros:
+  - U001
+  - U030
+  - U100
+  - U150
+  - U180
+  - U182
+  - U990
+- bloco: V
+  nome: Declaração DEREX
+  arquivo: blocos/bloco_V.yml
+  registros:
+  - V001
+  - V010
+  - V020
+  - V030
+  - V100
+  - V990
+- bloco: W
+  nome: Declaração País-a-País (Country-by-Country Report)
+  arquivo: blocos/bloco_W.yml
+  registros:
+  - W001
+  - W100
+  - W200
+  - W250
+  - W300
+  - W990
+- bloco: X
+  nome: Informações Econômicas
+  arquivo: blocos/bloco_X.yml
+  registros:
+  - X001
+  - X280
+  - X292
+  - X340
+  - X350
+  - X351
+  - X352
+  - X353
+  - X354
+  - X355
+  - X356
+  - X357
+  - X360
+  - X365
+  - X366
+  - X370
+  - X371
+  - X375
+  - X390
+  - X400
+  - X410
+  - X420
+  - X430
+  - X450
+  - X451
+  - X460
+  - X470
+  - X480
+  - X485
+  - X490
+  - X500
+  - X510
+  - X990
+- bloco: Y
+  nome: Informações Gerais
+  arquivo: blocos/bloco_Y.yml
+  registros:
+  - Y001
+  - Y520
+  - Y570
+  - Y590
+  - Y600
+  - Y612
+  - Y620
+  - Y630
+  - Y640
+  - Y650
+  - Y660
+  - Y672
+  - Y680
+  - Y681
+  - Y682
+  - Y720
+  - Y730
+  - Y750
+  - Y800
+  - Y990
+- bloco: '9'
+  nome: Encerramento do Arquivo Digital
+  arquivo: blocos/bloco_9.yml
+  registros:
+  - '9001'
+  - '9100'
+  - '9900'
+  - '9990'
+  - '9999'

@@ -1,0 +1,42 @@
+Linhas geradas: 120 (M990.QTD_LIN = 120)
+Registros: M001=1, M010=29, M030=1, M300=7, M305=18, M310=5, M312=2, M315=1, M350=4, M355=16, M360=3, M362=2, M410=1, M500=29, M990=1
+IRPJ – Lucro real antes da compensação: 1480000,00
+  compensação: 400000,00 (limite 30% = 444000,00; saldo disponível na Parte B = 400000,00)
+IRPJ – Lucro real após compensação (vai para N500/N650): 1080000,00
+CSLL – Base de cálculo antes da compensação: 1495000,00
+  compensação: 250000,00 (limite 30% = 448500,00; saldo disponível na Parte B = 250000,00)
+CSLL – Base de cálculo após compensação (vai para N500/N650): 1245000,00
+
+Razão da Parte B (saldo inicial + mov. com reflexo na Parte A + mov. sem reflexo = saldo final):
+  PB001  I  ini    300000,00/D  parteA     50000,00/D  parteB   10000,00/D  fim    360000,00/D
+  PB001  C  ini    300000,00/D  parteA     50000,00/D  parteB       0,00/D  fim    350000,00/D
+  PB002  I  ini    120000,00/D  parteA     30000,00/D  parteB   10000,00/C  fim    140000,00/D
+  PB002  C  ini    120000,00/D  parteA     30000,00/D  parteB       0,00/D  fim    150000,00/D
+  PB003  I  ini     80000,00/C  parteA     15000,00/C  parteB       0,00/D  fim     95000,00/C
+  PB004  I  ini         0,00/D  parteA     40000,00/D  parteB       0,00/D  fim     40000,00/D
+  PB004  C  ini         0,00/D  parteA     40000,00/D  parteB       0,00/D  fim     40000,00/D
+  PB900  I  ini    400000,00/D  parteA    400000,00/C  parteB       0,00/D  fim         0,00/D
+  PB901  C  ini    250000,00/D  parteA    250000,00/C  parteB       0,00/D  fim         0,00/D
+  PB101  I  ini         0,00/D  parteA      5000,00/D  parteB       0,00/D  fim      5000,00/D
+  PB101  C  ini         0,00/D  parteA      5000,00/D  parteB       0,00/D  fim      5000,00/D
+  PB102  I  ini         0,00/D  parteA     10000,00/D  parteB       0,00/D  fim     10000,00/D
+  PB102  C  ini         0,00/D  parteA     10000,00/D  parteB       0,00/D  fim     10000,00/D
+  PB103  I  ini         0,00/D  parteA     15000,00/D  parteB       0,00/D  fim     15000,00/D
+  PB103  C  ini         0,00/D  parteA     15000,00/D  parteB       0,00/D  fim     15000,00/D
+  PB104  I  ini         0,00/D  parteA     20000,00/D  parteB       0,00/D  fim     20000,00/D
+  PB104  C  ini         0,00/D  parteA     20000,00/D  parteB       0,00/D  fim     20000,00/D
+  PB105  I  ini         0,00/D  parteA     25000,00/D  parteB       0,00/D  fim     25000,00/D
+  PB105  C  ini         0,00/D  parteA     25000,00/D  parteB       0,00/D  fim     25000,00/D
+  PB106  I  ini         0,00/D  parteA     30000,00/D  parteB       0,00/D  fim     30000,00/D
+  PB106  C  ini         0,00/D  parteA     30000,00/D  parteB       0,00/D  fim     30000,00/D
+  PB107  I  ini         0,00/D  parteA     35000,00/D  parteB       0,00/D  fim     35000,00/D
+  PB107  C  ini         0,00/D  parteA     35000,00/D  parteB       0,00/D  fim     35000,00/D
+  PB108  I  ini         0,00/D  parteA     40000,00/D  parteB       0,00/D  fim     40000,00/D
+  PB108  C  ini         0,00/D  parteA     40000,00/D  parteB       0,00/D  fim     40000,00/D
+  PB109  I  ini         0,00/D  parteA     45000,00/D  parteB       0,00/D  fim     45000,00/D
+  PB109  C  ini         0,00/D  parteA     45000,00/D  parteB       0,00/D  fim     45000,00/D
+  PB110  I  ini         0,00/D  parteA     50000,00/D  parteB       0,00/D  fim     50000,00/D
+  PB110  C  ini         0,00/D  parteA     50000,00/D  parteB       0,00/D  fim     50000,00/D
+
+Validação de leiaute (YAML): OK
+Validação de regras de negócio: OK

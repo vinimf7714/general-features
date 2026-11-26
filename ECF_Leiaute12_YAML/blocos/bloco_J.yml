@@ -1,0 +1,40 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+bloco: J
+nome: Plano de Contas e Mapeamento
+paginas_manual:
+- 132
+- 132
+orientacoes_gerais: |-
+  Apresenta o mapeamento do plano de contas contábil para o plano de contas referencial. Os registros deste bloco podem ser:
+  I – Digitados;
+  II – Importados;
+  III – Replicados a partir do Bloco C; ou
+  IV – Recuperados da ECF do período imediatamente anterior ao período da escrituração atual, transmitida via Sped.
+registros:
+- registro: J001
+  nome: Abertura do Bloco J – Plano de Contas e Mapeamento
+  nivel: 1
+  arquivo: ../registros/bloco_J/J001.yml
+- registro: J050
+  nome: Plano de Contas do Contribuinte
+  nivel: 2
+  arquivo: ../registros/bloco_J/J050.yml
+- registro: J051
+  nome: Plano de Contas Referencial
+  nivel: 3
+  arquivo: ../registros/bloco_J/J051.yml
+- registro: J053
+  nome: Subcontas Correlatas
+  nivel: 3
+  arquivo: ../registros/bloco_J/J053.yml
+- registro: J100
+  nome: Centro de Custos
+  nivel: 2
+  arquivo: ../registros/bloco_J/J100.yml
+- registro: J990
+  nome: Encerramento do Bloco J
+  nivel: 1
+  arquivo: ../registros/bloco_J/J990.yml

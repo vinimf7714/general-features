@@ -1,0 +1,419 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: '0010'
+nome: Parâmetros de Tributação
+bloco: '0'
+nome_tabela_registros: Parâmetros de Tributação
+paginas_manual:
+- 71
+- 80
+descricao: |-
+  Apresenta os parâmetros fiscais que identificam quais blocos e registros serão preenchidos.
+  O plano de contas referencial a ser utilizado segue as seguintes regras:
+  - Utilizar o plano de contas definido no campo 0010.COD_QUALIF_PJ.
+  - Se 0010.COD_QUALIF_PJ não estiver preenchido, verificar o campo 0010.APUR_CSLL.
+  - Se 0010.APUR_CSLL for igual a “A” (Anual) ou “T” (Trimestral), utilizar o plano de contas de imunes e isentas nos períodos correspondentes.
+  - Se 0010.FORMA_APUR_I for igual a “A” (Anual) ou “T” (Trimestral), utilizar o plano de contas de imunes e isentas nos períodos correspondentes.
+titulo_leiaute: 'REGISTRO 0010: PARÂMETROS DE TRIBUTAÇÃO'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: '1:1'
+campos_chave: '[REG]'
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: O
+  obrigatoriedade_saida:
+    codigo: O
+  ocorrencia: '[1;1]'
+hierarquia:
+  pai: '0001'
+  filhos: []
+  irmaos:
+  - '0020'
+  - '0021'
+  - '0030'
+  - '0035'
+  - 0930
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto fixo contendo a identificação do registro (0010).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[0010]'
+  obrigatorio: true
+- numero: 2
+  campo: HASH_ECF_ANTERIOR
+  descricao: Hashcode da ECF do período imediatamente anterior a ser recuperado. Campo preenchido automaticamente pelo sistema.
+  tipo: C
+  tamanho: 40
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 3
+  campo: OPT_REFIS
+  descricao: |-
+    Indicador de Optante pelo Refis:
+    S - Sim
+    N – Não
+    A pessoa jurídica deve assinalar este campo quando for optante pelo Programa de Recuperação Fiscal (Refis).
+    Atenção: Este campo só deve ser assinalado pela pessoa jurídica optante pelo Programa de Recuperação Fiscal (Refis), instituído pela Lei nº 9.964, de 10 de abril de 2000, e que dele não tenha sido excluída. A pessoa jurídica que for apenas optante pelo Parcelamento Especial (Paes) de que trata a Lei nº 10.684, de 30 de maio de 2003, e outros reparcelamentos não deve assinalar este campo.
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: true
+- numero: 4
+  campo: FORMA_TRIB
+  descricao: |-
+    Forma de Tributação:
+    1 – Lucro Real.
+    2 – Lucro Real/Arbitrado.
+    3 – Lucro Presumido/Real.
+    4 – Lucro Presumido/Real/Arbitrado.
+    5 – Lucro Presumido.
+    6 – Lucro Arbitrado.
+    7 – Lucro Presumido/Arbitrado.
+    8 – Imune do IRPJ.
+    9 – Isenta do IRPJ.
+    10 - TEF - Tributação Específica do Futebol
+    A forma de tributação do IRPJ (Imposto de Renda Sobre a Renda da Pessoa Jurídica) e, consequentemente, da CSLL (Contribuição Social Sobre o Lucro Líquido) adotada, indica que a pessoa jurídica tributada com base no:
+    1) Lucro Real: Apurou imposto de renda com base no lucro real.
+    2) Lucro Real/Arbitrado: Apurou imposto de renda com base no lucro real, com arbitramento da base de cálculo em algum trimestre do ano-calendário.
+    3) Lucro Presumido/Real:
+    - Optou pelo lucro presumido por força de ingresso no Refis e, no decorrer do ano-calendário, foi excluída do Programa e passou a ser obrigatoriamente tributada com base no lucro real.
+    - Iniciou o ano-calendário pagando o imposto com base no lucro presumido e, em relação ao mesmo ano, incorreu em situação de obrigatoriedade de apuração pelo lucro real por ter auferido lucros, rendimentos ou ganhos de capital oriundos do exterior.
+    4) Lucro Presumido/Real/Arbitrado: Além da tributação com base no lucro presumido e no lucro real, foi tributada pelo lucro arbitrado em algum trimestre do ano-calendário.
+    5) Lucro Presumido: Apurou imposto de renda com base no lucro presumido.
+    6) Lucro Arbitrado: Apurou imposto de renda com base no lucro arbitrado em todos os trimestres do ano-calendário.
+    7) Lucro Presumido/Arbitrado: Apurou imposto de renda com base no lucro presumido, com arbitramento da base de cálculo em algum trimestre do ano-calendário.
+    8) Imune do IRPJ: É imune do imposto de renda.
+    9) Isenta do IRPJ: É isenta do imposto de renda.
+    Atenção: Na hipótese de obrigatoriedade de apuração pelo lucro real por ter auferido lucros, rendimentos ou ganhos de capital oriundos do exterior, a pessoa jurídica deve apurar o IRPJ e a CSLL sob o regime de apuração pelo lucro real trimestral a partir, inclusive, do trimestre da ocorrência do fato.
+  tipo: N
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[1;2;3;4;5;6;7;8;9; 10]'
+  obrigatorio: true
+- numero: 5
+  campo: FORMA_APUR
+  descricao: |-
+    Indicador do Período de Apuração do IRPJ e da CSLL:
+    T – Trimestral
+    A – Anual
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[T;A]'
+  obrigatorio: false
+- numero: 6
+  campo: COD_QUALIF_PJ
+  descricao: |-
+    Qualificação da Pessoa Jurídica:
+    01 – PJ em Geral
+    02 – PJ Componente do Sistema Financeiro
+    03 – Sociedades Seguradoras, de Capitalização ou Entidade Aberta de Previdência Complementar
+    04 – SAF – Sociedade Anônima de Futebol
+    Atenção: Não preencher no caso de imunes e isentas (preencher o 0010.TIP_ENT).
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: '[01;02;03;04]'
+  obrigatorio: false
+- numero: 7
+  campo: FORMA_TRIB_PER
+  descricao: |-
+    Forma de Tributação no Período: Forma de tributação no período considerando para cada trimestre no formato XXXX onde X é igual a:
+    0 – ZERO – Não informado – trimestre não compreendido no período de apuração.
+    R – Real
+    P – Presumido
+    A – Arbitrado
+    E – Real Estimativa (somente utilizado no caso da observação abaixo).
+    S – TEF/SAF
+    Observação: Caso 0010.FORMA_TRIB seja igual “3” (Presumido/Real) ou “4” (Presumido/Real/Arbitrado) e houver opção pelo REFIS (0010.OPT_REFIS), o período tributado pelo lucro real deve ter somente a forma de apuração trimestral (Caso em que deve ser utilizado “R” em 0010.FORMA_TRIB_PER) ou somente a forma de apuração correspondente à anual/estimativa (Caso em que deve ser utilizado “E” em 0010.FORMA_TRIB_PER) .
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[0;R;P;A;E;S]'
+  obrigatorio: false
+- numero: 8
+  campo: MES_BAL_RED
+  descricao: |-
+    Forma de Apuração da Estimativa Mensal: Indicação da forma de apuração da estimativa mensal, quando 0010.FORMA_APUR = “A”, considerando o formato XXXXXXXXXXXX onde X é referente a um mês e é igual a:
+    0 – Fora do Período: Fora do período de apuração/ Forma de tributação diferente de “R” ou “E”.
+    E – Receita Bruta: Estimativa com base na receita bruta e acréscimos.
+    B – Balanço ou Balancete: Estimativa com base no balanço ou balancete de suspensão/redução.
+    Os meses correspondentes a trimestres marcados em 0010.FORMA_TRIB_PER como diferente de “R” e “E” devem estar preenchidos com zero “0”.
+    Os meses correspondentes a trimestres marcados em 0010.FORMA_TRIB_PER iguais a “R” ou “E” devem estar preenchidos com “E” ou “B”.
+  tipo: C
+  tamanho: 12
+  decimal: '-'
+  valores_validos: '[0;E;B]'
+  obrigatorio: false
+- numero: 9
+  campo: TIP_ESC_PRE
+  descricao: |-
+    Escrituração:
+    C – Obrigada a entregar a ECD ou entrega facultativa (haverá recuperação dos dados).
+    L – Não obrigada a entregar a ECD/Livro Caixa (Opção do Lucro Presumido - parágrafo único do art. 45 da Lei nº 8.981, de 1995).
+    Atenção:
+    - Este campo deve ser preenchido pelas pessoas jurídicas tributadas pelo lucro presumido e as imunes ou isentas.
+    - Caso a pessoa jurídica entregue a ECD facultativamente e não queira recuperar os dados da ECD, deve utilizar a opção “L”.
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[L;C]'
+  obrigatorio: false
+- numero: 10
+  campo: TIP_ENT
+  descricao: |-
+    Tipo de Pessoa Jurídica Imune ou Isenta:
+    01 – Assistência Social
+    02 – Educacional
+    03 – Sindicato de Trabalhadores
+    04 – Associação Civil
+    05 – Cultural
+    06 – Entidade Fechada de Previdência Complementar
+    07 – Filantrópica
+    08 – Sindicato
+    09 – Recreativa
+    10 – Científica
+    11 – Associação de Poupança e Empréstimo
+    12 – Entidade Aberta de Previdência Complementar (Sem Fins Lucrativos)
+    13 – Fifa e Entidades Relacionadas
+    14 – CIO e Entidades Relacionadas
+    15 – Partidos Políticos
+    99 – Outras.
+    Observação: Este campo é obrigatório para 0010.FORMA_TRIB igual a “8” (Imune do IRPJ) ou “9” (Isenta do IRPJ).
+    Caso 0010.TIP_ENT = “01”, “02”, “03”, “04”, “05”, “07”, “08”, “09”, “10”, “13”, “14” ou “99”, os planos referenciais serão U100A e U150A.
+    Caso 0010.TIP_ENT = “11”, os planos referenciais serão U100B e U150B.
+    Caso 0010.TIP_ENT = “12”, os planos referenciais serão U100C e U150C.
+    Caso 0010.TIP_ENT = “06”, os planos referenciais serão U100D e U150D.
+    Caso 0010.TIP_ENT = “15”, os planos referenciais serão U100E e U150E.
+  tipo: N
+  tamanho: 2
+  decimal: '-'
+  valores_validos: '[01;02;03;04;05;06 ;07;08;09;10;11;12 ;13;14;15;99]'
+  obrigatorio: false
+- numero: 11
+  campo: FORMA_APUR_I
+  descricao: |-
+    Apuração do IRPJ para Imunes ou Isentas: Existência ou não de atividade não abrangida pela imunidade ou isenção e tributada pelo IRPJ (para imunes ou isentas):
+    A – Anual
+    T – Trimestral
+    D – Desobrigada
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[A;T;D]'
+  obrigatorio: false
+- numero: 12
+  campo: APUR_CSLL
+  descricao: |-
+    Apuração da CSLL para Imunes ou Isentas:
+    A – Anual, se optou pela apuração da CSLL sobre a base de cálculo estimada, facultada a opção pelo levantamento de balanço ou balancete de suspensão ou redução.
+    T – Trimestral, no caso de ter adotado a apuração trimestral da CSLL.
+    D – Desobrigada, na hipótese de pessoa jurídica imune ou isenta da CSLL.
+    Atenção:
+    1) As entidades sem fins lucrativos de que trata o inciso I do art. 12 do Decreto nº 3.048, de 6 de maio de 1999, que não se enquadram na imunidade e isenção da Lei nº 9.532, de 10 de dezembro de 1997, estão sujeitas à CSLL, devendo apurar a base de cálculo e a contribuição devida nos termos da legislação comercial.
+    2) As associações de poupança e empréstimo devem apurar a contribuição social sobre o lucro líquido.
+    3) São isentas da CSLL as entidades fechadas de previdência complementar, relativamente aos fatos geradores ocorridos a partir de 1º de janeiro de 2002.
+    Observação: Este campo é obrigatório para 0010.FORMA_TRIB igual a “8” (Imune do IRPJ) ou “9” (Isenta do IRPJ).
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[A;T;D]'
+  obrigatorio: false
+- numero: 13
+  campo: IND_REC_RECEITA
+  descricao: |-
+    Critério de reconhecimento de receitas para empresas tributadas pelo Lucro Presumido (Art. 215, § 9º, Instrução Normativa RFB nº 1.700/2017):
+    1. Regime de caixa
+    2. Regime de competência
+    Em relação aos fatos contábeis ocorridos a partir de 1º de janeiro de 2016, a obrigatoriedade de adotar a ECD alcança todas as pessoas jurídicas tributadas com base no lucro presumido que utilizem o regime de competência.
+    Então, caso a empresa tenha o reconhecimento de receitas pelo regime de competência, deve indicar no campo 9, a opção C – Obrigada a entregar a ECD.
+  tipo: N
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[1;2]'
+  obrigatorio: false
+regras_validacao_campos:
+- numero: 4
+  campo: FORMA_TRIB
+  regras:
+  - regra: REGRA_DESENQUADRAMENTO_IMUNE_ISENTA
+    descricao: Verifica, quando o campo 0000.SIT_ESPECIAL é igual a “8” (Desenquadramento de imune/isenta), se o campo 0010.FORMA_TRIB é igual a “8” (Imune) ou “9” (isenta).
+    tipo: Erro
+- numero: 5
+  campo: FORMA_APUR
+  regras:
+  - regra: REGRA_FORMA_APUR_VALIDA
+    descricao: |-
+      Verifica:
+      - Quando 0010.FORMA_APUR igual a “A” (Anual), se 0010.FORMA_TRIB igual a “1” (Lucro Real) ou “2” (Lucro Real/Arbitrado) ou [“3” (Lucro Presumido/Real) ou “4” (Lucro Presumido/Real/Arbitrado) e 0010.OPT_REFIS igual a “S”] ou “10” – TEF – Tributação Específica do Futebol.
+      - quando 0010.FORMA_APUR igual a “T” (Trimestral), se 0010.FORMA_TRIB igual a “1” (Lucro Real) ou “2” (Lucro Real/Arbitrado) ou “3” (Lucro Presumido/Real) ou “4” (Lucro Presumido/Real/Arbitrado) ou “5” (Lucro Presumido) ou “6” (Lucro Arbitrado) ou “7” (Lucro Presumido/Arbitrado).
+    tipo: Erro
+  - regra: REGRA_NAO_PREENCHER_IMUNE
+    descricao: Verifica, quando 0010.FORMA_TRIB igual a “8” (Imune do IRPJ) ou “9” (Isento do IPRJ), se 0010.FORMA_APUR não foi preenchido.
+    tipo: Erro
+- numero: 6
+  campo: COD_QUALIF_PJ
+  regras:
+  - regra: REGRA_COD_QUALIF_PJ
+    descricao: Verifica, quando 0010.FORMA_TRIB igual a “3” (Lucro Presumido/Real) ou “4” (Lucro Presumido/Real/Arbitrado) ou “5” (Lucro Presumido) ou “7” (Lucro Presumido/Arbitrado), se 0010.COD_QUALIF_PJ é igual a “01” (PJ em geral) ou “02” (PJ componente do sistema financeiro).
+    tipo: Erro
+  - regra: REGRA_NAO_PREENCHER_IMUNE
+    descricao: Verifica, quando 0010.FORMA_TRIB igual a “8” (Imune do IRPJ) ou “9” (Isento do IPRJ), se 0010.COD_QUALIF_PJ não foi preenchido.
+    tipo: Erro
+  - regra: REGRA_COD_QUALIF_PJ_OBRIGATORIO
+    descricao: Verifica, quando se 0010.FORMA_TRIB igual a “1” (Lucro Real) ou “2” (Lucro Real/Arbitrado) ou “3” (Lucro Presumido/Real) ou “4” (Lucro Presumido/Real/Arbitrado) ou “5” (Lucro Presumido) ou “6” (Lucro Arbitrado) ou “7” (Lucro Presumido/Arbitrado), se 0010.COD_QUALIF_PJ foi preenchido.
+    tipo: Erro
+- numero: 7
+  campo: FORMA_TRIB_PER
+  regras:
+  - regra: REGRA_NAO_PREENCHER_IMUNE
+    descricao: Verifica, quando 0010.FORMA_TRIB igual a “8” (Imune do IRPJ) ou “9” (Isento do IPRJ), se 0010.FORMA_TRIB_PER não foi preenchido.
+    tipo: Erro
+  - regra: REGRA_TRIBUT_INVALIDA
+    descricao: |-
+      Verifica se 0010.FORMA_TRIB_PER está preenchido conforme regras abaixo relacionadas:
+      Se 0010.FORMA_TRIB é igual a “1” (Lucro Real), então 0010.FORMA_TRIB_PER deve ser igual a “0” ou “R”.
+      Se 0010.FORMA_TRIB é igual a “2” (Lucro Real/Arbitrado), então 0010.FORMA_TRIB_PER deve ser igual a “0”, “R”, ou “A”.
+      Se 0010.FORMA_TRIB é igual a “3” (Lucro Presumido/Real) e 0010.OPT_REFIS é igual a "N”, então 0010.FORMA_TRIB_PER deve ser igual a “0”, “P” ou “R”.
+      Se 0010.FORMA_TRIB é igual a “3” (Lucro Presumido/Real) e 0010.OPT_REFIS é igual a "S" e 0010.FORMA_APUR é igual a “A”, então 0010.FORMA_TRIB_PER deve ser igual a “0”, “E” ou “P”.
+      Se 0010.FORMA_TRIB é igual a “3” (Lucro Presumido/Real) e 0010.OPT_REFIS é igual a "S" e 0010.FORMA_APUR é igual a “T”, então 0010.FORMA_TRIB_PER deve ser igual a “0”, “R” ou “P”.
+      Se 0010.FORMA_TRIB é igual a “4” (Lucro Presumido/Real/Arbitrado) e 0010.OPT_REFIS é igual a "N", então 0010.FORMA_TRIB_PER deve ser igual a “0”, “A”, “P” ou “R”.
+      Se 0010.FORMA_TRIB é igual a “4” (Lucro Presumido/Real/Arbitrado) e 0010.OPT_REFIS é igual a "S" e 0010.FORMA_APUR é igual a “A”, então 0010.FORMA_TRIB_PER deve ser igual a “0”, “A”, “E” ou “P”.
+      Se 0010.FORMA_TRIB é igual a “4” (Lucro Presumido/Real/Arbitrado) e 0010.OPT_REFIS é igual a "S" e 0010.FORMA_APUR é igual a “T”, então 0010.FORMA_TRIB_PER deve ser igual a “0”, “A”, “R” ou “P”.
+      Se 0010.FORMA_TRIB é igual a “5” (Lucro Presumido), então 0010.FORMA_TRIB_PER deve ser igual a “0” ou “P”. Se 0010.FORMA_TRIB é igual a “6” (Lucro Arbitrado), então 0010.FORMA_TRIB_PER deve ser igual a “0” ou “A”. Se 0010.FORMA_TRIB é igual a “7” (Lucro Presumido/Arbitrado), então 0010.FORMA_TRIB_PER deve ser igual a “0”, “A” ou “P”. Se 0010.FORMA_TRIB é igual a “8” (Imune do IRPJ), então 0010.FORMA_TRIB_PER não deve ser preenchido. Se 0010.FORMA_TRIB é igual a “9” (Isento do IRPJ), então 0010.FORMA_TRIB_PER não deve ser preenchido. Se 0010.FORMA_TRIB é igual a “10” (TEF – Tributação Específica do Futebol), então 0010.FORMA_TRIB_PER deve ser igual a “S”
+    tipo: Erro
+  - regra: REGRA_TRIBUT_PER_R_E
+    descricao: Verifica se os valores “R” e “E” aparecem simultaneamente em 0010.FORMA_TRIB_PER.
+    tipo: Erro
+  - regra: REGRA_PRESUMIDO_PRIMEIRO
+    descricao: Verifica, quando aparecerem “R”, “E” ou “P” em 0010.FORMA_TRIB_PER, se o “P” aparece primeiro.
+    tipo: Erro
+  - regra: REGRA_FORMA_TRIB_EXISTENTE
+    descricao: |-
+      Verifica as regras abaixo:
+      0010.FORMA_TRIB é igual a “2” (Lucro Real/Arbitrado) e 0010.FORMA_TRIB_PER não possui “R” ou não possui “A”.
+      Ou
+      0010.FORMA_TRIB é igual a “3” (Lucro Presumido/Real) e 0010.FORMA_TRIB_PER não possui “P” ou não possui “R”.
+      Ou
+      0010.FORMA_TRIB é igual a “4” (Lucro Presumido/Real/Arbitrado) e 0010.FORMA_TRIB_PER não possui “P” ou não possui “R” ou não possui “A”.
+      Ou
+      0010.FORMA_TRIB é igual a “7” (Lucro Presumido/Arbitrado) e 0010.FORMA_TRIB_PER não possui “P” ou não possui “A”.
+    tipo: Erro
+  - regra: REGRA_FORM_TRIB_FORA_PERIODO
+    descricao: Verifica se os trimestres fora do período de escrituração são do tipo “0”.
+    tipo: Erro
+  - regra: REGRA_FORMA_TRIB_PER_OBRIGATORIO
+    descricao: Verifica se 0010.FORMA_TRIB_PER está preenchido quando 0010.FORMA_TRIB é diferente de “8” (Imune do IRPJ) ou “9” (Isenta do IRPJ).
+    tipo: Erro
+- numero: 8
+  campo: MES_BAL_RED
+  regras:
+  - regra: REGRA_MES_BAL_RED_OBRIGATORIO
+    descricao: Verifica se 0010.MES_BAL_RED foi preenchido, no caso de 0010.FORMA_APUR igual a “A” (Anual).
+    tipo: Erro
+  - regra: REGRA_NAO_PREENCHER_TRIMESTRAL
+    descricao: Verifica se 0010.MES_BAL_RED não foi preenchido, no caso de 0010.FORMA_APUR igual a “T”.
+    tipo: Erro
+  - regra: REGRA_MES_BAL_RED_INVALIDO
+    descricao: |-
+      Verifica se os meses correspondentes a trimestres marcados em 0010.FORMA_TRIB_PER estão preenchidos conforme as regras abaixo:
+      Se 0010.FORMA_TRIB_PER for diferente de “R” e “E”, então 0010.MES_BAL_RED deve ser igual a “0”.
+      Se 0010.FORMA_TRIB_PER é igual a “R” e “E”, então 0010.MES_BAL_RED debe ser igual a “0”, “E” ou “B”.
+    tipo: Erro
+  - regra: REGRA_MES_BAL_RED
+    descricao: |-
+      _FORA_PERIODO: Verifica se os meses fora do período da escrituração ou arbitrados estão com o tipo “0”.
+      REGRA_ NAO_PREENCHER_IMUNE: Verifica, quando 0010.FORMA_TRIB é igual a “8” (Imune do IRPJ) ou “9” (Isento do IPRJ), se MES_BAL_RED não foi preenchido.
+    tipo: Erro
+- numero: 9
+  campo: TIP_ESC_PRE
+  regras:
+  - regra: REGRA_PREENCHER_TIP_ESC
+    descricao: Verifica, quando 0010.FORMA_TRIB é igual a “3” (Lucro Presumido/Real) ou “4” (Lucro Presumido/Real/Arbitrado) ou “5” (Lucro Presumido) ou “7” (Lucro Presumido/Arbitrado) ou “8” (Imune) ou “9” (Isenta), se 0010.TIP_ESC_PRE foi preenchido.
+    tipo: Erro
+  - regra: REGRA_PREENCHER_TIP_ESC_SAF
+    descricao: |-
+      Verifica, quando 0010.FORMA_TRIB é igual a “10” (TEF – Tributação Específica do Futebol), se
+      0010.TIP_ESC_PRE está com o valor “C” – Obrigadas a entregar a ECD ou entrega facultativa da ECD com recuperação de dados. As SAFs têm que entregar ECD.
+    tipo: Erro
+- numero: 10
+  campo: TIP_ENT
+  regras:
+  - regra: REGRA_PREENCHER_IMUNE
+    descricao: Verifica, quando 0010.FORMA_TRIB é igual a “8” (Imune de IRPJ) ou “9” (Isento do IPRJ), se 0010.TIP_ENT foi preenchido.
+    tipo: Erro
+  - regra: REGRA_NAO_PREENCHER_SAF
+    descricao: Verifica, quando 0010.FORMA_TRIB é igual a “10” (TEF – Tributação Específica do Futebol), se 0010.TIP_ENT foi preenchido.
+    tipo: Erro
+- numero: 11
+  campo: FORMA_APUR_I
+  regras:
+  - regra: REGRA_PREENCHER_IMUNE
+    descricao: Verifica, quando 0010.FORMA_TRIB é igual a “8” (Imune de IRPJ) ou “9” (Isento do IPRJ), se 0010.FORMA_APUR_I foi preenchido.
+    tipo: Erro
+  - regra: REGRA_APUR_IGUAL
+    descricao: Verifica se 00010.FORMA_APUR_I é igual a 0010.APUR_CSLL, quando 0010.APUR_CSLL for diferente de “D” (Desobrigado).
+    tipo: Erro
+  - regra: REGRA_NAO_PREENCHER_SAF
+    descricao: Verifica, quando 0010.FORMA_TRIB é igual a “10” (TEF – Tributação Específica do Futebol), se 0010.FORMA_APUR_I foi preenchido.
+    tipo: Erro
+- numero: 12
+  campo: APUR_CSLL
+  regras:
+  - regra: REGRA_PREENCHER_IMUNE
+    descricao: Verifica, quando 0010.FORMA_TRIB é igual a “8” (Imune de IRPJ) ou “9” (Isento do IPRJ), se 0010.APUR_CSLL foi preenchido.
+    tipo: Erro
+  - regra: REGRA_NAO_PREENCHER_SAF
+    descricao: Verifica, quando 0010.FORMA_TRIB é igual a “10” (TEF – Tributação Específica do Futebol), se 0010.FORMA_CSLL foi preenchido.
+    tipo: Erro
+- numero: 13
+  campo: IND_REC_RECEITA
+  regras:
+  - regra: REGRA_IND_RECEITA_SAF
+    descricao: Verifica, quando 0010.FORMA_TRIB é igual a “10” (TEF – Tributação Específica do Futebol), se 0010.IND_REC_RECEITA é igual a “1” (Regime de Caixa)
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|0010||N|1|T|01|RRRR||||||1|'
+  explicacao:
+  - valor: '|0010|'
+    descricao: Identificação do tipo do registro.
+  - valor: '||'
+    descricao: Hashcode da ECF do período imediatamente anterior (Não há).
+  - valor: '|N|'
+    descricao: Indicador de optante pelo Refis (N = Não).
+  - valor: '|1|'
+    descricao: Forma de tributação do lucro (1 = Lucro Real).
+  - valor: '|T|'
+    descricao: Forma de apuração do IRPJ e da CSLL (T = Trimestral).
+  - valor: '|01|'
+    descricao: Qualificação da pessoa jurídica (01 = PJ em Geral).
+  - valor: '|RRRR|'
+    descricao: Forma de tributação no período (RRRR = Lucro Real nos quatro trimestres).
+  - valor: '||'
+    descricao: Forma de apuração da estimativa (Não há).
+  - valor: '||'
+    descricao: Tipo de escrituração (não obrigatório para o lucro real).
+  - valor: '||'
+    descricao: Tipo de pessoa jurídica imune ou isenta (não obrigatório para o lucro real).
+  - valor: '||'
+    descricao: Existência de atividade tributada pelo IRPJ para imunes ou isentas (não obrigatório para o lucro real).
+  - valor: '||'
+    descricao: Apuração da CSLL para imunes ou isentas (não obrigatório para o lucro real).
+  - valor: '|1|'
+    descricao: Regime de caixa.

@@ -1,0 +1,180 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: M510
+nome: Controle de Saldos das Contas Padrão da Parte B do e-Lalur e do e-Lacs
+bloco: M
+nome_tabela_registros: Controle de Saldos das Contas Padrão da Parte B do e- Lalur e do e-Lacs
+paginas_manual:
+- 274
+- 275
+descricao: |-
+  Apresenta a visão sintética do controle de saldos das contas padrão da parte B do e-LALUR e e-LACS. Registro gerado pelo sistema a partir do saldo inicial e das movimentações.
+  - Os campos SD_FIM_LAL e IND_SD_FIM do último período serão transportados para o E020 da próxima ECF.
+  - Quando a escrituração for trimestral, o saldo final do período será transportado para o saldo inicial do período seguinte.
+  - O valor do SD_INI_LAL do primeiro período será igual ao saldo inicial do registro M010.
+titulo_leiaute: 'REGISTRO M510: CONTROLE DE SALDOS DAS CONTAS PADRÃO DA PARTE B DO e-LALUR E DO e-LACS'
+regras_validacao_registro: []
+nivel_hierarquico: 3
+ocorrencia: 0:N
+campos_chave: COD_CTA_B + COD_TRIBUTO
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: F
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: M030
+  filhos: []
+  irmaos:
+  - M300
+  - M350
+  - M410
+  - M500
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (M510).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[M510]'
+  obrigatorio: true
+- numero: 2
+  campo: COD_PB_RFB
+  descricao: Código da Conta Padrão da Parte B (deve existir no M010.COD_PB_RFB).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: '[M010.COD_CTA_B]'
+  obrigatorio: true
+- numero: 3
+  campo: DESCRICAO_PB_RFB
+  descricao: Descrição da Conta Padrão da Parte B
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: COD_TRIBUTO
+  descricao: |-
+    Código do Tributo:
+    I – Imposto de Renda
+    C – Contribuição Social Sobre o Lucro Líquido
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[I; C]'
+  obrigatorio: true
+- numero: 5
+  campo: SD_INI_LAL
+  descricao: Saldo Inicial da Conta no Período de Apuração.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: IND_SD_INI_LAL
+  descricao: |-
+    Indicador de Saldo Inicial:
+    D – Para prejuízos ou valores que serão excluídos do lucro real ou da base de cálculo da contribuição social em períodos subsequentes.
+    C – Para valores que serão adicionados ao lucro real ou à base de cálculo da contribuição social em períodos subsequentes.
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[C; D]'
+  obrigatorio: true
+- numero: 7
+  campo: VL_LCTO_PARTE_A
+  descricao: Somatório dos Lançamentos da Parte B com Reflexo na Parte A no Período.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 8
+  campo: IND_VL_LCTO_PARTE_A
+  descricao: |-
+    Indicador do Somatório dos Lançamentos da Parte B com Reflexo na Parte A no período:
+    C – Para prejuízos ou valores que serão excluídos do lucro real ou da base de cálculo da contribuição social em períodos subsequentes.
+    D – Para valores que serão adicionados ao lucro real ou à base de cálculo da contribuição social em períodos subsequentes.
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[C; D]'
+  obrigatorio: true
+- numero: 9
+  campo: VL_LCTO_PARTEB
+  descricao: Somatório dos Lançamentos da Parte B Sem Reflexo na Parte A no Período (entre contas da parte B).
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 10
+  campo: IND_VL_LCTO_PARTEB
+  descricao: |-
+    Indicador Somatório dos Lançamentos da Parte B Sem Reflexo na Parte A no Período (entre contas da parte B):
+    C – Para prejuízos ou valores que serão excluídos do lucro real ou da base de cálculo da contribuição social em períodos subsequentes.
+    D – Para valores que serão adicionados ao lucro real ou à base de cálculo da contribuição social em períodos subsequentes.
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[C; D]'
+  obrigatorio: true
+- numero: 11
+  campo: SD_FIM_LAL
+  descricao: Saldo Final da Conta no Período de Apuração.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 12
+  campo: IND_SD_FIM_LAL
+  descricao: |-
+    Indicador de Saldo Final:
+    D – Para prejuízos ou valores que serão excluídos do lucro real ou da base de cálculo da contribuição social em períodos subsequentes.
+    C – Para valores que serão adicionados ao lucro real ou à base de cálculo da contribuição social em períodos subsequentes.
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[C; D]'
+  obrigatorio: true
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|M510|1005|Provisões ou Perdas Estimadas Não Dedutíveis|1000,00|C|500,00|D|100,00|D|400,00|C|'
+  explicacao:
+  - valor: '|M510|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|1005|'
+    descricao: Código da conta padrão da parte B.
+  - valor: '|Provisões ou Perdas Estimadas Não Dedutíveis|'
+    descricao: Descrição da conta da parte B.
+  - valor: '|1000,00|'
+    descricao: Saldo inicial da conta da parte B (R$ 1.000,00).
+  - valor: '|C|'
+    descricao: Indicador do saldo inicial (C = Credor).
+  - valor: '|500,00|'
+    descricao: Valor do lançamento da parte B com reflexo na parte A (R$ 500,00).
+  - valor: '|D|'
+    descricao: Indicador do lançamento da parte B com reflexo na parte A (D = Devedor).
+  - valor: '|100,00|'
+    descricao: Valor do lançamento da parte B sem reflexo na parte A (R$ 100,00).
+  - valor: '|D|'
+    descricao: Indicador do lançamento da parte B sem reflexo na parte A (D = Devedor).
+  - valor: '|400,00|'
+    descricao: Saldo final da conta da parte B (R$ 400,00 = R$ 1.000,00 – R$ 500,00 – R$ 100,00).
+  - valor: '|C|'
+    descricao: Indicador do saldo final (C = Credor).

@@ -1,0 +1,511 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  documento: Manual de Orientação do Leiaute 12 da Escrituração Contábil Fiscal (ECF)
+  ato: Anexo ao Ato Declaratório Executivo Cofis nº 02/2026
+  atualizacao: julho/2026
+  ano_calendario: 2025 e situações especiais de 2026
+  leiaute: 12
+  orgao: RFB/Subsecretaria de Fiscalização/Coordenação Geral de Fiscalização/Div. de Captação de Dados
+  total_paginas: 622
+capitulo: 1
+titulo: Informações Gerais
+paginas_manual:
+- 10
+- 31
+secoes:
+- secao: null
+  paginas_manual:
+  - 10
+  - 10
+  conteudo: |-
+    Este Manual refere-se ao leiaute 12, válido para as situações normais/eventos do ano-calendário 2025 (7 – Mudança de Qualificação de Pessoa Jurídica; 8 – Desenquadramento de Imune/Isenta e 9 – Inclusão no Simples Nacional); e situações especiais de 2026 (1 – Extinção; 2 – Fusão; 3 – Incorporação \ Incorporada; 4 – Incorporação \ Incorporadora; 5 – Cisão Total e 6
+    – Cisão Parcial).
+
+    | Leiaute | Período | Manual |
+    |---|---|---|
+    | Leiaute 1 | Ano-calendário 2014 e Situações Especiais de 2015 | Ato Declaratório Cofis no 60/2015 |
+    | Leiaute 2 | Ano-calendário 2015 e Situações Especiais de 2016 | Ato Declaratório Cofis no 46/2016 |
+    | Leiaute 3 | Ano-calendário 2016 e Situações Especiais de 2017 | Ato Declaratório Cofis no 30/2017 |
+    | Leiaute 4 | Ano-calendário 2017 e Situações Especiais de 2018 | Ato Declaratório Cofis no 52/2018 |
+    | Leiaute 5 | Ano-calendário 2018 e Situações Especiais de 2019 | Ato Declaratório Cofis no 84/2018 |
+    | | | Ato Declaratório Cofis no 9/2019 |
+    | Leiaute 6 | Ano-calendário 2019 e Situações Especiais de 2020 | Ato Declaratório Cofis nº 70/2019 |
+    | Leiaute 7 | Ano-calendário 2020 e Situações Especiais de 2021 | Ato Declaratório Cofis nº 86/2020 |
+    | Leiaute 8 | Ano-calendário 2021 e Situações Especiais de 2022 | Ato Declaratório Cofis nº 001/2022 |
+    | Leiaute 9 | Ano-calendário 2022 e Situações Especiais de 2023 | Ato Declaratório Cofis nº 133/2022 |
+    | Leiaute 10 | Ano-calendário 2023 e Situações Especiais de 2024 | Ato Declaratório Cofis nº 59/2023 |
+    | Leiaute 11 | Ano-calendário 2024 e Situações Especiais de 2025 | Ato Declaratório Cofis nº 38/2024 |
+    | Leiaute 12 | Ano-calendário 2025 e Situações Especiais de 2026 | Ato Declaratório Cofis nº 02/2026 |
+- secao: 1.1. Introdução
+  paginas_manual:
+  - 10
+  - 12
+  conteudo: |-
+    O Sistema Público de Escrituração Digital (SPED) foi instituído pelo Decreto no 6.022, de 22 de janeiro de 2007, com alterações pelo Decreto no 7.979, de 8 de abril de 2013, que o definiu da seguinte maneira:
+    “O Sped é um instrumento que unifica as atividades de recepção, validação, armazenamento e autenticação de livros e documentos que integram a escrituração contábil e fiscal dos empresários e das pessoas jurídicas, inclusive imunes ou isentas, mediante fluxo único, computadorizado, de informações.” (Redação dada pelo Decreto no 7.979, de 8 de abril de 2013)
+    O projeto SPED tem como objetivos principais:
+    - Promover a integração dos fiscos, mediante a padronização e compartilhamento das informações contábeis e fiscais, respeitadas as restrições legais de acesso;
+    - Racionalizar e uniformizar as obrigações acessórias para os contribuintes, com o estabelecimento de transmissão única de distintas obrigações acessórias de diferentes órgãos fiscalizadores; e
+    - Tornar mais célere a identificação de ilícitos tributários, com a melhoria do controle dos processos, a rapidez no acesso às informações e a fiscalização mais efetiva das operações com o cruzamento de dados e auditoria eletrônica.
+    São vários os benefícios propiciados pelo SPED, entre eles:
+    - Diminuição do consumo de papel, com redução de custos e preservação do meio ambiente;
+    - Redução de custos com a racionalização e simplificação das obrigações acessórias;
+    - Uniformização das informações que o contribuinte presta aos diversos entes governamentais;
+    - Redução do envolvimento involuntário em práticas fraudulentas;
+    - Redução do tempo despendido com a presença de auditores-fiscais nas instalações do contribuinte;
+    - Simplificação e agilização dos procedimentos sujeitos ao controle da administração tributária;
+    - Fortalecimento do controle e da fiscalização por meio de intercâmbio de informações entre as administrações tributárias;
+    - Rapidez no acesso às informações;
+    - Aumento da produtividade do auditor-fiscal através da eliminação dos passos para coleta dos arquivos;
+    - Possibilidade de troca de informações entre os próprios contribuintes a partir de um leiaute padrão;
+    - Redução de custos administrativos;
+    - Melhoria da qualidade da informação;
+    - Possibilidade de cruzamento entre os dados contábeis e os fiscais;
+    - Disponibilidade de cópias autênticas e válidas da escrituração para usos distintos e concomitantes;
+    - Redução do "Custo Brasil"; e
+    - Aperfeiçoamento do combate à sonegação.
+    A Escrituração Contábil Fiscal (ECF) substituiu a Declaração de Informações Econômico-Fiscais da Pessoa Jurídica (DIPJ), a partir do ano-calendário 2014, com entrega prevista para o último dia útil do mês de julho do ano posterior ao do período da escrituração no ambiente do Sistema Público de Escrituração Digital (Sped).
+    São obrigadas ao preenchimento da ECF todas as pessoas jurídicas, inclusive imunes e isentas, sejam elas tributadas pelo lucro real, lucro arbitrado ou lucro presumido, exceto:
+    I - As pessoas jurídicas optantes pelo Regime Especial Unificado de Arrecadação de Tributos e Contribuições devidos pelas Microempresas e Empresas de Pequeno Porte (Simples Nacional), de que trata a Lei Complementar nº 123, de 14 de dezembro de 2006;
+    II - Os órgãos públicos, às autarquias e às fundações públicas;
+    III - As pessoas jurídicas que não tenham efetuado qualquer atividade operacional, não operacional, patrimonial ou financeira, inclusive aplicação no mercado financeiro ou de capitais, durante todo o ano-calendário.
+    Há que se ressaltar que, caso a pessoa jurídica tenha Sociedades em Conta de Participação (SCP), cada SCP deverá preencher e transmitir sua própria ECF, utilizando o CNPJ da pessoa jurídica que é sócia ostensiva e o CNPJ de cada SCP.
+    Uma das inovações da ECF corresponde, para as empresas obrigadas a entrega da Escrituração Contábil Digital (ECD), à utilização dos saldos e contas da ECD para preenchimento inicial da ECF.
+    Ademais, a ECF também recuperará os saldos finais das ECF anterior, a partir do ano-calendário 2015. Na ECF haverá o preenchimento e controle, por meio de validações, das partes A e B do Livro Eletrônico de Apuração do Lucro Real (e-Lalur) e do Livro Eletrônico de Apuração da Base de Cálculo da CSLL (e-Lacs). Todos os saldos informados nesses livros também serão controlados e, no caso da parte B, haverá o batimento de saldos de um ano para outro.
+    Finalmente, a ECF apresentará as fichas de informações econômicas e de informações gerais em novo formato de preenchimento para as empresas.
+- secao: 1.2. Legislação
+  paginas_manual:
+  - 12
+  - 12
+  conteudo: |-
+    - Decreto no 6.022, de 22 de janeiro de 2007, e alterações posteriores – Instituiu o Sistema Público de Escrituração Digital (SPED).
+    - Decreto no 9.580, de 22 de novembro de 2018 – Regulamenta a tributação, a fiscalização, a arrecadação e a administração do Imposto sobre a Renda e Proventos de Qualquer Natureza.
+    - Lei no 12.973, de 13 de maio de 2014 – Altera a legislação tributária federal relativa ao Imposto sobre a Renda das Pessoas Jurídicas - IRPJ, à Contribuição Social sobre o Lucro Líquido - CSLL, ...; e dá outras providências.
+    - Instrução Normativa RFB no 1.700, de 14 de março de 2017 - Dispõe sobre a determinação e o pagamento do imposto sobre a renda e da contribuição social sobre o lucro líquido das pessoas jurídicas e disciplina o tratamento tributário da Contribuição para o PIS/Pasep e da Cofins no que se refere às alterações introduzidas pela Lei nº 12.973, de 13 de maio de 2014.
+    - Instrução Normativa RFB no 2.003, de 18 de janeiro de 2021, e alterações posteriores – Dispõe sobre a Escrituração Contábil Digital (ECD).
+    - Instrução Normativa RFB no 2.004, de 18 de janeiro de 2021, e alterações posteriores – Dispõe sobre a Escrituração Contábil Fiscal (ECF).
+    - Ato Declaratório Executivo Cofis no 38/2024 – Dispõe sobre o Manual de Orientação do Leiaute 11 da Escrituração Contábil Fiscal (ECF).
+    - Ato Declaratório Executivo Cofis nº 2/2026 – Dispõe sobre o Manual de Orientação do Leiaute 12 da Escrituração Contábil Fiscal (ECF).
+- secao: 1.3. Importação da ECF, Recuperação da ECD e Recuperação da ECF anterior
+  paginas_manual:
+  - 13
+  - 14
+  conteudo: |-
+    | - Importação da ECF: | | | | |
+    |---|---|---|---|---|
+    | O arquivo da ECD não é importado para a ECF e sim recuperado. | | | | |
+    | Primeiramente, deve ser criada uma ECF no próprio programa ou deve ser importado um arquivo da ECF. Em seguida deve ser feita a recuperação do arquivo da ECD (recuperação de contas, | | | | |
+    | saldos e mapeamento, caso este mapeamento tenha sido realizado na ECD). | | | | |
+    | - Recuperação da ECD: | | | | |
+    | A ECD a ser recuperada na ECF deve ser a ECD transmitida ao SPED (ECD ativa na base). | | | | |
+    | Para as pessoas jurídicas tributadas pelo lucro real, a recuperação da ECD na ECF é obrigatória. | | | | |
+    | Para as pessoas jurídicas tributadas pelo lucro presumido e imunes ou isentas obrigadas a entregar a ECD, a recuperação da ECD na ECF é obrigatória. Neste caso, o campo escrituração – | | | | |
+    | “TIP_ESC_PRE” – do registro 0010 deve ser preenchido com “C” (obrigada a entregar a ECD). O mesmo tratamento é dado para as pessoas jurídicas que entregarem a sua ECD, mesmo sem estar obrigadas, | | | | |
+    | e desejarem efetuar a sua recuperação na ECF (campo escrituração – “TIP_ESC_PRE” – do registro 0010 deve ser preenchido com “C”). | | | | |
+    | Para as pessoas jurídicas tributadas pelo lucro presumido e imunes ou isentas não obrigadas a entregar a ECD, o campo escrituração – “TIP_ESC_PRE” – do registro 0010 deve ser preenchido | | | | |
+    | com “L” (não obrigada a entregar a ECD). Nessa situação, os blocos C, E, J e K não serão preenchidos. | | | | |
+    | O programa da ECF exige a recuperação de arquivos principais da ECD (tipos G, R ou B), tantos quantos forem os arquivos necessários para abranger todo o período de ECF. | | | | |
+    | Exemplo: Arquivo da ECF do ano-calendário de 2025 (01/01/2025 a 31/12/2025) | | | | |
+    | Arquivos da ECD: | | | | |
+    | Arquivo 1 da ECD: de 01/01/2025 a 31/03/2025 | | | | |
+    | Arquivo 2 da ECD: de 01/04/2025 a 31/08/2025 | | | | |
+    | Arquivo 3 da ECD: de 01/09/2025 a 31/12/2025 | | | | |
+    | | Nesse exemplo, o programa da ECF exigirá a recuperação dos 3 (três) arquivos da ECD, que correspondem ao período integral da ECF (01/01/2025 a 31/12/2025). | | | |
+    | São regras para habilitação da Recuperação da ECD: | | | | |
+    | | | • Registro 0010, campo FORMA_TRIB igual a “1”, “3”, “4”; | “10” | ; ou |
+    | | | • Registro 0010, campo FORMA_TRIB igual a “2” e campo FORMA_APUR igual a “T”; ou | | |
+    | | | • Registro 0010, campo FORMA_TRIB igual a “5”, “7”, “8”, “9” e campo TIPO_ESC_PRE igual a “C”. | | |
+    | - Recuperação da ECF Anterior: | | | | |
+
+    Para as empresas tributadas pelo Lucro Real, o programa da ECF exige a recuperação da ECF do período imediatamente anterior (transmitida ao SPED – ativa).
+    A recuperação da ECF do período imediatamente anterior é obrigatória quando:
+    1 – Forma de tributação pelo lucro real (0010. FORMA_TRIB = “1”);
+    2 – A data inicial da ECF (0000.DT_INI) do período atual for diferente de 01/01/2014; e
+    3 – O indicador de situação de início de período (0000.IND_SIT_INI_PER) for igual a “0” (Regular – Início no primeiro dia do ano) ou “2” (quando remanescente de cisão ou realizou incorporação). Até o leiaute 10
+    3 – O indicador de situação de início de período (0000.IND_SIT_INI_PER) for igual a “0” (Regular – Início no primeiro dia do ano) ou "3" (resultante de mudança de qualificação da pessoa jurídica) ou “6” (realizou incorporação ou remanescente de cisão parcial). A partir do leiaute 11.
+    A verificação da não recuperação da ECF anterior somente ocorrerá no momento da transmissão, de acordo com as seguintes regras de erro:
+    1 - Verifica, quando a forma de tributação for lucro real (0010.FORMA_TRIB = 1), se existe ECF transmitida para a base do Sped de período imediatamente anterior e com o HASHCODE igual ao que foi informado no campo 0010. HASH_ECF_ANTERIOR (hashcode da ECF do período imediatamente anterior a ser recuperado).
+    2- Verifica, quando a forma de tributação for lucro real (0010.FORMA_TRIB = 1) e não existe ECF transmitida para a base do Sped de período imediatamente anterior, se o campo 0010.
+    HASH_ECF_ANTERIOR (hashcode da ECF do período imediatamente anterior a ser recuperado) não está preenchido.
+- secao: 1.4. Pessoas Jurídicas Imunes e Isentas
+  paginas_manual:
+  - 14
+  - 15
+  conteudo: |-
+    A partir do ano-calendário 2015, todas as pessoas jurídicas imunes ou isentas estão obrigadas a entregar a ECF.
+    As imunes/isentas (desobrigadas do IRPJ e da CSLL) e que não estejam obrigadas a entregar a ECD deverão preencher os seguintes registros:
+    Registro 0000: Abertura do Arquivo Digital e Identificação da Pessoa Jurídica
+    Registro 0010: Parâmetros de Tributação
+    Registro 0020: Parâmetros Complementares
+    Registro 0030: Dados Cadastrais
+    Registro 0930: Identificação dos Signatários da ECF
+    Registro X390: Origem e Aplicações de Recursos - Imunes e Isentas
+    Registro Y612: Identificação e Rendimentos de Dirigentes, Conselheiros, Sócios ou Titular.
+    No caso do registro 0930, para as imunes/isentas que não estejam obrigadas a entregar a ECD, só será exigida a assinatura do representante legal; ou seja, não será obrigatória a assinatura do contador.
+    As imunes/isentas (desobrigadas do IRPJ e da CSLL) e que estejam obrigadas a entregar a ECD, além dos registros acima, também preencherão os blocos C, E, J, K e U (esses blocos serão preenchidos pelo sistema por meio da recuperação dos dados da ECD). Nessa situação, a assinatura do contador, no registro 0930, é obrigatória.
+    O registro X390 é obrigatório para as pessoas jurídicas imunes e isentas que não recuperaram a ECD. Contudo, a pessoa jurídica, ainda que seja obrigada a entrega da ECD, pode preencher o referido Registro facultativamente.
+    A partir do leiaute 12, todas as entidades imunes/isentas que possuírem Certificado de Entidade Beneficente de Assistência Social – CEBAS deveram informar seu registro no ato de entrega da ECF.
+    Entidades nas áreas de assistência social, saúde ou educação ao preencherem o campo TIP_ENT do registro 0000 com 01 – Assistência Social, ou 02 – Educacional, ou 16 – Saúde, devem informar no campo POSSUI_CEBAS se é portadora do certificado. Em caso afirmativo, informá-lo no campo CEBAS.
+- secao: 1.5. Arquivo da ECF
+  paginas_manual:
+  - 15
+  - 15
+  conteudo: Para gerar um arquivo da ECF, crie a ECF no programa (Arquivo/Criar), preencha os dados principais e clique em “Ferramentas/Exportar Escrituração”.
+- secao: 1.6. Recuperação de ECD Sem Mapeamento para o Plano Referencial
+  paginas_manual:
+  - 15
+  - 15
+  conteudo: |-
+    Para que não seja necessário digitar todo o mapeamento para o plano referencial na ECF, no caso de recuperação de dados da ECD sem o respectivo mapeamento, pode ser seguido o procedimento abaixo:
+    1) Importar a ECF.
+    2) Recuperar ECD, marcando a opção "Utilizar os dados recuperados da ECD para preenchimento do balanço e/ou DRE". Com essa opção marcada, o programa da ECF copiará as informações para o bloco J e K, mas não calculará o balanço patrimonial e a DRE, pois não existe mapeamento. Os dados dos registros K155 e K355 estarão de acordo com a ECD.
+    3) A partir de um arquivo .txt, que contenha o bloco J devidamente mapeado, importar deste arquivo, no programa da ECF, somente o bloco J da ECF. O programa da ECF incluirá o mapeamento nos registros K155/K156 e K355/K356 e, consequentemente, calculará o balanço patrimonial e a DRE utilizando os saldos da ECD e o mapeamento da ECF.
+- secao: 1.7. Recuperação de ECD Com Encerramento do Exercício Diferente dos Encerramentos da ECF
+  paginas_manual:
+  - 15
+  - 15
+  conteudo: |-
+    Os encerramentos do exercício na ECF seguem o período de apuração do tributo. Por exemplo, se a empresa é do lucro presumido, os encerramentos do exercício da ECF serão trimestrais.
+    Caso a ECD recuperada tenha encerramento diferente (por exemplo, a ECD recuperada tenha apenas um encerramento anual), no momento da validação no programa da ECF, poderá aparecer uma mensagem com o valor da diferença entre os saldos finais credores e os saldos iniciais credores. Nesse caso, a pessoa jurídica poderá ajustar os saldos por meio de alteração nos registros K155 e K355 (alteração de saldo de uma ou mais contas) e preencher as justificativas de alterações de saldos recuperados da ECD nos registros K915 e K935, respectivamente.
+- secao: 1.8. Registro do Prejuízo Fiscal do Período na Parte B do e-Lalur
+  paginas_manual:
+  - 15
+  - 16
+  conteudo: |-
+    Quando ocorrer um prejuízo fiscal no período (Registro M300), o procedimento a seguir é:
+    - Criar uma conta de Prejuízos Fiscais de Períodos Anteriores no registro M010 ou utilizar uma já existente no mesmo registro.
+    - Registrar o saldo do prejuízo fiscal do período no registro M410 (Colocar o indicador de lançamento como “PF” – Prejuízo do Período).
+    Observação: Se houver compensação de prejuízos fiscais em períodos posteriores, deve ser utilizada essa conta criada na parte B para compensação no registro M300 (Linhas de código 173, 174, 347 e 348 do M300), com tipo de relacionamento “1” (com conta da parte B).
+- secao: 1.9. Registro da Base de Cálculo Negativa da CSLL do Período na Parte B do e-Lacs
+  paginas_manual:
+  - 16
+  - 16
+  conteudo: |-
+    Quando ocorrer uma base de cálculo negativa no período (Registro M350), o procedimento a seguir é:
+    - Criar uma conta de Base de Cálculo Negativa de Períodos Anteriores no registro M010 ou utilizar uma já existente no mesmo registro.
+    - Registrar o saldo do prejuízo fiscal do período no registro M410 (Colocar o indicador de lançamento como “BC” – Base de Cálculo Negativa da CSLL).
+    Observação: Se houver compensação de base de cálculo negativa da CSLL em períodos posteriores, deve ser utilizada essa conta criada na parte B para compensação no registro M350 (Linhas de código 173, 174, 347 e 348 do M350), com tipo de relacionamento “1” (com conta da parte B).
+- secao: 1.10. Mudança de Contador no Período ou Mudança de Planos de Contas no Período
+  paginas_manual:
+  - 16
+  - 16
+  conteudo: |-
+    Não é possível transmitir dois ou mais arquivos da ECF caso ocorra mudança de contador no período ou mudança de plano de contas no período. A ECF deve ser transmitida em arquivo único, a menos que ocorra alguma das situações especiais previstas no registro 0000.
+    Caso a entidade tenha que recuperar os dados da ECD, devem ser recuperados os dois arquivos da ECD transmitidos (um para cada contador ou um para cada plano de contas).
+    Contudo, para que a ECF recupere os dados corretamente é necessário que os saldos finais das contas que aparecem no primeiro arquivo (primeiro contador ou primeiro plano de contas) sejam iguais aos saldos iniciais dessas mesmas contas que aparecem no segundo arquivo (segundo contador ou segundo plano de contas). Isso pode ser feito, na ECD, por meio do preenchimento do registro I157 (transferência de plano de contas) no segundo arquivo da ECD, conforme instruções do Manual de Orientação do Leiaute da ECD. Se isso não ocorrer, a ECF recuperará somente os dados do segundo arquivo e os ajustes necessários deverão ser realizados na própria ECF ou na ECD, por meio de substituição.
+- secao: 1.11. Plano de Contas e Mapeamento
+  paginas_manual:
+  - 16
+  - 16
+  conteudo: |-
+    A ECF recupera o plano de contas do último período existente na ECD. No plano de contas devem constar apenas as contas que tenham saldo ou que tiveram movimento no período completo da ECD (se a empresa transmitir ECD em diversos arquivos, ainda que a conta termine com saldo zero em um arquivo, deve constar no plano de contas de todos os arquivos).
+    O mapeamento das contas contábeis da entidade para as contas referenciais é feito somente em relação às contas analíticas. Contas sintéticas não devem ser mapeadas.
+- secao: 1.12. Registros de Planos de Contas Referenciais (L100, L300, P100, P150, U100 e U150)
+  paginas_manual:
+  - 16
+  - 16
+  conteudo: Para as pessoas jurídicas que possuem ECD a recuperar e geram o arquivo da ECF para importação; os registros L100 e L300, no caso de pessoas jurídicas tributadas pelo lucro real; P100 e P150, no caso de pessoas jurídicas tributadas pelo lucro presumido; U100 e U150, no caso de imunes ou isentas, não devem constar no arquivo da ECF para importação, pois, caso sejam importados, os valores não serão calculados pelo programa da ECF.
+- secao: 1.13. Conta “Resultado do Exercício”
+  paginas_manual:
+  - 17
+  - 17
+  conteudo: No plano referencial, a conta “Resultado do Exercício” é sintética, pois representa o resultado da diferença entre as receitas e despesas do período. Caso a entidade utilize uma conta transitória analítica “Resultado do Exercício” ou “Apuração do Resultado Exercício” para realizar os lançamentos de transferência dos saldos das receitas e despesas do período, essa conta deverá ter J050.COD_NAT = “09” (Outras) e não deverá ser mapeada. O sistema não permite o mapeamento de contas com código de natureza “09”.
+- secao: 1.14. Retificação da ECF
+  paginas_manual:
+  - 17
+  - 17
+  conteudo: |-
+    A retificação da ECF anteriormente entregue dar-se-á mediante apresentação de nova ECF, independentemente de autorização da autoridade administrativa, e pode ser realizada em relação a ECF entregues nos últimos cinco anos. Por exemplo, em 2026, é possível retificar ECF do ano-calendário 2020 em diante.
+    A ECF retificadora terá a mesma natureza da ECF retificada, substituindo-a integralmente para todos os fins e direitos, e passará a ser a ativa na base de dados do Sped.
+    Não será admitida retificação de ECF que tenha por objetivo mudança do regime de tributação, salvo para fins de adoção do lucro arbitrado, nos casos determinados pela legislação. Vide demais orientações no Registro 0000, campo 12.
+    Caso a ECF retificadora altere os saldos das contas da parte B do e-Lalur ou do e-Lacs, a pessoa jurídica deverá verificar a necessidade de retificar as ECF dos anos-calendário posteriores.
+    A pessoa jurídica deverá entregar a ECF retificadora sempre que apresentar ECD substituta alterando contas ou saldos contábeis recuperados na ECF ativa na base de dados do Sped.
+    No caso de lançamentos extemporâneos em ECD que alterem a base de cálculo do IRPJ ou da CSLL da ECF de ano calendário anterior, a pessoa jurídica deverá efetuar o ajuste apresentando ECF retificadora relativa ao respectivo ano-calendário, mediante adições ou exclusões ao lucro líquido, ainda que a ECD recuperada na ECF retificada não tenha sido alterada.
+    A pessoa jurídica que entregar ECF retificadora alterando valores de apuração do IRPJ ou da CSLL que haviam sido informados na Declaração de Débitos e Créditos de Tributos Federais (DCTF) deverá apresentar a DCTF retificadora, seguindo suas normas específicas.
+    Exemplo: Em 01/01/2026, a empresa retificou a ECF do ano-calendário 2021. Nesse caso, a empresa pode ter que retificar as ECF dos anos-calendário 2022, 2023 e 2024.
+    Para retificação da ECF, é necessário que o campo 12 do registro 0000 (0000.RETIFICADORA) esteja preenchido com “S” (ECF Retificadora).
+    No programa em edição, janela de “Dados Iniciais”, “0000 - Identificação da Entidade”, alterar o campo “Escrituração Retificadora?” para a opção “ECF Retificadora”. Nesse caso, será exigido informar o “Número do Recibo Anterior” (número do recibo da ECF que está sendo retificada).
+    É importante ressaltar que a ECF retificadora não altera ou cancela multa por atraso lançada a partir da ECF original. Caso o contribuinte não concorde com a multa gerada, deve apresentar tempestivamente processo formal de impugnação, via e-CAC.
+    Observação: Há campos dos registros do bloco 0000 que não são editáveis no programa da ECF. Para alterá-los, no caso de uma ECF retificadora, é necessário seguir o roteiro abaixo:
+    1. Se o arquivo é o que foi assinado, remova a assinatura. A assinatura é um conjunto de caracteres "estranhos" que fica após o registro 9999. Basta apagar tudo que fica após tal registro. Para fazer isso, edite a escrituração com algum editor de texto do tipo “Bloco de Notas”.
+    2. Altere as informações necessárias no bloco 0000, salve o arquivo e importe no programa da ECF.
+- secao: 1.15. O que significa a mensagem “Dados atualizados na linha de acordo com a tabela da RFB”?
+  paginas_manual:
+  - 18
+  - 18
+  conteudo: 'No caso de registros com tabelas dinâmicas, a entidade precisa somente informar o código da linha e o valor, além da identificação do registro, pois a descrição é preenchida pelo próprio programa da ECF. Contudo, caso a entidade preencha o campo descrição e ele não esteja exatamente igual à descrição da respectiva tabela do registro no programa, o sistema fará a atualização da descrição e emitirá a mensagem (advertência) no momento da importação do arquivo da ECF: “Dados atualizados na linha de acordo com a tabela da RFB”.'
+- secao: 1.16. Transformação
+  paginas_manual:
+  - 18
+  - 18
+  conteudo: |-
+    A transformação não é um evento que represente interrupção do período para cálculo dos tributos. Portanto, as opções “Resultante de Transformação” (Código 3 do 0000.IND_SIT_INI_PER) e “Transformação” (Código 7 do 0000.SIT_ESPECIAL) foram excluídas do registro 0000.
+    Exemplo: No caso de transformação no período (por exemplo: a empresa passa de Ltda. para S.A.), a ECF deve ser transmitida em arquivo único para todo o período. Portanto, se não houve situação especial e nem abertura ou início de obrigatoriedade no período, os campos 0000.IND_SIT_INI_PER e 0000.SIT_ESPECIAL serão preenchidos da seguinte forma:
+    0000.IND_SIT_INI_PER: 0 – Regular (Início no primeiro dia do ano).
+    0000.SIT_ESPECIAL: 0 – Normal (Sem ocorrência de situação especial ou evento).
+- secao: 1.17. Prejuízos Fiscais Acumulados de Períodos Anteriores
+  paginas_manual:
+  - 18
+  - 18
+  conteudo: |-
+    O registro de prejuízos fiscais acumulados de períodos anteriores deve ser feito da seguinte forma no registro M010:
+    1 – Código da Conta: Código da conta de prejuízos fiscais acumulados de períodos anteriores, definido pela própria pessoa jurídica.
+    2 – Descrição: Descrição da conta, definida pela própria pessoa jurídica.
+    3 – Data da Criação: Como a ECF inicia em 01/01/2014, pode ser utilizada 31/12/2013, como data da criação de contas da parte B com saldos antes do ano-calendário 2014.
+    4 – Código de Lançamento de Origem da Conta: Não há (deixar em branco).
+    5 – Data Limite para Uso do Saldo da Conta: Não há (deixar em branco).
+    6 – Tipo de Tributo: I (Imposto de Renda Pessoa Jurídica)
+    7 – Saldo Inicial: Informar o saldo dos prejuízos acumulados de períodos anteriores.
+    8 – Indicador do Saldo Inicial: D (Para prejuízos ou valores que reduzam o lucro real ou a base de cálculo da contribuição social em períodos subsequentes).
+    9 – CNPJ: Preencher somente no caso da conta Prejuízos Fiscais Acumulados de Períodos Anteriores estarem relacionados a outra pessoa jurídica.
+- secao: 1.18. Bases de Cálculo Negativas Acumuladas de Períodos Anteriores
+  paginas_manual:
+  - 18
+  - 19
+  conteudo: |-
+    O registro de bases de cálculos negativas acumuladas de períodos anteriores deve ser feito da seguinte forma no registro M010:
+    1 – Código da Conta: Código da conta de bases de cálculo negativas de períodos anteriores, definido pela própria pessoa jurídica.
+    2 – Descrição: Descrição da conta, definida pela própria pessoa jurídica.
+    3 – Data da Criação: Como a ECF inicia em 01/01/2014, pode ser utilizada 31/12/2013, como data da criação de contas da parte B com saldos antes do ano-calendário 2014.
+    4 – Código de Lançamento de Origem da Conta: Não há (deixar em branco).
+    5 – Data Limite para Uso do Saldo da Conta: Não há (deixar em branco).
+    6 – Tipo de Tributo: C (Contribuição Social Sobre o Lucro Líquido)
+    7 – Saldo Inicial: Informar o saldo de base de cálculo negativa de períodos anteriores.
+    8 – Indicado do Saldo Inicial: D (Para prejuízos ou valores que reduzam o lucro real ou a base de cálculo da contribuição social em períodos subsequentes).
+    9 – CNPJ: Preencher no caso da conta Base de Cálculo Negativa Acumulada de Períodos Anteriores estar relacionada a outra pessoa jurídica.
+- secao: 1.19. Situações Especiais de 2014 e Sociedades em Conta de Participação (SCP)
+  paginas_manual:
+  - 19
+  - 19
+  conteudo: |-
+    As situações especiais (cisão, fusão, incorporação etc.) que ocorreram em 2014 devem ser entregues por meio da Declaração de Informações Econômico-Fiscais da Pessoa Jurídica (DIPJ).
+    A Escrituração Contábil Fiscal (ECF) somente pode ser utilizada para transmissão de situações especiais ocorridas de 2015 em diante.
+    Há que se ressaltar que, no caso de Sociedades em Conta de Participação (SCP) que foram extintas ao longo do 2014, não havia obrigatoriedade de entrega da DIPJ por SCP e não há obrigatoriedade de entrega da ECF. Somente as SCP existentes em 31/12/2014 deverão entregar a ECF relativa ao ano-calendário 2014.
+    A partir do ano-calendário 2015, todas as SCP entregam a ECF, inclusive as que forem extintas ao longo do ano da escrituração.
+- secao: 1.20. Contas Contábeis Mapeadas para Mais de um Conta Referencial
+  paginas_manual:
+  - 19
+  - 19
+  conteudo: |-
+    Quando uma conta contábil é mapeada para mais de uma conta referencial, esse mapeamento é relativo ao saldo final (que deve ser preenchido nos registros K156 e K356), ou seja, o programa da ECF não pode preencher automaticamente o saldo inicial das contas referenciais nos balanços patrimoniais (L100: Lucro Real, P100: Lucro Presumido, U100: Imunes e isentas), pois não há como saber qual é a proporção do saldo inicial da conta contábil que foi mapeado para cada uma dessas contas referenciais.
+    Exemplo: Empresa tributada pelo lucro real.
+    Conta Contábil Patrimonial (CC1) = R$ 100.000,00
+    Foi mapeada, na ECD, para as contas referenciais patrimoniais CR1 e CR2. O mapeamento do saldo final foi:
+    CC1 ➔ CR1 = R$ 40.000,00 (Saldo Final)
+    CC1 ➔ CR2 = R$ 60.000,00 (Saldo Final)
+    No registro L100, a pessoa jurídica deverá definir os saldos iniciais no primeiro período de apuração, pois, nos períodos de apuração seguintes, o próprio programa faz o transporte (Saldo final do período anterior = saldo inicial do período seguinte).
+- secao: 1.21. Arquivos da ECF ou da ECD Corrompidos ou Extraviados
+  paginas_manual:
+  - 19
+  - 20
+  conteudo: |-
+    Se o arquivo da ECF ou da ECD estiver corrompido ou foi extraviado, o procedimento para download é:
+    1. Instale o aplicativo ReceitanetBX no computador. O instalador do ReceitanetBX pode ser baixado do site do Sped, na área de download.
+    Nota: Escolha o perfil correto (Contribuinte, Procurador ou Representante Legal). Em caso de procuração, garanta que a autorização de efetuar o download da ECF ou da ECD esteja marcada no e-CAC.
+    2. Após o download do arquivo da ECF, importe o arquivo utilizando a funcionalidade “Arquivo/ Importar” do programa da ECF. O arquivo da ECD baixado pelo ReceitanetBX poderá ser recuperado pelo programa da ECF.
+- secao: 1.22. Recuperar Recibo de Transmissão da ECF
+  paginas_manual:
+  - 20
+  - 20
+  conteudo: |-
+    O recibo que comprova a transmissão da escrituração não é baixado via ReceitanetBX.
+    Caso a empresa perca o recibo de transmissão da escrituração digital, deverá utilizar a funcionalidade de recuperação no menu “Escrituração/Recuperar Recibo de Transmissão”, após a importação do arquivo da ECF no PGE da ECF. Nessa situação o Receitanet (e não o ReceitanetBX) identificará que a escrituração digital já foi transmitida e fará o download do recibo novamente para a pasta estabelecida no programa da ECF.
+- secao: 1.23. Multa por Atraso na Entrega da ECF ou por Incorreções
+  paginas_manual:
+  - 20
+  - 22
+  conteudo: |-
+    De acordo com o art. 6o da Instrução Normativa RFB no 2.004, de 18 de janeiro de 2021, a não apresentação da ECF pelos contribuintes que apuram o Imposto sobre a Renda da Pessoa Jurídica pela sistemática do Lucro Real, nos prazos fixados no art. 3º, ou a sua apresentação com incorreções ou omissões, acarretará a aplicação, ao infrator, das multas previstas no art. 8º-A do Decreto-Lei nº 1.598, de 26 de dezembro de 1977, com redação dada pela Lei nº 12.973, de 13 de maio de 2014.
+    Na aplicação da multa de que trata o parágrafo acima, quando não houver lucro líquido, antes do Imposto de Renda e da Contribuição Social, no período de apuração a que se refere a escrituração, deverá ser utilizado o valor do lucro líquido, antes do Imposto de Renda e da Contribuição Social informado, do último período em que a pessoa jurídica obteve lucro líquido, atualizado pela taxa referencial do Sistema Especial de Liquidação e de Custódia - Selic, até o termo final de encerramento do período a que se refere a escrituração.
+    Art. 8º-A. O sujeito passivo que deixar de apresentar o livro de que trata o inciso I do caput do art. 8o, nos prazos fixados no ato normativo a que se refere o seu § 3o, ou que o apresentar com inexatidões, incorreções ou omissões, fica sujeito às seguintes multas:
+    I - equivalente a 0,25% (vinte e cinco centésimos por cento), por mês-calendário ou fração, do lucro líquido antes do Imposto de Renda da pessoa jurídica e da Contribuição Social sobre o Lucro Líquido, no período a que se refere a apuração, limitada a 10% (dez por cento) relativamente às pessoas jurídicas que deixarem de apresentar ou apresentarem em atraso o livro;
+    e (...)
+    § 2º A multa de que trata o inciso I do caput será reduzida:
+    I - em 90% (noventa por cento), quando o livro for apresentado em até 30 (trinta) dias após o prazo;
+    II - em 75% (setenta e cinco por cento), quando o livro for apresentado em até 60 (sessenta) dias após o prazo;
+    III - à metade, quando o livro for apresentado depois do prazo, mas antes de qualquer procedimento de ofício; e
+    IV - em 25% (vinte e cinco por cento), se houver a apresentação do livro no prazo fixado em intimação. (...)
+    § 4º Quando não houver lucro líquido, antes do Imposto de Renda e da Contribuição Social, no período de apuração a que se refere a escrituração, deverá ser utilizado o lucro líquido, antes do Imposto de Renda e da Contribuição Social do último período de apuração informado, atualizado pela taxa referencial do Sistema Especial de Liquidação e de Custódia - Selic, até o termo final de encerramento do período a que se refere a escrituração.
+    § 5º Sem prejuízo das penalidades previstas neste artigo, aplica-se o disposto no art. 47 da Lei no 8.981, de 20 de janeiro de 1995, à pessoa jurídica que não escriturar o livro de que trata o inciso I do caput do art. 8o da presente Lei de acordo com as disposições da legislação tributária.
+    A não apresentação da ECF pelos contribuintes que apuram o Imposto sobre a Renda da Pessoa Jurídica, por qualquer sistemática que não a do Lucro Real, nos prazos fixados no art. 3º, ou a sua apresentação com incorreções ou omissões, acarretará a aplicação, ao infrator, das multas previstas no art. 12 da Lei nº 8.218, de 29 de agosto de 1991, alterado pela Lei nº 13.670, de 30 de maio de 2018 e reproduzido abaixo.
+    A Lei nº 13.670, de 30 de maio de 2018, veio dar nova redação aos artigos 11 e 12 da Lei nº 8.218, de 1991, que dispõe sobre a utilização de sistemas de processamento eletrônico de dados para registrar negócios e atividades econômicas ou financeiras, escriturar livros ou elaborar documentos de natureza contábil ou fiscal, e a manter, à disposição da Secretaria da Receita Federal, os respectivos arquivos digitais e sistemas.
+    De acordo com a nova redação do art. 12 da Lei nº 8.218, de 1991, a inobservância do disposto no artigo precedente acarretará a imposição das seguintes penalidades:
+    I - multa equivalente a 0,5% (meio por cento) do valor da receita bruta da pessoa jurídica no período a que se refere a escrituração aos que não atenderem aos requisitos para a apresentação dos registros e respectivos arquivos;
+    II - multa equivalente a 5% (cinco por cento) sobre o valor da operação correspondente, limitada a 1% (um por cento) do valor da receita bruta da pessoa jurídica no período a que se refere a escrituração, aos que omitirem ou prestarem incorretamente as informações referentes aos registros e respectivos arquivos; e
+    III - multa equivalente a 0,02% (dois centésimos por cento) por dia de atraso, calculada sobre a receita bruta da pessoa jurídica no período a que se refere a escrituração, limitada a 1% (um por cento) desta, aos que não cumprirem o prazo estabelecido para apresentação dos registros e respectivos arquivos.
+    Parágrafo único. Para as pessoas jurídicas que utilizarem o Sistema Público de Escrituração Digital, as multas de que tratam o caput deste artigo serão reduzidas:
+    I - À metade, quando a obrigação for cumprida após o prazo, mas antes de qualquer procedimento de ofício; e
+    II - a 75% (setenta e cinco por cento), se a obrigação for cumprida no prazo fixado em intimação.
+    Os códigos de receita das multas são:
+    3624/2 – Multa por Atraso na Entrega da ECF – Demais PJ
+    3624/3 – Multa por Atraso na Entrega da ECF – PJ Lucro Real
+    Em qualquer situação de forma de tributação, a Multa por Atraso na Entrega da Declaração – MAED será calculada, gerada e cientificada à empresa no momento da transmissão extemporânea da ECF. A multa gerada no momento da transmissão da ECF não é alterada pela retificação da escrituração. Assim, em caso de discordância do valor do lançamento de ofício, deve ser formalizado processo administrativo para a impugnação da parcela que não concorda.
+- secao: 1.24. Pessoas Jurídicas Resultantes de Cisão/Fusão ou Remanescentes de Cisão ou que Realizaram Incorporação
+  paginas_manual:
+  - 22
+  - 22
+  conteudo: |-
+    No caso de pessoas jurídicas resultantes de cisão/fusão ou remanescentes de cisão, ou que realizaram incorporação o preenchimento dos campos 6, 7, 8 e 9 do registro 0000 deve ser o seguinte, caso não ocorra outra situação especial no período:
+    - Campo 6 (Indicador do Início do Período): 2 = Resultante de cisão/fusão ou remanescente de cisão, ou 6 - realizou incorporação ou remanescente de cisão parcial (para que o sistema aceite uma data de início diferente de 01/01).
+    - Campo 7 (Indicador de Situação Especial): 0 = Normal – sem ocorrência de situação especial ou evento (para que o sistema aceita a data final em 31/12).
+    - Campo 8 (Patrimônio remanescente em caso de cisão): <Em branco>, pois essa informação iria no primeiro arquivo enviado (até a data da cisão).
+    - Campo 9 (Data da situação especial): <Em branco>, pois não há situação especial no período (a situação especial ocorreu no período anterior).
+- secao: 1.25. Pedido de Restituição e Declaração de Compensação – Per/Dcomp
+  paginas_manual:
+  - 22
+  - 22
+  conteudo: |-
+    De acordo com a Instrução Normativa RFB nº 2.055 de 06 de dezembro de 2021, no seu art 28, o Pedido de Restituição e a Declaração de Compensação – PER/Dcomp, quando tratar de crédito proveniente de “saldo negativo de IRPJ ou de CSLL” somente serão recepcionados pela RFB depois da transmissão da ECF, na qual se encontre demonstrado o direito creditório, de acordo com o período de apuração.
+    No caso de saldo negativo de IRPJ ou de CSLL apurado trimestralmente, a restrição referida acima será aplicada somente depois do encerramento do respectivo ano-calendário.
+    Esta regra se aplica, inclusive, com relação a créditos apurados em situações especiais decorrente de extinção, cisão parcial, cisão total, fusão ou incorporação.
+- secao: 1.26. Lançamentos Extemporâneos na ECD e seus Reflexos na ECF
+  paginas_manual:
+  - 22
+  - 23
+  conteudo: |-
+    A partir do leiaute 7 da ECD (ano-calendário 2018 e situações especiais de 2019), foi criado, no registro I200, os lançamentos do tipo “X” (lançamentos extemporâneos), que abrangem, entre outros, os lançamentos previstos nos itens 31 a 36 da Interpretação Técnica Geral (ITG) 2000 (R1) - Escrituração Contábil, do Conselho Federal de Contabilidade, publicada em 12 de dezembro de 2014.
+    De acordo com o art. 9º da Instrução Normativa RFB nº 2.004/2021, no caso de lançamentos extemporâneos em ECD que alterem a base de cálculo do IRPJ ou da CSLL da ECF de ano-calendário anterior, a pessoa jurídica deverá efetuar o ajuste por meio da apresentação de ECF retificadora relativa ao respectivo ano-calendário, mediante adições ou exclusões ao lucro líquido. Para isso, foram criadas linhas específicas nos registros M300 e M350.
+    Exemplos:
+    M300A – LINHA 91.40 - Ajustes de Exercícios Anteriores - Lançamentos Extemporâneos
+    M300A – LINHA 166.35 - (-) Ajustes de Exercícios Anteriores - Lançamentos Extemporâneos
+    M300A – LINHA 265.40 - Ajustes de Exercícios Anteriores - Lançamentos Extemporâneos
+    M300A – LINHA 340.35 - (-) Ajustes de Exercícios Anteriores - Lançamentos Extemporâneos
+    Ressalte-se também que, a pessoa jurídica que entregar ECF retificadora que altere valores de apuração do IRPJ ou da CSLL que haviam sido informados na Declaração de Débitos e Créditos de Tributos Federais (DCTF) deverá apresentar DCTF retificadora elaborada com observância das normas específicas relativas a esta declaração (art 10 da IN RFB 2.004/2021).
+- secao: 1.27. Abertura do arquivo da ECF no Excel
+  paginas_manual:
+  - 23
+  - 24
+  conteudo: |-
+    O procedimento para abrir arquivos em formato .txt (texto) da ECF no Excel é:
+    1 – No PGE da ECF, com o arquivo da ECF já importado no programa, clique, no menu interno, em “Ferramentas/Exportar Escrituração” e escolha um diretório para salvar o arquivo exportado. Caso já possua o arquivo da ECF em formato .txt, não é necessário executar este procedimento.
+    2 – Abra o programa Excel.
+    3 – Selecione, no menu, “Arquivos/Abrir” e “Procurar”. Na janela “Abrir”, mude a opção do list box de “Todos os arquivos Excel” para “Todos os arquivos”.
+    4 – Procure o diretório do arquivo .txt da ECF, selecione o arquivo e clique em “Abrir”.
+    5 – O Excel abrirá uma janela, chamada “Assistente de Importação de Texto – etapa 1 de 3”. Nessa primeira etapa, selecione a opção “Delimitado”, conforme abaixo, e clique em “Avançar”:
+    6 – Aparecerá a segunda janela, chamada “Assistente de Importação de Texto – etapa 2 de 3”. Nessa segunda etapa, deve ser marcada somente a opção “Outros” e deve ser colocado o “|” (pipe) no campo ao lado do nome “Outros”, conforme abaixo:
+    7 – Ao clicar em “Avançar”, aparecerá a última janela, chamada “Assistente de Importação de Texto – etapa 3 de 3”. Basta clicar no botão “Concluir”.
+    8 – A partir daí, o arquivo da ECF em formato .txt será aberto no Excel por colunas. É possível utilizar a opção do filtro, no menu “Dados” (figura abaixo) e trabalhar os registros separadamente, fazendo somas, cálculos diversos, utilizando funções do Excel etc. Ao salvar o arquivo, também é possível a migração para diversos formatos, entre eles, o próprio formato do Excel (.xlsm).
+- secao: 1.28. Sociedades Cooperativas
+  paginas_manual:
+  - 25
+  - 26
+  conteudo: |-
+    No Registro 0010, as sociedades cooperativas podem apresentar qualquer uma das formas de tributação para o IRPJ, a depender de suas atividades. De igual sorte, poderão apresentar qualquer uma das qualificações disponíveis (PJ em geral, componente do sistema financeiro, seguradoras etc.). A rigor, as sociedades cooperativas não devem ser enquadradas como imunes ou isentas, caso não atendam os dispositivos da legislação específica, em especial a Lei nº 9.532, de 1997.
+    A sociedade cooperativa é um tipo de sociedade prevista pelo Código Civil.
+    Os fatos que decorram do ato cooperativo são definidos na contabilidade como ingressos e dispêndios. Já os fatos oriundos de ato não cooperativo são contabilizados como receitas, custos e despesas.
+    Atos cooperativos estão cobertos pela não incidência tributária e podem ser resumidos naqueles praticados entre as cooperativas e seus associados, entre estes e aquelas e pelas cooperativas entre si. Os atos praticados por sociedades cooperativas em operações diversas ao ato cooperativo não estão cobertos pela não incidência.
+    A base de cálculo do imposto de renda será determinada segundo a escrituração contábil que apresente a segregação dos atos cooperativos e não cooperativos. Todavia, quando não houver tal destaque, como no caso em que os ingressos e dispêndios não indiquem individualizadamente de que espécie de prestação se origina ou destina, torna a escrita imprestável para apurar os resultados dos atos cooperativos, e, portanto, o aproveitamento de sua não incidência tributária.
+    No caso de apuração através do lucro real, devem ser expurgados deste os ingressos e os dispêndios relativos a atos cooperados. Na ECF, isto deve ser feito através da adição ao Lucro líquido dos resultados negativos com atos cooperados (para PJ em geral: Linhas M300A(35), para atividade geral, e M300R(210), para atividade rural) ou exclusão ao Lucro líquido dos resultados positivos com atos cooperados (para PJ em geral: Linhas M300A(111), para atividade geral, e M300R(285), para atividade rural).
+    As sociedades cooperativas, desde que não se enquadrem nas condições de obrigatoriedade de apuração do lucro real, também poderão optar pela tributação com base no lucro presumido. Neste caso, quanto aos atos não cooperados, utilizam os percentuais de acordo com a natureza de suas atividades.
+    No Registro P200 e P400 da ECF devem informar os resultados não tributáveis nas linhas correspondentes:
+    P200(24) e P400(20): (-) Resultados Não Tributáveis de Sociedades Cooperativas: As sociedades cooperativas, exceto as de consumo que tenham por objeto a compra e fornecimento de bens aos consumidores, que obedecerem ao disposto na legislação específica indicarão, nesta linha, o valor resultante da aplicação dos percentuais de presunção sobre a receita bruta das operações realizadas com seus associados (Lei nº 9.532, de 1997, art. 69; PN CST nº 38, de 1980).
+- secao: 1.29. Ações Judiciais Contra a Fazenda Pública relacionadas ao IRPJ e a CSLL
+  paginas_manual:
+  - 26
+  - 26
+  conteudo: |-
+    Em relação às ações judiciais contra a fazenda pública nas quais se questione a apuração ou o valor a pagar de IRPJ ou CSLL, o preenchimento da ECF deve considerar somente as ações judiciais com decisões definitivas (transitadas em julgado), nos termos do art. 156, inciso X, do Código Tributário Nacional (CTN). Estas ações judiciais transitadas em julgado devem ser informadas nos registros M315, M365 ou M415, conforme o seu objeto.
+    Os valores de IRPJ e de CSLL apurados dessa forma na ECF devem ser informados na Declaração de Débitos e Créditos de Tributos Federais (DCTF), no campo valor total do débito.
+    O contribuinte deve fazer uma apuração de forma semelhante à que consta na ECF considerando todas as decisões judiciais, tanto as transitadas em julgado como as não transitadas em julgado que tenham decisão suspensiva, com ou sem depósito judicial. A diferença de tributo entre o valor apurado na ECF e a apuração com todas as decisões deve ser informado na DCTF, no campo valor suspenso do débito, discriminado por ação judicial.
+    No caso de apuração anual do IRPJ e da CSLL com valores de estimativas mensais, os depósitos judiciais eventualmente efetuados para suspender débitos de estimativa não devem ser considerados como estimativas efetivamente pagos na apuração dos ajustes anuais de IRPJ (Registro N630) e de CSLL (Registro N670). No entanto, esses depósitos judiciais efetuados para suspender débitos de estimativas devem ser informados como depósitos judiciais na DCTF do ajuste anual para suspender a exigibilidade do tributo discutido judicialmente. Eventuais excessos de depósitos judiciais não podem ser utilizados para suspender débitos que não estejam sendo questionados na correspondente ação judicial. Entretanto, estes saldos de depósitos judiciais podem ser aproveitados para suspender débitos de períodos posteriores, desde que referentes ao mesmo depositante e à mesma ação judicial.
+    Como na ECF somente devem ser consideradas as decisões definitivas, as parcelas de prejuízo fiscal e de base de cálculo negativa de CSLL eventualmente apuradas em decorrência de ações judiciais não transitadas em julgado não devem ser informados na ECF. Essas parcelas somente poderão ser incluídas ou somadas aos prejuízos acumulados, na parte B do e-Lalur e do e-Lacs, após o trânsito em julgado da ação judicial. Assim, caso sejam utilizados antes do trânsito em julgado, estes devem ser informados na DCTF, no campo valor suspenso do débito, discriminado por ação judicial.
+    As demais ações judiciais cuja causa de pedir não esteja direta ou indiretamente relacionada com a apuração ou pagamento do IRPJ e da CSLL devem seguir as regras de dedutibilidade, inclusive quanto ao controle no e-Lalur e no e-Lacs na ECF. Assim, as despesas contabilizadas com os demais tributos cuja exigibilidade esteja suspensa em virtude de decisão judicial, nos termos do art. 151 do CTN, haja ou não depósito judicial, devem ser adicionadas ao e-Lalur e ao e-Lacs e controladas em Parte B, consoante art. 131, § 1º, da Instrução Normativa RFB nº 1.700/2017.
+- secao: 1.30. ECF Omissa na Situação Fiscal
+  paginas_manual:
+  - 26
+  - 28
+  conteudo: |-
+    De acordo com a Instrução Normativa RFB nº 2004, de 18 de janeiro de 2021, a entrega da ECF é anual e, por isso, o período da escrituração deve contemplar todo o ano-calendário ou, para as pessoas jurídicas constituídas no ano-calendário da escrituração, a partir da data da sua constituição.
+    Por exemplo:
+    a) A empresa ABC foi constituída em 10/10/2025. Assim, a ECF desse ano-calendário deve contemplar o período de 10/10/2024 a 31/12/2025.
+    b) A empresa XYZ foi constituída em 01/06/2025. Assim, a ECF desse ano-calendário deve contemplar o período de 01/06/2024 a 31/12/2025.
+    Com base nos exemplos acima, deve ser verificado se a omissão da ECF não está ocorrendo por ausência parcial da escrituração, ou seja, se a ECF transmitida não está contemplando todo o período que a pessoa jurídica está obrigada a transmitir.
+    Observações:
+    1 – Pessoa jurídica inativa por alguns meses do ano-calendário:
+    Conforme dispõe a IN RFB nº 2004/2021, só está dispensada da entrega da ECF as pessoas inativas que não tenham exercido atividade durante todo o ano-calendário.
+    “Art. 1º (...)
+    § 1º A obrigatoriedade a que se refere o caput não se aplica:
+    III - às pessoas jurídicas inativas, assim consideradas aquelas que não tenham efetuado qualquer atividade operacional, não operacional, patrimonial ou financeira, inclusive aplicação no mercado financeiro ou de capitais, durante todo o ano-calendário, as quais devem cumprir as obrigações acessórias previstas na legislação específica.”
+    O conceito de inatividade é anual, ou seja, não existe inatividade mensal. Portanto, a entrega de uma DCTF inativa em janeiro, por exemplo, e depois de uma DCTF normal em julho, obriga a entrega da ECF para todo o período.
+    2 – Problema na retificação da ECF por ausência de ECD correspondente ao período.
+    O período da escrituração da ECD e da ECF precisam ser iguais. É importante destacar que a ECD está sujeita a regras específicas de substituição que estão devidamente explicadas no item 1.12 do Manual da ECD referente ao leiaute 9, em especial as OBSERVAÇÕES, no caso de retificação da ECF sem substituição da ECD, disponível para download em http://sped.rfb.gov.br/pasta/show/1569.
+    Também deve ser destacado que é possível realizar a transmissão da ECD em períodos não inferiores a um mês. Dessa forma, por exemplo, uma pessoa jurídica pode ter uma ECD de 01/01/2022 a 31/03/2022 e outra ECD de 01/04/2022 a 31/12/2022. No caso de períodos em que a ECD não pode mais ser substituída, para recuperar os dados da ECD na ECF deve ser transmitida a ECD do período faltante como “ORIGINAL”, sem informações de situação especial no registro 0000 da ECD (verifique o Manual da ECD).
+    Exemplo:
+    ECD entregue: de 01/07/2022 a 31/12/2022
+    ECF entregue: de 01/07/2022 a 31/12/2022
+    O correto seria entregar a ECF de 01/01/2022 a 31/12/2022.
+    Neste caso, deve ser transmitida a ECD de 01/01/2022 a 30/06/2022 como original e sem situação especial informada no registro 0000. Se a empresa não está inativa, há, pelo menos, um lançamento mensal de despesa – despesa de luz, despesa de contador, despesa de telefone, etc. Se, realmente, não há lançamentos, cadastre, ao menos, uma conta por mês (I150) no registro (I155), com saldo inicial “0,00”, total de débitos e total de créditos igual a zero e saldo final “0,00”.
+    Posteriormente, deve ser retificada a ECF para o período de 01/01/2022 a 31/12/2022 e, na hora de recuperar a ECD do período, indicar os dois arquivos da ECD (arquivo 1 – de 01/01/2022 a 30/06/2022 e arquivo 2 – de 01/07/2022 a 31/12/2022).
+    As instruções para a retificação da ECF constam no item 1.14 deste Manual.
+- secao: 1.31. Indicador de Situação de Início de Período
+  paginas_manual:
+  - 28
+  - 29
+  conteudo: |-
+    O campo IND_SIT_INI_PER do registro 0000 deve ser parametrizado de acordo com a situação da pessoa jurídica no início do período de apuração, conforme descrito a seguir:
+    0 – Regular (Início no primeiro dia do ano).
+    Indicador aplicável aos contribuintes que já entregam a ECF regularmente. Deve ser utilizado pela pessoa jurídica que realizou a entrega da ECF no ano-calendário imediatamente anterior e que permanecerá obrigada à entrega no período atual, sem ocorrência de situação especial no início do ano.
+    1 – Abertura (Início de atividades no ano-calendário).
+    Aplicável aos contribuintes que realizarão a entrega da ECF pela primeira vez, desde que a abertura da entidade tenha ocorrido no próprio ano-calendário a que se refere a escrituração.
+    Para esse indicador, o sistema verifica se a data inicial informada no campo 0000.DT_INI corresponde à data de abertura constante no cadastro do CNPJ.
+    2 – Resultante de fusão ou cisão total.
+    Utilizado pelos contribuintes que tenham passado por situação especial de fusão ou cisão total. Caso a cisão tenha ocorrido de forma parcial, deve ser utilizado o indicador 6 – Realizou incorporação ou remanescente de cisão parcial.
+    3 – Resultante de Mudança de Qualificação da Pessoa Jurídica.
+    Aplicável às situações em que houver alteração na qualificação da pessoa jurídica registrada no cadastro do CNPJ.
+    4 – Início de obrigatoriedade da entrega no curso do ano calendário - Exclusão do Simples.
+    Destinado aos contribuintes que, por opção ou por força legal, deixaram de ser optantes pelo Simples Nacional e passaram a se submeter à obrigatoriedade da entrega da ECF no decorrer do ano-calendário.
+    5 – Resultante de desenquadramento como imune ou isenta do IRPJ.
+    Indicador a ser utilizado pelas entidades que deixaram de se enquadrar nas condições de imunidade ou isenção do IRPJ, passando à tributação regular.
+    6 – Realizou incorporação ou remanescente de cisão parcial.
+    Aplicável ao contribuinte que tenha incorporado outra entidade ou que seja remanescente de cisão parcial. Nos casos de cisão total, deve ser utilizado o indicador 2 – Resultante de fusão ou cisão total.
+    7 – Retorno às atividades de empresas inativas
+    Utilizado pelo contribuinte que tenha permanecido inativo por, no mínimo, um ano-calendário completo e tenha retomado suas atividades no período de apuração. Exemplo: entidade inativa durante todo o ano de 2024 e que retoma suas atividades em 2025, ficando obrigada à entrega da ECF.
+    Nessa hipótese, é responsabilidade do contribuinte verificar se a condição de inatividade foi corretamente informada à Receita Federal do Brasil, mediante a entrega tempestiva das obrigações acessórias correspondentes (como DCTF Inativa ou obrigação equivalente) ao longo de todo o ano-calendário de inatividade.
+    8 – Alteração do Sócio Ostensivo
+    Há situações em que o sócio ostensivo pode ser alterado em uma SCP, mas que não configura situação especial para a SCP. É o caso, por exemplo, quando o sócio ostensivo é incorporado por outra entidade.
+    Nessa situação, a SCP terá que enviar duas ECFs e pelo menos duas ECDs.
+    Segue um exemplo: de 1º de janeiro a 30 de junho o sócio ostensivo era a entidade Alfa, com CNPJ: 11.111.111/0001-91. De 1º de julho a 31 de dezembro o sócio ostensivo passou a ser a entidade Beta, com CNPJ: 22.222.222/0001-91, pois Beta incorporou Alfa.
+    De janeiro a junho poderá haver até 6 ECDs da SCP, com o CNPJ do sócio ostensiva sendo Alfa. De julho a dezembro poderá haver outras 6 ECDs da SCP com o CNPJ do sócio ostensivo Beta.
+    De janeiro a junho haverá uma ECF, com as seguintes configurações no registro 0000:
+    a) IND_SIT_INI_PER: 0 – Normal (Sem ocorrência de situação especial ou Evento)
+    b) SIT_ESPECIAL: 0 - Normal
+    c) TIPO_ECF:2 – ECF da SCP
+    d) IDENTIFICAO_SCP: 11.111.111/0001-91 (CNPJ de Alfa)
+    e) EVENTO_SCP: 1 – Alteração do Sócio Ostensiva
+    Ao realizar a configuração acima, o campo DT_FIN ficará editável e poderá ser informada a data de ocorreu a alteração do sócio ostensiva.
+    De julho a d haverá 1 ECF, com as seguintes configurações no registro 0000:
+    f) IND_SIT_INI_PER: 8 - Alteração de Sócio Ostensivo
+    g) SIT_ESPECIAL: 0 - Normal
+    h) TIPO_ECF: 2 – ECF da SCP
+    i) IDENTIFICACAO_SCP: 22.222.222/0001-91 (CNPJ de Beta)
+    j) EVENTO_SCP: – 0 – Normal (Sem ocorrência de evento de SCP)
+- secao: 1.32. Lei Complementar nº 224, de 26 de dezembro de 2025 e Instrução Normativa RFB nº 2.305, de 31 de dezembro de 2025
+  paginas_manual:
+  - 30
+  - 30
+  conteudo: |-
+    A Lei Complementar nº 224, em conjunto com a Instrução Normativa RFB nº 2.305, ambas publicadas no ano de 2025, introduziu alterações relevantes no tratamento do Imposto sobre a Renda da Pessoa Jurídica - IRPJ e da Contribuição Social sobre o Lucro Líquido - CSLL.
+    Foi definido como regime padrão de tributação da renda e da CSLL das pessoas jurídicas o lucro real, afastando-se, como regra geral, a aplicação de descontos, incentivos ou benefícios tributários, salvo nas hipóteses expressamente previstas na legislação.
+    No que se refere especificamente ao IRPJ/CSLL, a Lei Complementar pode ser estruturada em três macroprocessos principais:
+    a) os incentivos e benefícios discriminados nos gastos tributários referidos no § 6º do art. 165 da Constituição Federal, constantes do Anexo à Lei Orçamentária Anual de 2026;
+    b) o lucro presumido; e
+    c) as alíquotas transitórias da CSLL, fixadas em 12% e 17,5%.
+    Para as pessoas jurídicas tributadas com base no lucro real, seja na forma anual por estimativa ou trimestral, o principal impacto consiste na redução dos benefícios fiscais que anteriormente permitiam a diminuição da base de cálculo do tributo ou do montante efetivamente devido.
+    No âmbito do lucro presumido, verifica-se, a partir do ano-calendário de 2026, um acréscimo de 10% sobre os percentuais de presunção previstos na legislação do IRPJ/CSLL, aplicável aos contribuintes que apurarem receita bruta superior a R$ 5.000.000,00 (cinco milhões de reais) no ano-calendário, valor este a ser verificado de forma proporcional ao número de períodos de apuração.
+    Informações adicionais constam do item XII do bloco P.
+    A Lei Complementar também institui a aplicação de duas alíquotas transitórias da CSLL, de 12% e 17,5%, conforme as condições legalmente estabelecidas.
+    Por fim, para as entidades que se enquadrem em situações especiais, os novos campos e linhas aplicáveis já se encontram disponibilizados para preenchimento, observadas as regras específicas de cada hipótese.
+- secao: 1.33. Outras Exclusões sem Relacionamento
+  paginas_manual:
+  - 30
+  - 31
+  conteudo: |-
+    A partir da versão 12.1.0 do Programa Gerador da ECF - PGE, os contribuintes que, cumulativamente, possuam valores superiores a R$ 20.000.000,00 (vinte milhões de reais) informados nas linhas 167.01 dos registros M300A/M350A e 341.01 dos registros M350A/M350R – Outras Exclusões sem Relacionamento, e para os quais esses valores representem mais de 30% do montante total das exclusões, deverão preencher Requerimento Web, contendo obrigatoriamente as seguintes informações:
+    • Justificativa para a utilização dos valores informados na(s) linha(s), com o respectivo histórico dos lançamentos;
+    • Embasamento legal que fundamente a utilização;
+    • Segregação dos valores que compõem o montante informado em cada linha; e
+    • Memória de cálculo detalhada.
+    A linha Outras Exclusões sem Relacionamento possui natureza residual e somente deve ser utilizada na inexistência de linha específica que represente adequadamente o fato gerador da exclusão.
+    O preenchimento incorreto dessa linha, bem como a omissão de informações exigidas, poderá sujeitar o contribuinte à aplicação de penalidades.
+    Em observância ao princípio colaborativo entre a Secretaria Especial da Receita Federal do Brasil - RFB e os contribuintes, é possível sugerir a criação de novas linhas na ECF, com o objetivo de reduzir, progressivamente, a utilização da linha residual de Outras Exclusões. As sugestões devem ser encaminhadas por meio do canal Fale Conosco da ECF, onde serão analisadas pela RFB para possíveis implementações em versões futuras.
+    No Portal do Sped, encontra-se disponível tutorial específico com orientações sobre o procedimento de criação e preenchimento do Requerimento Web.

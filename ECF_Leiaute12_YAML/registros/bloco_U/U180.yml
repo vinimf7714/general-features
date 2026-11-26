@@ -1,0 +1,106 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: U180
+nome: Cálculo do IRPJ das Empresas Imunes e Isentas
+bloco: U
+nome_tabela_registros: Cálculo do IRPJ das Empresas Imunes ou Isentas
+paginas_manual:
+- 413
+- 414
+descricao: Apresenta o cálculo do IRPJ das empresas imunes e isentas, no caso de receitas auferidas oriundas de atividades não relacionadas às atividades das empresas imunes e isentas.
+titulo_leiaute: 'REGISTRO U180: CÁLCULO DO IRPJ DAS EMPRESAS IMUNES E ISENTAS'
+regras_validacao_registro:
+- REGRA_DUPLICIDADE_DESPREZADA
+- REGRA_LINHA_DESPREZADA
+- REGRA_LINHA_ATUALIZADA
+nivel_hierarquico: 3
+ocorrencia: 0:N
+campos_chave: CODIGO
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0010. FORMA_TRIB = “8” ou “9” E 0010. FORMA_APUR_I = “A” ou “T”
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: U030
+  filhos: []
+  irmaos:
+  - U100
+  - U150
+  - U182
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (U180).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[U180]'
+  obrigatorio: true
+- numero: 2
+  campo: CODIGO
+  descricao: Código, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: DESCRICAO
+  descricao: Descrição, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 4
+  campo: VALOR
+  descricao: Valor
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+regras_validacao_registro_detalhe:
+- regra: REGRA_DUPLICIDADE_DESPREZADA
+  descricao: Verifica se o registro já foi importado anteriormente, de acordo com a chave e os registros pais. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_DESPREZADA
+  descricao: Verifica se o registro existe na importação, mas não será importado por não existir na tabela dinâmica devido às configurações do bloco 0 ou da tabela dinâmica. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_ATUALIZADA
+  descricao: Verifica se o registro está desatualizado em relação à tabela da RFB. Se a regra não for cumprida, a ECF gera um aviso.
+regras_validacao_campos:
+- numero: 4
+  campo: VALOR
+  regras:
+  - regra: REGRA_OBRIGATORIO_TIPO_DIFERENTE_R
+    descricao: Verifica se o campo está preenchido quando o tipo da linha é diferente de “R”.
+    tipo: Erro
+tabelas_dinamicas: |-
+  U180 - Cálculo do IRPJ - Imunes e Isentas
+  Vide planilha deste Registro no arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” a partir do link http://sped.rfb.gov.br/pasta/show/1644.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+  Regras de validação da tabela dinâmica U180:
+  Vide arquivo “SPEDECF_DINAMICO_2021$SPEDECF_DINAMICA_U180_REGRAS” no diretório C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas.
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|U180|12|IMPOSTO DE RENDA A PAGAR|10000,00|'
+  explicacao:
+  - valor: '|U180|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|1|'
+    descricao: Código da linha.
+  - valor: '|IMPOSTO DE RENDA A PAGAR|'
+    descricao: Descrição da linha.
+  - valor: '|10000,00|'
+    descricao: Valor da linha (R$ 10.000,00).

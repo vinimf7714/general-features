@@ -1,0 +1,59 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+bloco: K
+nome: Saldos das Contas Contábeis e Referenciais
+paginas_manual:
+- 143
+- 143
+orientacoes_gerais: |-
+  Apresenta os saldos das contas contábeis e referenciais. Os registros deste bloco podem ser:
+  I – Digitados;
+  II – Importados; ou
+  III – Replicados a partir do Bloco E.
+tabela_blocos:
+  nome: Saldos das Contas Contábeis e Referenciais
+  descricao: |-
+    Apresenta os saldos das contas contábeis patrimoniais e de resultado por período de
+    apuração e o seu mapeamento para as contas referenciais.
+    Caso haja recuperação da ECD, o bloco K pode ser construído automaticamente e é
+    permitida a sua edição.
+    O bloco K também pode ser importado, independentemente da recuperação da ECD.
+registros:
+- registro: K001
+  nome: Abertura do Bloco K – Saldos das Contas Contábeis e Referenciais
+  nivel: 1
+  arquivo: ../registros/bloco_K/K001.yml
+- registro: K030
+  nome: Identificação dos Períodos e Formas de Apuração do IRPJ e da CSLL no Ano-Calendário
+  nivel: 2
+  arquivo: ../registros/bloco_K/K030.yml
+- registro: K155
+  nome: Detalhes dos Saldos Contábeis (Depois do Encerramento do Resultado do Período)
+  nivel: 3
+  arquivo: ../registros/bloco_K/K155.yml
+- registro: K156
+  nome: Mapeamento Referencial do Saldo
+  nivel: 4
+  arquivo: ../registros/bloco_K/K156.yml
+- registro: K355
+  nome: Saldos Finais das Contas Contábeis de Resultado Antes do Encerramento
+  nivel: 3
+  arquivo: ../registros/bloco_K/K355.yml
+- registro: K356
+  nome: Mapeamento Referencial dos Saldos Finais das Contas de Resultado Antes do Encerramento
+  nivel: 4
+  arquivo: ../registros/bloco_K/K356.yml
+- registro: K915
+  nome: Justificativa para Divergência nas Contas Patrimoniais
+  nivel: 2
+  arquivo: ../registros/bloco_K/K915.yml
+- registro: K935
+  nome: Justificativa para Divergência nas Contas de Resultado
+  nivel: 2
+  arquivo: ../registros/bloco_K/K935.yml
+- registro: K990
+  nome: Encerramento do Bloco K
+  nivel: 1
+  arquivo: ../registros/bloco_K/K990.yml

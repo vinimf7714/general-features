@@ -1,0 +1,467 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: W100
+nome: Informações sobre o Grupo Multinacional e a Entidade Declarante – Declaração País-a-País
+bloco: W
+nome_tabela_registros: Informações Sobre o Grupo Multinacional e a Entidade Declarante
+paginas_manual:
+- 432
+- 443
+descricao: Este registro apresenta as informações sobre o grupo multinacional e a entidade declarante da Declaração País-a-País. Toda entidade residente no Brasil que seja integrante de um grupo multinacional deve preencher o registro.
+titulo_leiaute: 'REGISTRO W100: INFORMAÇÕES SOBRE O GRUPO MULTINACIONAL E A ENTIDADE DECLARANTE - DECLARAÇÃO PAÍS-A-PAÍS'
+regras_validacao_registro:
+- REGRA_W100_Y600
+nivel_hierarquico: 2
+ocorrencia: 0:1
+campos_chave: REG
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020.IND_PAIS_A_PAIS = "S"
+  ocorrencia: '[0;1]'
+hierarquia:
+  pai: W001
+  filhos:
+  - W200
+  irmaos:
+  - W300
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (W100).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[W100]'
+  obrigatorio: true
+- numero: 2
+  campo: NOME_MULTINACIONAL
+  descricao: 'Nome do Grupo Multinacional: Deve ser identificado o nome do grupo multinacional o qual o contribuinte integra.'
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: IND_CONTROLADORA
+  descricao: |-
+    Identifica se a Entidade é a Controladora Final do Grupo Multinacional.
+    A Entidade é controladora final do grupo multinacional, conforme definição estabelecida no artigo 2º, inciso VI, da Instrução Normativa RFB nº 1.681/2016.? S - Sim N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: true
+- numero: 4
+  campo: NOME_CONTROLADORA
+  descricao: |-
+    Nome da Controladora Final.
+    Observação: Caso a entidade não seja a controladora final do grupo multinacional do qual faz parte, deve identificar a entidade que possui essa posição, por meio do nome legal completo da entidade, incluindo a designação doméstica da forma legal, conforme indicado em seus documentos de constituição ou similares.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: JURISDICAO_CONTROLADORA
+  descricao: Jurisdição de Residência para fins Tributários do Controlador Final, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: TIN_CONTROLADORA
+  descricao: |-
+    Tax Identification Number (TIN): Número de identificação fiscal utilizado pela administração tributária da jurisdição de residência para fins tributários do controlador final do grupo multinacional. Caso não exista o número, o campo deve ser preenchido com a expressão "NOTIN". Se o controlador final for residente no Brasil, informar o CNPJ.
+    Observação: Este campo não deve ser preenchido quando a declarante da ECF for a controladora final (W100.IND_CONTROLADORA = Sim).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 7
+  campo: IND_ENTREGA
+  descricao: |-
+    Identifica a Entidade Responsável pela Entrega da Declaração País-a-País (entidade declarante).
+    Entidade responsável pela entrega da Declaração País-a-País:
+    1 - Grupo multinacional dispensado da entrega da Declaração País-a-País.
+    2 - Controlador final do grupo multinacional.
+    3 - Própria entidade declarante da ECF, na condição de Entidade Substituta ou de Preenchimento Local
+    4 - Outra entidade, na condição de Entidade Substituta ou de Preenchimento Local
+  tipo: N
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[1;2;3;4]'
+  obrigatorio: true
+- numero: 8
+  campo: IND_MODALIDADE
+  descricao: |-
+    Identifica a Modalidade de entrega da Declaração País-a-País:
+    1 - Entidade substituta.
+    2 - Preenchimento Local.
+    Se IND_ENTREGA = "3" e IND_MODALIDADE = "1", então a própria entidade declarante da ECF é responsável pela entrega da Declaração País-a- País na condição de Entidade Substituta.
+    Se IND_ENTREGA = "4" e IND_MODALIDADE = "1", então outra entidade é responsável pela entrega da Declaração País-a-País na condição de Entidade Substituta.
+    Se IND_ENTREGA = "3" e IND_MODALIDADE = "2", então a própria entidade declarante da ECF é responsável pela entrega da Declaração País-a- País na condição de Preenchimento Local.
+    Se IND_ENTREGA = "4" e IND_MODALIDADE = "2", então outra entidade é responsável pela entrega da Declaração País-a-País na condição de Preenchimento Local.
+  tipo: N
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[1;2]'
+  obrigatorio: true
+- numero: 9
+  campo: NOME_SUBSTITUTA
+  descricao: 'Nome da Entidade Substituta/Entidade Local: Caso a entidade declarante da Declaração País-a-País seja outra entidade, na condição de Entidade Substituta (residente no Brasil ou no exterior) ou de Preenchimento Local, o contribuinte deve identificá-la por meio do nome legal completo da entidade, incluindo a designação doméstica da forma legal, conforme indicado em seus documentos de constituição ou similares.'
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 10
+  campo: JURISDICAO_SUBSTITUTA
+  descricao: |-
+    Jurisdição de Residência para fins Tributários da Entidade Substituta/Entidade Local, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+    Observação: O contribuinte deve indicar o país de residência para fins tributários da entidade declarante, seja ela entidade substituta residente no Brasil ou no exterior, ou outra entidade na condição de preenchimento local.
+    Neste último caso, a jurisdição a ser informada deve ser obrigatoriamente Brasil (pois a modalidade de entrega da Declaração de preenchimento local só é admitida para entidades residentes no Brasil).
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 11
+  campo: TIN_SUBSTITUTA
+  descricao: |-
+    Tax Identification Number (TIN): Número de identificação fiscal utilizado pela administração tributária da jurisdição de residência para fins tributários da entidade substituta do grupo multinacional ou da entidade integrante local.
+    Caso não exista o número, o campo deve ser preenchido com a expressão "NOTIN". Se a entidade for residente no Brasil, informar o CNPJ.
+  tipo: N
+  tamanho: 14
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 12
+  campo: DT_INI
+  descricao: |-
+    Data de Início do Período Societário.
+    Observação: A Declaração País-a-País deve cobrir o ano fiscal do controlador final do grupo multinacional. Dessa forma, caso o contribuinte seja a entidade declarante na condição de entidade substituta ou na forma de preenchimento local, hipóteses em que o controlador final do grupo é residente no exterior, o ano fiscal de declaração deve ser o período societário do controlador final, mesmo que não coincida com o período societário do próprio contribuinte.
+    Exemplo: O ano fiscal do contribuinte brasileiro vai de 01/01/XXXX a 31/12/XXXX, enquanto que o ano fiscal do controlador final do grupo multinacional do qual faz parte, residente no exterior, vai de 01/10/XXXX a 30/09/XXXX. Nesse caso, o período que deve ser abrangido pela Declaração País-a-País, e que deve ser devidamente informado neste campo e no campo 13, é o ano fiscal do controlador final, ou seja, 01/10/XXXX a 30/09/XXXX.
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 13
+  campo: DT_FIN
+  descricao: |-
+    Data Final do Período Societário.
+    Observações: i) O ano fiscal da Declaração País-a-País deve ser o ano fiscal encerrado imediatamente anterior, podendo, dessa forma, ter data final igual ou anterior à data final do período a que se refere a ECF. ii) Caso o período a que se refere a Declaração País-a-País não corresponda a um ano completo, devem ser fornecidos esclarecimentos no campo de informações adicionais do registro W300.
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 14
+  campo: TIP_MOEDA
+  descricao: |-
+    Moeda: a entidade deve indicar qual a moeda utilizada nas informações em valores fornecidas na Declaração País-a-País, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+    Observação: As informações em valores da Declaração País-a-País devem ser prestadas em uma única moeda, que deve ser a moeda do controlador final do grupo multinacional.
+  tipo: C
+  tamanho: 3
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 15
+  campo: IND_IDIOMA
+  descricao: |-
+    Idioma Utilizado nas Informações Adicionais da Declaração País-a-País. Deve ser indicado o idioma utilizado nos campos de informações adicionais da DPP, fornecidas em texto livre, caso tenham sido prestadas:
+    PT - Português.
+    EN - Inglês.
+    ES - Espanhol.
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: '[PT, EN, ES]'
+  obrigatorio: false
+regras_validacao_registro_detalhe:
+- regra: REGRA_W100_Y600
+  descricao: Verifica, quando W100.IND_CONTROLADORA é igual a “S” (Sim) e quando Y600.PAIS é diferente de “Brasil” e Y600.IND_QUAIF.SOCIO é igual a “PJ”, se o somatório do Y600.PERC_CAP_TOT é menor que 50% e se o somatório de Y600.PERC_CAP_VOT é menor que 50%. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_W100_W250
+  descricao: Verifica, quando W100.IND_ENTREGA é igual a “3” (Própria entidade declarante da ECF, na condição de Entidade Substituta ou de Preenchimento Local), se existe um registro X250.TIN igual ao W100.TIN_CONTROLADOR. Se a regra não for cumprida, a ECF gera um erro.
+regras_validacao_campos:
+- numero: 3
+  campo: IND_CONTROLADORA
+  regras:
+  - regra: REGRA_HABILITA_IND_CONTROLADORA
+    descricao: Caso 0000.SIT_ESPECIAL seja igual “0” (Normal – sem ocorrência de situação especial ou evento), o campo W100.IND_CONTROLADORA é habilitado. Caso contrário, o campo W100.IND_CONTROLADORA é desabilitado.
+    tipo: Habilita
+  - regra: REGRA_IND_CONTROLADORA_OBRIGATORIO
+    descricao: Verifica, quando 0000.SIT_ESPECIAL é igual “0” (Normal – sem ocorrência de situação especial ou evento), se o campo W100.IND_CONTROLADORA está preenchido.
+    tipo: Erro
+  - regra: REGRA_IND_CONTROLADORA_NAO_PREENCHER
+    descricao: Verifica, quando 0000.SIT_ESPECIAL é diferente de “0” (Normal – sem ocorrência de situação especial ou evento), se o campo W100.IND_CONTROLADORA não está preenchido.
+    tipo: Erro
+- numero: 4
+  campo: NOME_CONTROLADORA
+  regras:
+  - regra: REGRA_HABILITA_CONTROLADORA_DIFERENTE
+    descricao: |-
+      Caso W100.IND_CONTROLADORA seja igual a “N” (Não), o campo
+      W100.NOME_CONTROLADORA é habilitado. Caso contrário, o campo W100.NOME_CONTROLADORA é desabilitado.
+    tipo: Habilita
+  - regra: REGRA_NOME_CONTROLADORA_OBRIGATORIO
+    descricao: Verifica, quando W100.IND_CONTROLADORA é igual a “N” (Não), se o campo W100.NOME_CONTROLADORA está preenchido.
+    tipo: Erro
+  - regra: REGRA_NOME_CONTROLADORA_NAO_PREENCHER
+    descricao: Verifica, quando W100.IND_CONTROLADORA é igual a “S” (Sim), se o campo W100.NOME_CONTROLADORA não está preenchido.
+    tipo: Erro
+- numero: 5
+  campo: JURISIDICAO_CONTROLADORA
+  regras:
+  - regra: REGRA_HABILITA_CONTROLADORA_DIFERENTE
+    descricao: |-
+      Caso W100.IND_CONTROLADORA seja igual a “N” (Não), o campo
+      W100.JURISDICAO_CONTROLADORA é habilitado. Caso contrário, o campo W100.JURISDICAO_CONTROLADORA é desabilitado.
+    tipo: Habilita
+  - regra: REGRA_JURISDICAO_CONTROLADORA_OBRIGATORIO
+    descricao: Verifica, quando W100.IND_CONTROLADORA é igual a “N” (Não), se o campo W100.JURISDICAO_CONTROLADORA está preenchido.
+    tipo: Erro
+  - regra: REGRA_JURISDICAO_CONTROLADORA_NAO_PREENCHER
+    descricao: Verifica, quando W100.IND_CONTROLADORA é igual a “S” (Sim), se o campo W100.JURISDICAO_CONTROLADORA não está preenchido.
+    tipo: Erro
+  - regra: REGRA_EXISTE_JURISDICAO_W200
+    descricao: – Verifica, quando W100.IND_CONTROLADORA é igual “N” e W100.IND_ENTREGA = “3” (Própria entidade declarante da ECF, na condição de Entidade Substituta ou de Preenchimento Local) e o campo W100.JURISDICAO_CONTROLADORA está preenchido, se existe um registro W200 com o campo jurisdição igual ao campo W100.JURISDICAO_CONTROLADORA. Se a empresa declarante informa que não é a controladora, deve haver um registro W200 com a mesma Jurisdição.
+    tipo: Erro
+  - regra: REGRA_EXISTE_TIN_JURISDICAO_W250
+    descricao: – Verifica, quando o campo W100.IND_CONTROLADORA é igual “N” e W100.IND_ENTREGA = “3”, se existe um registro W250 com os campos TIN e JURISDICAO_TIN iguais a um registro W100 com os campos TIN e JURISDICAO_CONTROLADORA. Deve existir registro W250 com o mesmo TIN e jurisdição da controladora informada no registro W100.
+    tipo: Erro
+- numero: 6
+  campo: TIN_CONTROLADORA
+  regras:
+  - regra: REGRA_TIN_CONTROLADORA_OBRIGATORIO
+    descricao: Verifica, quando W100.IND_CONTROLADORA é igual a “N” (Não), se o campo W100.TIN_CONTROLADORA está preenchido.
+    tipo: Habilita
+  - regra: REGRA_TIN_CONTROLADORA_NAO_PREENCHER
+    descricao: Verifica, quando W100.IND_CONTROLADORA é igual a “S” (Sim), se o campo W100.TIN_CONTROLADORA não está preenchido.
+    tipo: Erro
+  - regra: REGRA_VALIDA_TIN_CONTROLADORA
+    descricao: 'Verifica, quando W100.JURISDICAO_CONTROLADORA for igual a “BR” (Brasil), se o campo W100.TIN_CONTROLADORA está preenchido com um CNPJ (aplica a REGRA_VALIDA_CNPJ: Verifica se o CNPJ informado é válido).'
+    tipo: Erro
+  - regra: REGRA_CNPJ_BASICO_DIFERENTE_CONTROLADORA
+    descricao: Verifica, quando W100.JURISDICAO_CONTROLADORA for igual a “BR” (Brasil), se o campo W100.TIN_CONTROLADORA está preenchido com um CNPJ e se o CNPJ básico informado é diferente do CNPJ básico do declarante da ECF, informado em 0000.CNPJ.
+    tipo: Erro
+- numero: 7
+  campo: IND_ENTREGA
+  regras:
+  - regra: REGRA_IND_ENTREGA_OBRIGATORIO
+    descricao: Verifica, quando W100.IND_CONTROLADORA está preenchido, se o campo W100.IND_ENTREGA está preenchido.
+    tipo: Erro
+  - regra: REGRA_IND_ENTREGA_NAO_PREENCHER_SEM_ACORDO
+    descricao: Verifica, quando W100.IND_ENTREGA é igual a “2” (Controladora final do grupo multinacional) e W100.JURISDICAO_CONTROLADORA é diferente de “Brasil”, se o país informado no campo W100.JURISDICAO_CONTROLADORA consta na tabela de Acordo de Autoridades Competentes (A jurisdição de residência tributária da controladora final do grupo multinacional deve possuir Acordo de Autoridades Competentes com o Brasil para intercâmbio da Declaração País-a-País).
+    tipo: Erro
+  - regra: REGRA_IND_ENTREGA_NAO_PREENCHER_FALHA_SISTEMICA
+    descricao: Verifica, quando W100.IND_ENTREGA é igual a “2” (Controladora final do grupo multinacional) e W100.JURISDICAO_CONTROLADORA é diferente de “Brasil”, se o país informado no campo W100.JURISDICAO_CONTROLADORA consta na tabela de Falha Sistêmica (A jurisdição de residência tributária da controladora final do grupo multinacional está enquadra na situação de falha sistêmica, conforme definido na IN RFB nº 1.681/2016).
+    tipo: Erro
+  - regra: REGRA_IND_ENTREGA_JURISDICAO_BRASIL
+    descricao: Verifica, quando W100.JURISDICAO_CONTROLADORA for igual a “BR” (Brasil), se o campo W100.IND_ENTREGA é igual a “1” (Grupo multinacional dispensado da entrega da Declaração País-a-País) ou “2” (Controladora do grupo multinacional).
+    tipo: Erro
+  - regra: REGRA_IND_ENTREGA_IND_CONTROLADORA
+    descricao: Verifica, quando W100.IND_CONTROLADORA for igual a “S” (Sim), se o campo W100.IND_ENTREGA é igual a “1” (Grupo multinacional dispensado da entrega da Declaração País-a-País) ou “2” (Controladora do grupo multinacional).
+    tipo: Erro
+- numero: 8
+  campo: IND_MODALIDADE
+  regras:
+  - regra: REGRA_HABILITA_IND_MODALIDADE
+    descricao: Caso W100.IND_ENTREGA seja igual a “3” (Própria entidade declarante) ou “4” (Outra entidade), o campo W100.IND_MODALIDADE é habilitado. Caso contrário, o campo W100.IND_MODALIDADE é desabilitado.
+    tipo: Habilita
+  - regra: REGRA_IND_MODALIDADE_OBRIGATORIO
+    descricao: Verifica, quando W100.IND_ENTREGA é igual a “3” (Própria entidade declarante) ou “4” (Outra entidade), se o campo W100.IND_MODALIDADE está preenchido.
+    tipo: Erro
+  - regra: REGRA_IND_MODALIDADE_NAO_PREENCHER_DISPENSADO
+    descricao: Verifica, quando W100.IND_ENTREGA é igual a “1” (Grupo multinacional dispensado da entrega da Declaração País-a-País) ou “2” (Controlador do grupo multinacional), se o campo W100.IND_MODALIDADE não está preenchido.
+    tipo: Erro
+- numero: 9
+  campo: NOME_SUBSTITUTA
+  regras:
+  - regra: REGRA_HABILITA_NOME_SUBSTITUTA
+    descricao: |-
+      Caso W100.IND_ENTREGA seja igual a “4” (Outra entidade), o campo
+      W100.NOME_SUBSTITUTA é habilitado. Caso contrário, o campo W100.NOME_SUBSTITUTA é desabilitado.
+    tipo: Habilita
+  - regra: REGRA_NOME_SUBSTITUTA_OBRIGATORIO
+    descricao: Verifica, quando W100.IND_ENTREGA é igual a “4” (Outra entidade), se o campo W100.NOME_SUBSTITUTA está preenchido.
+    tipo: Erro
+  - regra: REGRA_NOME_SUBSTITUTA_NAO_PREENCHER
+    descricao: Verifica, quando W100.IND_ENTREGA é diferente de “4” (Outra entidade), se o campo W100.NOME_SUBSTITUTA não está preenchido.
+    tipo: Erro
+- numero: 10
+  campo: JURISDICAO_SUBSTITUTA
+  regras:
+  - regra: REGRA_HABILITA_SUBSTITUTA
+    descricao: |-
+      Caso W100.IND_ENTREGA seja igual a “4” (Outra entidade), o campo
+      W100.JURISDICAO_SUBSTITUTA é habilitado. Caso contrário, o campo W100.JURISDICAO_SUBSTITUTA é desabilitado.
+    tipo: Habilita
+  - regra: REGRA_JURISDICAO_SUBSTITUTA_OBRIGATORIA
+    descricao: Verifica, quando W100.IND_ENTREGA é igual a “4” (Outra entidade), se o campo W100.JURISDICAO_SUBSTITUTA está preenchido.
+    tipo: Erro
+  - regra: REGRA_JURISDICAO_SUBSTITUTA_NAO_PREENCHER
+    descricao: Verifica, quando W100.IND_ENTREGA é diferente de “4” (Outra entidade), se o campo W100.JURISIDICAO_SUBSTITUTA não está preenchido.
+    tipo: Erro
+  - regra: REGRA_JURISDICAO_SUBSTITUTA_LOCAL
+    descricao: Verifica, quando W100.IND_ENTREGA é igual a “4” (Outra entidade) e W100.IND_MODALIDADE é igual a “2” (Preenchimento local), se W100.JURISDICAO_SUBSTITUTA é igual a “Brasil”.
+    tipo: Erro
+  - regra: REGRA_JURISDICAO_SUBSTITUTA_NAO_PREENCHER_SEM_ACORDO
+    descricao: Verifica, quando W100.IND_ENTREGA é igual a “4” (Outra entidade) e W100.IND_MODALIDADE é igual a “1” (Entidade substituta) e W100.JURISDICAO_SUBSTITUTA é diferente de “Brasil”, se o país informado no campo W100.JURISDICAO_SUBSTITUTA consta na tabela de Acordo de Autoridades Competentes (A jurisdição de residência para fins tributários da entidade substituta do grupo multinacional deve possuir Acordo de Autoridades Competentes com o Brasil para intercâmbio da Declaração País-a-País).
+    tipo: Erro
+  - regra: REGRA_JURISDICAO_SUBSTITUTA_NAO_PREENCHER_FALHA_SISTEMICA
+    descricao: Verifica, quando W100.IND_ENTREGA é igual a “4” (Outra entidade) e W100.IND_MODALIDADE é igual a “1” (Entidade substituta) e W100.JURISDICAO_SUBSTITUTA é diferente de “Brasil”, se o país informado no campo W100.JURISDICAO_SUBSTITUTA consta na tabela de Falha Sistêmica (A jurisdição de residência tributária da entidade substituta do grupo multinacional está enquadrada na situação de falha sistêmica, conforme definido na IN RFB nº 1.681/2016).
+    tipo: Erro
+- numero: 11
+  campo: TIN_SUBSTITUTA
+  regras:
+  - regra: REGRA_HABILITA_SUBSTITUTA
+    descricao: |-
+      Caso W100.IND_ENTREGA seja igual a “4” (Outra entidade), o campo
+      W100.TIN_SUBSTITUTA é habilitado. Caso contrário, o campo W100.TIN_SUBSTITUTA é desabilitado.
+    tipo: Habilita
+  - regra: REGRA_TIN_SUBSTITUTA_OBRIGATORIO
+    descricao: Verifica, quando W100.IND_ENTREGA é igual a “4” (Outra entidade) e W100.JURISDICAO_SUBSTITUTA é igual a “Brasil”, se o campo W100.TIN_SUBSTITUTA está preenchido.
+    tipo: Erro
+  - regra: REGRA_TIN_SUBSTITUTA_NAO_PREENCHER
+    descricao: Verifica, quando W100.IND_ENTREGA é diferente de “4” (Outra entidade) ou W100.JURISDICAO_SUBSTITUTA é diferente de “Brasil”, se o campo W100.TIN_SUBSTITUTA não está preenchido.
+    tipo: Erro
+  - regra: REGRA_VALIDA_TIN_SUBSTITUTA
+    descricao: |-
+      Verifica, quando W100.JURISDICAO_SUBSTITUTA for igual a “BR” (Brasil), se o campo
+      W100.TIN_SUBSTITUTA está preenchido com um CNPJ (aplica a REGRA_VALIDA_CNPJ: Verifica se o CNPJ informado é válido).
+    tipo: Erro
+  - regra: REGRA_CNPJ_BASICO_DIFERENTE_SUBSTITUTA
+    descricao: Verifica, quando W100.JURISDICAO_SUBSTITUTA for igual a “BR” (Brasil), se o campo W100.TIN_SUBSTITUTA está preenchido com um CNPJ e se o CNPJ básico informado é diferente do CNPJ básico do declarante da ECF, informado em 0000.CNPJ.
+    tipo: Erro
+- numero: 12
+  campo: DT_INI
+  regras:
+  - regra: REGRA_HABILITA_DATA_PAIS_A_PAIS
+    descricao: Caso [W100.IND_CONTROLADORA seja igual a “S” (Sim) e W100.IND_ENTREGA seja igual a “2” (Controladora final do grupo multinacional)] ou [W100.IND_ENTREGA seja igual a “3” (Própria entidade declarante da ECF) e W100.IND_MODALIDADE esteja preenchido], o campo W100.DT_INI é habilitado.
+    tipo: Habilita
+  - regra: REGRA_DATA_PAIS_A_PAIS_OBRIGATORIO
+    descricao: Verifica, quando [W100.IND_CONTROLADORA seja igual a “S” (Sim) e W100.IND_ENTREGA seja igual a “2” (Controladora final do grupo multinacional)] ou [W100.IND_ENTREGA é igual a “3” (Própria entidade declarante da ECF) e W100.IND_MODALIDADE está preenchido], se o campo W100.DT_INI está preenchido.
+    tipo: Erro
+  - regra: REGRA_DATA_PAIS_A_PAIS_NAO_PREENCHER
+    descricao: Verifica, quando [W100.IND_CONTROLADORA é igual a “N” (Não) ou W100.IND_ENTREGA é diferente de “2”] e [W100.IND_ENTREGA é diferente a “3” (Própria entidade declarante da ECF) ou W100.IND_MODALIDADE não está preenchido], se o campo W100.DT_INI não está preenchido.
+    tipo: Erro
+  - regra: REGRA_DATA_MENOR_UM_ANO
+    descricao: Verifica se a diferença entre W100.DT_FIN e W100.DT_INI é menor ou igual a 366 dias (O período da Declaração País-a-País deve ser menor ou igual a 1 ano).
+    tipo: Erro
+- numero: 13
+  campo: DT_FIN
+  regras:
+  - regra: REGRA_HABILITA_DATA_PAIS_A_PAIS
+    descricao: Caso [W100.IND_CONTROLADORA seja igual a “S” (Sim) e W100.IND_ENTREGA seja igual a “2” (Controladora final do grupo multinacional)] ou [W100.IND_ENTREGA seja igual a “3” (Própria entidade declarante da ECF) e W100.IND_MODALIDADE esteja preenchido], o campo W100.DT_FIN é habilitado.
+    tipo: Habilita
+  - regra: REGRA_DATA_PAIS_A_PAIS_OBRIGATORIO
+    descricao: Verifica, quando [W100.IND_CONTROLADORA seja igual a “S” (Sim) e W100.IND_ENTREGA seja igual a “2” (Controladora final do grupo multinacional)] ou [W100.IND_ENTREGA é igual a “3” (Própria entidade declarante da ECF) e W100.IND_MODALIDADE está preenchido], se o campo W100.DT_FIN está preenchido.
+    tipo: Erro
+  - regra: REGRA_DATA_PAIS_A_PAIS_NAO_PREENCHER
+    descricao: Verifica, quando W100.IND_CONTROLADORA é igual a “N” (Não) e [W100.IND_ENTREGA é diferente a “3” (Própria entidade declarante da ECF) ou W100.IND_MODALIDADE não está preenchido], se o campo W100.DT_FIN não está preenchido.
+    tipo: Erro
+  - regra: REGRA_W100_DATA_MAIOR
+    descricao: Verifica se W100.DT_FIN é maior ou igual a W100.DT_INI.
+    tipo: Erro
+  - regra: REGRA_W100_DATA_MENOR_IGUAL_ECF
+    descricao: Verifica se W100.DT_FIN é maior ou igual a 0000.DT_INI e menor ou igual a 0000.DT_FIN.
+    tipo: Erro
+- numero: 14
+  campo: TIP_MOEDA
+  regras:
+  - regra: REGRA_HABILITA_DATA_PAIS_A_PAIS
+    descricao: Caso [W100.IND_CONTROLADORA seja igual a “S” (Sim) e W100.IND_ENTREGA seja igual a “2” (Controladora final do grupo multinacional)] ou [W100.IND_ENTREGA seja igual a “3” (Própria entidade declarante da ECF) e W100.IND_MODALIDADE esteja preenchido], o campo W100.TIP_MOEDA é habilitado.
+    tipo: Habilita
+  - regra: REGRA_DATA_PAIS_A_PAIS_OBRIGATORIO
+    descricao: Verifica, quando [W100.IND_CONTROLADORA seja igual a “S” (Sim) e W100.IND_ENTREGA seja igual a “2” (Controladora final do grupo multinacional)] ou [W100.IND_ENTREGA é igual a “3” (Própria entidade declarante da ECF) e W100.IND_MODALIDADE está preenchido], se o campo W100.TIP_MOEDA está preenchido.
+    tipo: Erro
+  - regra: REGRA_DATA_PAIS_A_PAIS_NAO_PREENCHER
+    descricao: Verifica, quando W100.IND_CONTROLADORA é igual a “N” (Não) e [W100.IND_ENTREGA é diferente a “3” (Própria entidade declarante da ECF) ou W100.IND_MODALIDADE não está preenchido], se o campo W100.TIP_MOEDA não está preenchido.
+    tipo: Erro
+- numero: 15
+  campo: IND_IDIOMA
+  regras:
+  - regra: REGRA_HABILITA_DATA_PAIS_A_PAIS
+    descricao: Caso [W100.IND_CONTROLADORA seja igual a “S” (Sim) e W100.IND_ENTREGA seja igual a “2” (Controladora final do grupo multinacional)] ou [W100.IND_ENTREGA seja igual a “3” (Própria entidade declarante da ECF) e W100.IND_MODALIDADE esteja preenchido], o campo W100.IND_IDIOMA é habilitado.
+    tipo: Habilita
+  - regra: REGRA_DATA_PAIS_A_PAIS_OBRIGATORIO
+    descricao: Verifica, quando [W100.IND_CONTROLADORA seja igual a “S” (Sim) e W100.IND_ENTREGA seja igual a “2” (Controladora final do grupo multinacional)] ou [W100.IND_ENTREGA é igual a “3” (Própria entidade declarante da ECF) e W100.IND_MODALIDADE está preenchido], se o campo W100.IND_IDIOMA está preenchido.
+    tipo: Erro
+  - regra: REGRA_DATA_PAIS_A_PAIS_NAO_PREENCHER
+    descricao: Verifica, quando W100.IND_CONTROLADORA é igual a “N” (Não) e [W100.IND_ENTREGA é diferente a “3” (Própria entidade declarante da ECF) ou W100.IND_MODALIDADE não está preenchido], se o campo W100.IND_IDIOMA não está preenchido.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|W100|MULTINACIONAL A|S|CONTROLADORA FINAL|105|11111111000191|2|||||01012024|31122024|11|PT|'
+  explicacao:
+  - valor: '|W100|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|MULTINACIONAL A|'
+    descricao: Nome do grupo multinacional.
+  - valor: '|S|'
+    descricao: Identifica se a entidade é controladora final do grupo multinacional (S = Sim).
+  - valor: '|CONTROLADORA FINAL|'
+    descricao: Nome da controladora final.
+  - valor: '|11|'
+    descricao: Jurisdição de residência tributária da controladora final.
+  - valor: '|11111111000191|'
+    descricao: CNPJ da controladora final (11.111.111/0001-91).
+  - valor: '|2|'
+    descricao: Identifica a entidade responsável pela entrega da Declaração País-a-País (2 = Controlador Final do Grupo Multinacional).
+  - valor: '||'
+    descricao: Indicador de modalidade.
+  - valor: '||'
+    descricao: Nome da substituta.
+  - valor: '||'
+    descricao: Jurisdição da substituta.
+  - valor: '||'
+    descricao: CNPJ da substituta.
+  - valor: '|01012024|'
+    descricao: Data de início da Declaração País-a-País (01/01/2024).
+  - valor: '|31122024|'
+    descricao: Data final da Declaração País-a-País (31/12/2024).
+  - valor: '|11|'
+    descricao: Moeda da Declaração País-a-País.
+  - valor: '|PT|'
+    descricao: Idioma da Declaração País-a-País (PT = Português).
+informacoes_adicionais:
+- conteudo: |-
+    Observações:
+    1 – Campo 7: IND_ENTREGA:
+    Nesse campo, o contribuinte deve informar quem é a entidade declarante da Declaração País-a-País, em nome de todo o grupo multinacional, conforme as opções dispostas.
+    O contribuinte deverá selecionar a opção 1 caso o grupo multinacional o qual integra esteja enquadrado na hipótese de dispensa de entrega da Declaração País-a-País descrita no item 1.1.1 do presente Manual e conforme artigo 4º da IN RFB nº 1.681/2016, bem como em caso de enquadramento em uma das situações descritas no tópico 1.1.3 do Manual com relação ao período fiscal do controlador final do grupo.
+    A opção 2 deverá ser selecionada caso o responsável pela entrega da DPP seja o controlador final do grupo multinacional, residente no Brasil ou no exterior - situação em que o controlador cumprirá a obrigação junto à administração tributária de sua respectiva jurisdição de residência e em que a Declaração será compartilhada com a Receita Federal do Brasil por meio de acordo específico de troca automática de informação em vigor.
+    Em conformidade com o que dispõe a IN RFB nº 1.681/2016, em seu artigo 3º, § 1º , é importante destacar que, para que o contribuinte possa apontar o controlador final estrangeiro como entidade responsável pelo cumprimento da obrigação de entrega da DPP, é necessário que a sua jurisdição de residência para fins tributários exija, em sua legislação doméstica*, a entrega da Declaração País-a- País; tenha firmado acordo de autoridades competentes com o Brasil que preveja o compartilhamento automático da Declaração; e não tenha sido notificada pelo Brasil de enquadramento em falha sistêmica, nem tenha notificado o País de enquadramento nessa situação. Caso algum desses requisitos não seja satisfeito, o grupo multinacional deve definir uma entidade substituta para o cumprimento da obrigação em nome de todo o grupo, a qual deve ser identificada pelo contribuinte (podendo ser ele mesmo a entidade substituta), ou o próprio contribuinte será obrigado à entrega da Declaração País-a-País, na condição de “Preenchimento Local”.
+    A opção 3 deverá ser selecionada caso o próprio contribuinte seja a entidade responsável pela entrega da Declaração País-a-País junto à Receita Federal do Brasil, seja na condição de entidade substituta, seja na condição de Preenchimento Local (a identificação do papel desempenhado pelo contribuinte quando este for o responsável pela entrega da DPP deve ser efetuada no campo seguinte).
+    É importante esclarecer que sob qualquer uma dessas condições a Declaração País-a-País deverá ser preenchida e entregue integralmente, com informações referentes a todo o grupo multinacional.
+    A opção 4 deverá ser selecionada quando outra entidade, diferente do controlador final do grupo multinacional, for a responsável pela entrega da Declaração País-a-País (isto é, a entidade declarante), seja na condição de entidade substituta (residente no Brasil ou no exterior) ou na condição de Preenchimento Local. Essa última condição refere-se à hipótese em que a obrigação de entrega da Declaração País-a-País recaia sobre outra entidade integrante do grupo multinacional residente no Brasil que não seja o controlador final nem a entidade substituta, e exista mais de uma entidade integrante do mesmo grupo residente no Brasil (IN RFB nº 1.681/2016, art. 3º, §§ 1º e 2º).
+    *Determinados países ainda estão em fase de implementação da Declaração País-a-País e não estarão em condições de exigir o documento de seus residentes com relação ao ano fiscal de 2016.
+    Diante de tal situação, foi acordado entre os países participantes do Projeto BEPS a possibilidade de as jurisdições que estiverem com a implementação da Declaração País-a-País em andamento adotarem um mecanismo transitório de entrega voluntária da DPP com relação ao ano fiscal de declaração iniciado em 20163.
+    Esse mecanismo permite que entidades controladoras finais de grupos multinacionais residentes nessas jurisdições entreguem a Declaração País-a-País às suas respectivas administrações tributárias, de maneira voluntária, para que sejam compartilhadas com os demais países onde o grupo opera e evitar que cada um desses países exija a entrega da Declaração localmente, da entidade integrante do grupo residente para fins tributários em sua jurisdição (modalidade intitulada aqui de “entrega local” ou “Preenchimento Local”).
+    Portanto, poderão existir casos em que, apesar de na legislação doméstica da jurisdição de residência do controlador final do grupo multinacional ainda não estar vigorando a exigência da DPP com relação ao ano fiscal de 2016, estando a implementação da obrigação em andamento, será considerada válida a indicação de entidade declarante residente em tal jurisdição e aceito o documento devidamente compartilhado para fins do cumprimento da obrigação em nome do grupo.
+    No entanto, para que o mecanismo seja aceito pelas demais jurisdições onde o grupo multinacional opera devem ser satisfeitos todos os requisitos estabelecidos no art. 7º, §2º da IN RFB nº 1.681/2016. Nesse caso, e desde que cumpridos todos os requisitos estabelecidos, o contribuinte deve preencher o campo 7 normalmente, indicando que o responsável pela entrega da Declaração País-a- País é o controlador final do grupo multinacional do qual faz parte.
+    3 Informações adicionais podem ser encontradas no Guidance on the Implementation of Country-by-Country Reporting, publicado pela Organização para a Cooperação e o Desenvolvimento Econômico em junho de 2016. O documento pode ser acessado por meio do link: <http://www.oecd.org/tax/beps/guidance-on-the-implementation-of-country-by-country-reporting-beps-action-13.htm>
+    2 – Campo 8: IND_MODALIDADE:
+    Deve ser preenchido pelo contribuinte para indicar qual o papel desempenhado pela entidade declarante quando, no campo 7, houver sido informado que a entidade responsável pela Declaração País-a-País será o próprio contribuinte (opção 3) ou outra entidade (opção 4).
+    A opção 1 deve ser selecionada quando a entidade responsável pela entrega da Declaração País-a-País for a entidade substituta.
+    Caso no campo W100.IND_ENTREGA tenha sido informado que o próprio contribuinte é a entidade declarante (opção 3) e a opção 1 no campo W100.IND_MODALIDADE for selecionada, significa que o contribuinte é a entidade substituta, designada pelo grupo multinacional para cumprir a obrigação em nome do grupo, em substituição ao controlador final. Caso tenha sido indicado no campo W100.IND_ENTREGA que é outra entidade a responsável pela entrega da Declaração País-a-País (opção 4) e a opção 1 no campo W100.IND_MODALIDADE for selecionada, entende-se que é outra entidade, residente no Brasil ou no exterior, a entidade declarante, e na condição de entidade substituta.
+    Importante ressaltar que uma entidade residente no Brasil somente poderá ser designada entidade substituta do grupo multinacional o qual integra caso o controlador final do grupo seja residente no exterior (vide art. 3º, caput, da IN RFB nº 1.681/2016).
+    Quanto à designação de entidade substituta residente no exterior, essa só será aceita pela Receita Federal para fins de cumprimento da obrigação referente à Declaração País-a-País caso sejam verificadas todas as condições necessárias estabelecidas no art. 3º, §3º da IN RFB nº 1.681/2016.
+    A opção 2, Preenchimento Local, deve ser selecionada quando a entidade responsável pela entrega da Declaração País-a-País não configurar nem como o controlador final do grupo multinacional, nem como a entidade substituta, estando obrigada à entrega da DPP (por exemplo, em razão da ocorrência de pelo menos uma das situações previstas na IN RFB nº 1.681/2016, em seu art. 3º, §1º). Destaca- se que essa modalidade de cumprimento da obrigação é válida apenas para entidades residentes no Brasil.
+    Caso no campo W100.IND_ENTREGA tenha sido informado que a entidade declarante é o próprio contribuinte e a opção 2 do campo W100.IND_MODALIDADE for selecionada, significa que o controlador final do grupo multinacional é estrangeiro, mas que a obrigação de entrega da Declaração País-a-País junto à Receita Federal do Brasil recaiu sobre o próprio contribuinte. Na hipótese de existência de outras entidades residentes no Brasil integrantes do mesmo grupo multinacional, o preenchimento da forma citada estaria informando à Receita Federal, em cumprimento ao disposto na IN RFB nº 1.681/2016, em seu artigo 3º, § 2º, que o próprio contribuinte foi designado, dentre as entidades residentes brasileiras, a efetuar o cumprimento da obrigação. Assim, as demais entidades residentes no Brasil deverão preencher os campos W100.IND_ENTREGA e W100.IND_MODALIDADE em suas respectivas ECFs conforme o parágrafo abaixo, indicando que é outra entidade integrante brasileira a responsável pela entrega da DPP, na condição de Preenchimento Local.
+    Na hipótese de ter sido indicado no W100.IND_ENTREGA que a entidade declarante é outra entidade e a opção 2 do campo W100.IND_MODALIDADE for selecionada, significa que o controlador final do grupo multinacional é estrangeiro, mas que a obrigação de entrega da Declaração País-a-País junto à Receita Federal do Brasil recaiu a outra entidade integrante do grupo residente no Brasil (não designada entidade substituta). Nesse caso, o contribuinte estaria informando, conforme determinado na IN RFB nº 1.681/2016, que existe mais de uma entidade do mesmo grupo residente no Brasil, além dele mesmo, e que a responsabilidade pelo cumprimento da obrigação acessória ficará a cargo de outra entidade, a ser identificada nos campos a seguir.

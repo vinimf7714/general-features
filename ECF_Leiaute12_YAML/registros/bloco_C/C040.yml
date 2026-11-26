@@ -1,0 +1,190 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: C040
+nome: Identificador da ECD
+bloco: C
+nome_tabela_registros: Identificador da ECD
+paginas_manual:
+- 110
+- 111
+descricao: Identifica as ECD recuperadas pelo sistema. O registro é preenchido pelo sistema ao executar a funcionalidade de recuperação de ECD.
+titulo_leiaute: 'REGISTRO C040: IDENTIFICADOR DA ECD'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 0:12
+campos_chave: HASH_ECD
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: N
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se houver recuperação de dados da ECD
+  ocorrencia: '[0;12]'
+hierarquia:
+  pai: C001
+  filhos:
+  - C050
+  - C100
+  - C150
+  - C350
+  irmaos: []
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto fixo contendo a identificação do registro (C040).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[C040]'
+  obrigatorio: true
+- numero: 2
+  campo: HASH_ECD
+  descricao: Hashcode ECD Utilizada
+  tipo: C
+  tamanho: 40
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: DT_INI
+  descricao: Data de Início da ECD
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: DT_FIN
+  descricao: Data Final da ECD
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: IND_SIT_ESP
+  descricao: Indicador de Situação Especial
+  tipo: N
+  tamanho: 1
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 6
+  campo: CNPJ
+  descricao: Número de Inscrição do Empresário ou Sociedade Empresária no CNPJ
+  tipo: C
+  tamanho: 14
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 7
+  campo: NUM_ORD
+  descricao: Número de Ordem do Instrumento de Escrituração
+  tipo: N
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 8
+  campo: NIRE
+  descricao: Número de Identificação do Registro de Empresas da Junta Comercial
+  tipo: N
+  tamanho: 11
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 9
+  campo: NAT_LIVR
+  descricao: 'Natureza do Livro: finalidade a que se destina o instrumento'
+  tipo: C
+  tamanho: 80
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 10
+  campo: COD_VER_LC
+  descricao: Código da Versão do Leiaute Contábil
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 11
+  campo: IND_ESC
+  descricao: |-
+    Indicador da Forma de Escrituração Contábil:
+    G - Livro Diário (Completo sem escrituração auxiliar)
+    R - Livro Diário com Escrituração Resumida (com escrituração auxiliar) B - Livro Balancetes Diários e Balanços
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[G; R; B]'
+  obrigatorio: true
+- numero: 12
+  campo: IDENT_MF
+  descricao: 'Identificação de moeda funcional: Indica que a escrituração abrange valores com base na moeda funcional (art. 287 da Instrução Normativa RFB nº 1.700, de 14 de março de 2 017).'
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: true
+- numero: 13
+  campo: IND_ESC_CONS
+  descricao: 'Escriturações Contábeis Consolidadas: (Deve ser preenchido pela empresa controladora obrigada a informar demonstrações contábeis consolidadas, nos termos da Lei nº 6.404/76 e/ou do Pronunciamento Técnico CPC 36 – Demonstrações Consolidadas) S – Sim N – Não'
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: true
+- numero: 14
+  campo: IND_CENTRALIZADA
+  descricao: |-
+    Indicador da modalidade de escrituração centralizada ou descentralizada:
+    0 – Escrituração Centralizada
+    1 – Escrituração Descentralizada
+  tipo: N
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[0;1]'
+  obrigatorio: true
+- numero: 15
+  campo: IND_MUDANC_PC
+  descricao: |-
+    Indicador de mudança de plano de contas:
+    0 – Não houve mudança no plano de contas.
+    1 – Houve mudança no plano de contas.
+  tipo: N
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[0;1]'
+  obrigatorio: true
+- numero: 16
+  campo: COD_PLAN_REF
+  descricao: |-
+    Código do Plano de Contas Referencial que será utilizado para o mapeamento de todas as contas analíticas:
+    1 – PJ em Geral – Lucro Real
+    2 – PJ em Geral – Lucro Presumido
+    3 – Financeiras – Lucro Real
+    4 – Seguradoras – Lucro Real
+    5 – Imunes e Isentas em Geral
+    6 – Imunes e Isentas – Financeiras
+    7 – Imunes e Isentas – Seguradoras
+    8 – Entidades Fechadas de Previdência Complementar
+    9 – Partidos Políticos
+    10 – Financeiras – Lucro Presumido
+    11 - TEF - Tributação Específica do Futebol
+    Observação: Caso a pessoa jurídica não realize o mapeamento para os planos referenciais na ECD, este campo deve ficar em branco.
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: '[1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11] ou Vazio'
+  obrigatorio: false

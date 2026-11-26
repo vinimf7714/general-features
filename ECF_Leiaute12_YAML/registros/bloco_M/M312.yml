@@ -1,0 +1,73 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: M312
+nome: Números dos Lançamentos Relacionados à Conta Contábil
+bloco: M
+nome_tabela_registros: Números dos Lançamentos Relacionados à Conta Contábil
+paginas_manual:
+- 255
+- 255
+descricao: |-
+  Esse registro é de preenchimento facultativo para PJ Componente do Sistema Financeiro (0010.COD_QUALIF_PJ = “02”) ou Sociedades Seguradoras, de Capitalização ou Entidade Aberta de Previdência Complementar (0010.COD_QUALIF_PJ = “03”), que utilizam a forma de escrituração “B” (Balancetes Diários) na ECD e não informam lançamentos.
+  Nos demais casos, o registro apresenta o número dos lançamentos contábeis que foram informados na ECD relacionados ao lançamento da conta da parte A, quando não for utilizado, no caso de conta patrimonial:
+  I) O saldo total da conta contábil (M310.VL_CTA < K155.VL_SLD_FIN); ou
+  II) O saldo do período (saldo final – saldo inicial) da conta contábil (M310.VL_CTA < (K155.VL_SLD_FIN – K155.VL_SLD_INI); ou
+  III) O total de débitos da conta contábil no período (M310.VL_CTA < K155.VL_DEB); ou
+  IV) O total de créditos da conta contábil no período (M310.VL_CTA < K155.VL_CRED).
+  Apresenta o número dos lançamentos contábeis do período referenciado no registro M030, relacionados ao lançamento da conta da parte A, quando não for utilizado, no caso de conta resultado:
+  I) O saldo total da conta contábil (M310.VL_CTA < K355.VL_SLD_FIN).
+  Observação: No caso de apuração anual do IRPJ, se os números dos lançamentos já foram informados em períodos de apuração anteriores, não é necessário repeti-los.
+titulo_leiaute: 'REGISTRO M312: NÚMEROS DOS LANÇAMENTOS RELACIONADOS À CONTA CONTÁBIL'
+regras_validacao_registro:
+- REGRA_FINANCEIRAS_NAO_OBRIGATORIO
+nivel_hierarquico: 5
+ocorrencia: 0:N
+campos_chave: NUM_LCTO
+tabela_registros:
+  nivel: 5
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se M310.VL_CTA < M300.VR_LAN_LAL; ou M310.VL_CTA < K155.VL_SLD_FIN; ou M310.VL_CTA < (K155.VL_SLD_FIN – K155.VL_SLD_INI); ou M310.VL_CTA < K155.VL_DEB; ou M310.VL_CTA < K155.VL_CRED
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: M310
+  filhos: []
+  irmaos: []
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (M312).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[M312]'
+  obrigatorio: true
+- numero: 2
+  campo: NUM_LCTO
+  descricao: Número do Lançamento Descrito na ECD (Escrituração Contábil Digital) no campo 2 (NUM_LCTO) registro “I200 – Lançamento Contábil”.
+  tipo: C
+  tamanho: 50
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_registro_detalhe:
+- regra: REGRA_FINANCEIRAS_NAO_OBRIGATORIO
+  descricao: Se 0010.COD_QUALIF_PJ = “02” ou “03” ou 0010. FORMA_TRIB = “08” ou “09”, o registro é facultativo.
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|M312|12345|'
+  explicacao:
+  - valor: '|M312|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|12345|'
+    descricao: Número do lançamento.

@@ -1,0 +1,132 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: X490
+nome: Polo Industrial de Manaus e Amazônia Ocidental
+bloco: X
+nome_tabela_registros: Polo Industrial de Manaus e Amazônia Ocidental
+paginas_manual:
+- 554
+- 555
+descricao: |-
+  Este registro deverá ser preenchido pela pessoa jurídica localizada na área de atuação da Superintendência da Zona Franca de Manaus (Suframa) beneficiária dos incentivos de que tratam o Decreto- lei nº 288, de 28 de fevereiro de 1967, e alterações posteriores; e a Lei nº 8.387, de 30 de dezembro de 1991, com as alterações e introduções posteriores; ou beneficiária dos incentivos de que trata o Decreto-lei nº 356, de 15 de agosto de 1968, e alterações posteriores.
+  Atenção: Informações relativas aos benefícios decorrentes dos programas de capacitação e competitividade do setor de informática e automação, de que tratam a Lei nº 8.387, de 1991, e alterações posteriores; a Lei nº 8.248, de 1991, e alterações posteriores; a Lei nº 10.176, de 2001; a Lei nº 11.077, de 2004; a Lei nº 12.249, de 2010, a Lei nº 12.431, de 2011, o Decreto nº 5.906, de 2006, e o Decreto nº 6.405, de 2008, devem ser prestadas no registro X470.
+titulo_leiaute: 'REGISTRO X490: PÓLO INDUSTRIAL DE MANAUS E AMAZÔNIA OCIDENTAL'
+regras_validacao_registro:
+- REGRA_DUPLICIDADE_DESPREZADA
+- REGRA_LINHA_DESPREZADA
+- REGRA_LINHA_ATUALIZADA
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: CODIGO
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020. IND_POLO_AM = "S"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: X001
+  filhos: []
+  irmaos:
+  - X280
+  - X292
+  - X340
+  - X360
+  - X365
+  - X370
+  - X390
+  - X400
+  - X410
+  - X420
+  - X430
+  - X450
+  - X460
+  - X470
+  - X480
+  - X485
+  - X500
+  - X510
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (X490).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[X490]'
+  obrigatorio: true
+- numero: 2
+  campo: CODIGO
+  descricao: Código, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: 6
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: DESCRICAO
+  descricao: Descrição, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 4
+  campo: VALOR
+  descricao: Valor
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+regras_validacao_registro_detalhe:
+- regra: REGRA_DUPLICIDADE_DESPREZADA
+  descricao: Verifica se o registro já foi importado anteriormente, de acordo com a chave e os registros pais. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_DESPREZADA
+  descricao: Verifica se o registro existe na importação, mas não será importado por não existir na tabela dinâmica devido às configurações do bloco 0 ou da tabela dinâmica. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_ATUALIZADA
+  descricao: Verifica se o registro está desatualizado em relação à tabela da RFB. Se a regra não for cumprida, a ECF gera um aviso.
+regras_validacao_campos:
+- numero: 4
+  campo: VALOR
+  regras:
+  - regra: REGRA_OBRIGATORIO_TIPO_DIFERENTE_R
+    descricao: Verifica se o campo está preenchido quando o tipo da linha é diferente de “R”.
+    tipo: Erro
+tabelas_dinamicas: |-
+  X490 - Pólo Industrial de Manaus e Amazônia Ocidental
+  Vide planilha deste Registro no arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” a partir do link http://sped.rfb.gov.br/pasta/show/1644.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+  Regras de validação da tabela dinâmica X490:
+  Vide arquivo “SPEDECF_DINAMICO_2021$SPEDECF_DINAMICA_X490_REGRAS” no diretório C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas. (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|X490|1|PÓLO INDUSTRIAL DE MANAUS (ZFM)||'
+  - '|X490|3|Receita de Vendas de Produtos Industrializados na Área de Atuação para a Amazônia Ocidental|100000,00|'
+  explicacao:
+  - valor: '|X490|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|1|'
+    descricao: Código da linha.
+  - valor: '|PÓLO INDUSTRIAL DE MANAUS (ZFM)|'
+    descricao: Descrição da linha.
+  - valor: '||'
+    descricao: Valor da linha (como a linha corresponde a um rótulo – R – não há valor).
+  - valor: '|X490|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|3|'
+    descricao: Código da linha.
+  - valor: '|Receita de Vendas de Produtos Industrializados na Área de Atuação para a Amazônia Ocidental|'
+    descricao: Descrição da linha.
+  - valor: '|100000,00|'
+    descricao: Valor da linha (R$ 100.000,00).

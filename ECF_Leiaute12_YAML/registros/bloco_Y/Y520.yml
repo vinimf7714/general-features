@@ -1,0 +1,152 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: Y520
+nome: Pagamentos/Recebimentos do Exterior ou de Não Residentes
+bloco: Y
+nome_tabela_registros: Pagamentos/Recebimentos do Exterior ou de Não Residentes
+paginas_manual:
+- 562
+- 564
+descricao: |-
+  Este registro será habilitado somente para as pessoas jurídicas que receberam (0020.IND_REC_EXT = "S") ou pagaram, creditaram, entregaram, empregaram ou remeteram (0020.IND_PGTO_EXT = "S"), durante o ano-calendário, de pessoas físicas ou jurídicas, residentes ou domiciliadas no exterior ou de não-residentes:
+  - quaisquer valores mediante operações de câmbio de qualquer natureza;
+  - quaisquer valores por intermédio de transferências internacionais em reais (TIR), ou seja, provenientes de conta bancária em reais (R$) titulada por não-residente;
+  - quaisquer valores por intermédio de depósitos em contas bancárias mantidas no exterior;
+  - valores iguais ou superiores a R$ 120.000,00 (cento e vinte mil reais), equivalentes a R$ 10.000,00 por mês, por intermédio de cartões de crédito;
+  - valores em moeda nacional ou estrangeira, cheques ou cheques de viagem, convertidos em reais (R$) na data de cada operação, iguais ou superiores a R$ 120.000,00 (cento e vinte mil reais), equivalentes a R$ 10.000,00 por mês.
+  A pessoa jurídica deverá informar os valores consolidados por país, conforme registrado na sua apuração contábil.
+titulo_leiaute: 'REGISTRO Y520: PAGAMENTOS/RECEBIMENTOS DO EXTERIOR OU DE NÃO RESIDENTES'
+regras_validacao_registro:
+- REGRA_Y520_OBRIGATORIO_R
+- REGRA_Y520_OBRIGATORIO_P
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: TIP_EXT + PAIS + FORMA + NAT_OPER
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020.IND_ REC_EXT = "S" OU 0020.IND_PGTO_EXT = "S"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: Y001
+  filhos: []
+  irmaos:
+  - Y570
+  - Y590
+  - Y600
+  - Y612
+  - Y620
+  - Y630
+  - Y640
+  - Y660
+  - Y672
+  - Y680
+  - Y682
+  - Y720
+  - Y730
+  - Y750
+  - Y800
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (Y520)
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[Y520]'
+  obrigatorio: true
+- numero: 2
+  campo: TIP_EXT
+  descricao: |-
+    Tipo:
+    R - Rendimentos Recebidos P – Pagamentos
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[R; P]'
+  obrigatorio: true
+- numero: 3
+  campo: PAIS
+  descricao: |-
+    País: País em que está situada a pessoa física ou jurídica que efetuou o pagamento ou beneficiária do pagamento.
+    Código do País, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: N
+  tamanho: 3
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: FORMA
+  descricao: |-
+    Forma de Recebimento/Pagamento: “1” – Operação de Câmbio “2” – Transferência Internacional em Reais “3” – Cartão de Crédito “4” – Depósito em Conta do Exterior (só válido para TIP_EXT="R") “5” – Utilização de Recursos Mantidos no Exterior (só válido para TIP_EXT="P") “6” – Em Moeda Nacional ou Estrangeira
+    Natureza da Operação: Código da natureza-fato específico correspondente à motivação do recebimento/pagamento, conforme § 1o do artigo 23 da Lei no 4.131, de 03 de
+    setembro de 1962, e que consta na Circular no 3.690, de 16 de dezembro de 2013, do
+  tipo: N
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[1; 2; 3; 4; 5; 6]'
+  obrigatorio: true
+- numero: 5
+  campo: NAT_OPER
+  descricao: |-
+    Banco Central do Brasil.
+    Atenção: As operações que não se enquadrem em nenhuma das classificações disponíveis serão identificadas pelo código que indique a melhor aproximação possível da natureza da transação.
+    Natureza da operação, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+    Observação: O registro Y520 não possui informação de data em seus campos. Portanto, os códigos utilizados no campo Y520.NAT_OPER devem ser os vigentes em na darta final da ECF, para todas as operações ocorridas durante o ano da escrituração.
+  tipo: N
+  tamanho: 5
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: VL_PERIODO
+  descricao: 'Valor: Total dos valores recebidos ou pagos, provenientes do exterior ou destinados ao exterior, de acordo com o código indicativo da natureza da operação.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_campos:
+- numero: 2
+  campo: TIP_EXT
+  regras:
+  - regra: REGRA_TIP_EXT_PERMITIDO
+    descricao: Verifica, quando Y520.TIP_EXT igual a “P”, se 0020_IND_PGTO_EXT é igual a “S”, ou, quandoY520.TIP_EXT igual a “R”, se 0020_IND_REC_EXT é igual a “S”.
+    tipo: Erro
+- numero: 4
+  campo: FORMA
+  regras:
+  - regra: REGRA_FORMA_PAGTO_INVALIDA
+    descricao: Verifica, quando Y520.TIP_EXT igual a “P”, se Y520.FORMA é diferente de “4”, ou, quando Y520.TIP_EXT igual a “R”, se Y520.FORMA é diferente de “5”.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|Y520|R|1|1|10500|100000,00|'
+  - '|100000,00: Valor recebido (R$ 100.000,00).'
+  explicacao:
+  - valor: '|Y520|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|R|'
+    descricao: Rendimentos recebidos do exterior.
+  - valor: '|1|'
+    descricao: País (1 = Canadá).
+  - valor: '|1|'
+    descricao: Forma de recebimento (1 = Operação de Câmbio).
+  - valor: '|10500|'
+    descricao: Natureza da operação (10500 = Câmbio Simplificado Simultâneo
+informacoes_adicionais:
+- titulo: I – Regras de Validação de Registro
+  conteudo: |-
+    REGRA_Y520_OBRIGATORIO_R: Verifica, quando 0020.IND_REC_EXT igual a “S”, se existe Y520.TIP_EXT igual a “R” e não existe Y520.TIP_EXT igual a “P”. Se a regra não for cumprida, o sistema gera um erro.
+    REGRA_Y520_OBRIGATORIO_P: Verifica, quando 0020.IND_PGTO_EXT igual a “S”, se não existe Y520.TIP_EXT igual a “R” e existe Y520.TIP_EXT igual a “P”. Se a regra não for cumprida, o sistema gera um erro.

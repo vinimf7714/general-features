@@ -1,0 +1,69 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: V030
+nome: DEREX – Período - Mês
+bloco: V
+nome_tabela_registros: DEREX - Período – Mês
+paginas_manual:
+- 423
+- 423
+descricao: Neste registro deve ser informado o mês em que houve aplicações financeiras, investimentos e pagamento de obrigações próprias do exportador.
+titulo_leiaute: 'REGISTRO V030: DEREX - Período – Mês'
+regras_validacao_registro: []
+nivel_hierarquico: 3
+ocorrencia: '1:12'
+campos_chave: REG
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: O
+    condicao: Obrigatório se existir V010.
+  ocorrencia: '[1;12]'
+hierarquia:
+  pai: V010
+  filhos:
+  - V100
+  irmaos:
+  - V020
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (V030).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[V030]'
+  obrigatorio: true
+- numero: 2
+  campo: MES
+  descricao: Mês
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12
+  obrigatorio: true
+regras_validacao_campos:
+- numero: 2
+  campo: MES
+  regras:
+  - regra: REGRA_MES_FORA_PERIODO
+    descricao: Verifica se o campo MES (Campo 02) está compreendido no período informado entre 0000.DT_INI (Campo 10 do Registro 0000) e 0000.DT_FIN (Campo 11 do Registro 0000).
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|V030|01|'
+  explicacao:
+  - valor: '|V030|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|01|'
+    descricao: Mês

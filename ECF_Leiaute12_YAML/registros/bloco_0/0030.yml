@@ -1,0 +1,173 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: '0030'
+nome: Dados Cadastrais
+bloco: '0'
+nome_tabela_registros: Dados Cadastrais
+paginas_manual:
+- 101
+- 102
+descricao: Apresenta os dados cadastrais da pessoa jurídica.
+titulo_leiaute: 'REGISTRO 0030: DADOS CADASTRAIS'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: '1:1'
+campos_chave: '[REG]'
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: O
+  obrigatoriedade_saida:
+    codigo: O
+  ocorrencia: '[1;1]'
+hierarquia:
+  pai: '0001'
+  filhos: []
+  irmaos:
+  - '0010'
+  - '0020'
+  - '0021'
+  - '0035'
+  - 0930
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto fixo contendo a identificação do registro (0030).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[0030]'
+  obrigatorio: true
+- numero: 2
+  campo: COD_NAT
+  descricao: Código da natureza jurídica, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas/SPEDECF_LOCAL$SPEDECF_NATUREZA_JURIDICA).
+  tipo: N
+  tamanho: 4
+  decimal: '-'
+  valores_validos: Código da Natureza Jurídica
+  obrigatorio: true
+- numero: 3
+  campo: CNAE_FISCAL
+  descricao: |-
+    Código da atividade econômica (CNAE-Fiscal), conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas/SPEDECF_LOCAL$SPEDECF_CNAE).
+    Atenção: Se houver mais de uma atividade, indicar a de maior faturamento.
+  tipo: N
+  tamanho: 7
+  decimal: '-'
+  valores_validos: CNAE Fiscal
+  obrigatorio: true
+- numero: 4
+  campo: ENDERECO
+  descricao: Endereço da pessoa jurídica.
+  tipo: C
+  tamanho: 150
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: NUM
+  descricao: Número
+  tipo: C
+  tamanho: 6
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: COMPL
+  descricao: Complemento
+  tipo: C
+  tamanho: 50
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 7
+  campo: BAIRRO
+  descricao: Bairro/Distrito
+  tipo: C
+  tamanho: 50
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 8
+  campo: UF
+  descricao: UF, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas/SPEDECF_GLOBAL$UF_SIG_NOM).
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: Sigla da UF
+  obrigatorio: true
+- numero: 9
+  campo: COD_MUN
+  descricao: Código do Município, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas/SPEDECF_GLOBAL$SPEDCONTABIL_MUNICIPIOS).
+  tipo: C
+  tamanho: 7
+  decimal: '-'
+  valores_validos: Código do Município
+  obrigatorio: true
+- numero: 10
+  campo: CEP
+  descricao: Código de Endereçamento Postal (CEP)
+  tipo: C
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 11
+  campo: NUM_TEL
+  descricao: DDD + Número do Telefone
+  tipo: N
+  tamanho: 15
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 12
+  campo: EMAIL
+  descricao: Correio eletrônico
+  tipo: C
+  tamanho: 115
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_campos:
+- numero: 12
+  campo: EMAIL
+  regras:
+  - regra: REGRA_VALIDA_EMAIL
+    descricao: Verifica se, não existe “espaço”, se existe o caracter “@” precedido e seguido de pelo menos um caracter e se, após o “@”, existe, pelo menos, um ponto seguido de duas a quatro letras, em 0030.EMAIL.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|0030|2046|6204000|RUA TESTE|1234|BLOCO Z SALA 301|BAIRRO ECF|DF|5300108|71000000|6133333333|testeecf@ecf.gov.br|'
+  explicacao:
+  - valor: '|0030|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|2046|'
+    descricao: Código da natureza jurídica (2046 = Sociedade Anônima Aberta).
+  - valor: '|6204000|'
+    descricao: Código da atividade econômica (6204000 = Consultoria em tecnologia da informação).
+  - valor: '|RUA TESTE|'
+    descricao: Endereço.
+  - valor: '|1234|'
+    descricao: Número.
+  - valor: '|BLOCO Z SALA 301|'
+    descricao: Complemento.
+  - valor: '|BAIRRO ECF|'
+    descricao: Bairro.
+  - valor: '|DF|'
+    descricao: Sigla da Unidade da Federação (DF = Distrito Federal).
+  - valor: '|5300108|'
+    descricao: Código do Município (5300108 = Brasília).
+  - valor: '|71000000|'
+    descricao: CEP (71.000-000).
+  - valor: '|6133333333|'
+    descricao: Telefone com DDD (61-3333-3333).
+  - valor: '|testeecf@ecf.gov.br|'
+    descricao: Email.

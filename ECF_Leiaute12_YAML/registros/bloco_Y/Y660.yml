@@ -1,0 +1,114 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: Y660
+nome: Dados de Sucessoras
+bloco: Y
+nome_tabela_registros: Dados de Sucessoras
+paginas_manual:
+- 588
+- 589
+descricao: Este registro deve ser preenchido pela pessoa jurídica que está obrigada a entregar a ECF relativa às situações especiais de fusão, cisão parcial, cisão total ou incorporação/incorporada, quando 0000.SIT_ESPECIAL for informado, com dados de sucessora(s).
+titulo_leiaute: 'REGISTRO Y660: DADOS DE SUCESSORAS'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: CNPJ
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0010.SIT_ESPECIAL = “2”, “3”, “5” ou “6”
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: Y001
+  filhos: []
+  irmaos:
+  - Y520
+  - Y570
+  - Y590
+  - Y600
+  - Y612
+  - Y620
+  - Y630
+  - Y640
+  - Y672
+  - Y680
+  - Y682
+  - Y720
+  - Y730
+  - Y750
+  - Y800
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (Y660).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[Y660]'
+  obrigatorio: true
+- numero: 2
+  campo: CNPJ
+  descricao: CNPJ da Pessoa Jurídica Resultante do Evento.
+  tipo: C
+  tamanho: 14
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: NOM_EMP
+  descricao: Nome Empresarial da Pessoa Jurídica Resultante do Evento.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: PERC_PAT_LIQ
+  descricao: 'Percentual do Patrimônio Líquido Destinado: Percentual do patrimônio líquido da empresa sucedida destinado à pessoa jurídica resultante do evento.'
+  tipo: N
+  tamanho: 8
+  decimal: 4
+  valores_validos: null
+  obrigatorio: false
+regras_validacao_campos:
+- numero: null
+  campo: PERC_PAT_LIQ
+  regras:
+  - regra: REGRA_PERC_PAT_CISAO_TOTAL
+    descricao: Verifica, quando 0000.SIT_ESPECIAL igual a “2” (Fusão), “3” (Incorporação/Incorporada) ou “5” (Cisão Total) se o somatório de Y660.PERC_PAT_LIQ é igual a 100%.
+    tipo: Erro
+  - regra: REGRA_PERC_PAT_CISAO_PARCIAL
+    descricao: Verifica, quando 0000.SIT_ESPECIAL igual a “6” (Cisão Parcial) se o somatório de Y660.PERC_PAT_LIQ é diferente do resultado da diferença de 100% e 0000.PAT_REMAN_CIS.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|Y660|11111111000191|EMPRESA SUCESSORA 1 LTDA|40,00|'
+  - '|Y660|22222222000191|EMPRESA SUCESSORA 2 LTDA|60,00|'
+  explicacao:
+  - valor: '|Y660|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|11111111000191|'
+    descricao: CNPJ da sucessora (11.111.111/0001-91).
+  - valor: '|EMPRESA SUCESSORA 1 LTDA|'
+    descricao: Nome empresarial da sucessora.
+  - valor: '|40,00|'
+    descricao: Percentual da sucedida destinada à sucessora (40%).
+  - valor: '|Y660|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|22222222000191|'
+    descricao: CNPJ da sucessora (22.222.222/0001-91).
+  - valor: '|EMPRESA SUCESSORA 2 LTDA|'
+    descricao: Nome empresarial da sucessora.
+  - valor: '|60,00|'
+    descricao: Percentual da sucedida destinada à sucessora (60%).

@@ -1,0 +1,94 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+bloco: Y
+nome: Informações Gerais
+paginas_manual:
+- 561
+- 561
+orientacoes_gerais: null
+tabela_blocos:
+  nome: Informações Gerais
+  descricao: Apresenta informações gerais da pessoa jurídica.
+registros:
+- registro: Y001
+  nome: Abertura do Bloco Y – Informações Gerais
+  nivel: 1
+  arquivo: ../registros/bloco_Y/Y001.yml
+- registro: Y520
+  nome: Pagamentos/Recebimentos do Exterior ou de Não Residentes
+  nivel: 2
+  arquivo: ../registros/bloco_Y/Y520.yml
+- registro: Y570
+  nome: Demonstrativo do Imposto de Renda e CSLL Retidos na Fonte
+  nivel: 2
+  arquivo: ../registros/bloco_Y/Y570.yml
+- registro: Y590
+  nome: Ativos no Exterior
+  nivel: 2
+  arquivo: ../registros/bloco_Y/Y590.yml
+- registro: Y600
+  nome: Identificação e Remuneração de Sócios, Titulares, Dirigentes e Conselheiro
+  nivel: 2
+  arquivo: ../registros/bloco_Y/Y600.yml
+- registro: Y612
+  nome: Identificação e Rendimentos de Dirigentes e Conselheiros - Imunes ou Isentas
+  nivel: 2
+  arquivo: ../registros/bloco_Y/Y612.yml
+- registro: Y620
+  nome: Participações Avaliadas pelo Método de Equivalência Patrimonial
+  nivel: 2
+  arquivo: ../registros/bloco_Y/Y620.yml
+- registro: Y630
+  nome: Fundos/Clubes de Investimento
+  nivel: 2
+  arquivo: ../registros/bloco_Y/Y630.yml
+- registro: Y640
+  nome: Participações em Consórcios de Empresas
+  nivel: 2
+  arquivo: ../registros/bloco_Y/Y640.yml
+- registro: Y650
+  nome: Participantes do Consórcio
+  nivel: 3
+  arquivo: ../registros/bloco_Y/Y650.yml
+- registro: Y660
+  nome: Dados de Sucessoras
+  nivel: 2
+  arquivo: ../registros/bloco_Y/Y660.yml
+- registro: Y672
+  nome: Outras Informações (Lucro Presumido ou Lucro Arbitrado)
+  nivel: 2
+  arquivo: ../registros/bloco_Y/Y672.yml
+- registro: Y680
+  nome: Mês das Informações de Optantes pelo Refis (Lucro Real, Presumido e Arbitrado)
+  nivel: 2
+  arquivo: ../registros/bloco_Y/Y680.yml
+- registro: Y681
+  nome: Informações de Optantes pelo Refis (Lucro Real, Presumido e Arbitrado)
+  nivel: 3
+  arquivo: ../registros/bloco_Y/Y681.yml
+- registro: Y682
+  nome: Informações de Optantes pelo Refis - Imunes ou Isentas
+  nivel: 2
+  arquivo: ../registros/bloco_Y/Y682.yml
+- registro: Y720
+  nome: Informações de Períodos Anteriores
+  nivel: 2
+  arquivo: ../registros/bloco_Y/Y720.yml
+- registro: Y730
+  nome: Identificação de donatários/destinatários de deduções do IRPJ/CSLL
+  nivel: 2
+  arquivo: ../registros/bloco_Y/Y730.yml
+- registro: Y750
+  nome: Informações da ECF Calculadas pelo PGE
+  nivel: 2
+  arquivo: ../registros/bloco_Y/Y750.yml
+- registro: Y800
+  nome: Outras Informações
+  nivel: 2
+  arquivo: ../registros/bloco_Y/Y800.yml
+- registro: Y990
+  nome: Encerramento do Bloco Y
+  nivel: 1
+  arquivo: ../registros/bloco_Y/Y990.yml

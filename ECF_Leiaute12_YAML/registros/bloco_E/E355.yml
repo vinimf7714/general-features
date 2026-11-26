@@ -1,0 +1,85 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: E355
+nome: Detalhes dos Saldos das Contas de Resultado Antes do Encerramento
+bloco: E
+nome_tabela_registros: Detalhes dos Saldos das Contas de Resultado Antes do Encerramento
+paginas_manual:
+- 130
+- 130
+descricao: Registro preenchido pelo sistema ao executar a funcionalidade de recuperar ECD. Calculado a partir dos registros recuperados C355 de acordo com os períodos fiscais.
+titulo_leiaute: 'REGISTRO E355: DETALHES DOS SALDOS DAS CONTAS DE RESULTADO ANTES DO ENCERRAMENTO'
+regras_validacao_registro: []
+nivel_hierarquico: 3
+ocorrencia: 0:N
+campos_chave: COD_CTA + COD_CCUS
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: N
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se houver recuperação de dados da ECD
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: E030
+  filhos: []
+  irmaos:
+  - E155
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (E355).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[E355]'
+  obrigatorio: true
+- numero: 2
+  campo: COD_CTA
+  descricao: Código da Conta Analítica de Resultado.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: COD_CCUS
+  descricao: Código do Centro de Custos.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 4
+  campo: VL_SLD_FIN
+  descricao: Valor do Saldo Final Antes do Lançamento de Encerramento.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: IND_VL_SLD_FIN
+  descricao: |-
+    Indicador da Situação do Saldo Final:
+    D – Devedor.
+    C – Credor.
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[D; C]'
+  obrigatorio: true
+regras_validacao_registro_detalhe:
+- regra: REGRA_CONTA_FORA_ULTIMO_PLANO_DE_CONTAS
+  descricao: |-
+    O erro ocorre se a conta calculada no registro E355 não existir no plano de contas da ECD com C040.DT_FIN igual a 0000.DT_FIN.
+    Nessa situação, a conta não constará no registro E355.

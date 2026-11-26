@@ -1,0 +1,377 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  documento: Manual de Orientação do Leiaute 12 da Escrituração Contábil Fiscal (ECF)
+  ato: Anexo ao Ato Declaratório Executivo Cofis nº 02/2026
+  atualizacao: julho/2026
+  ano_calendario: 2025 e situações especiais de 2026
+  leiaute: 12
+  orgao: RFB/Subsecretaria de Fiscalização/Coordenação Geral de Fiscalização/Div. de Captação de Dados
+  total_paginas: 622
+capitulo: 4
+titulo: Blocos e Registros da ECF
+paginas_manual:
+- 41
+- 61
+nota: A Tabela de Registros (4.2) também está estruturada em arvore_registros.yaml / arvore_registros.json.
+secoes:
+- secao: 4.1. Blocos do Arquivo
+  paginas_manual:
+  - 41
+  - 42
+  conteudo: |-
+    Entre o registro inicial e o registro final, o arquivo digital é constituído de blocos, referindo-se cada um deles a um agrupamento de informações.
+    Relação de Blocos:
+    Bloco Nome do Bloco Descrição do Bloco
+    0 Abertura e Identificação Abre o arquivo, identifica a pessoa jurídica e referência o período da ECF.
+    Armazena as informações do plano de contas e dos saldos mensais das ECD recuperadas. As ECD recuperadas devem corresponder ao período da ECF.
+    Os seguintes registros da ECD são recuperados na ECF:
+    - I050 – Plano de Contas
+    - I051 – Mapeamento para o Plano de Contas Referencial
+    - I053 – Subcontas Correlatas
+    Informações Recuperadas das ECD (Bloco
+    - I100 – Centro de Custos
+    C recuperado pelo sistema – Não é importado e
+    - I150 – Data dos Saldos Periódicos não é editado no programa)
+    - I155 – Saldos Periódicos
+    - I157 - Transferência de Saldos de Plano de Contas Anterior
+    - I350 – Data da Apuração do Resultado
+    - I355 – Saldos das Contas de Resultado Antes do Encerramento
+    Estão obrigadas a efetuar a recuperação da ECD todas as pessoas jurídicas obrigadas a entregar a ECD, conforme Instrução Normativa RFB nº 2.004/2021 e alterações.
+    Informações Recuperadas da ECF Anterior e
+    Armazena, da ECF recuperada do período imediatamente anterior, os saldos finais das
+    Cálculo Fiscal dos Dados Recuperados da ECD
+    E contas referenciais e da parte B (do e-LALUR e e-LACS). (Bloco recuperado pelo sistema – Não é
+    Calcula os saldos contábeis de acordo com o período de apuração do tributo. importado e não é editado no programa)
+    Apresenta o mapeamento do plano de contas contábil para o plano de contas referencial.
+    J Plano de Contas e Mapeamento Caso a ECD recuperada possua o mapeamento para o plano de contas referencial válido na ECF, o bloco J pode ser construído automaticamente e é permitida a sua edição.
+
+    | Bloco | Nome do Bloco | Descrição do Bloco |
+    |---|---|---|
+    | K | Saldos das Contas Contábeis e Referenciais | Apresenta os saldos das contas contábeis patrimoniais e de resultado por período de apuração e o seu mapeamento para as contas referenciais. Caso haja recuperação da ECD, o bloco K pode ser construído automaticamente e é permitida a sua edição. O bloco K também pode ser importado, independentemente da recuperação da ECD. |
+    | L | Lucro Líquido – Lucro Real | Apresenta o balanço patrimonial, a demonstração do resultado do exercício e apura o lucro líquido da pessoa jurídica tributada pelo lucro real. |
+    | M | e-LALUR e e-LACS – Lucro Real | Apresenta os livros eletrônicos de escrituração e apuração do IRPJ (e-LALUR) e da CSLL (e-LACS) da pessoa jurídica tributada pelo lucro real - partes A e B. |
+    | N | Cálculo do IRPJ e da CSLL – Lucro Real | Calcula o IRPJ e a CSLL com base no lucro real (estimativas mensais e ajuste anual ou valores trimestrais). |
+    | P | Lucro Presumido | Apresenta o balanço patrimonial, a demonstração do resultado do exercício e apura o IRPJ e a CSLL com base no lucro presumido. |
+    | Q | Demonstrativo do Livro Caixa | Apresenta o demonstrativo do livro caixa para os casos previstos na legislação - A partir do leiaute 2. |
+    | T | Lucro Arbitrado | Apura o IRPJ e a CSLL com base no lucro arbitrado. |
+    | U | Imunes e Isentas | Apresenta o balanço patrimonial e a demonstração do resultado das imunes ou isentas. Apura o IRPJ e a CSLL quando forem obrigadas. |
+    | V | DEREX | Apresenta a declaração sobre utilização dos recursos em moeda estrangeira decorrentes do recebimento de exportações (DEREX) - A partir do leiaute 4 |
+    | W | Relatório País-a-País | Apresenta o Country by Country Report (Relatório País-a-País) - A partir do leiaute 3 |
+    | X | Informações Econômicas | Apresenta informações econômicas da pessoa jurídica. |
+    | Y | Informações Gerais | Apresenta informações gerais da pessoa jurídica. |
+    | 9 | Encerramento do Arquivo Digital | Encerra o arquivo digital. |
+
+    Portanto, o arquivo digital é composto por blocos de informação e cada bloco terá um registro de abertura, registros de dados e um registro de encerramento.
+    Após o bloco inicial (Bloco 0), a ordem de apresentação dos demais blocos é a sequência constante na tabela de blocos acima.
+    Salvo quando houver especificação em contrário, todos os blocos são obrigatórios e o respectivo registro de abertura indicará a presença ou a ausência de dados informados.
+- secao: 4.2. Tabela de Registros
+  paginas_manual:
+  - 43
+  - 59
+  conteudo: |-
+    O arquivo digital pode ser composto com os registros abaixo descritos (Tabela de Registros).
+    Código de Obrigatoriedade:
+    O = Obrigatório
+    F = Facultativo
+    OC = Obrigatório Condicional
+    FC = Facultativo Condicional
+    N = Não Deve Existir
+    Código de Ocorrência:
+    [0] = não há ocorrência
+    [1:1] = 1 ocorrência
+    [2:2] = 2 ocorrências
+    [0: 12] = de zero a 12 ocorrências
+    [1:N] = de uma até “n” ocorrências (várias ocorrências)
+    [0:N] = de zero até “n” ocorrências
+    Os campos dos registros, nos textos deste manual, serão representados da seguinte forma: XXXX.Nome
+    XXXX = Número do registro
+    Nome = Nome do campo
+    Exemplo: 0000.SIT_ESPECIAL – Representa do campo “SIT_ESPECIAL” do registro 0000.
+    OBRIGATORIEDADE DOS REGISTROS
+    Obrigariedade de Entrada: O registro é de preenchimento obrigatório no momento da importação do arquivo da ECF para o programa da ECF.
+    Obrigatoriedade de Saída: O registro é obrigatório no momento da geração do arquivo da ECF para transmissão.
+
+    | Registro | Nível Hierárquico | Nome do Registro | Obrigatoriedade de Entrada | Obrigatoriedade de Saída | Ocorrência |
+    |---|---|---|---|---|---|
+    | 0000 | 0 | Abertura do Arquivo Digital e Identificação da Pessoa Jurídica | O | O | [1;1] |
+    | 0001 | 1 | Abertura do Bloco 0 | O | O | [1;1] |
+    | 0010 | 2 | Parâmetros de Tributação | O | O | [1;1] |
+    | 0020 | 2 | Parâmetros Complementares | O | O | [1;1] |
+    | 0021 | 2 | Parâmetros de Identificação dos Tipos de Programa | F | OC (Se 0020.IND_PJ_HAB = S) | [0;1] |
+    | 0030 | 2 | Dados Cadastrais | O | O | [1;1] |
+    | 0035 | 2 | Identificação das SCP | F | OC (Se 0000.TIP_ECF = 1) | [0:N] |
+    | 0930 | 2 | Identificação dos Signatários da ECF | F | O | [1;N] |
+    | 0990 | 1 | Encerramento do Bloco 0 | O | O | [1;1] |
+    | C001 | 1 | Abertura do Bloco C - Informações Recuperadas da ECD | O | O | [1;1] |
+    | C040 | 2 | Identificador da ECD | N | OC (Se houver recuperação de dados da ECD) | [0;12] |
+    | C050 | 3 | Plano de Contas da ECD | N | OC (Se houver recuperação de dados da ECD) | [0;N] |
+    | C051 | 4 | Plano de Contas Referencial Preenchido na ECD | N | OC (Se houver recuperação de dados da ECD) | Se C050.IND_CTA = “A” [0:N] Senão [0] |
+    | C053 | 4 | Subcontas Correlatas | N | OC (Se houver recuperação de dados da ECD) | [0;N] |
+    | C100 | 3 | Centro de Custos | N | OC (Se houver recuperação de dados da ECD) | [0;N] |
+    | C150 | 3 | Identificação do Período dos Saldos Periódicos das Contas Patrimoniais | N | OC (Se houver recuperação de dados da ECD) | [0;13] |
+    | C155 | 4 | Detalhes dos Saldos Contábeis das Contas Patrimoniais | N | OC (Se houver recuperação de dados da ECD) | [0; N] |
+    | C157 | 5 | Transferência de Saldos do Plano de Contas Anterior | N | OC (Se houver recuperação de dados da ECD) | [0;N] |
+
+    | Registro | Nível Hierárquico | Nome do Registro | Obrigatoriedade de Entrada | Obrigatoriedade de Saída | Ocorrência |
+    |---|---|---|---|---|---|
+    | C350 | 3 | Identificação da Data dos Saldos das Contas de Resultado Antes do Encerramento | N | OC (Se houver recuperação de dados da ECD) | [0; N] |
+    | C355 | 4 | Detalhes dos Saldos das Contas de Resultado Antes do Encerramento | N | OC (Se houver recuperação de dados da ECD) | [0;N] |
+    | C990 | 1 | Encerramento do Bloco C | O | O | [1;1] |
+    | E001 | 1 | Abertura do Bloco E – Informações Recuperadas da ECF Anterior e Cálculo Fiscal dos Dados Recuperados da ECD | O | O | [1;1] |
+    | E010 | 2 | Saldos Finais Recuperados da ECF Anterior | N | OC (Se houver recuperação de dados da ECD) | [0;N] |
+    | E015 | 3 | Contas Contábeis Mapeadas | N | OC (Se houver recuperação de dados da ECD) | [0;N] |
+    | E020 | 2 | Saldos Finais das Contas da Parte B do e-Lalur da ECF Imediatamente Anterior | N | OC (Se houver recuperação de dados da ECD) | [0;N] |
+    | E030 | 2 | Identificação do Período | N | OC (Se houver recuperação de dados da ECD) | [0;13] |
+    | E155 | 3 | Detalhes dos Saldos Contábeis Calculados com Base nas ECD | N | OC (Se houver recuperação de dados da ECD) | [0;N] |
+    | E355 | 3 | Detalhes dos Saldos das Contas de Resultado Antes do Encerramento | N | OC (Se houver recuperação de dados da ECD) | [0;N] |
+    | E990 | 1 | Encerramento do Bloco E | N | O | [1;1] |
+    | J001 | 1 | Abertura do Bloco J – Plano de Contas e Mapeamento | F | O | [1;1] |
+    | J050 | 2 | Plano de Contas do Contribuinte | F | OC (Se (0010. FORMA_TRIB = “1”, “2”, “3”,“4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”)) | [0;N] |
+    | J051 | 3 | Plano de Contas Referencial | F | OC (Se (J050.IND_CTA = “A”) E (J050.COD_NAT = “01” ou “02” ou “03” “4) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”) | Se J050.IND_CTA = “A” [1:N] Senão [0] |
+
+    | Registro | Nível Hierárquico | Nome do Registro | Obrigatoriedade de Entrada | Obrigatoriedade de Saída | Ocorrência |
+    |---|---|---|---|---|---|
+    | J053 | 3 | Subcontas Correlatas | F | F | [0;N] |
+    | J100 | 2 | Centro de Custos | F | FC (Se (0010.FORMA_TRIB = “1” ou “2” ou “3”,“4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”)) | [0;N] |
+    | J990 | 1 | Encerramento do Bloco J | F | O | [1;1] |
+    | K001 | 1 | Abertura do Bloco K – Saldos das Contas Contábeis e Referenciais | F | O | [1;1] |
+    | K030 | 2 | Identificação dos Períodos e Formas de Apuração do IRPJ e da CSLL no Ano-Calendário | F | OC (Se (0010. FORMA_TRIB = “1”, “2”, “3”, “4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”)) | [0;13] |
+    | K155 | 3 | Detalhes dos Saldos Contábeis (Depois do Encerramento do Resultado do Período) | F | OC (Se (0010. FORMA_TRIB = “1”, “2”, “3” , “4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”)) | [0;N] |
+    | K156 | 4 | Mapeamento Referencial do Saldo | F | OC Localizar o J050.COD_CTA = K155.PAI_COD_CTA. (Se J050 possuir mais de uma conta referencial cadastrada no registro J051 para o mesmo centro de custo – Registro) | [0;N] |
+    | K355 | 3 | Saldos Finais das Contas Contábeis de Resultado Antes do Encerramento | F | F | [0;N] |
+    | K356 | 4 | Mapeamento Referencial dos Saldos Finais das Contas de Resultado Antes do Encerramento | F | OC Localizar o J050.COD_CTA = K155.PAI_COD_CTA. (Se J050 possuir mais de uma conta referencial cadastrada no registro J051 para o mesmo centro de custo – Registro) | [0;N] |
+
+    | Registro | Nível Hierárquico | Nome do Registro | Obrigatoriedade de Entrada | Obrigatoriedade de Saída | Ocorrência |
+    |---|---|---|---|---|---|
+    | K915 | 2 | Justificativa para Divergência nas Contas Patrimoniais | F | FC (Se (0010.FORMA_TRIB = “1” ou “2” ou “3”, “4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”)) | [0;N] |
+    | K935 | 2 | Justificativa para Divergência nas Contas de Resultado | F | FC (Se (0010.FORMA_TRIB = “1” ou “2” ou “3”, “4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”)) | [0;N] |
+    | K990 | 1 | Encerramento do Bloco K | F | O | [1;1] |
+    | L001 | 1 | Abertura do Bloco L – Lucro Real | F | O | [1;1] |
+    | L030 | 2 | Identificação dos Períodos e Formas de Apuração do IRPJ e da CSLL no Ano-Calendário | F | OC (Se 0010. FORMA_TRIB = “1”, “2”, “3” ou “4”) | [0;13] |
+    | L100 | 3 | Balanço Patrimonial | F | OC (Se (L030.PER_APUR = “A00” OU [T01..T04]) Ou ([A01..A012] E 0010. MES_BAL_RED [1..12] for igual = “B”) | [0;N] |
+    | L200 | 3 | Método de Avaliação do Estoque Final | F | OC (Se (COD_QUALIF_PJ = “01”) E (L030.PER_APUR = “A00” OU [T01..T04]) Ou ([A01..A012] E 0010. MES_BAL_RED [1..12] for igual = “B”)) | [0;N] |
+    | L210 | 3 | Informativo da Composição de Custos | F | OC (Se (COD_QUALIF_PJ = “01”) E (L030.PER_APUR = “A00” OU [T01..T04]) Ou ([A01..A012] E 0010. MES_BAL_RED [1..12] for igual = “B”)) | [0;N] |
+
+    | Registro | Nível Hierárquico | Nome do Registro | Obrigatoriedade de Entrada | Obrigatoriedade de Saída | Ocorrência |
+    |---|---|---|---|---|---|
+    | L300 | 3 | Demonstração do Resultado Líquido no Período Fiscal | F | OC (Se (COD_QUALIF_PJ = “01”) E (L030.PER_APUR = “A00” OU [T01..T04]) Ou ([A01..A012] E 0010. MES_BAL_RED [1..12] for igual = “B”)) | [0;N] |
+    | L990 | 1 | Encerramento do Bloco L | F | O | [1;1] |
+    | M001 | 1 | Abertura do Bloco M – Livro Eletrônico de Apuração do Lucro Real (e-Lalur) e Livro Eletrônico de Apuração da Base de Cálculo da CSLL (e-Lacs) | F | O | [1;1] |
+    | M010 | 2 | Identificação da Conta na Parte B e-Lalur e do e-Lacs | F | FC (Se 0010. FORMA_TRIB = “1”, “2”, “3” ou “4”). | [0;N] |
+    | M030 | 2 | Identificação do Período e Forma de Apuração do IRPJ e da CSLL das Empresas Tributadas pelo Lucro Real | F | OC (Se 0010. FORMA_TRIB = “1”, “2”, “3” ou “4”) | [0;13] |
+    | M300 | 3 | Demonstração do Lucro Real | F | OC (Se 0010. FORMA_TRIB_PER = “R” ou “E”) | [0;N] |
+    | M305 | 4 | Contas da Parte B Relacionadas ao Lançamento da Parte A do e-Lalur | F | OC (Se M300.IND_RELACAO = “1” ou “3”) | [0;N] |
+    | M310 | 4 | Contas Contábeis Relacionadas ao Lançamento da Parte A do e-Lalur | F | OC (Se M300.IND_RELACAO = “2” ou “3”) | [0;N] |
+    | M312 | 5 | Números dos Lançamentos Relacionados à Conta Contábil | F | OC (Se M310.VL_CTA < M300.VR_LAN_LAL; ou M310.VL_CTA < K155.VL_SLD_FIN; ou M310.VL_CTA < (K155.VL_SLD_FIN – K155.VL_SLD_INI); ou M310.VL_CTA < K155.VL_DEB; ou M310.VL_CTA < K155.VL_CRED) | [0;N] |
+    | M315 | 4 | Identificação de Processos Judiciais e Administrativos Referentes ao Lançamento | F | F | [0;N] |
+
+    | Registro | Nível Hierárquico | Nome do Registro | Obrigatoriedade de Entrada | Obrigatoriedade de Saída | Ocorrência |
+    |---|---|---|---|---|---|
+    | M350 | 3 | Demonstração da Base de Cálculo da CSLL | F | OC (Se 0010. FORMA_TRIB_PER = “R” ou “E”) | [0;N] |
+    | M355 | 4 | Contas da Parte B Relacionadas ao Lançamento da Parte A do e-Lacs | F | OC (Se M350.IND_RELACAO = “1” ou “3”) | [0;N] |
+    | M360 | 4 | Contas Contábeis Relacionadas ao Lançamento da Parte A do e-Lacs | F | OC (Se M350.IND_RELACAO = “2” ou “3”) | [0;N] |
+    | M362 | 5 | Números dos Lançamentos Relacionados à Conta Contábil | F | F | [0;N] |
+    | M365 | 4 | Identificação de Processos Judiciais e Administrativos Referentes ao Lançamento | F | F | [0;N] |
+    | M410 | 3 | Lançamentos na Conta da Parte B do e-Lalur e do e- Lacs Sem Reflexo na Parte A | F | F | [0;N] |
+    | M415 | 4 | Identificação de Processos Judiciais e Administrativos Referentes ao Lançamento | F | F | [0;N] |
+    | M500 | 3 | Controle de Saldos das Contas da Parte B do e-Lalur e do e-Lacs | F | F | [0;N] |
+    | M510 | 3 | Controle de Saldos das Contas Padrão da Parte B do e- Lalur e do e-Lacs | F | F | [0;N] |
+    | M990 | 1 | Encerramento do Bloco M | N | O | [1;1] |
+    | N001 | 1 | Abertura do bloco N – Cálculo do IRPJ e da CSLL | F | O | [1;1] |
+    | N030 | 2 | Identificação do Período e Forma de Apuração do IRPJ e da CSLL das Empresas Tributadas pelo Lucro Real | F | OC (Se 0010. FORMA_TRIB = “1”, “2”, “3” ou “4”) | [0;13] |
+    | N500 | 3 | Base de Cálculo do IRPJ Sobre o Lucro Real Após as Compensações de Prejuízos | F | OC (Se 0010. FORMA_TRIB = “1”, “2”, “3” ou “4”) | [0;N] |
+    | N600 | 3 | Demonstração do Lucro da Exploração | F | OC (Se (N030.PER_APUR = “A00” OU [T01..T04] OU ([A01..A012]) E (0010. MES_BAL_RED [1..12] = “B”) E 0020.IND_LUC_EXP = “S”) | [0;N] |
+
+    | Registro | Nível Hierárquico | Nome do Registro | Obrigatoriedade de Entrada | Obrigatoriedade de Saída | Ocorrência |
+    |---|---|---|---|---|---|
+    | N605 | 3 | Contas Contábeis Envolvidas na Apuração do Lucro da Exploração | F | OC (Se N600(48.05) = “ 2” - Contabilidade) | [0;N] |
+    | N610 | 3 | Cálculo da Isenção e Redução do Imposto sobre Lucro Real | F | OC (Se 0020.IND_LUC_EXP = “S”) Não deve existir Se (N030.PER_APUR = [A01..A012] E 0010. MES_BAL_RED[1..12] = “E”) | [0;N] |
+    | N615 | 3 | Informações da Base de Cálculo de Incentivos Fiscais | F | OC (Se N030 E 0020.IND_FIN="S" Exceto Se (N030.PER_APUR = [A01..A012] E 0010. MES_BAL_RED [1..12] = “E”)) | [0;N] |
+    | N620 | 3 | Apuração do IRPJ Mensal por Estimativa | F | OC (Se N030.PER_APUR = [A01..A12]) | [0;N] |
+    | N630 | 3 | Apuração do IRPJ Com Base no Lucro Real | F | OC (Se N030.PER_APUR = “A00” OU [T01..T04]) | [0;N] |
+    | N650 | 3 | Base de Cálculo da CSLL Após Compensações das Bases de Cálculo Negativa | F | OC (Se 0010. FORMA_TRIB = “1”, “2”, “3” ou “4”) | [0;N] |
+    | N660 | 3 | Apuração da CSLL Mensal por Estimativa | F | OC (Se N030.PER_APUR = [A01..A12]) | [0;N] |
+    | N670 | 3 | Apuração da CSLL Com Base no Lucro Real | F | OC (Se N030.PER_APUR = “A00” OU [T01..T04]) | [0;N] |
+    | N990 | 1 | Encerramento do Bloco N | F | O | [1;1] |
+    | P001 | 1 | Abertura do Bloco P – Lucro Presumido | F | O | [1;1] |
+    | P030 | 2 | Identificação dos Períodos e Forma de Apuração do IRPJ e da CSLL das Empresas Tributadas pelo Lucro Presumido | F | OC (Se 0010. FORMA_TRIB = “3”, “4”, “5” ou “7” E 0010.FORMA_TRIB_PER = “P”) | [0;4] |
+
+    | Registro | Nível Hierárquico | Nome do Registro | Obrigatoriedade de Entrada | Obrigatoriedade de Saída | Ocorrência |
+    |---|---|---|---|---|---|
+    | P100 | 3 | Balanço Patrimonial | F | OC (Se 0010. TIP_ESP_PRE = “C” E 0010.IND_REC_RECEITA = “2”) | [0;N] |
+    | P130 | 3 | Demonstração das Receitas Incentivadas do Lucro Presumido | F | OC (Se 0020. IND_RED_ISEN = "S" E 0010.OPT_REFIS = "S") | [0;N] |
+    | P150 | 3 | Demonstração do Resultado | F | OC (Se 0010. TIP_ESP_PRE = “C” E 0010.IND_REC_RECEITA = “2”) | [0;N] |
+    | P200 | 3 | Apuração da Base de Cálculo do Lucro Presumido | F | O | [1;N] |
+    | P230 | 3 | Cálculo da Isenção e Redução do Lucro Presumido | F | OC (Se 0020.IND_RED_ISEN="S" E 0010.OPT_REFIS="S") | [0;N] |
+    | P300 | 3 | Cálculo do IRPJ com Base no Lucro Presumido | F | O | [1;N] |
+    | P400 | 3 | Apuração da Base de Cálculo da CSLL com Base no Lucro Presumido | F | O | [1;N] |
+    | P500 | 3 | Cálculo da CSLL com Base no Lucro Líquido | F | O | [1;N] |
+    | P990 | 1 | Encerramento do Bloco P | F | O | [1;1] |
+    | Q001 | 1 | Abertura do Bloco Q – Livro Caixa | F | O | [1;1] |
+    | Q100 | 2 | Demonstrativo do Livro Caixa | F | FC Se (0010.FORMA_TRIB = “2” ou “4” ou “6” ou “7” ou (Se 0010. TIP_ESP_PRE = “L” E 0010.FORMA_TRIB = "3" ou "5" ou "8" ou "9") | [0;N] |
+    | Q990 | 1 | Encerramento do Bloco Q | F | O | [1;1] |
+    | S001 | 1 | Abertura do Bloco S -TEF/SAF | F | O | [1:1] |
+    | S030 | 2 | Identificação dos Períodos e Forma de Apuração do IRPJ e da CSLL das Empresas Tributadas pelo TEF/SAF | F | OC (Se 0010. FORMA_TRIB = “10”) | [0:12] |
+    | S100 | 3 | Balanço Patrimonial das entidades TEF/SAF. | F | OC (Se 0010. FORMA_TRIB = “10”) | [0:12] |
+
+    | Registro | Nível Hierárquico | Nome do Registro | Obrigatoriedade de Entrada | Obrigatoriedade de Saída | Ocorrência |
+    |---|---|---|---|---|---|
+    | S150 | 3 | Demonstração do Resultado do Exercício das entidades TEF/SAF. | F | OC (Se 0010. FORMA_TRIB = “10”) | [0:12] |
+    | S200 | 3 | Apuração dos Tributos a Pagar Incidentes em TEF/SAF | F | OC (Se 0010. FORMA_TRIB = “10”) | [0:12] |
+    | S300 | 3 | Cálculo do IRPJ | F | OC (Se 0010. FORMA_TRIB = “10”) | [0:12] |
+    | S500 | 3 | Cálculo da CSLL | F | OC (Se 0010. FORMA_TRIB = “10”) | [0:12] |
+    | S700 | 3 | Cálculo dos Demais Tributos | F | OC (Se 0010. FORMA_TRIB = “10”) | [0:12] |
+    | T001 | 1 | Abertura do Bloco T – Lucro Arbitrado | F | O | [1;1] |
+    | T030 | 2 | Identificação dos Períodos e Forma de Apuração do IRPJ e CSLL das Empresas Tributadas pelo Lucro Arbitrado | F | OC (Se 0010. FORMA_TRIB = “2”, “4”, “6” ou “7” E 0010.FORMA_TRIB_PER = “A”) | [0;4] |
+    | T120 | 3 | Apuração da Base de Cálculo do IRPJ com Base no Lucro Arbitrado | F | OC (Se 0010.FORMA_TRIB_PER = “A”) | [0;N] |
+    | T150 | 3 | Cálculo do Imposto de Renda com Base no Lucro Arbitrado | F | OC (Se 0010.FORMA_TRIB_PER = “A”) | [0;N] |
+    | T170 | 3 | Apuração da Base de Cálculo da CSLL com Base no Lucro Arbitrado | F | OC (Se 0010.FORMA_TRIB_PER = “A”) | [0;N] |
+    | T181 | 3 | Cálculo da CSLL com Base no Lucro Arbitrado | F | OC (Se 0010.FORMA_TRIB_PER = “A”) | [0;N] |
+    | T990 | 1 | Encerramento do Bloco T | F | O | [1;1] |
+    | U001 | 1 | Abertura do Bloco U – Imunes e Isentas | F | O | [1;1] |
+    | U030 | 2 | Identificação dos Períodos e Formas de Apuração do IPRJ e da CSLL das Empresas Imunes e Isentas | F | OC (Se 0010. FORMA_TRIB = “8” ou “9”) | [0;4] |
+    | U100 | 3 | Balanço Patrimonial | F | OC (Se 0010. FORMA_TRIB = “8” ou “9” E 0010. TIP_ESP_PRE = “C”) | [0;N] |
+
+    | Registro | Nível Hierárquico | Nome do Registro | Obrigatoriedade de Entrada | Obrigatoriedade de Saída | Ocorrência |
+    |---|---|---|---|---|---|
+    | U150 | 3 | Demonstração do Resultado | F | OC (Se 0010. FORMA_TRIB = “8” ou “9” E 0010. TIP_ESP_PRE = “C”) | [0;N] |
+    | U180 | 3 | Cálculo do IRPJ das Empresas Imunes ou Isentas | F | OC (Se 0010. FORMA_TRIB = “8” ou “9” E 0010. FORMA_APUR_I = “A” ou “T”) | [0;N] |
+    | U182 | 3 | Cálculo da CSLL das Empresas Imunes ou Isentas | F | OC (Se 0010. FORMA_TRIB = “8” ou “9” E ((0010.APUR_CSLL = “A” ou “T”) OU (0010. FORMA_APUR_I = “A” ou “T”)) | [0;N] |
+    | U990 | 1 | Encerramento do Bloco U | F | O | [1;1] |
+    | V001 | 1 | Abertura do Bloco V – DEREX | F | O | [1;1] |
+    | V010 | 2 | DEREX – Instituição | F | OC Obrigatório se 0020.ind_derex = S Senão Não deve Existir | [0;N] |
+    | V020 | 3 | DEREX - Responsável pela Movimentação | F | O Obrigatório se existir V010. | [1;N] |
+    | V030 | 3 | DEREX - Período – Mês | F | O Obrigatório se existir V010. | [1;12] |
+    | V100 | 4 | Demonstrativo dos recursos em moeda estrangeira decorrentes do recebimento de exportações | F | O Obrigatório se existir V010. | [1;N] |
+    | V990 | 1 | Encerramento do Bloco V | F | O Obrigatório se existir V010. | [1;1] |
+    | W001 | 1 | Abertura do Bloco W - Declaração País-a-País | F | O | [1;1] |
+    | W100 | 2 | Informações Sobre o Grupo Multinacional e a Entidade Declarante | F | OC (Se 0020.IND_PAIS_A_PAIS = "S") | [0;1] |
+    | W200 | 3 | Declaração País a País | F | OC (Se (W100.IND_CONTROLADORA = "S" e W100.IND_ENTREGA = "2") ou W100.IND_ENTREGA = "3") Ou | [0;N] Observação: Quando for obrigatório, deverá aparecer, no mínimo, duas vezes. |
+
+    | Registro | Nível Hierárquico | Nome do Registro | Obrigatoriedade de Entrada | Obrigatoriedade de Saída | Ocorrência |
+    |---|---|---|---|---|---|
+    | | | | | (Se (W100.IND_CONTROLADORA = "N" e W100.IND_ENTREGA = "3") | |
+    | W250 | 4 | Declaração País a País - Entidades Integrantes | F | OC (Se (W100.IND_CONTROLADORA = "S" e W100.IND_ENTREGA = "2") ou W100.IND_ENTREGA = "3") Ou (Se (W100.IND_CONTROLADORA = "N" e W100.IND_ENTREGA = "3") | [0;N] |
+    | W300 | 2 | Observações Adicionais | F | F | [0;N] |
+    | W990 | 1 | Encerramento do Bloco W | F | O | [1;1] |
+    | X001 | 1 | Abertura do Bloco X – Informações Econômicas | F | O | [1;1] |
+    | X280 | 2 | Atividades Incentivadas - PJ em Geral | F | OC (Se 0020. IND_LUC_EXP = "S" OU 0020.IND_RED_ISEN = "S") | [0;N] |
+    | X292 | 2 | Operações com o Exterior - Pessoa Não Vinculada/ Não Interposta/País sem Tributação Favorecida | F | OC (Se 0020. IND_OP_EXT = "S” E 0020.IND_OP_VINC = "N") | [0;N] |
+    | X340 | 2 | Identificação da Participação no Exterior | F | OC (Se 0020. IND_PART_EXT = "S") | [0;N] |
+    | X350 | 3 | Participações no Exterior - Resultado do Período de Apuração | | OC (Se 0020. IND_PART_EXT = "S") | [0;N] |
+    | X351 | 3 | Demonstrativo de Resultados e de Imposto a Pagar no Exterior | F | F Não deve existir Se X340.IND_CONTROLE = “6” | [0;N] |
+    | X352 | 3 | Demonstrativo de Resultados no Exterior Auferidos por Intermédio de Coligada | F | OC Deve existir se X340.IND_CONTROLE = “4” ou “6” ou “10” ou “11” | [0;N] |
+    | X353 | 3 | Demonstrativo de Consolidação | F | OC Deve existir se X340.IND_CONTROLE = “1” ou “2” ou “3” e X340.IND_CONSOL igual a “S” (Sim). | [0;N] |
+
+    | Registro | Nível Hierárquico | Nome do Registro | Obrigatoriedade de Entrada | Obrigatoriedade de Saída | Ocorrência |
+    |---|---|---|---|---|---|
+    | X354 | 3 | Demonstrativo de Prejuízos Acumulados | F | F Não deve existir Se X340.IND_CONTROLE = “6” | [0;N] |
+    | X355 | 3 | Demonstrativo de Rendas Ativas e Passivas | F | OC Não deve existir se X340.IND_CONTROLE = “6” e “11” | [0;N] |
+    | X356 | 3 | Demonstrativo de Estrutura Societária | F | OC Não deve existir se X340.IND_CONTROLE = “6” e “11” | [0;N] |
+    | X357 | 3 | Investidoras Diretas | F | FC Se X340.IND_CONTROLE for diferente de “5” | [0;N] |
+    | X360 | 2 | Informações Gerais sobre Preços de Transferência | F | OC (Se 0020. IND_OP_EXT = "S" E 0020.IND_OP_VINC = "S") | [0;N] |
+    | X365 | 2 | Informações Sobre Contrapartes nas Transações Controladas | F | OC (Se 0020. IND_OP_EXT = "S" E 0020.IND_OP_VINC = "S") | [0;N] |
+    | X366 | 3 | Entidades Com as Quais Realiza Transações Controladas | F | OC (Se 0020. IND_OP_EXT = "S" E 0020.IND_OP_VINC = "S") | [0;N] |
+    | X370 | 2 | Informações Sobre as Transações Controladas | F | OC (Se 0020. IND_OP_EXT = "S" E 0020.IND_OP_VINC = "S") | [0;N] |
+    | X371 | 3 | Informações Sobre Ajustes Compensatórios | F | OC (Se X370.VL_COMPENSATORIO maior que zero) | [0;N] |
+    | X375 | 3 | Informações Relacionadas ao Método de Preços de Transferência | F | OC (Se Obrigatório se X370.metodo igual a “PRL” – X375A; "MCL" – X375B; “MLT” – X375C; “MDL” – X375D e “PIC” – X375E”) | [0;N] |
+    | X390 | 2 | Origem e Aplicação de Recursos - Imunes ou Isentas | F | OC (Se 0010.FORMA_TRIB = “8” ou “9” ) | [0;N] |
+    | X400 | 2 | Comércio Eletrônico e Tecnologia da Informação – Informações das Vendas | F | OC (Se 0020. IND_E-COM_TI="S") | [0;N] |
+
+    | Registro | Nível Hierárquico | Nome do Registro | Obrigatoriedade de Entrada | Obrigatoriedade de Saída | Ocorrência |
+    |---|---|---|---|---|---|
+    | X410 | 2 | Comércio Eletrônico – Informação de Homepage/Servidor | F | OC (Se 0020. IND_E-COM_TI="S") | [0;N] |
+    | X420 | 2 | Royalties Recebidos ou Pagos a Beneficiários do Brasil e do Exterior | F | OC (Se 0020.IND_ROY_REC = "S" OU 0020.IND_ROY_PAG = "S") | [0;N] |
+    | X430 | 2 | Rendimentos Relativos a Serviços, Juros e Dividendos Recebidos do Brasil e do Exterior | F | OC (Se 0020.IND_REND_SERV = "S") | [0;N] |
+    | X450 | 2 | Pagamentos ou Remessas Relativos a Serviços, Juros e Dividendos a Beneficiários do Brasil e do Exterior | F | OC (Se 0020.IND_PGTO_REM = "S") | [0;N] |
+    | X451 | 2 | Pagamentos ou Remessas Relativos a Serviços, Juros e Dividendos a Beneficiários do Brasil e do Exterior – Demais informações | F | OC (Se 0020.IND_PGTO_REM = "S") | [0;N] |
+    | X460 | 2 | Inovação Tecnológica e Desenvolvimento Tecnológico | F | OC (Se 0020. IND_INOV_TEC = "S") | [0;N] |
+    | X470 | 2 | Capacitação de Informática e Inclusão Digital | F | OC (Se 0020. IND_CAP_INF = "S") | [0;N] |
+    | X480 | 2 | Benefícios Fiscais – Parte I | F | OC (Se 0020. IND_PJ_HAB = "S") | [0;N] |
+    | X485 | 2 | Benefícios Fiscais – Parte II | F | OC (Se 0020. IND_PJ_HAB = "S") | [0;N] |
+    | X490 | 2 | Polo Industrial de Manaus e Amazônia Ocidental | F | OC (Se 0020. IND_POLO_AM = "S") | [0;N] |
+    | X500 | 2 | Zonas de Processamento de Exportação (ZPE) | F | OC (Se 0020. IND_ZON_EXP = "S") | [0;N] |
+    | X510 | 2 | Áreas de Livre Comércio (ALC) | F | OC (Se 0020. IND_AREA_COM = "S") | [0;N] |
+    | X990 | 1 | Encerramento do Bloco X | F | O | [1;1] |
+    | Y001 | 1 | Abertura do Bloco Y – Informações Gerais | F | O | [1;1] |
+
+    | Registro | Nível Hierárquico | Nome do Registro | Obrigatoriedade de Entrada | Obrigatoriedade de Saída | Ocorrência |
+    |---|---|---|---|---|---|
+    | Y520 | 2 | Pagamentos/Recebimentos do Exterior ou de Não Residentes | F | OC (Se 0020.IND_ REC_EXT = "S" OU 0020.IND_PGTO_EXT = "S") | [0;N] |
+    | Y570 | 2 | Demonstrativo do Imposto de Renda e CSLL Retidos na Fonte | F | F Não deve existir se 0010.FORMA_APUR_I = “D” E 0010.APUR_CSLL = “D” | [0;N] |
+    | Y590 | 2 | Ativos no Exterior | F | OC (Se 0020.IND_ATIV_EXT = "S") | [0;N] |
+    | Y600 | 2 | Identificação e Remuneração de Sócios, Titulares, Dirigentes e Conselheiro | F | OC (Se 0010.FORMA_TRIB = "1" a "7") | [0;N] |
+    | Y612 | 2 | Identificação e Rendimentos de Dirigentes e Conselheiros - Imunes ou Isentas | F | OC (Se 0010.FORMA_TRIB = "8" ou "9") | [0;N] |
+    | Y620 | 2 | Participações Avaliadas pelo Método de Equivalência Patrimonial | F | OC (Se 0020.IND_PART_COLIG = "S") | [0;N] |
+    | Y630 | 2 | Fundos/Clubes de Investimento | F | OC (Se 0020.IND_ADM_FUN_CLU = "S") | [0;N] |
+    | Y640 | 2 | Participações em Consórcios de Empresas | F | OC (Se 0020.IND_PART_CONS = "S") | [0;N] |
+    | Y650 | 2 | Participantes do Consórcio | F | OC (Se Y640.COND_DECL="1") | [0;N] |
+    | Y660 | 2 | Dados de Sucessoras | F | OC (Se 0010.SIT_ESPECIAL = “2”, “3”, “5” ou “6”) | [0;N] |
+    | Y672 | 2 | Outras Informações (Lucro Presumido ou Lucro Arbitrado) | F | OC (Se 0010.FORMA_TRIB = “6” Ou Se 0010.FORMA_TRIB = “5” ou “7” e 0010.TIP_ESC_PRE = “L”) | [0;1] |
+    | Y680 | 2 | Mês das Informações de Optantes pelo Refis (Lucro Real, Presumido e Arbitrado) | F | OC (Se 0010.OPT_REFIS="S" E 0010.FORMA_TRIB ≠ “8” e “9”) | [0;12] |
+    | Y681 | 3 | Informações de Optantes pelo Refis (Lucro Real, Presumido e Arbitrado) | F | OC (Se 0010.OPT_REFIS="S" E 0010.FORMA_TRIB ≠ “8” e “9”) | [0;12] |
+
+    | Registro | Nível Hierárquico | Nome do Registro | Obrigatoriedade de Entrada | Obrigatoriedade de Saída | Ocorrência |
+    |---|---|---|---|---|---|
+    | Y682 | 2 | Informações de Optantes pelo Refis - Imunes ou Isentas | F | OC (Se 0010.OPT_REFIS="S" E 0010.FORMA_TRIB = “8” e “9”) | [0;12] |
+    | Y720 | 2 | Informações de Períodos Anteriores | F | OC Obrigatório se a entrega da escrituração é feita com atraso. | [0;1] |
+    | Y730 | 2 | Identificação de donatários/destinatários de deduções do IRPJ/CSLL | F | OC Obrigatório se houver alguma dedução do IRPJ/CSLL, conforme regras do registro. | [0;N] |
+    | Y750 | 2 | Informações da ECF Calculadas pelo PGE | F | O | [0;N] |
+    | Y800 | 2 | Outras Informações | F | F | [0;N] |
+    | Y990 | 1 | Encerramento do Bloco Y | F | O | [1;1] |
+    | 9001 | 1 | Abertura do Bloco 9 | O | O | [1;1] |
+    | 9100 | 2 | Avisos da Escrituração | F | O | [1;N] |
+    | 9900 | 2 | Registros do Arquivo | O | O | [1;N] |
+    | 9099 | 1 | Encerramento do Bloco 9 | O | O | [1;1] |
+    | 9999 | 1 | Encerramento do Arquivo Digital | O | O | [1;1] |
+
+    A ordem de apresentação dos registros é sequencial.
+    São obrigatórios os registros de abertura e de encerramento do arquivo e os registros de abertura e encerramento de cada um dos blocos que compuserem o arquivo digital relacionado na tabela de blocos.
+    Também são exigidos os registros que trazem a indicação "registro obrigatório".
+    Os registros que contiverem a indicação "Ocorrência - um (por arquivo)" devem figurar uma única vez no arquivo digital.
+    Os registros que contiverem itens de tabelas, totalizações, documentos (dentre outros) podem ocorrer uma ou mais vezes no arquivo por determinado tipo de situação. Esses registros trazem a indicação "Ocorrência - vários (por arquivo)", "Ocorrência - um (por período)", "Ocorrência - vários (por período), etc.".
+    Um registro "Pai" pode ocorrer mais de uma vez no arquivo e traz a indicação "Ocorrência - vários por arquivo". Por outro lado, um registro dependente ("Filho") detalha o registro principal (“Pai”) e traz a indicação:
+    - "Ocorrência - 1:1" - Somente deverá haver um único registro filho para o respectivo registro pai.
+    - "Ocorrência - 1:N" - Poderá haver vários registros filhos para o respectivo registro pai.
+    A geração do arquivo requer a existência de pelo menos um registro “Pai" quando houver um registro “Filho".
+- secao: 4.3. Campos dos Registros
+  paginas_manual:
+  - 59
+  - 59
+  conteudo: |-
+    Os campos dos registros, nos textos deste manual, serão representados da seguinte forma: XXXX.Nome
+    XXXX = Número do registro
+    Nome = Nome do campo
+    Exemplo: 0000.SIT_ESPECIAL – Representa do campo “SIT_ESPECIAL” do registro 0000.
+    Tabela de Campos
+    Item Descrição
+    No Indica o número do campo em um dado registro.
+    Campo Indica o nome do campo.
+    Descrição Indica a descrição da informação requerida no campo respectivo.
+    Deve-se atentar para as observações relativas ao preenchimento de cada campo, quando houver.
+    Tipo Indica o tipo de caractere com que o campo será preenchido, de acordo com as regras gerais já descritas.
+    N – Numérico.
+    NS – Numérico com sinal.
+    C – Alfanumérico.
+    Tam Indica a quantidade de caracteres com que cada campo deve ser preenchido. Estas instruções devem ser seguidas rigorosamente.
+    A indicação de um algarismo após um campo (N ou NS) representa o seu tamanho exato.
+    A indicação "-" após um campo (N ou NS) significa que não há um número máximo de caracteres.
+    A indicação de um algarismo após um campo (C) representa o seu tamanho exato, no caso geral.
+    A indicação "-" após um campo (C) representa que seu tamanho máximo é 255 caracteres, no caso geral.
+    A indicação "65536" após um campo (C) representa que seu tamanho máximo é 65.536 caracteres, excepcionalmente.
+    Dec Indica a quantidade de caracteres que devem constar como casas decimais, quando necessárias.
+    A indicação de um algarismo representa a quantidade máxima de decimais do campo (N);
+    A indicação "-" após um campo (N) significa que não deve haver representação de casas decimais.
+- secao: 4.4. Tabelas Externas
+  paginas_manual:
+  - 59
+  - 60
+  conteudo: |-
+    Exemplos de órgãos mantenedores e endereços eletrônicos das tabelas externas.
+    IBGE www.ibge.gov.br Tabela de Municípios
+    Secretaria da Receita Federal do Brasil www.receita.fazenda.gov.br Plano de Contas Referencial
+    ECT – Correios www.correios.com.br Código de Endereçamento Postal
+    Departamento Nacional de Registro Empresarial e https://www.gov.br/economia/pt-Tabela de Qualificação de
+    Integração br/assuntos/drei Assinante
+- secao: 4.5. Leiaute dos Registros
+  conteudo: null

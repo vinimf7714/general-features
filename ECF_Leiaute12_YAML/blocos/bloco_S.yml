@@ -1,0 +1,48 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+bloco: S
+nome: TEF/SAF – Tributação das Entidades de Futebol / Sociedade Anônima de Futebol
+paginas_manual:
+- 355
+- 355
+orientacoes_gerais: |-
+  Deverão preencher este bloco as entidades que forem Sociedade Anônima de Futebol – SAF e estiverem sob amparado da Tributação das Entidades de Futebol, conforme Lei nº 14.193, de 6 de agosto de 2021.
+  Para que o bloco fique disponível para inserção de dados, o campo FORMA_TRIB do registo 0010 deve ter como flag a opção 10 – TEF – Tributação Específica do Futebol.
+  As SAFs devem seguir, de modo subsidiário, as disposições contidas na Lei nº 6.404, de 15 de dezembro de 1976 e da Lei nº 9.615, de 24 de março de 1988.
+  As SAFs são obrigadas a realizar a entrega da Escrituração Contábil Digital – ECD e fazer a sua recuperação no momento da entrega da ECF.
+  As SAFs são obrigadas a recolhimento mensal dos tributos que estão sujeitos, utilizando o regime de caixa. (Art. 31, § 1º da L ei 14.193/21).
+registros:
+- registro: S001
+  nome: Abertura do Bloco S -TEF/SAF
+  nivel: 1
+  arquivo: ../registros/bloco_S/S001.yml
+- registro: S030
+  nome: Identificação dos Períodos e Forma de Apuração do IRPJ e da CSLL das Empresas Tributadas pelo TEF/SAF
+  nivel: 2
+  arquivo: ../registros/bloco_S/S030.yml
+- registro: S100
+  nome: Balanço Patrimonial das entidades TEF/SAF.
+  nivel: 3
+  arquivo: ../registros/bloco_S/S100.yml
+- registro: S150
+  nome: Demonstração do Resultado do Exercício das entidades TEF/SAF.
+  nivel: 3
+  arquivo: ../registros/bloco_S/S150.yml
+- registro: S200
+  nome: Apuração dos Tributos a Pagar Incidentes em TEF/SAF
+  nivel: 3
+  arquivo: ../registros/bloco_S/S200.yml
+- registro: S300
+  nome: Cálculo do IRPJ
+  nivel: 3
+  arquivo: ../registros/bloco_S/S300.yml
+- registro: S500
+  nome: Cálculo da CSLL
+  nivel: 3
+  arquivo: ../registros/bloco_S/S500.yml
+- registro: S700
+  nome: Cálculo dos Demais Tributos
+  nivel: 3
+  arquivo: ../registros/bloco_S/S700.yml

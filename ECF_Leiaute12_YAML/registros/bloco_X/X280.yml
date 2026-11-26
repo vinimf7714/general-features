@@ -1,0 +1,324 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: X280
+nome: Atividades Incentivadas – PJ em Geral
+bloco: X
+nome_tabela_registros: Atividades Incentivadas - PJ em Geral
+paginas_manual:
+- 466
+- 476
+descricao: |-
+  Este registro deve ser preenchido somente pelas pessoas jurídicas que, de acordo com a legislação vigente, tenham direito à isenção ou redução do imposto de renda, reconhecido pelo órgão competente, em virtude do exercício de atividades incentivadas.
+  A pessoa jurídica deve informar individualizadamente todos os benefícios fiscais a que tem direito e o seu respectivo projeto.
+titulo_leiaute: 'REGISTRO X280: ATIVIDADES INCENTIVADAS – PJ EM GERAL'
+regras_validacao_registro:
+- REGRA_ISENCAO_AM_NE_REAL
+- REGRA_ISENCAO_OU_REAL
+- REGRA_ISENCAO_MISTA
+- REGRA_RECEITA_ISENCAO
+- REGRA_RECEITA_REDUCOES
+- REGRA_REDUCAO_100
+- REGRA_REDUCAO_75
+- REGRA_REDUCAO_70
+- REGRA_REDUCAO_50
+- REGRA_REDUCAO_33
+- REGRA_REDUCAO_25
+- REGRA_REDUCAO_12
+- REGRA_REDUCAO_REINVESTIMENTO
+- REGRA_ISENCAO_REDUCAO
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: null
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020. IND_LUC_EXP = "S" OU 0020.IND_RED_ISEN = "S"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: X001
+  filhos: []
+  irmaos:
+  - X292
+  - X340
+  - X360
+  - X365
+  - X370
+  - X390
+  - X400
+  - X410
+  - X420
+  - X430
+  - X450
+  - X460
+  - X470
+  - X480
+  - X485
+  - X490
+  - X500
+  - X510
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto fixo contendo a identificação do registro (X280).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[X280]'
+  obrigatorio: true
+- numero: 2
+  campo: IND_ATIV
+  descricao: |-
+    Benefício fiscal:
+    00 – Não preenchido
+    01 – Isenção
+    02 – Redução de 100%
+    03 – Redução de 75%
+    04 – Redução de 70%
+    05 – Redução de 50%
+    06 – Redução de 33,33%
+    07 – Redução de 25%
+    08 – Redução de 12,5%
+    09 – Redução por Reinvestimento
+    10 – PERSE (Lei nº 14.148/21 e Instrução Normativa RFB nº 2.114/22)
+    99 – Subvenção para Investimento
+    Selecionar no campo Benefício Fiscal o tipo de benefício (isenção ou redução do IRPJ) em relação a cada projeto aprovado no órgão competente, conforme lista disponível na Caixa de Combinação. E, para cada projeto aprovado selecionar no campo Projeto se o mesmo corresponde a "Novo Empreendimento", "Modernização", "Ampliação", "Diversificação", "Manutenção de Empreendimento", "Prouni", “Padis” ou “Outros”.
+    I) Isenção: Este tipo de benefício deve ser selecionado pela pessoa jurídica: a) que tenha instalado, ampliado, modernizado ou diversificado empreendimento industrial ou agrícola, nas áreas de atuação da Sudam e da Sudene, até 31 de dezembro de 1997, nos termos da MP nº 1.740-32, de 1999, convalidada pela Lei nº 9.808, de 1999, art. 13; b) que tenham empreendimento industrial ou agrícola decorrente de projeto aprovado ou protocolizado até 14 de novembro de 1997 nas áreas de atuação da Sudam e da Sudene.
+    c) instituição privada de ensino superior, com fins lucrativos ou sem fins lucrativos não beneficente, que aderir ao Programa Universidade para Todos (Prouni) nos termos do art. 5º da Lei nº 11.096, de 13 de janeiro de 2005, no período de vigência do termo de adesão. d) que tenha instalado, ampliado, modernizado ou diversificado empreendimento industrial ou agrícola, nas áreas de atuação da Sudam e da Sudene empreendimento fabricante de máquinas, equipamentos, instrumentos e dispositivos, baseados em tecnologia digital, voltados para o programa de inclusão digital, cujos projetos tenham sido aprovados nos termos do caput do art. 1º da MP nº 2.199-14, de 24 de agosto de 2001.
+    Atenção: No caso de projeto que já esteja sendo utilizado o benefício fiscal nos termos do caput do art. 1º da MP nº 2.199-14, de 24 de agosto de 2001, o prazo de fruição passa a ser de dez anos contado a partir da data de publicação da Medida Provisória no 540, de 2 de agosto de 2011. e) que explora atividade transporte internacional aéreo, marítimo e terrestre, quando as companhias brasileiras de igual objetivo gozarem da mesma prerrogativa no país de nacionalidade da empresa estrangeira; f) subsidiária da Fifa no Brasil (ou a Emissora Fonte da Fifa, na hipótese de ser pessoa jurídica domiciliada no Brasil) que exploram atividades próprias e diretamente vinculadas à organização ou realização no Brasil dos Eventos (inciso VI do art. 2º da Lei nº 12.350, de 2010) relativos às Competições e às seguintes atividades relacionadas às Competições, oficialmente organizadas, chanceladas, patrocinadas ou apoiadas pela Subsidiária Fifa no Brasil: f.1) os congressos da Fifa, banquetes, cerimônias de abertura, encerramento, premiação e outras cerimônias, sorteio preliminar, final e quaisquer outros sorteios, lançamentos de mascote e outras atividades de lançamento; f.2) seminários, reuniões, conferências, workshops e coletivas de imprensa; f.3) atividades culturais: concertos, exibições, apresentações, espetáculos ou outras expressões culturais, bem como os projetos Futebol pela Esperança (Football for Hope) ou projetos beneficentes similares;
+    f.4) partidas de futebol e sessões de treino; e f.5) outras atividades consideradas relevantes para a realização, organização, preparação, marketing, divulgação, promoção ou encerramento das Competições. g) Jogos Olímpicos Rio 2016: g.1) empresas vinculadas ao Comité International Olympique - CIO, e domiciliadas no Brasil, em relação aos fatos geradores decorrentes das atividades próprias e diretamente vinculadas à organização ou realização dos Eventos (Jogos e as atividades a eles relacionadas, oficialmente organizadas, chanceladas, patrocinadas, ou apoiadas pelo CIO, APO ou RIO 2016) de que trata o art. 9º da Lei nº 12.780, de 2013. g.2) Comitê Organizador dos Jogos Olímpicos Rio 2016 - RIO 2016, em relação aos fatos geradores decorrentes das atividades próprias e diretamente vinculadas à organização ou realização dos Eventos (Jogos e as atividades a eles relacionadas, oficialmente organizadas, chanceladas, patrocinadas, ou apoiadas pelo CIO, APO ou RIO 2016, de que trata o art. 10 da Lei nº 12.780, de 2013.
+    Atenção: A pessoa jurídica deve selecionar no campo "Projeto", o benefício fiscal a que tem direito: "Novo Empreendimento", "Modernização", "Ampliação", "Diversificação", "Prouni", “Evento Fifa”, “Serviço da Fifa (SPE)”, “Eventos CIO”, “Serviços do CIO (SPE)” ou "Outros".
+    II - Redução a) Redução de 100% (cem por cento) de alíquotas (Padis): Este tipo de benefício deve ser selecionado pela pessoa jurídica que tenha projeto aprovado em Portaria Conjunta do Ministério da Fazenda, do Ministério da Ciência e Tecnologia e do Ministério do Desenvolvimento, Indústria e Comércio Exterior, no âmbito do Programa de Apoio ao Desenvolvimento Tecnológico da Indústria de Semicondutores (Padis) (Lei nº 11.484, de 2007, arts. 1º a 11).
+    Atenção:
+    1) Apenas a pessoa jurídica previamente habilitada pela Secretaria da Receita Federal do Brasil - RFB é beneficiária do PADIS.
+    2) A pessoa jurídica que utilizar indevidamente do benefício sujeitará ao pagamento do imposto em relação a cada período de apuração acrescido de juros e multa, sem prejuízo das sanções penais cabíveis.
+    A pessoa jurídica deve selecionar no campo "Projeto", o benefício fiscal “Padis". b) Redução de 75%: Este tipo deve ser selecionado pela pessoa jurídica que seja titular de projeto protocolizado e aprovado após 23 de agosto de 2000, enquadrado em setores da economia considerados, em ato do Poder Executivo, prioritários para o desenvolvimento regional, que tenha sido instalado, ampliado, modernizado ou diversificado, nas áreas de atuação da Sudene e da Sudam (MP nº 2.058, de 2000, art.
+    1º e reedições, alterado pela Lei nº 11.196, de 2005, art. 32).
+    Atenção:
+    1) A pessoa jurídica que utilizar indevidamente do benefício sujeitará ao pagamento do imposto em relação a cada período de apuração acrescido de juros e multa, sem prejuízo das sanções penais cabíveis.
+    2) As pessoas jurídicas devem pleitear reconhecimento do direito à redução à Secretaria da Receita Federal do Brasil (Decretos nº 4.212 e 4.213, de 2002, art. 3º).
+    A pessoa jurídica deve selecionar no campo "Projeto", o benefício fiscal a que tem direito: "Novo Empreendimento", "Modernização", "Ampliação", Diversificação" ou "Outros". c) Redução de 70%: Este tipo benefício deve ser selecionado pela pessoa jurídica que tenha exploração de atividade hoteleira e outros meios de hospedagem, conforme projetos aprovados pelo Conselho Nacional de Turismo até 31/12/1985.
+    Atenção: A pessoa jurídica deverá selecionar no campo "Projeto", o benefício fiscal a que tem direito: "Novo Empreendimento" ou "Outros". d) Redução de 50%: Este tipo de benefício deve ser selecionado pela pessoa jurídica: d.1) que mantenha exploração de restaurante de turismo e de empreendimentos de apoio à atividade turística, conforme projetos aprovados pelo Conselho Nacional de Turismo até 31/12/1985; d.2) que mantenha exploração de atividade hoteleira e outros meios de hospedagem, de projeto de ampliação do empreendimento;
+    Atenção: A pessoa jurídica deve selecionar no campo "Projeto", o benefício fiscal a que tem direito: "Manutenção de Empreendimento", "Ampliação" ou "Outros". e) Redução de 33,33%: Este tipo de benefício deve ser selecionado pela pessoa jurídica que mantiver empreendimento de exploração de atividade hoteleira e outros meios de hospedagem, conforme projeto de ampliação aprovado pelo Conselho Nacional de Turismo até 31/12/1995.
+    Atenção: A pessoa jurídica deve selecionar no campo "Projeto", o benefício fiscal a que tem direito: "Ampliação" ou "Outros". f) Redução de 25%: Este tipo benefício deve ser selecionado pelas pessoas jurídicas: f.1) que seja titular de empreendimento industrial ou agrícola que tenha sido instalado, ampliado, modernizado ou diversificado, a partir de 1º de janeiro de 1998, nas áreas de atuação da Sudam e da Sudene, cujo projeto tenha sido protocolizado no período de 15 de novembro de 1997 a 23 de agosto de 2000 (MP nº 2.058, de 2000, art. 1º e reedições, e MP nº 1.740-32, de 1999, convalidada pela Lei nº 9.808, de 1999, art. 13);
+    f.2) que tenha empreendimento industrial ou agrícola, nas áreas de atuação da Sudam e da Sudene, cujo projeto tenha sido aprovado ou protocolizado após 14 de novembro de 1997 e até 23 de agosto de 2000 (Lei nº 9.532, de 1997, art. 3º, inciso III; MP nº 2.058, de 2000, art. 1º e reedições, alterado pela Lei nº 11.196, de 2005, art. 32);
+    Atenção: A pessoa jurídica deve selecionar no campo "Projeto", o benefício fiscal a que tem direito: "Novo Empreendimento", “Modernização”, “Ampliação”, “Diversificação” ou “Outros". g) Redução de 12,5%: Este tipo benefício deve ser selecionado pelas pessoas jurídicas detentoras de empreendimentos , nas áreas de atuação da Sudam e da Sudene, dos setores da economia considerados, pelo Poder Executivo, prioritários para o desenvolvimento regional e para os que têm sede na área de jurisdição da Zona Franca de Manaus, reconhecidos como de interesse para o desenvolvimento da região (MP nº 2.058, de 2000, art. 2º e reedições).
+    Atenção:
+    1) a pessoa jurídica deve selecionar no campo "Projeto", o benefício fiscal a que tem direito: "Manutenção de Empreendimento".
+    2) As pessoas jurídicas devem pleitear reconhecimento do direito à redução à Receita Federal, cujo pedido é instruído com a declaração de que trata o item 3 deste Atenção (Decretos nº 4.212 e 4.213, de 2002, art. 3º).
+    3) A fruição do benefício fiscal tem efeito a partir da data em que a pessoa jurídica apresentar ao órgão competente do Ministério da Integração requerimento solicitando a declaração de que satisfaz as condições estabelecidas para gozo do favor fiscal. h) Redução por Reinvestimento: Este tipo de benefício deve ser selecionado pelas pessoas jurídicas que pleiteiam a redução de até 30% do valor do imposto de renda. A partir de 1º de janeiro de 2001 somente gozam desse benefício as pessoas jurídicas que detenham empreendimentos dos setores da economia que venham a ser considerados, em ato do Poder Executivo, prioritários para o desenvolvimento regional.
+    Atenção: A pessoa jurídica deve selecionar no campo "Projeto", o benefício fiscal a que tem direito: "Outros".
+    III) Subvenção para investimento: concessão de crédito fiscal de subvenção para investimento, nos termos da Lei nº 14.789, de 2023.
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: '[00; 01; 02; 03; 04; 05; 06; 07; 08; 09; 10; 99]'
+  obrigatorio: true
+- numero: 3
+  campo: IND_CONCEDENTE
+  descricao: |-
+    Órgão Concessor da Isenção/Redução:
+    AM: Sudam – Superintendência de Desenvolvimento da Amanzônia NE: Sudene – Superintendência de Desenvolvimento do Nordeste Ou: Outros
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: '[AM; NE; OU]'
+  obrigatorio: true
+- numero: 4
+  campo: IND_PROJ
+  descricao: |-
+    Projeto:
+    00 – Não preenchido
+    01 – Novo Empreendimento
+    02 – Modernização
+    03 – Ampliação
+    04 – Diversificação
+    05 – Manutenção do Empreendimento
+    06 – Prouni
+    07 - Padis
+    08 – Eventos Fifa
+    09 – Serviços da Fifa (SPE)
+    10 – Eventos CIO
+    11 – Serviços do CIO (SPE)
+    99 – Outros
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: '[00; 01; 02; 03; 04; 05; 06; 07; 08; 09; 10; 11; 99]'
+  obrigatorio: true
+- numero: 5
+  campo: ATO_CONC
+  descricao: |-
+    Ato Concessório - Natureza e Número: Informar neste campo o número do ato concessório do benefício fiscal.
+    Atenção: No caso de projeto nas áreas de atuação da Sudam e da Sudene, informar neste campo o número do ato da unidade da RFB editado para reconhecimento do direito ao benefício fiscal.
+    Observação: Caso o benefício fiscal não possua ato concessório, informar neste campo a palavra “Outros”.
+  tipo: C
+  tamanho: 30
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: VIG_INI
+  descricao: |-
+    Prazo de Vigência – Início
+    Informar a data de início de fruição do benefício conforme consignada no Ato Concessório.
+  tipo: D
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 7
+  campo: VIG_FIM
+  descricao: |-
+    Prazo de Vigência – Fim
+    Informar a data de encerramento do prazo de fruição do benefício conforme consignada no Ato Concessório.
+  tipo: D
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 8
+  campo: CNPJ_INCENTIVO
+  descricao: CNPJ do Estabelecimento com Isenção/Redução/Redução por Reinvestimento/Subvenção para Investimento Informar o CNPJ completo do estabelecimento.
+  tipo: C
+  tamanho: 14
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 9
+  campo: NCM_INCENTIVO
+  descricao: Código NCN do Produto Sujeito à Isenção/Redução/Redução por Reinvestimento/Subvenção para Investimento
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 10
+  campo: REC_LIQ_INCENTIVO
+  descricao: Valor da Receita Líquida Relativa à Isenção/Redução/Redução por Reinvestimento/ Subvenção para Investimento
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 11
+  campo: VL_INCENTIVO
+  descricao: Valor da Isenção/Redução/Redução por Reinvestimento/Subvenção para Investimento
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+regras_validacao_registro_detalhe:
+- regra: REGRA_ISENCAO_AM_NE_REAL
+  descricao: Verifica, quando 0010.FORMA_TRIB é igual “1” (Lucro Real) ou “2” (Lucro Real/Arbitrado), se o somatório de X280.VL_INCENTIVO, quando X280.IND_ATIV é igual “01” (Isenção) e X280.IND_CONCEDENTE é igual a “AM” (Sudam) ou “NE” (Sudene), é igual ao somatório de N610(10) com N610(15), considerando os períodos “A00”, “T01”, “T02”, “T03” e “T04” (N030.PER_APUR). Se a regra não for cumprida, a ECF gera um erro.
+- regra: REGRA_ISENCAO_OU_REAL
+  descricao: Verifica, quando 0010.FORMA_TRIB é igual “1” (Lucro Real) ou “2” (Lucro Real/Arbitrado), se o somatório de X280.VL_INCENTIVO, quando X280.IND_ATIV é igual “01” (Isenção) e X280.IND_CONCEDENTE é igual a “OU” (Outros), é igual ao somatório de N610(5), N610(20), N610(25), N610(30), N610(35) e N610(40), considerando os períodos “A00”, “T01”, “T02”, “T03” e “T04” (N030.PER_APUR). Se a regra não for cumprida, a ECF gera um erro.
+- regra: REGRA_ISENCAO_PRESUMIDO
+  descricao: Verifica, quando 0010.FORMA_TRIB é igual “5” (Lucro Presumido) ou “7” (Lucro Presumido/Arbitrado), se o somatório de X280.VL_INCENTIVO, quando X280.IND_ATIV é igual “01” (Isenção), é igual ao somatório de P230(6), considerando os períodos “T01”, “T02”, “T03” e “T04” (P030.PER_APUR). Se a regra não for cumprida, a ECF gera um erro.
+- regra: REGRA_ISENCAO_MISTA
+  descricao: Verifica, quando 0010.FORMA_TRIB é igual “3” (Lucro Presumido/Real) ou “4” (Lucro Presumido/Real/Arbitrado), se o somatório de X280.VL_INCENTIVO, quando X280.IND_ATIV é igual “01” (Isenção), é igual ao somatório de N610(5), N610(20), N610(25), N610(30), N610(35) e N610(40), considerando os períodos “A00”, “T01”, “T02”, “T03” e “T04” (N030.PER_APUR), com o somatório de P230(6), considerando os períodos “T01”, “T02”, “T03” e “T04” (P030.PER_APUR). Se a regra não for cumprida, a ECF gera um erro.
+- regra: REGRA_RECEITA_ISENCAO
+  descricao: Verifica se o somatório de X280.REC_LIQ_INCENTIVO, quando X280.IND_ATIV é igual “01” (Isenção), é igual ao somatório de N600(2), N600(3), N600(4), N600(5), N600(6), N600(7), N600(8) e N600(9), considerando os períodos “A00”, “T01”, “T02”, “T03” e “T04” (N030.PER_APUR), com o somatório de P130(2), P130(3), P130(4) e P130(5), considerando os períodos “T01”, “T02”, “T03” e “T04” (P030.PER_APUR). Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_RECEITA_REDUCOES
+  descricao: Verifica se o somatório de X280.REC_LIQ_INCENTIVO, quando X280.IND_ATIV é diferente “01” (Isenção), é igual ao somatório de N600(10), N600(11), N600(12), N600(13), N600(14), N600(15), N600(16) e N600(17)., considerando os períodos “A00”, “T01”, “T02”, “T03” e “T04” (N030.PER_APUR), com o somatório de P130(11), P130(12), P130(13), P130(14), P130(20), P130(21), P130(22), P130(23), P130(29), P130(30), P130(31), P130(32), P130(38), P130(39), P130(40), P130(41), P130(47), P130(48), P130(49), P130(50), P130(56), P130(57), P130(58), P130(59), P130(65), P130(66), P130(67), P130(68), P130(74), P130(75), P130(76), P130(77), considerando os períodos “T01”, “T02”, “T03” e “T04” (P030.PER_APUR). Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_REDUCAO_100
+  descricao: Verifica se o somatório de X280. VL_INCENTIVO, quando X280.IND_ATIV é igual “02” (Redução de 100%), é igual ao somatório de N610(45), considerando os períodos “A00”, “T01”, “T02”, “T03” e “T04” (N030.PER_APUR). Se a regra não for cumprida, a ECF gera um erro.
+- regra: REGRA_REDUCAO_75
+  descricao: Verifica se o somatório de X280. VL_INCENTIVO, quando X280.IND_ATIV é igual “03” (Redução de 75%), é igual ao somatório de N610(50), considerando os períodos “A00”, “T01”, “T02”, “T03” e “T04” (N030.PER_APUR), com o somatório de P230(11), considerando os períodos “T01”, “T02”, “T03” e “T04” (P030.PER_APUR). Se a regra não for cumprida, a ECF gera um erro.
+- regra: REGRA_REDUCAO_70
+  descricao: Verifica se o somatório de X280.VL_INCENTIVO, quando X280.IND_ATIV é igual “04” (Redução de 70%), é igual ao somatório de N610(55), considerando os períodos “A00”, “T01”, “T02”, “T03” e “T04” (N030.PER_APUR), com o somatório de P230(16), considerando os períodos “T01”, “T02”, “T03” e “T04” (P030.PER_APUR). Se a regra não for cumprida, a ECF gera um erro.
+- regra: REGRA_REDUCAO_50
+  descricao: Verifica se o somatório de X280.VL_INCENTIVO, quando X280.IND_ATIV é igual “05” (Redução de 50%), é igual ao somatório de N610(60), considerando os períodos “A00”, “T01”, “T02”, “T03” e “T04” (N030.PER_APUR), com o somatório de P230(21), considerando os períodos “T01”, “T02”, “T03” e “T04” (P030.PER_APUR). Se a regra não for cumprida, a ECF gera um erro.
+- regra: REGRA_REDUCAO_33
+  descricao: Verifica se o somatório de X280. VL_INCENTIVO, quando X280.IND_ATIV é igual “06” (Redução de 33,33%), é igual ao somatório de N610(65), considerando os períodos “A00”, “T01”, “T02”, “T03” e “T04” (N030.PER_APUR), com o somatório de P230(26), considerando os períodos “T01”, “T02”, “T03” e “T04” (P030.PER_APUR). Se a regra não for cumprida, a ECF gera um erro.
+- regra: REGRA_REDUCAO_25
+  descricao: Verifica se o somatório de X280.VL_INCENTIVO, quando X280.IND_ATIV é igual “07” (Redução de 25%), é igual ao somatório de N610(70), considerando os períodos “A00”, “T01”, “T02”, “T03” e “T04” (N030.PER_APUR), com o somatório de P230(31), considerando os períodos “T01”, “T02”, “T03” e “T04” (P030.PER_APUR). Se a regra não for cumprida, a ECF gera um erro.
+- regra: REGRA_REDUCAO_12
+  descricao: Verifica se o somatório de X280.VL_INCENTIVO, quando X280.IND_ATIV é igual “08” (Redução de 12,5%), é igual ao somatório de N610(75), considerando os períodos “A00”, “T01”, “T02”, “T03” e “T04” (N030.PER_APUR), com o somatório de P230(36), considerando os períodos “T01”, “T02”, “T03” e “T04” (P030.PER_APUR). Se a regra não for cumprida, a ECF gera um erro.
+- regra: REGRA_REDUCAO_REINVESTIMENTO
+  descricao: Verifica se o somatório de X280.VL_INCENTIVO, quando X280.IND_ATIV é igual “09” (Redução por Reinvestimento), é igual ao somatório de N610(77), considerando os períodos “A00”, “T01”, “T02”, “T03” e “T04” (N030.PER_APUR), com o somatório de P230(38), considerando os períodos “T01”, “T02”, “T03” e “T04” (P030.PER_APUR). Se a regra não for cumprida, a ECF gera um erro.
+- regra: REGRA_ISENCAO_REDUCAO
+  descricao: Verifica, quando 0020.IND_LUC_EXP é igual a “S” (Sim) ou 0020.IND_RED_ISEN é igual a “S” (Sim), se existe X280.IND_ATIV igual a “01”, “02”, “03”, “04”, “05”, “06”, “07” ou “08” e o somatório de N630(17) com P300(8) é maior que zero. Se a regra não for cumprida, a ECF gera um erro.
+regras_validacao_campos:
+- numero: 3
+  campo: IND_CONCEDENTE
+  regras:
+  - regra: REGRA_IND_CONCEDENTE
+    descricao: Verifica, quando X280.IND_CONCEDENTE é igual a “OU” (Outros), se X280.IND_ATIV é igual a “01” (Isenção) ou “02” (Redução de 100%) ou “04” (Redução de 70%) ou “05” (Redução de 50%) ou “06” (Redução de 33,33%) ou “08” (Redução de 12,5%) ; ou quando X280.IND_CONCEDENTE é igual a “AM” (Sudam) ou “NE” (Sudene), se X280.IND_ATIV é igual a “01” (Isenção) ou “03” (Redução de 75%) ou “07” (Redução de 25%) ou “08” (Redução de 12,5%) ou “09” (Redução por Reinvestimento).
+    tipo: Erro
+- numero: 4
+  campo: IND_PROJ
+  regras:
+  - regra: REGRA_IND_PROJ_ACEITO
+    descricao: |-
+      Verifica se IND_PROJ é compatível com a atividade.
+      O erro ocorre:
+      1) Se X280.IND_ATIV = “1” e X280.IND_PROJ é diferente de “1” ou “2” ou “3” ou “4” ou “6” ou “8” ou “9” ou “10” ou “11” ou “99”
+      2) Se X280.IND_ATIV = “2” e X280.IND_PROJ é diferente de “7” ou “99”
+      3) Se X280.IND_ATIV = “3” e X280.IND_PROJ é diferente de “1” ou “2” ou “3” ou “4” ou “99”
+      4) Se X280.IND_ATIV = “4” e X280.IND_PROJ é diferente de “1” ou “99”
+      5) Se X280.IND_ATIV = “5” e X280.IND_PROJ é diferente de “3” ou “5” ou “99”
+      6) Se X280.IND_ATIV = “6” e X280.IND_PROJ é diferente de “3” ou “99”
+      7) Se X280.IND_ATIV = “7” e X280.IND_PROJ é diferente de “1” ou “2” ou “3” ou “4” ou “99” 8) Se X280.IND_ATIV = “8” e X280.IND_PROJ é diferente de “5” ou “99” 9) Se X280.IND_ATIV = “9” e X280.IND_PROJ é diferente de “99”
+    tipo: Erro
+- numero: 6
+  campo: VIG_INI
+  regras:
+  - regra: REGRA_MENOR_IGUAL_DT_FIN
+    descricao: Verifica se X280.VIG_INI é menor ou igual a 0000.DT_FIN.
+    tipo: Erro
+- numero: 7
+  campo: VIG_FIM
+  regras:
+  - regra: REGRA_MAIOR_IGUAL_DT_INI
+    descricao: Verifica se X280.VIG_FIM é maior ou igual a 0000.DT_INI.
+    tipo: Erro
+  - regra: REGRA_MAIOR_IGUAL_VIG_INI
+    descricao: Verifica se X280.VIG_FIM é maior ou igual a X280.VIG_INI.
+    tipo: Erro
+- numero: 8
+  campo: CNPJ_INCENTIVO
+  regras:
+  - regra: REGRA_VALIDA_CNPJ
+    descricao: Verifica se o CNPJ informado em X280.CNPJ_INCENTIVO é válido.
+    tipo: Erro
+  - regra: REGRA_VALIDA_CNPJ_MATRIZ
+    descricao: Verifica se os 8 (oito) primeiros dígitos do campo X280.CNPJ_INCENTIVO são iguais aos 8 primeiros dígitos do campo 0000.CNPJ.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|X280|01|AM|01|11111111112014|01012021|31122026|11111111000191|22222222|100000,00|100000,00|'
+  explicacao:
+  - valor: '|X280|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|01|'
+    descricao: Benefício fiscal (01 = Isenção).
+  - valor: '|AM|'
+    descricao: 'Orgão concessor da isenção/redução: (AM = Sudam).'
+  - valor: '|01|'
+    descricao: Indicador de projeto (01 = Novo empreendimento).
+  - valor: '|11111111112014|'
+    descricao: Ato concessório (1111111111/2014).
+  - valor: '|01012021|'
+    descricao: Início da vigência (01/01/2021).
+  - valor: '|31122026|'
+    descricao: Fim da vigência (31/12/2026).
+  - valor: '|11111111000191|'
+    descricao: CNPJ do estabelecimento com isenção/redução/redução por reinvestimento/subvenção para investimento.
+  - valor: '|22222222|'
+    descricao: NCM do produto sujeito à isenção/redução/redução por reinvestimento/subvenção para investimento.
+  - valor: '|100000,00|'
+    descricao: Receita líquida relativa à isenção/redução/redução por reinvestimento/subvenção para investimento (R$ 100.000,00).
+  - valor: '|100000,00|'
+    descricao: Valor da isenção/redução/redução por reinvestimento/subvenção para investimento. (R$ 100.000,00).

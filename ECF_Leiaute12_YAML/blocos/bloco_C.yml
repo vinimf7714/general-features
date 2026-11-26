@@ -1,0 +1,63 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+bloco: C
+nome: Informações Recuperadas da ECD
+paginas_manual:
+- 109
+- 109
+orientacoes_gerais: |-
+  O bloco C não é preenchido pela empresa. O sistema preencherá o bloco C no momento da recuperação das Escriturações Contábeis Digitais (ECD). Somente poderão ser recuperadas as ECD do tipo “G”,” R” ou “B”.
+  G - Livro Diário (Completo sem escrituração auxiliar).
+  R - Livro Diário com Escrituração Resumida (Com escrituração auxiliar).
+  B - Livro Balancetes Diários e Balanços.
+registros:
+- registro: C001
+  nome: Abertura do Bloco C - Informações Recuperadas da ECD
+  nivel: 1
+  arquivo: ../registros/bloco_C/C001.yml
+- registro: C040
+  nome: Identificador da ECD
+  nivel: 2
+  arquivo: ../registros/bloco_C/C040.yml
+- registro: C050
+  nome: Plano de Contas da ECD
+  nivel: 3
+  arquivo: ../registros/bloco_C/C050.yml
+- registro: C051
+  nome: Plano de Contas Referencial Preenchido na ECD
+  nivel: 4
+  arquivo: ../registros/bloco_C/C051.yml
+- registro: C053
+  nome: Subcontas Correlatas
+  nivel: 4
+  arquivo: ../registros/bloco_C/C053.yml
+- registro: C100
+  nome: Centro de Custos
+  nivel: 3
+  arquivo: ../registros/bloco_C/C100.yml
+- registro: C150
+  nome: Identificação do Período dos Saldos Periódicos das Contas Patrimoniais
+  nivel: 3
+  arquivo: ../registros/bloco_C/C150.yml
+- registro: C155
+  nome: Detalhes dos Saldos Contábeis das Contas Patrimoniais
+  nivel: 4
+  arquivo: ../registros/bloco_C/C155.yml
+- registro: C157
+  nome: Transferência de Saldos do Plano de Contas Anterior
+  nivel: 5
+  arquivo: ../registros/bloco_C/C157.yml
+- registro: C350
+  nome: Identificação da Data dos Saldos das Contas de Resultado Antes do Encerramento
+  nivel: 3
+  arquivo: ../registros/bloco_C/C350.yml
+- registro: C355
+  nome: Detalhes dos Saldos das Contas de Resultado Antes do Encerramento
+  nivel: 4
+  arquivo: ../registros/bloco_C/C355.yml
+- registro: C990
+  nome: Encerramento do Bloco C
+  nivel: 1
+  arquivo: ../registros/bloco_C/C990.yml

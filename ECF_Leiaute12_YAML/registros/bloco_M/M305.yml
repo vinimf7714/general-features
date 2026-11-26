@@ -1,0 +1,112 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: M305
+nome: Conta da Parte B do e-Lalur
+bloco: M
+nome_tabela_registros: Contas da Parte B Relacionadas ao Lançamento da Parte A do e-Lalur
+paginas_manual:
+- 251
+- 252
+descricao: |-
+  Relacionamento do lançamento da parte A do e-Lalur com a conta da parte B do e-Lalur, de acordo com as regras abaixo:
+  - Se adição, debita conta da parte B e credita na parte A.
+  - Se exclusão, credita conta da parte B e debita na parte A.
+  - Se prejuízo, debita conta da parte B e credita na parte A.
+titulo_leiaute: 'REGISTRO M305: CONTA DA PARTE B DO e-LALUR'
+regras_validacao_registro: []
+nivel_hierarquico: 4
+ocorrencia: 0:N
+campos_chave: COD_CTA_B
+tabela_registros:
+  nivel: 4
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se M300.IND_RELACAO = “1” ou “3”
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: M300
+  filhos: []
+  irmaos:
+  - M310
+  - M315
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (M305).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[M305]'
+  obrigatorio: true
+- numero: 2
+  campo: COD_CTA_B
+  descricao: 'Código da Conta na Parte B: Código unívoco atribuído pelo contribuinte à conta no e-Lalur no registro M010.'
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: '[M010.COD_CTA_B]'
+  obrigatorio: true
+- numero: 3
+  campo: VL_CTA
+  descricao: |-
+    Valor Total dos Lançamentos: Valor total dos lançamentos adicionados ou excluídos da conta.
+    Observação: Valor deve ser menor ou igual ao saldo disponível do mesmo período de apuração da conta na parte B do registro M410.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: IND_VL_CTA
+  descricao: |-
+    Indicador do Valor Total dos Lançamentos:
+    D – Para prejuízos ou valores que reduzam o lucro real em períodos subsequentes.
+    C – Para valores que aumentam o lucro real em períodos subsequentes.
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[D; C]'
+  obrigatorio: true
+regras_validacao_campos:
+- numero: 2
+  campo: COD_CTA_B
+  regras:
+  - regra: REGRA_PARTE_B_PARTE_A
+    descricao: Verifica se a conta padrão da Parte B relacionada à conta da Parte B da pessoa jurídica titular da ECF possui relacionamento com a linha da parte A informada no registro M300.
+    tipo: Erro
+- numero: 4
+  campo: IND_VL_CTA
+  regras:
+  - regra: REGRA_PEA
+    descricao: |-
+      Verifica as regras abaixo:
+      - Se faz adição na parte A (crédito na parte A), debita na conta da parte B.
+      - Se faz exclusão na parte A (débito na parte A), credita conta da parte B.
+      - Se compensa prejuízo na parte A (débito na parte A), credita conta da parte B.
+      O erro ocorre se o campo M300.TIPO_LANCAMENTO é igual a:
+      - “A” (adição) e M305.IND_VL_CTA é igual a “C”
+      - “E” (exclusão) e M305.IND_VL_CTA é igual a “D”
+      - “P” (compensação de prejuízos) e M305.IND_VL_CTA é igual a “D”
+    tipo: Aviso
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|M305|101|2000,00|D|'
+  explicacao:
+  - valor: '|M305|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|101|'
+    descricao: Código da conta na parte B.
+  - valor: '|2000,00|'
+    descricao: Valor total dos lançamentos adicionados ou excluídos da conta (R$ 2.000,00).
+  - valor: '|D|'
+    descricao: Indicador do valor do lançamento (D = Prejuízos ou valores que reduzam a base de cálculo da contribuição social em períodos subsequentes).

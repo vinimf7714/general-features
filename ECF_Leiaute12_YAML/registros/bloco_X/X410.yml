@@ -1,0 +1,116 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: X410
+nome: Comércio Eletrônico – Informação de Homepage/Servidor
+bloco: X
+nome_tabela_registros: Comércio Eletrônico – Informação de Homepage/Servidor
+paginas_manual:
+- 521
+- 522
+descricao: |-
+  Este registro será habilitado somente para as pessoas jurídicas que efetuaram durante o ano-calendário, por meio da Internet, vendas de bens tangíveis (corpóreos), de bens intangíveis (incorpóreos) ou prestado serviços para pessoas físicas ou jurídicas, residentes ou domiciliadas no Brasil ou no exterior (0020.IND_E-COM_TI = "S").
+  Deverão, também, preencher este registro as pessoas jurídicas que possuam servidor à sua disposição (próprio, alugado, arrendado ou cedido a título oneroso ou gratuito), a partir do qual realize transações de comércio eletrônico.
+  Não deve preencher este registro a pessoa jurídica que tenha homepage utilizada apenas como meio de publicidade ou de divulgação institucional da empresa e de sua marca; assim, não deve preencher este registro a pessoa jurídica que não forneça, por meio desta homepage, endereço eletrônico ou um “Fale Conosco”.
+titulo_leiaute: 'REGISTRO X410: COMÉRCIO ELETRÔNICO – INFORMAÇÃO DE HOMEPAGE/SERVIDOR'
+regras_validacao_registro:
+- REGRA_HOMEPAGE_SERVIDOR
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: PAIS
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020. IND_E-COM_TI="S"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: X001
+  filhos: []
+  irmaos:
+  - X280
+  - X292
+  - X340
+  - X360
+  - X365
+  - X370
+  - X390
+  - X400
+  - X420
+  - X430
+  - X450
+  - X460
+  - X470
+  - X480
+  - X485
+  - X490
+  - X500
+  - X510
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (X410)
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[X410]'
+  obrigatorio: true
+- numero: 2
+  campo: PAIS
+  descricao: |-
+    País: País em que disponibiliza homepage ou mantém servidor à sua disposição.
+    Código do país, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: N
+  tamanho: 3
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: IND_HOME_DISP
+  descricao: |-
+    Indicador de Homepage Disponível:
+    S – Sim
+    N – Não
+    A pessoa jurídica deverá marcar “Sim” ou “Não”, para cada país selecionado, onde tenha o domínio de sua homepage registrado, caso disponibilize, ou não, efetivamente sua homepage. A disponibilização efetiva da homepage se dá por meio do conhecer ao público de seu conteúdo.
+    Atenção: Deve assinalar “Não” neste campo, a pessoa jurídica que tenha efetuado somente o registro de sua homepage num determinado país e não tenha construído ou disponibilizado efetivamente essa homepage para o público.
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 4
+  campo: IND_SERV_DISP
+  descricao: |-
+    Indicador de Disponibilidade de Servidor:
+    S – Sim
+    N – Não
+    A pessoa jurídica que, por meio de sua homepage, aceite pedidos de compra, receba pagamentos, preste serviços ou efetue a entrega de bens digitais por meio de download deve selecionar “Sim” neste campo, para cada país selecionado, para informar o país onde mantém os servidores que estão à sua disposição. Para que um servidor seja considerado à sua disposição basta que ele seja o meio pelo qual a pessoa jurídica atue no comércio eletrônico. Esses servidores podem pertencer à pessoa jurídica, como podem ser alugados, arrendados ou cedidos a título gratuito ou oneroso.
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S, N]'
+  obrigatorio: true
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|X410|105|S|N|'
+  explicacao:
+  - valor: '|X410|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|105|'
+    descricao: Código do país (105 = “Brasil”).
+  - valor: '|S|'
+    descricao: Homepage disponível (S = Sim).
+  - valor: '|N|'
+    descricao: Servidor não disponível (N = Não).
+informacoes_adicionais:
+- titulo: I – Regras de Validação de Registro
+  conteudo: 'REGRA_HOMEPAGE_SERVIDOR: Verfica se, para cada X410.PAIS, X410.IND_HOME_DISP igual a “S” e X410.IND_SERV_DISP igual a “N” ou X410.IND_HOME_DISP igual a “N” e X410.IND_SERV_DISP igual a “S”. Caso a regra não seja cumprida, o sistema gera um erro.'

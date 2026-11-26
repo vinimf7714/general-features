@@ -1,0 +1,156 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: M410
+nome: Lançamento na Conta da Parte B do e-Lalur e do e-Lacs sem Reflexo na Parte A
+bloco: M
+nome_tabela_registros: Lançamentos na Conta da Parte B do e-Lalur e do e- Lacs Sem Reflexo na Parte A
+paginas_manual:
+- 269
+- 270
+descricao: Apresenta os lançamentos em contas da parte B sem reflexos na parte A.
+titulo_leiaute: 'REGISTRO M410: LANÇAMENTOS NA CONTA DA PARTE “B” DO e-LALUR e do e-LACS SEM REFLEXO NA PARTE A'
+regras_validacao_registro:
+- REGRA_PREJUIZO_FISCAL
+- REGRA_BC_NEGATIVA
+nivel_hierarquico: 3
+ocorrencia: 0:N
+campos_chave: null
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: F
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: M030
+  filhos:
+  - M415
+  irmaos:
+  - M300
+  - M350
+  - M500
+  - M510
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (M410).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[M410]'
+  obrigatorio: true
+- numero: 2
+  campo: COD_CTA_B
+  descricao: Código da Conta do Lançamento (conta da Parte B)
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 3
+  campo: COD_TRIBUTO
+  descricao: |-
+    Código do Tributo:
+    I – Imposto de Renda
+    C – Contribuição Social sobre o Lucro Líquido
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[I; C]'
+  obrigatorio: true
+- numero: 4
+  campo: VAL_LAN_LALB_PB
+  descricao: Valor do Lançamento.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: IND_VAL_LAN_LALB_PB
+  descricao: |-
+    Indicador do Lançamento:
+    CR – Crédito
+    DB – Débito
+    PF - Prejuízo do exercício.
+    BC - Base de cálculo negativa da CSLL.
+    Observação: O indicador PF refere-se ao prejuízo apurado no exercício em curso.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: '[CR; DB; PF; BC]'
+  obrigatorio: true
+- numero: 6
+  campo: COD_CTA_B_CTP
+  descricao: |-
+    Código Unívoco da Contrapartida (conta da Parte B), caso seja necessária a transferência de saldo de uma conta na parte B para outra conta na parte B.
+    Não preencher quando: IND_VAL_LAN_LA_LB_PB for igual a “PF” ou “BC”.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 7
+  campo: HIST_LAN_LALB
+  descricao: Histórico do Lançamento.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 8
+  campo: IND_LAN_ANT
+  descricao: |-
+    Lançamento para Realização de Valores Cuja Tributação Tenha Sido Diferida:
+    S – Sim
+    N – Não
+    Observação: Marca-se “Sim” neste campo quando o contribuinte, em período anterior, realizou valores controlados na parte B do e-Lalur/e-Lacs e deve reajustar os saldos das contas em início de período de apuração tributado pelo lucro real.
+  tipo: C
+  tamanho: 1
+  decimal: null
+  valores_validos: '[S; N]'
+  obrigatorio: true
+regras_validacao_registro_detalhe:
+- regra: REGRA_PREJUIZO_FISCAL
+  descricao: Verifica se o somatório dos lançamentos de prejuízo fiscal é igual ao valor da base de cálculo do IRPJ. Se a regra não for cumprida, a ECF gera um erro.
+- regra: REGRA_BC_NEGATIVA
+  descricao: Verifica se o somatório dos lançamentos da base de cálculo negativa da CSLL é igual ao valor da base de cálculo da CSLL. Se a regra não for cumprida, a ECF gera um erro.
+regras_validacao_campos:
+- numero: 6
+  campo: COD_CTA_B_CTP
+  regras:
+  - regra: REGRA_MESMO_TRIBUTO
+    descricao: Se M410.COD_CTA_B_CTP for preenchido, as contas constantes do lançamento devem corresponder ao mesmo tributo (M010.TRIBUTO).
+    tipo: Erro
+  - regra: REGRA_NAO_PREENCHER_CTP
+    descricao: Se M410.IND_VAL_LAN_LALB_PB igual a “PF” ou “BC”, campo M410.COD_CTA_B_CTP não deve ser preenchido.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|M410|101|I|1000,00|CR|202|LANÇAMENTO DE CRÉDITO EM VIRTUDE DA OCORRÊNCIA XXXX|N|'
+  explicacao:
+  - valor: '|M410|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|101|'
+    descricao: Código da conta da parte B.
+  - valor: '|I|'
+    descricao: Imposto de renda.
+  - valor: '|1000,00|'
+    descricao: Valor do lançamento (R$ 1.000,00).
+  - valor: '|CR|'
+    descricao: Indicador do lançamento (CR = Crédito).
+  - valor: '|202|'
+    descricao: Código da conta da parte B de contrapartida.
+  - valor: '|LANÇAMENTO DE CRÉDITO EM VIRTUDE DA OCORRÊNCIA XXXX|'
+    descricao: Histórico do lançamento.
+  - valor: '|N|'
+    descricao: Realização de valores cuja tributação tenha sido diferida (N = Não).

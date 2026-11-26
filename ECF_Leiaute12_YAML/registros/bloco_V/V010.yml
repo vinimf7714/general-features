@@ -1,0 +1,91 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: V010
+nome: DEREX - Instituição
+bloco: V
+nome_tabela_registros: DEREX – Instituição
+paginas_manual:
+- 421
+- 421
+descricao: |-
+  Este registro apresenta as instituições financeiras, o país e a moeda nos quais houve aplicações financeiras, investimentos e pagamento de obrigações próprias do exportador, conforme § 3º, art.
+  4º da Instrução Normativa RFB nº 1.801, de 26 de março de 2018.
+titulo_leiaute: 'REGISTRO V010: DEREX – INSTITUIÇÃO'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 1:N
+campos_chave: REG
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Obrigatório se 0020.ind_derex = S Senão Não deve Existir
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: V001
+  filhos:
+  - V020
+  - V030
+  irmaos: []
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (V010).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[V010]'
+  obrigatorio: true
+- numero: 2
+  campo: NOME_INSTITUICAO
+  descricao: Nome da Instituição
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: PAIS
+  descricao: Código do País da Instituição
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: Conforme tabela EFDFINANCEIRA_PAISES
+  obrigatorio: true
+- numero: 4
+  campo: TIP_MOEDA
+  descricao: Deve ser selecionada a moeda utilizada na Declaração
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: Conforme tabela SPEDECF_CBC_MOEDA
+  obrigatorio: true
+regras_validacao_campos:
+- numero: 3
+  campo: PAIS
+  regras:
+  - regra: REGRA_DIFERENTE_BRASIL
+    descricao: Verifica, quando V010.PAIS é igual “BR” (Brasil)
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|V010|INSTITUICAO 1|DE|EUR|'
+  explicacao:
+  - valor: '|V010|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|INSTITUICAO 1|'
+    descricao: Nome da Instituição.
+  - valor: '|DE|'
+    descricao: Código do País da Instituição
+  - valor: '|EUR|'
+    descricao: Moeda utilizada na declaração

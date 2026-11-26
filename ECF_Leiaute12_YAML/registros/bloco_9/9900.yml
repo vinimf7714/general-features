@@ -1,0 +1,150 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: '9900'
+nome: Registros do Arquivo
+bloco: '9'
+nome_tabela_registros: Registros do Arquivo
+paginas_manual:
+- 616
+- 617
+descricao: Este registro informa a quantidade total de registros por tipo de registro do arquivo da ECF. Devem ser mostradas a quantidade de ocorrências de todos os registros que aparecem no arquivo da ECF, inclusive do próprio registro 9900, que será preenchido por último. Além disso, deve ser informado o código da versão da tabela dinâmica utilizada (atualmente a versão é 1.00) e a identificação da tabela dinâmica utilizada (será preenchido pelo sistema). Ambos os campos (9900.VERSAO e 9900.ID_TAB_DIN), atualmente, são não obrigatórios.
+titulo_leiaute: 'REGISTRO 9900: REGISTROS DO ARQUIVO'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: null
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: O
+  obrigatoriedade_saida:
+    codigo: O
+  ocorrencia: '[1;N]'
+hierarquia:
+  pai: '9001'
+  filhos: []
+  irmaos:
+  - '9100'
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto fixo contendo a identificação do registro (9900).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[9900]'
+  obrigatorio: true
+- numero: 2
+  campo: REG_BLC
+  descricao: 'Registro: Registro que será totalizado em 9900.QTD_REG_BLC.'
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: QTD_REG_BLC
+  descricao: 'Total de Registros por Tipo: Total de registros do tipo informado em 9900.REG_BLC.'
+  tipo: N
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: VERSAO
+  descricao: 'Versão: Versão da tabela dinâmica utilizada. Será preenchido somente para registros dinâmicos.'
+  tipo: C
+  tamanho: 4
+  decimal: null
+  valores_validos: null
+  obrigatorio: false
+- numero: 5
+  campo: ID_TAB_DIN
+  descricao: Identificação da Tabela Dinâmica Utilizada.
+  tipo: C
+  tamanho: '-'
+  decimal: null
+  valores_validos: null
+  obrigatorio: false
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|9900|0000|1|||'
+  - '|9900|0001|1|||'
+  - '|9900|0010|1|||'
+  - '|9900|0020|1|||'
+  - '|9900|U100|302|11|SPEDECF_DINAMICA_U100_A|'
+  - '|9900|U150|213|11|SPEDECF_DINAMICA_U150_A|'
+  - '|9900|9990|1|||'
+  - '|9900|9999|1|||'
+  - '|9900|9900|43|||'
+  explicacao:
+  - valor: '|9900|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|0000|'
+    descricao: Será mostrado o total de ocorrência do registro 0000.
+  - valor: '|1|'
+    descricao: A quantidade total do registro 00000 no arquivo da ECF é 1.
+  - valor: '|9900|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|0001|'
+    descricao: Será mostrado o total de ocorrência do registro 0001.
+  - valor: '|1|'
+    descricao: A quantidade total do registro 0001 no arquivo da ECF é 1.
+  - valor: '|9900|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|0010|'
+    descricao: Será mostrado o total de ocorrência do registro 0010.
+  - valor: '|1|'
+    descricao: A quantidade total do registro 0010 no arquivo da ECF é 1.
+  - valor: '|9900|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|0020|'
+    descricao: Será mostrado o total de ocorrência do registro 0020.
+  - valor: '|1|'
+    descricao: A quantidade total do registro 0020 no arquivo da ECF é 1.
+  - valor: '|9900|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|U100|'
+    descricao: Será mostrado o total de ocorrência do registro U100.
+  - valor: '|302|'
+    descricao: A quantidade total do registro U100 no arquivo da ECF é 302.
+  - valor: '|11|'
+    descricao: Versão 11 da tabela dinâmica.
+  - valor: '|SPEDECF_DINAMICA_U100_A|'
+    descricao: Tabela dinâmica utilizada.
+  - valor: '|9900|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|U150|'
+    descricao: Será mostrado o total de ocorrência do registro U150.
+  - valor: '|213|'
+    descricao: A quantidade total do registro U150 no arquivo da ECF é 213.
+  - valor: '|11|'
+    descricao: Versão 11 da tabela dinâmica.
+  - valor: '|SPEDECF_DINAMICA_U150_A|'
+    descricao: Tabela dinâmica utilizada.
+  - valor: '|9900|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|9990|'
+    descricao: Será mostrado o total de ocorrência do registro 9990.
+  - valor: '|1|'
+    descricao: A quantidade total do registro 9990 no arquivo da ECF é 1.
+  - valor: '|9900|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|9999|'
+    descricao: Será mostrado o total de ocorrência do registro 9999.
+  - valor: '|1|'
+    descricao: A quantidade total do registro 9999 no arquivo da ECF é 1.
+  - valor: '|9900|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|9900|'
+    descricao: Será mostrado o total de ocorrência do registro 9900.
+  - valor: '|43|'
+    descricao: A quantidade total do registro 9900 no arquivo da ECF é 43.

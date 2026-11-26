@@ -1,0 +1,101 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: E030
+nome: Identificação do Período
+bloco: E
+nome_tabela_registros: Identificação do Período
+paginas_manual:
+- 127
+- 128
+descricao: |-
+  Registro preenchido pelo sistema ao executar a funcionalidade de recuperar ECD. Calculado de acordo com os períodos fiscais determinados no Bloco 0:
+  - Trimestral;
+  - Anual; ou
+  - Mensal (para balanços de suspensão e redução).
+titulo_leiaute: 'REGISTRO E030: IDENTIFICAÇÃO DO PERÍODO'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 0:13
+campos_chave: PER_APUR
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: N
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se houver recuperação de dados da ECD
+  ocorrencia: '[0;13]'
+hierarquia:
+  pai: E001
+  filhos:
+  - E155
+  - E355
+  irmaos:
+  - E010
+  - E020
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (E030).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[E030]'
+  obrigatorio: true
+- numero: 2
+  campo: DT_INI
+  descricao: Data do Início do Período
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: DT_FIN
+  descricao: Data do Fim do período
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: PER_APUR
+  descricao: |-
+    Período de Apuração [para 0010.FORMA_APUR = “A”]:
+    A00 – Anual
+    A01 – Rec. Bruta de janeiro /Balanço suspensão redução até janeiro
+    A02 – Rec. Bruta de fevereiro /Balanço suspensão redução até fevereiro
+    A03 – Rec. Bruta de março /Balanço suspensão redução até março
+    A04 – Rec. Bruta de abril /Balanço suspensão redução até abril
+    A05 – Rec. Bruta de maio /Balanço suspensão redução até maio
+    A06 – Rec. Bruta de junho /Balanço suspensão redução até junho
+    A07 – Rec. Bruta de julho /Balanço suspensão redução até julho
+    A08 – Rec. Bruta de agosto /Balanço suspensão redução até agosto
+    A09 – Rec. Bruta de setembro /Balanço suspensão redução até setembro
+    A10 – Rec. Bruta de outubro/Balanço suspensão redução até outubro
+    A11 – Rec. Bruta de novembro /Balanço suspensão redução até novembro
+    A12 – Rec. Bruta de dezembro/Balanço suspensão redução até dezembro
+    Indicador do período de referência [para 0010.FORMA_APUR = “T” OU (0010.FORMA_APUR = “A” E 0010.FORMA_TRIB = “2”)]:
+    T01 – 1º Trimestre
+    T02 – 2º Trimestre
+    T03 – 3º Trimestre
+    T04 – 4º Trimestre
+    Regra: O período deve estar compreendido entre a data início e data fim da escrituração.
+    Regra:
+    SE 0010.FORMA_APUR = “A”
+    - Deve existir um registro A00.
+    - Deve existir um registro [A01..A012] para cada mês marcado no 0010.MES_BAL_RED [1..12] como “B” SE 0010.FORMA_APUR = “T”
+    - Deve existir um registro [T01..T04] para cada trimestre marcado no 0010.FORMA_TRIB_PER[1..4] como “R”
+  tipo: C
+  tamanho: 3
+  decimal: '-'
+  valores_validos: '[A00; A01; A02; A03; A04; A05; A06; A07; A08; A09; A10; A11; A12; T01; T02; T03; T04]'
+  obrigatorio: true

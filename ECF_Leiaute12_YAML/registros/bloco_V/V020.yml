@@ -1,0 +1,101 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: V020
+nome: Responsável pela Movimentação
+bloco: V
+nome_tabela_registros: DEREX - Responsável pela Movimentação
+paginas_manual:
+- 422
+- 422
+descricao: Este registro apresenta as informações dos procuradores, representantes ou agentes no exterior, responsáveis pela movimentação das contas bancárias.
+titulo_leiaute: 'REGISTRO V020: DEREX - Responsável pela movimentação'
+regras_validacao_registro: []
+nivel_hierarquico: 3
+ocorrencia: 1:N
+campos_chave: REG
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: O
+    condicao: Obrigatório se existir V010.
+  ocorrencia: '[1;N]'
+hierarquia:
+  pai: V010
+  filhos: []
+  irmaos:
+  - V030
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (V020).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[V020]'
+  obrigatorio: true
+- numero: 2
+  campo: NOME
+  descricao: Nome do responsável
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: ENDERECO
+  descricao: Endereço do responsável
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: TIPO_DO_C
+  descricao: Tipo de documento do responsável
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: Conforme tabela SPEDECF_DEREX_DOCUMENTO
+  obrigatorio: true
+- numero: 5
+  campo: NI
+  descricao: Número do documento do responsável
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: IDENT_CONTA
+  descricao: Identificação das contas
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|V020|FULANO| RUA ALFA 121 – PERDIZES – SÃO PAULO/SP – CEP: 20.000-000|XX|12345678900|12345-6|'
+  explicacao:
+  - valor: '|V020|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|FULANO|'
+    descricao: Nome do Responsável.
+  - valor: '|RUA ALFA, 121 - PERDIZES – SÃO PAULO/SP – CEP: 20.000-000|'
+    descricao: Endereço do Responsável.
+  - valor: '|PS|'
+    descricao: 'Tipo de Documento do Responsável.: Passaporte.'
+  - valor: '|12345678900|'
+    descricao: Número do documento do responsável.
+  - valor: '|12345-6|'
+    descricao: Identificação das Contas.

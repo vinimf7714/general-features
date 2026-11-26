@@ -1,0 +1,164 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: N660
+nome: Apuração da CSLL Mensal por Estimativa
+bloco: N
+nome_tabela_registros: Apuração da CSLL Mensal por Estimativa
+paginas_manual:
+- 304
+- 307
+descricao: |-
+  Este registro é habilitado para a pessoa jurídica que apurou o imposto de renda com base no lucro real anual que optou por apurar a CSLL por estimativa mensal.
+  I) Apuração Anual da CSLL, com Recolhimentos Mensais sobre a Base de Cálculo Estimada
+  A pessoa jurídica que apurar anualmente o imposto sobre a renda com base no lucro real também deve apurar a CSLL anualmente com base no resultado ajustado, em 31 de dezembro de cada ano.
+  Os valores de CSLL efetivamente pagos calculados sobre a base de cálculo estimada mensalmente, no transcorrer do ano-calendário, podem ser deduzidos do valor de CSLL apurado anualmente (ajuste).
+  O valor da CSLL não pode ser deduzido para efeito de determinação do lucro real e da própria base de cálculo (Lei nº 9.316, de 1996, art. 1º).
+  I.1) Base de Cálculo
+  I.1.1) Pessoas Jurídicas de Natureza Comercial, Industrial ou de Prestação de Serviços
+  A base de cálculo da CSLL, em cada mês, será determinada pela soma:
+  1) de 12% (doze por cento) ou de 32% (trinta e dois por cento) da receita bruta auferida no período;
+  2) dos rendimentos e ganhos líquidos auferidos em aplicações financeiras de renda fixa e renda variável;
+  3) dos ganhos de capital, das demais receitas e dos resultados positivos decorrentes de receitas não compreendidas na atividade, no mês em que forem auferidos, inclusive:
+  a) os rendimentos auferidos nas operações de mútuo realizadas entre pessoas jurídicas ou entre pessoa jurídica e pessoa física;
+  b) os ganhos auferidos na alienação de participações societárias permanentes em sociedades coligadas e controladas, e de participações societárias que permaneceram no ativo da pessoa jurídica até o término do ano-calendário seguinte ao de suas aquisições;
+  c) os ganhos auferidos em operações de cobertura (hedge) realizadas em bolsas de valores, de mercadorias e de futuros ou no mercado de balcão;
+  d) a receita de locação de imóvel, quando não for este o objeto social da pessoa jurídica, deduzida dos encargos necessários à sua percepção;
+  e) os juros equivalentes à taxa do Sistema Especial de Liquidação e Custódia (Selic), para títulos federais, acumulada mensalmente, relativos a impostos e contribuições a serem restituídos ou compensados;
+  f) as variações monetárias ativas;
+  g) a diferença entre o valor em dinheiro ou o valor dos bens e direitos recebidos de instituição isenta, a título de devolução de patrimônio, e o valor em dinheiro ou o valor dos bens e direitos entregue para a formação do referido patrimônio (Lei nº 9.532, de 1997, art. 17, § 3º, e art. 81, inciso II);
+  h) os ganhos de capital auferidos na devolução de capital em bens e direitos.
+  Atenção:
+  1) A partir de 1º de setembro de 2003, o percentual da receita bruta considerado para efeito de determinação da base de cálculo da CSLL, a que se refere o item 1 acima, é de 32% (trinta e dois por cento), para as atividades de:
+  a) prestação de serviços em geral, observado o disposto no item seguinte;
+  b) intermediação de negócios;
+  c) administração, locação ou cessão de bens imóveis, móveis e direitos de qualquer natureza;
+  d) prestação cumulativa e contínua de serviços de assessoria creditícia, mercadológica, gestão de crédito, seleção de riscos, administração de contas a pagar e a receber, e compra de direitos creditórios resultantes de vendas mercantis a prazo ou de prestação de serviços (factoring).
+  e) prestação de serviços de construção, recuperação, reforma, ampliação ou melhoramento de infraestrutura vinculados a contrato de concessão de serviço público.
+  2) O percentual de receita bruta a ser considerado é de 12% (doze por cento) para as atividades de:
+  a) prestação de serviços hospitalares e de auxílio diagnóstico e terapia, fisioterapia e terapia ocupacional, fonoaudiologia, patologia clínica, imagenologia, radiologia, anatomia patológica e citopatologia, medicina nuclear e análises e patologias clínicas, exames por métodos gráficos, procedimentos endoscópicos, radioterapia, quimioterapia, diálise e oxigenoterapia hiperbárica, desde que a prestadora desses serviços seja organizada sob a forma de sociedade empresária e atenda às normas da Agência Nacional de Vigilância Sanitária (Anvisa);prestação de serviços hospitalares; e
+  b) de transporte, inclusive de carga, o percentual de receita bruta a ser considerado é de 12% (doze por cento).
+  3) No caso de atividades diversificadas, será aplicado o percentual correspondente a cada atividade.
+  4) A partir de 1º de janeiro de 2006, o percentual também passou a ser aplicado sobre a receita financeira da pessoa jurídica que explore atividades imobiliárias relativas a loteamento de terrenos, incorporação imobiliária, construção de prédios destinados à venda, bem como a venda de imóveis construídos ou adquiridos para a revenda, quando decorrente da comercialização de imóveis e for apurada por meio de índices ou coeficientes previstos em contrato. (Lei nº 11.196, de 2005, art. 34).
+  O ganho de capital, nas alienações de bens do ativo não-circulante, exceto realizável a longo prazo, e de ouro não considerado ativo financeiro, corresponde à diferença positiva verificada entre o valor da alienação e o respectivo valor contábil.
+  Para efeito de apuração do ganho de capital, considera-se valor contábil:
+  1) No caso de investimentos permanentes em:
+  a) participações societárias avaliadas pelo custo de aquisição, o valor de aquisição;
+  b) participações societárias avaliadas pelo valor de patrimônio líquido, a soma algébrica dos seguintes valores:
+  I. do patrimônio líquido pelo qual o investimento estiver registrado;
+  II. da mais-valia ou menos valia;
+  III. do ágio por rentabilidade futura (goodwill);
+  IV. da provisão para perdas, constituída até 31 de dezembro de 1995, quando dedutível.
+  2) No caso das aplicações em ouro, não considerado ativo financeiro, o valor de aquisição;
+  3) No caso dos demais bens e direitos do ativo não-circulante, exceto realizável a longo prazo, o custo de aquisição, diminuído dos encargos de depreciação, amortização ou exaustão acumulados e das perdas estimadas no valor de ativos; e
+  4) No caso de outros bens e direitos não classificados no ativo não-circulante, exceto realizável a longo prazo, considera-se valor contábil o custo de aquisição.
+  A baixa de investimento relevante e influente em sociedade coligada ou controlada deve ser precedida de avaliação pelo valor de patrimônio líquido, com base em balanço patrimonial ou balancete de verificação da coligada ou controlada, levantado na data da alienação ou liquidação ou até trinta dias, no máximo, antes dessa data.
+  O ganho de capital auferido na venda de bens do ativo não-circulante, exceto realizável a longo prazo, para recebimento do preço, no todo ou em parte, após o término do ano-calendário seguinte ao da contratação deve integrar a base de cálculo mensal da CSLL, podendo, para efeito de determinar o resultado ajustado, ser computado na proporção da parcela do preço recebida em cada mês.
+  As receitas financeiras decorrentes das variações monetárias dos direitos de crédito e das obrigações do contribuinte, em função da taxa de câmbio, são consideradas, para efeito de determinação da base de cálculo da CSLL, quando da liquidação da correspondente operação. À opção da pessoa jurídica, as variações monetárias podem ser consideradas segundo o regime de competência, o qual deve ser aplicado a todo o ano-calendário.
+  I.1.2) Efeito dos Balanços de Suspensão ou Redução no Pagamento da CSLL
+  A mesma forma de tributação adotada pela pessoa jurídica, para fins de apuração do imposto de renda, deve ser empregada para fins de apuração da CSLL.
+  Assim, a pessoa jurídica que levantou balanço ou balancete para suspender ou reduzir o pagamento do imposto de renda, em determinado mês do ano-calendário, deve apurar a base de cálculo da CSLL sobre o resultado do período apurado nesse mesmo balanço, ajustado pelas adições determinadas, pelas exclusões permitidas e pelas compensações de base de cálculo negativa da CSLL, observados os limites definidos na legislação pertinente.
+  A pessoa jurídica que levantar balanço ou balancete de suspensão ou redução do pagamento do IRPJ e da CSLL em 31 de dezembro deve computar os lucros, oriundos do exterior, disponibilizados nos termos do art. 1º da Lei nº 9.532, de 1997, observado o disposto no art. 74 da Medida Provisória nº 2.158-35 de 24 de agosto de 2001. A pessoa jurídica deve computar também os rendimentos e ganhos de capital, auferidos no exterior, nesse balanço ou balancete, para fins de incidência da CSLL.
+  Informações detalhadas sobre balanço de suspensão ou redução do pagamento do IRPJ e da CSLL podem ser encontradas nas explicações iniciais do Bloco L.
+titulo_leiaute: 'REGISTRO N660: CÁLCULO DA CSLL MENSAL POR ESTIMATIVA'
+regras_validacao_registro:
+- REGRA_DUPLICIDADE_DESPREZADA
+- REGRA_LINHA_DESPREZADA
+- REGRA_LINHA_ATUALIZADA
+nivel_hierarquico: 3
+ocorrencia: 1:N
+campos_chave: CODIGO
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se N030.PER_APUR = [A01..A12]
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: N030
+  filhos: []
+  irmaos:
+  - N500
+  - N600
+  - N605
+  - N610
+  - N615
+  - N620
+  - N630
+  - N650
+  - N670
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (N660).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[N660]'
+  obrigatorio: true
+- numero: 2
+  campo: CODIGO
+  descricao: Código, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: DESCRICAO
+  descricao: Descrição, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 4
+  campo: VALOR
+  descricao: Valor
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+regras_validacao_registro_detalhe:
+- regra: REGRA_DUPLICIDADE_DESPREZADA
+  descricao: Verifica se o registro já foi importado anteriormente, de acordo com a chave e os registros pais. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_DESPREZADA
+  descricao: Verifica se o registro existe na importação, mas não será importado por não existir na tabela dinâmica devido às configurações do bloco 0 ou da tabela dinâmica. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_ATUALIZADA
+  descricao: Verifica se o registro está desatualizado em relação à tabela da RFB. Se a regra não for cumprida, a ECF gera um aviso.
+regras_validacao_campos:
+- numero: 4
+  campo: VALOR
+  regras:
+  - regra: REGRA_OBRIGATORIO_TIPO_DIFERENTE_R
+    descricao: Verifica se o campo está preenchido quando o tipo da linha é diferente de “R”.
+    tipo: Erro
+tabelas_dinamicas: |-
+  N660 - Apuração da CSLL Mensal por Estimativa
+  Vide planilha deste Registro no arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” a partir do link http://sped.rfb.gov.br/pasta/show/1644.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+  Regras de validação da tabela dinâmica N660:
+  Vide arquivo “SPEDECF_DINAMICO_2021$SPEDECF_DINAMICA_N660_REGRAS” no diretório C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|N660|19|CSLL A PAGAR|10000,00|'
+  explicacao:
+  - valor: '|N660|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|19|'
+    descricao: Código da linha.
+  - valor: '|CSLL A PAGAR|'
+    descricao: Descrição da linha.
+  - valor: '|10000,00|'
+    descricao: Valor da linha (R$ 10.000,00).

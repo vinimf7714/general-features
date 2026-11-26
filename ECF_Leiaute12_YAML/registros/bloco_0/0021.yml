@@ -1,0 +1,296 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: '0021'
+nome: Parâmetros de Identificação dos Tipos de Programa
+bloco: '0'
+nome_tabela_registros: Parâmetros de Identificação dos Tipos de Programa
+paginas_manual:
+- 96
+- 100
+descricao: |-
+  Identifica se a pessoa jurídica é:
+  a) habilitada ao Regime Especial de Tributação para a Plataforma de Exportação de Serviços de Tecnologia da Informação (Repes), instituído pela Lei nº 11.196, de 2005, com as alterações introduzidas pelas Leis nº 11.774, de 17 de setembro de 2008, e nº 12.715, de 17 de setembro de 2012, regulamentado pelo Decreto nº 5.712, de 2 de março de 2006, com as alterações introduzidas pelo Decreto nº 6.887, de 25 de junho de 2009; ou
+  b) habilitada ao Regime Especial de Aquisição de Bens de Capital para Empresas Exportadoras (Recap) instituído pela Lei nº 11.196, de 2005, com as alterações introduzidas pelas Leis nº 11.774, de 2008, e nº 12.715, de 17 de setembro de 2012, regulamentado pelo Decreto nº 5.649, de 29 de dezembro de 2005, com as alterações introduzidas pelo Decreto nº 6.887, de 2009; ou
+  c) executora de projeto aprovado no âmbito do Programa de Apoio ao Desenvolvimento Tecnológico da Indústria de Semicondutores (Padis), instituído pela Lei nº 11.484, de 31 de maio de 2007, com alterações introduzidas pelo art. 20 c/c art. 139, I, “d” da Lei nº 12.249, de 11 de junho de 2010, e pelo art. 57 da Lei nº 12.715, de 2012, regulamentado pelo Decreto nº 6.233, de 11 de outubro de 2007, com as alterações introduzidas pelo Decreto nº 6.887, de 2009; ou
+  d) habilitada ou co-habilitada ao Regime Especial de Incentivos para o Desenvolvimento da Infraestrutura (Reidi), instituído pela Lei nº 11.488, de 15 de junho de 2007, com as alterações introduzidas pela Lei nº 11.727, de 23 de junho de 2008, e pelo art. 21 c/c art. 139, I, “d” da Lei nº 12.249, de 2010, regulamentado pelo Decreto nº 6.144, de 3 de julho de 2007, com as alterações introduzidas pelo Decreto nº 6.167, de 24 de julho de 2007 e pelo Decreto nº 6.416, de 28 de março de 2008; ou
+  e) detentora de projeto de exibição cinematográfica aprovado no âmbito do Regime Especial de Tributação para Desenvolvimento da Atividade de Exibição Cinematográfica (Recine), instituído pela Lei nº 12.599, de 23 de março de 2012, regulamentada pelo Decreto nº 7.729, de 25 de maio de 2012; ou
+  f) beneficiária do Regime Especial Tributário para a Indústria de Defesa (Retid), nos termos e condições estabelecidos na Lei nº 12.598, de 22 de março de 2012, ou
+  g) habilitada a usufruir a suspensão do pagamento da Contribuição para o PIS/Pasep e da Cofins incidentes nas vendas no mercado interno de óleo combustível do tipo bunker destinado à navegação de cabotagem e de apoio portuário e marítimo e da Contribuição para o PIS/Pasep-Importação e da Cofins-Importação incidentes na sua importação, criada pelo art. 2º da Lei nº 11.774, de 17 de setembro de 2008.
+  h) habilitada ao Regime Tributário para o Incentivo à Modernização e à Ampliação da Estrutura Portuária (Reporto), instituído pelo art. 13 da Lei nº 11.033, de 2004, regulamentado pelo Decreto nº 6.582, de 2008, e Decreto nº 8.033, de 2013.
+  i) com opção efetivada pela RFB para o Regime Especial de Tributação Aplicável às Incorporações Imobiliárias objeto de patrimônio de afetação (RET-II), de que tratam os arts. 1º a 11-A da Lei nº 10.931, de 2 de agosto de 2004.
+  j) com opção efetivada pela RFB para o Regime Especial de Tributação Aplicável às Construções de Unidades Habitacionais Contratadas no Âmbito do Programa Minha Casa, Minha Vida (RET-PMCMV), de que tratam os arts. 1º a 2º-A da Lei nº 12.024, de 27 de agosto de 2009 Redação dada pela Lei nº 13.970, de 2019), ou do Programa Casa Verde e Amarela (RET-PCVA), de que trata a Lei de Conversão da Medida Provisória nº 996, de 25 de agosto de 2020.
+  k) com opção efetivada pela RFB para o Regime Especial de Tributação Aplicável às Construções ou Reformas de Estabelecimentos de Educação Infantil (RET-EEI), de que tratam os arts. 24 a 27 da Lei nº 12.715, de 17 de setembro de 2012, regulamentados pelos arts. 486 a 495 do Decreto nº 9.580, de 22 de novembro de 2018.
+  l) entidade beneficente de assistência social (EBAS) imune de contribuições sociais, de que trata o parágrafo 7º do art. 195 da Constituição da República Federativa do Brasil, de 5 de outubro de 1988, e certificada nos termos da Lei Complementar nº 187, de 16 de dezembro de 2021.
+  m) habilitada ao Regime Especial de Industrialização de Bens Destinados às Atividades de Exploração, de Desenvolvimento e de Produção de Petróleo, de Gás Natural e de Outros Hidrocarbonetos Fluidos (Repetro-Industrialização), instituído pelo art. 6º da Lei nº 13.586, de 28 de dezembro de 2017, regulamentado pelo Decreto nº 9.537, de 24 de outubro de 2018.
+  n) habilitada ao Regime Aduaneiro Especial de Exportação e Importação de Bens Destinados às Atividades de Pesquisa e de Lavra das Jazidas de Petróleo e de Gás Natural (Repetro), de que tratam o art.
+  6º da Lei nº 12.276, de 30 de junho de 2010, o art. 61 da Lei nº 12.351, de 22 de dezembro de 2010, o art. 5º da Lei nº 13.586, de 28 de dezembro de 2017, e regulamentado pelos arts. 458 a 462 do Decreto nº 6.759, de 5 de fevereiro de 2009.
+  o) habilitada ao Regime Tributário e Aduaneiro Especial de Utilização Econômica de Bens Destinados às Atividades de Exploração, Desenvolvimento e Produção das Jazidas de Petróleo e de Gás Natural (Repetro-Sped), de que tratam o art. 6º da Lei nº 12.276, de 30 de junho de 2010, o art. 61 da Lei nº 12.351, de 22 de dezembro de 2010, o art. 5º da Lei nº 13.586, de 28 de dezembro de 2017, e regulamentado pelos arts. 372, 377, 426 e 462 do Decreto nº 6.759, de 5 de fevereiro de 2009.
+  p) Habilitada ao Regime Especial de Tributação para Serviços de Datacenter - REDATA – instituído pela Medida Provisória nº 1.318, de 17 de setembro de 2025, que altera a Lei nº 11.196, de 21 de novembro de 2005. Porém, por conta do Ato Declaratório do Presidente da Mesa do Congresso Nacional nº 11, de 2026, o regime vigeu até a data de 25 de fevereiro de 2026. As pessoas jurídicas que conseguiram habilitar e usufruir do benefício devem prestar informação.
+titulo_leiaute: 'REGISTRO 0021: PARÂMETROS DE IDENTIFICAÇÃO DOS TIPOS DE PROGRAMA'
+regras_validacao_registro:
+- REGRA_0021_PREENCHIDO
+nivel_hierarquico: 2
+ocorrencia: 0:1
+campos_chave: '[REG]'
+observacoes_leiaute:
+- '[REGRA_0021_PREENCHIDO]'
+- Se 0020.IND_PJ_HAB = “S”, pelo menos um campo do registro deve estar marcado com “S”.
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020.IND_PJ_HAB = S
+  ocorrencia: '[0;1]'
+hierarquia:
+  pai: '0001'
+  filhos: []
+  irmaos:
+  - '0010'
+  - '0020'
+  - '0030'
+  - '0035'
+  - 0930
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto fixo contendo a identificação do registro (0021).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[0021]'
+  obrigatorio: true
+- numero: 2
+  campo: IND_REPES
+  descricao: |-
+    Regime Especial de Tributação para a Plataforma de Exportação de Serviços de Tecnologia da Informação (Repes):
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: false
+- numero: 3
+  campo: IND_RECAP
+  descricao: |-
+    Regime Especial de Aquisição de Bens de Capital para Empresas Exportadoras (Recap):
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: false
+- numero: 4
+  campo: IND_PADIS
+  descricao: |-
+    Programa de Apoio ao Desenvolvimento Tecnológico da Indústria de Semicondutores (Padis):
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: false
+- numero: 5
+  campo: IND_REIDI
+  descricao: |-
+    Regime Especial de Incentivos para o Desenvolvimento da Infraestrutura (Reidi):
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: false
+- numero: 6
+  campo: IND_RECINE
+  descricao: |-
+    Regime Especial de Tributação para Desenvolvimento da Atividade de Exibição Cinematográfica (Recine):
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: false
+- numero: 7
+  campo: IND_RETID
+  descricao: |-
+    Regime Especial Tributário para a Indústria de Defesa (Retid):
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: false
+- numero: 8
+  campo: IND_OLEO_BUNKER
+  descricao: |-
+    Regime de Suspensão de Óleo Bunker:
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: false
+- numero: 9
+  campo: IND_REPORTO
+  descricao: |-
+    Regime Tributário para o Incentivo à Modernização e à Ampliação da Estrutura Portuária (Reporto):
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: false
+- numero: 10
+  campo: IND_RET_II
+  descricao: |-
+    Regime Especial de Tributação Aplicável às Incorporações Imobiliárias Objeto de Patrimônio de Afetação (RET-II):
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: false
+- numero: 11
+  campo: IND_RET_PMCMV
+  descricao: |-
+    Regime Especial de Tributação Aplicável às Construções de Unidades Habitacionais Contratadas no Âmbito do Programa Minha Casa, Minha Vida (RET-PMCMV):
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: false
+- numero: 12
+  campo: IND_RET_EEI
+  descricao: |-
+    Regime Especial de Tributação Aplicável às Construções ou Reformas de Estabelecimentos de Educação Infantil (RET-EEI):
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: false
+- numero: 13
+  campo: IND_EBAS
+  descricao: |-
+    Entidade Beneficente de Assistência Social (EBAS):
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: false
+- numero: 14
+  campo: IND_REPETRO_INDUSTRIALIZACAO
+  descricao: |-
+    Regime Especial de Industrialização de Bens Destinados às Atividades de Exploração, de Desenvolvimento e de Produção de Petróleo, de Gás Natural e de Outros Hidrocarbonetos Fluidos (REPETRO-INDUSTRIALIZAÇÃO):
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: false
+- numero: 15
+  campo: IND_REPETRO_NACIONAL
+  descricao: |-
+    Regime Tributário e Aduaneiro Especial de Utilização Econômica de Bens Destinados às Atividades de Exploração, Desenvolvimento e Produção das Jazidas de Petróleo e de Gás Natural, na modalidade REPETRO-NACONAL:
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: false
+- numero: 16
+  campo: IND_REPETRO_PERMANENTE
+  descricao: |-
+    Regime Tributário e Aduaneiro Especial de Utilização Econômica de Bens Destinados às Atividades de Exploração, Desenvolvimento e Produção das Jazidas de Petróleo e de Gás Natural, na modalidade REPETRO-PERMANENTE:
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: false
+- numero: 17
+  campo: IND_REPETRO_TEMPORARIO
+  descricao: |-
+    Regime Tributário e Aduaneiro Especial de Utilização Econômica de Bens Destinados às Atividades de Exploração, Desenvolvimento e Produção das Jazidas de Petróleo e de Gás Natural, na modalidade REPETRO-TEMPORARIO:
+    S - Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: false
+- numero: 18
+  campo: IND_REDATA
+  descricao: |-
+    Regime Especial de Tributação para Serviços de Datacenter – REDATA:
+    S – Sim
+    N – Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S;N]'
+  obrigatorio: false
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|0021|S|N|N|N|N|N|N|N|N|N|N|N|N|N|N|N|'
+  explicacao:
+  - valor: '|0021|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|S|'
+    descricao: Repes (S = Sim).
+  - valor: '|N|'
+    descricao: Recap (S = Sim).
+  - valor: '|N|'
+    descricao: Padis (S = Sim).
+  - valor: '|N|'
+    descricao: Reidi (N = Não).
+  - valor: '|N|'
+    descricao: Recine (N = Não).
+  - valor: '|N|'
+    descricao: Retid (N = Não).
+  - valor: '|N|'
+    descricao: Óleo Bunker (N = Não).
+  - valor: '|N|'
+    descricao: Reporto (N = Não).
+  - valor: '|N|'
+    descricao: Ret-II (N = Não).
+  - valor: '|N|'
+    descricao: Ret-PMCMV (N = Não).
+  - valor: '|N|'
+    descricao: Ret-EEI (N = Não).
+  - valor: '|N|'
+    descricao: EBAS (N = Não).
+  - valor: '|N|'
+    descricao: Repetro-Industrialização (N = Não).
+  - valor: '|N|'
+    descricao: Repetro-Nacional (N = Não).
+  - valor: '|N|'
+    descricao: Repetro-Permanente (N = Não).
+  - valor: '|N|'
+    descricao: Repetro-Temporário (N = Não).

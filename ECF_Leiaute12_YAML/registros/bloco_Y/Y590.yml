@@ -1,0 +1,125 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: Y590
+nome: Ativos no Exterior
+bloco: Y
+nome_tabela_registros: Ativos no Exterior
+paginas_manual:
+- 569
+- 570
+descricao: Este registro deve ser preenchido por todas as pessoas jurídicas que possuem ativos no exterior (bens e direitos), salvo quando o valor contábil total dos ativos no exterior a declarar, convertido para reais (R$) no final do período abrangido pela ECF, for inferior a R$ 100.000,00 (cem mil reais). O valor do ativo no exterior é convertido em reais (R$) tomando-se por base a taxa de câmbio da moeda do país de origem, fixada para venda, pelo Banco Central do Brasil, correspondente à data de seu efetivo pagamento. Caso a moeda do país de origem não tenha cotação no Brasil, o seu valor é convertido em dólares dos Estados Unidos da América e, em seguida, em reais (R$).
+titulo_leiaute: 'REGISTRO Y590: ATIVOS NO EXTERIOR'
+regras_validacao_registro:
+- REGRA_IND_PART_EXT_Y590
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: TIP_ATIVO + DISCRIMINACAO
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020.IND_ATIV_EXT = "S"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: Y001
+  filhos: []
+  irmaos:
+  - Y520
+  - Y570
+  - Y600
+  - Y612
+  - Y620
+  - Y630
+  - Y640
+  - Y660
+  - Y672
+  - Y680
+  - Y682
+  - Y720
+  - Y730
+  - Y750
+  - Y800
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (Y590).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[Y590]'
+  obrigatorio: true
+- numero: 2
+  campo: TIP_ATIVO
+  descricao: Tipo do Ativo que Possui no Exterior, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: 14
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: PAIS
+  descricao: 'Código do País: País onde se localiza o ativo no exterior, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).'
+  tipo: N
+  tamanho: 3
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: DISCRIMINACAO
+  descricao: 'Discriminação: Detalhar, neste campo, as informações correspondentes aos ativos, tais como: tipo, localização, data de aquisição e de venda, de quem foi adquirido, a quem foi alienado, instituição que intermediou a operação, valor de aquisição e/ou de venda em moeda estrangeira, instituição financeira e agência, tratando-se de aplicação financeira ou depósito e, na hipótese de participações societárias, espécie de participação e empresa investida.'
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: VL_ANT
+  descricao: |-
+    Valor Anterior: Informar o valor contábil do ativo no exterior no final do período anterior.
+    Atenção:
+    1) Caso o período abrangido pela ECF não se inicie em 01/01, a exemplo de início de atividades ou ocorrência de situação especial no ano-calendário, deve ser informado o valor em reais (R$) do ativo no exterior na data de início do período abrangido pela ECF.
+    2) Caso o ativo tenha sido adquirido no curso do período abrangido pela ECF, deve ser informado, neste campo, o valor "zero" e no campo “Discriminação” a data e o valor da aquisição.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: VL_ATUAL
+  descricao: |-
+    Valor Atual: Valor contábil do ativo no final do período atual.
+    Atenção: Caso o ativo tenha sido alienado no curso do período abrangido pela ECF, deve ser informado, neste campo, o valor "zero" e no campo “Discriminação” a data e o valor da alienação.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_registro_detalhe:
+- regra: REGRA_IND_PART_EXT_Y590
+  descricao: Verifica, quando 0020.IND_PART_EXT é igual a “S” (Sim) e 0020.IND_ATIV_EXT é igual a “N” (Não), se o registro Y590 foi preenchido. Se a regra não for cumprida, a ECF gera um aviso.
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|Y590|0331|249|10.000 AÇÕES DA COMPANHIA ABC ADQUIRIDAS EM 20/02/2014 POR MEIO DA BOLSA DE VALORES DE NOVA YORK POR U$ 100.000,00|0|300000,00|'
+  explicacao:
+  - valor: '|Y590|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|0331|'
+    descricao: Tipo do ativo no exterior (0331 = Ações).
+  - valor: '|249|'
+    descricao: Código do país (249 = Estados Unidos da América).
+  - valor: '|10.000 AÇÕES DA COMPANHIA ABC ADQUIRIDAS EM 20/02/2014 POR MEIO DA BOLSA DE VALORES DE NOVA YORK POR U$ 100.000,00|'
+    descricao: Discriminação do ativo.
+  - valor: '|0|'
+    descricao: Não há valor anterior, pois foi adquirida no período da ECF.
+  - valor: '|300000,00|'
+    descricao: Valor no final do período atual (R$ 300.000,00).

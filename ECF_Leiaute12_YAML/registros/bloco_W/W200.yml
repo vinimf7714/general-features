@@ -1,0 +1,507 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: W200
+nome: Declaração País-a-País
+bloco: W
+nome_tabela_registros: Declaração País a País
+paginas_manual:
+- 444
+- 454
+descricao: |-
+  Este registro apresenta as informações da Declaração País-a-País.
+  Devem ser indicadas todas as jurisdições nas quais o grupo multinacional opera (mesmo que esteja presente em determinada jurisdição apenas por meio de um estabelecimento permanente, por exemplo) e fornecidas as informações solicitadas de maneira agregada por jurisdição.
+  Todas as informações em valores devem ser fornecidas em unidades inteiras, ou seja, sem decimais, e os valores negativos devem ser identificados por sinal negativo. Exemplo: R$ -1000.
+  Os campos referentes a Receitas devem incluir valores provenientes de vendas de estoque e propriedades, de serviços, royalties, juros, prêmios e qualquer outro montante. Não devem ser incluídos como receitas pagamentos recebidos de outra entidade integrante do mesmo grupo multinacional que sejam considerados dividendos pela jurisdição tributária da entidade pagadora.
+titulo_leiaute: 'REGISTRO W200: DECLARAÇÃO PAÍS-A-PAÍS'
+regras_validacao_registro: []
+nivel_hierarquico: 3
+ocorrencia: 0:N
+campos_chave: JURISDICAO
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se (W100.IND_CONTROLADORA = "S" e W100.IND_ENTREGA = "2") ou W100.IND_ENTREGA = "3") Ou (Se (W100.IND_CONTROLADORA = "N" e W100.IND_ENTREGA = "3"
+  ocorrencia: '[0;N] Observação: Quando for obrigatório, deverá aparecer, no mínimo, duas vezes.'
+hierarquia:
+  pai: W100
+  filhos:
+  - W250
+  irmaos: []
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (W200).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[W200]'
+  obrigatorio: true
+- numero: 2
+  campo: JURISDICAO
+  descricao: |-
+    Jurisdição de Residência para fins Tributários, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+    A entidade declarante deve listar todas as jurisdições nas quais entidades integrantes do grupo multinacional são residentes para fins tributários e aquelas em que opera por meio de um estabelecimento permanente (ou seja, todas as jurisdições nas quais o grupo multinacional opera). Para cada uma dessas jurisdições, deverão ser fornecidas, de maneira agregada (isto é, somados os valores de todas as entidades integrantes do grupo multinacional presentes em cada jurisdição) as informações solicitadas nos campos subsequentes.
+    Observação: Caso exista uma ou mais entidades integrantes do grupo multinacional que sejam consideradas sem residência para fins tributários, o campo W200.JURISDICAO deve ser preenchido com o código X5 (Sem residência para fins tribvutários). Para esse campo, deverão ser reportadas, de maneira agregada, as informações a respeito de todas as entidades integrantes do grupo multinacional consideradas sem residência para fins tributários.
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: VL_REC_NAO_REL_EST
+  descricao: |-
+    Receitas Provenientes de Partes Não Relacionadas em Moeda Estrangeira (identificada no campo W100.TIP_MOEDA): O contribuinte deve informar a soma das receitas, em moeda estrangeira, de todas as entidades integrantes do grupo multinacional presentes na jurisdição tributária em questão que tenham sido geradas de transações com partes não relacionadas.
+    Observação: Esse campo deve ser preenchido somente se
+    W100.TIP_MOEDA for diferente de Real.
+  tipo: N
+  tamanho: 19
+  decimal: 0
+  valores_validos: null
+  obrigatorio: false
+- numero: 4
+  campo: VL_REC_NAO_REL
+  descricao: |-
+    Receitas Provenientes de Partes Não Relacionadas: O contribuinte deve informar a soma das receitas, em reais, de todas as entidades integrantes do grupo multinacional presentes na jurisdição tributária em questão que tenham sido geradas de transações com partes não relacionadas.
+    Observação: Caso o campo W200.VL_REC_NAO_REL_EST seja informado, este campo será calculado pelo sistema, utilizando como base para conversão tabela do Banco Central para a data de 31 de dezembro do ano da Declaração.
+  tipo: N
+  tamanho: 19
+  decimal: 0
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: VL_REC_REL_EST
+  descricao: |-
+    Receitas Provenientes de Partes Relacionadas em Moeda Estrangeira (identificada no campo W100.TIP_MOEDA): O contribuinte deve informar a soma das receitas, em moeda estrangeira, de todas as entidades integrantes do grupo multinacional presentes na jurisdição tributária em questão que tenham sido geradas de transações com partes relacionadas.
+    Observação: Esse campo deve ser preenchido somente se
+    W100.TIP_MOEDA for diferente de Real.
+  tipo: N
+  tamanho: 19
+  decimal: 0
+  valores_validos: null
+  obrigatorio: false
+- numero: 6
+  campo: VL_REC_REL
+  descricao: |-
+    Receitas Provenientes de Partes Relacionadas: O contribuinte deve informar a soma das receitas, em reais, de todas as entidades integrantes do grupo multinacional presentes na jurisdição tributária em questão que tenham sido geradas de transações com partes relacionadas.
+    Observação: Caso o campo W200.VL_REC_REL_EST seja informado, este campo será calculado pelo sistema, utilizando como base para conversão tabela do Banco Central para a data de 31 de dezembro do ano da Declaração.
+  tipo: N
+  tamanho: 19
+  decimal: 0
+  valores_validos: null
+  obrigatorio: true
+- numero: 7
+  campo: VL_REC_TOTAL_EST
+  descricao: |-
+    Receita Total em Moeda Estrangeira (identificada no campo
+    W100.TIP_MOEDA): Soma das receitas provenientes de partes não relacionadas e das receitas provenientes de partes relacionadas, caso tenham sido informadas em moeda estrangeira. Este campo será calculado pelo sistema (W200.VL_REC_NAO_REL_EST + W200.VL_REC_REL_EST).
+  tipo: N
+  tamanho: 19
+  decimal: 0
+  valores_validos: null
+  obrigatorio: false
+- numero: 8
+  campo: VL_REC_TOTAL
+  descricao: 'Receita Total: Soma das receitas provenientes de partes não relacionadas e das receitas provenientes de partes relacionadas, caso tenham sido informadas em reais. Este campo será calculado pelo sistema (W200.VL_REC_NAO_REL + W200.VL_REC_REL).'
+  tipo: N
+  tamanho: 19
+  decimal: 0
+  valores_validos: null
+  obrigatorio: true
+- numero: 9
+  campo: VL_LUC_PREJ_ANTES_IR_EST
+  descricao: |-
+    Lucro ou Prejuízo Antes do IR em Moeda Estrangeira (identificada no campo W100.TIP_MOEDA): Deve ser reportada a soma do lucro (ou prejuízo) antes do imposto de renda, em moeda estrangeira, de todas as entidades integrantes do grupo multinacional presentes na jurisdição em questão. O lucro (ou prejuízo) antes do imposto de renda deve incluir todas as receitas e despesas extraordinárias.
+    Observação: Esse campo deve ser preenchido somente se
+    W100.TIP_MOEDA for diferente de Real.
+  tipo: NS
+  tamanho: 19
+  decimal: 0
+  valores_validos: null
+  obrigatorio: false
+- numero: 10
+  campo: VL_LUC_PREJ_ANTES_IR
+  descricao: |-
+    Lucro ou Prejuízo Antes do IR: Deve ser reportada a soma do lucro (ou prejuízo) antes do imposto de renda, em reais, de todas as entidades integrantes do grupo multinacional presentes na jurisdição em questão. O lucro (ou prejuízo) antes do imposto de renda deve incluir todas as receitas e despesas extraordinárias.
+    Observação: Caso o campo W200.VL_LUC_PREJ_ANTES_IR_EST seja informado, este campo será calculado pelo sistema, utilizando como base para conversão tabela do Banco Central para a data de 31 de dezembro do ano da Declaração.
+  tipo: NS
+  tamanho: 19
+  decimal: 0
+  valores_validos: null
+  obrigatorio: true
+- numero: 11
+  campo: VL_IR_PAGO_EST
+  descricao: |-
+    Imposto de Renda Pago, em moeda estrangeira (identificada no campo W100.TIP_MOEDA): deve ser informado o montante total de imposto de renda efetivamente pago, em moeda estrangeira, durante o ano fiscal de declaração por todas as entidades integrantes do grupo multinacional presentes na jurisdição reportada. Nesse montante devem ser incluídos impostos pagos por uma entidade integrante a sua própria jurisdição de residência para fins tributários e para todas as outras jurisdições. Também estão incluídos valores pagos a título de imposto de renda retido na fonte por outras entidades (sejam elas independentes ou relacionadas) com relação a pagamentos realizados a uma entidade integrante do grupo multinacional. Dessa forma, se, por exemplo: a entidade A, residente na jurisdição A, recebe valores a título de juros na jurisdição B, o imposto retido na jurisdição B deve ser reportado pela entidade A (isto é, com referência à jurisdição em que a entidade A está situada).
+    Observação: Esse campo deve ser preenchido somente se
+    W100.TIP_MOEDA for diferente de Real.
+  tipo: N
+  tamanho: 19
+  decimal: 0
+  valores_validos: null
+  obrigatorio: false
+- numero: 12
+  campo: VL_IR_PAGO
+  descricao: |-
+    Imposto de Renda Pago: deve ser informado o montante total de imposto de renda efetivamente pago, em reais, durante o ano fiscal de declaração por todas as entidades integrantes do grupo multinacional presentes na jurisdição reportada. Nesse montante devem ser incluídos impostos pagos por uma entidade integrante a sua própria jurisdição de residência para fins tributários e para todas as outras jurisdições. Também estão incluídos valores pagos a título de imposto de renda retido na fonte por outras entidades (sejam elas independentes ou relacionadas) com relação a pagamentos realizados a uma entidade integrante do grupo multinacional. Dessa forma, se, por exemplo: a entidade A, residente na jurisdição A, recebe valores a título de juros na jurisdição B, o imposto retido na jurisdição B deve ser reportado pela entidade A (isto é, com referência à jurisdição em que a entidade A está situada).
+    Observação: Caso o campo W200.VL_IR_PAGO_EST seja informado, este campo será calculado pelo sistema, utilizando como base para conversão tabela do Banco Central para a data de 31 de dezembro do ano da Declaração.
+  tipo: N
+  tamanho: 19
+  decimal: 0
+  valores_validos: null
+  obrigatorio: true
+- numero: 13
+  campo: VL_IR_DEVIDO_EST
+  descricao: |-
+    Imposto de Renda Devido, em moeda estrangeira (identificada no campo W100.TIP_MOEDA): Deve ser informada a soma do imposto de renda devido, em moeda estrangeira, sobre os lucros tributáveis ou prejuízos no ano fiscal de declaração de todas as entidades integrantes do grupo multinacional residentes para fins tributários na jurisdição reportada. A despesa deve refletir apenas operações realizadas no ano e não inclui impostos diferidos ou provisões para passivos tributários incertos.
+    Observação: Esse campo deve ser preenchido somente se
+    W100.TIP_MOEDA for diferente de Real.
+  tipo: N
+  tamanho: 19
+  decimal: 0
+  valores_validos: null
+  obrigatorio: false
+- numero: 14
+  campo: VL_IR_DEVIDO
+  descricao: |-
+    Imposto de Renda Devido: Deve ser informada a soma do imposto de renda devido, em reais, sobre os lucros tributáveis ou prejuízos no ano fiscal de declaração de todas as entidades integrantes do grupo multinacional residentes para fins tributários na jurisdição reportada. A despesa deve refletir apenas operações realizadas no ano e não inclui impostos diferidos ou provisões para passivos tributários incertos.
+    Observação: Caso o campo W200.VL_IR_DEVIDO_EST seja informado, este campo será calculado pelo sistema, utilizando como base para conversão tabela do Banco Central para a data de 31 de dezembro do ano da Declaração.
+  tipo: N
+  tamanho: 19
+  decimal: 0
+  valores_validos: null
+  obrigatorio: true
+- numero: 15
+  campo: VL_CAP_SOC_EST
+  descricao: |-
+    Capital Social em Moeda Estrangeira (identificada no campo
+    W100.TIP_MOEDA): A entidade declarante deve reportar a soma do capital social, em moeda estrangeira, de todas as entidades integrantes residentes para fins tributários na jurisdição informada. Quanto aos estabelecimentos permanentes, o capital social deve ser reportado pela entidade à qual o estabelecimento está relacionado, a menos que exista, na jurisdição onde o estabelecimento permanente está situado, a obrigatoriedade de um capital definido, para fins regulatórios. Nesse caso, o capital atribuído a um estabelecimento permanente deve ser especificado no campo de Informações Adicionais do registro W300.
+    Observação: Esse campo deve ser preenchido somente se
+    W100.TIP_MOEDA for diferente de Real.
+  tipo: N
+  tamanho: 19
+  decimal: 0
+  valores_validos: null
+  obrigatorio: false
+- numero: 16
+  campo: VL_CAP_SOC
+  descricao: |-
+    Capital Social: A entidade declarante deve reportar a soma do capital social, em reais, de todas as entidades integrantes residentes para fins tributários na jurisdição informada. Quanto aos estabelecimentos permanentes, o capital social deve ser reportado pela entidade à qual o estabelecimento está relacionado, a menos que exista, na jurisdição onde o estabelecimento permanente está situado, a obrigatoriedade de um capital definido, para fins regulatórios. Nesse caso, o capital atribuído a um estabelecimento permanente deve ser especificado no registro de Informações Adicionais do registro W300.
+    Observação: Caso o campo W200.VL_CAP_SOC_EST seja informado, este campo será calculado pelo sistema, utilizando como base para conversão tabela do Banco Central para a data de 31 de dezembro do ano da Declaração.
+  tipo: N
+  tamanho: 19
+  decimal: 0
+  valores_validos: null
+  obrigatorio: true
+- numero: 17
+  campo: VL_LUC_ACUM_EST
+  descricao: |-
+    Lucros Acumulados em Moeda Estrangeira (identificada no campo
+    W100.TIP_MOEDA): A entidade declarante deve reportar a soma do total de lucros acumulados, em moeda estrangeira, de todas as entidades integrantes do grupo multinacional residentes para fins tributários na jurisdição informada. No que diz respeito aos estabelecimentos permanentes, os lucros acumulados devem ser reportados pela entidade à qual o estabelecimento está relacionado.
+    Observação: Esse campo deve ser preenchido somente se
+    W100.TIP_MOEDA for diferente de Real.
+  tipo: N
+  tamanho: 19
+  decimal: 0
+  valores_validos: null
+  obrigatorio: false
+- numero: 18
+  campo: VL_LUC_ACUM
+  descricao: |-
+    Lucros Acumulados: A entidade declarante deve reportar a soma do total de lucros acumulados, em reais, de todas as entidades integrantes do grupo multinacional residentes para fins tributários na jurisdição informada. No que diz respeito aos estabelecimentos permanentes, os lucros acumulados devem ser reportados pela entidade à qual o estabelecimento está relacionado.
+    Observação: Caso o campo W200.LUC_ACUM_EST seja informado, este campo será calculado pelo sistema, utilizando como base para conversão tabela do Banco Central para a data de 31 de dezembro do ano da Declaração.
+  tipo: N
+  tamanho: 19
+  decimal: 0
+  valores_validos: null
+  obrigatorio: true
+- numero: 19
+  campo: VL_ATIV_TANG_EST
+  descricao: |-
+    Ativos Tangíveis (exceto caixa e equivalentes de caixa) em Moeda Estrangeira (identificada no campo W100.TIP_MOEDA): Deve ser informada a soma do valor contábil líquido dos ativos tangíveis, em moeda estrangeira, de todas as entidades integrantes do grupo multinacional residentes para fins tributários na jurisdição indicada. Quanto aos estabelecimentos permanentes, seus ativos devem ser reportados com referência à jurisdição na qual o estabelecimento está situado. Para fins da Declaração País-a-País, ativos tangíveis não incluem caixa ou itens equivalentes de caixa, intangíveis ou ativos financeiros.
+    Observação: Esse campo deve ser preenchido somente se
+    W100.TIP_MOEDA for diferente de Real.
+  tipo: N
+  tamanho: 19
+  decimal: 0
+  valores_validos: null
+  obrigatorio: false
+- numero: 20
+  campo: VL_ATIV_TANG
+  descricao: |-
+    Ativos Tangíveis (exceto caixa e equivalentes de caixa): Deve ser informada a soma do valor contábil líquido dos ativos tangíveis, em reais, de todas as entidades integrantes do grupo multinacional residentes para fins tributários na jurisdição indicada. Quanto aos estabelecimentos permanentes, seus ativos devem ser reportados com referência à jurisdição na qual o estabelecimento está situado. Para fins da Declaração País-a-País, ativos tangíveis não incluem caixa ou itens equivalentes de caixa, intangíveis ou ativos financeiros.
+    Observação: Caso o campo W200.VL_ATIV_TANG_EST seja informado, este campo será calculado pelo sistema, utilizando como base para conversão tabela do Banco Central para a data de 31 de dezembro do ano da Declaração.
+  tipo: N
+  tamanho: 19
+  decimal: 0
+  valores_validos: null
+  obrigatorio: true
+- numero: 21
+  campo: NUM_EMP
+  descricao: 'Número de Empregados: Deve ser informado o número total de empregados, trabalhadores e demais colaboradores de todas as entidades integrantes do grupo multinacional residentes para fins tributários na jurisdição indicada. O número de empregados deve ser totalizado ao final do ano, e reportado com base na média registrada para o ano ou outro critério aplicado de maneira consistente entre as jurisdições do grupo e para todos os anos. Para fins da Declaração País- a-País, profissionais independentes contratados participantes das atividades operacionais ordinárias da entidade integrante devem ser reportados como empregados. Arredondamentos ou aproximações razoáveis do número de empregados são permitidas, desde que não gerem distorções relevantes à distribuição relativa de empregados entre as diversas jurisdições tributárias onde o grupo opera. Critérios consistentes devem ser aplicados de um ano para outro entre as entidades.'
+  tipo: N
+  tamanho: 7
+  decimal: 0
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_campos:
+- numero: 3
+  campo: VL_REC_NAO_REL_EST
+  regras:
+  - regra: REGRA_HABILITA_MOEDA_ESTRANGEIRA
+    descricao: |-
+      Caso W100.TIP_MOEDA seja diferente de “Reais”, o campo
+      W200.VL_REC_NAO_REL_EST deve ser habilitado. Caso contrário, o campo W200.VL_REC_NAO_REL_EST é desabilitado.
+    tipo: Habilita
+  - regra: REGRA_VALOR_ESTRANGEIRO_OBRIGATORIO
+    descricao: Verifica, quando W100.TIP_MOEDA é diferente de “Reais”, se o campo W200.VL_REC_NAO_REL_EST está preenchido.
+    tipo: Erro
+  - regra: REGRA_VALOR_ESTRANGEIRO_NAO_PREENCHER
+    descricao: Verifica, quando W100.TIP_MOEDA é igual a “Reais”, se o campo W200.VL_REC_NAO_REL_EST não está preenchido.
+    tipo: Erro
+- numero: 4
+  campo: VL_REC_NAO_REL
+  regras:
+  - regra: REGRA_HABILITA_REAL
+    descricao: |-
+      Caso W100.TIP_MOEDA seja igual a “Reais”, o campo W200.VL_REC_NAO_REL deve ser habilitado.
+      Caso contrário, o campo W200.VL_REC_NAO_REL é desabilitado, pois é calculado automaticamente pelo sistema.
+    tipo: Habilita
+  - regra: REGRA_CALCULA_REAL_CNA
+    descricao: |-
+      Caso o campo W100.TIP.MOEDA seja diferente de “Reais”, o campo
+      W200.VL_REC_NAO_REL será igual ao resultado da multiplicação do campo W200.VL_REC_NAO_REL_EST pela taxa de câmbio para real em 31/12/ano da escrituração, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+    tipo: Erro
+- numero: 5
+  campo: VL_REC_REL_EST
+  regras:
+  - regra: REGRA_HABILITA_MOEDA_ESTRANGEIRA
+    descricao: |-
+      Caso W100.TIP_MOEDA seja diferente de “Reais”, o campo
+      W200.VL_REC_REL_EST deve ser habilitado. Caso contrário, o campo W200.VL_REC_REL_EST é desabilitado.
+    tipo: Habilita
+  - regra: REGRA_VALOR_ESTRANGEIRO_OBRIGATORIO
+    descricao: Verifica, quando W100.TIP_MOEDA é diferente de “Reais”, se o campo W200.VL_REC_REL_EST está preenchido.
+    tipo: Erro
+  - regra: REGRA_VALOR_ESTRANGEIRO_NAO_PREENCHER
+    descricao: Verifica, quando W100.TIP_MOEDA é igual a “Reais”, se o campo W200.VL_REC_REL_EST não está preenchido.
+    tipo: Erro
+- numero: 6
+  campo: VL_REC_REL
+  regras:
+  - regra: REGRA_HABILITA_REAL
+    descricao: Caso W100.TIP_MOEDA seja igual a “Reais”, o campo W200.VL_REC_REL deve ser habilitado. Caso contrário, o campo W200.VL_REC_REL é desabilitado, pois é calculado automaticamente pelo sistema.
+    tipo: Habilita
+  - regra: REGRA_CALCULA_REAL_CNA
+    descricao: Caso o campo W100.TIP.MOEDA seja diferente de “Reais”, o campo W200.VL_REC_REL será igual ao resultado da multiplicação do campo W200.VL_REC_REL_EST pela taxa de câmbio para real em 31/12/ano da escrituração, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+    tipo: Erro
+- numero: 7
+  campo: VL_REC_TOTAL_EST
+  regras:
+  - regra: REGRA_VL_REC_TOTAL_EST_CNA
+    descricao: Verifica se o campo W200.VL_REC_TOTAL_EST é igual ao somatório dos campos W200.VL_REC_NAO_REL_EST e W200.VL_REC_REL_EST.
+    tipo: Erro
+- numero: 8
+  campo: VL_REC_TOTAL
+  regras:
+  - regra: REGRA_VL_REC_TOTAL_CNA
+    descricao: Verifica se o campo W200.VL_REC_TOTAL é igual ao somatório dos campos W200.VL_REC_NAO_REL e W200.VL_REC_REL.
+    tipo: Erro
+- numero: 9
+  campo: VL_LUC_PREJ_ANTES_IR_EST
+  regras:
+  - regra: REGRA_HABILITA_MOEDA_ESTRANGEIRA
+    descricao: |-
+      Caso W100.TIP_MOEDA seja diferente de “Reais”, o campo
+      W200.VL_LUC_PREJ_ANTES_IR_EST deve ser habilitado. Caso contrário, o campo W200.VL_LUC_PREJ_ANTES_IR_EST é desabilitado.
+    tipo: Habilita
+  - regra: REGRA_VALOR_ESTRANGEIRO_OBRIGATORIO
+    descricao: Verifica, quando W100.TIP_MOEDA é diferente de “Reais”, se o campo W200.VL_LUC_PREJ_ANTES_IR_EST está preenchido.
+    tipo: Erro
+  - regra: REGRA_VALOR_ESTRANGEIRO_NAO_PREENCHER
+    descricao: Verifica, quando W100.TIP_MOEDA é igual a “Reais”, se o campo W200.VL_LUC_PREJ_ANTES_IR_EST não está preenchido.
+    tipo: Erro
+- numero: 10
+  campo: VL_LUC_PREJ_ANTES_IR
+  regras:
+  - regra: REGRA_HABILITA_REAL
+    descricao: Caso W100.TIP_MOEDA seja igual a “Reais”, o campo W200.VL_LUC_PREJ_ANTES_IR deve ser habilitado. Caso contrário, o campo W200.VL_LUC_PREJ_ANTES_IR é desabilitado.
+    tipo: Habilita
+  - regra: REGRA_CALCULA_REAL_CNA
+    descricao: |-
+      Caso o campo W100.TIP.MOEDA seja diferente de “Reais”, o campo
+      W200.VL_LUC_PREJ_ANTES_IR será igual ao resultado da multiplicação do campo W200.VL_LUC_PREJ_ANTES_IR_EST pela taxa de câmbio para real em 31/12/ano da escrituração, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+    tipo: Erro
+- numero: 11
+  campo: VL_IR_PAGO_EST
+  regras:
+  - regra: REGRA_HABILITA_MOEDA_ESTRANGEIRA
+    descricao: |-
+      Caso W100.TIP_MOEDA seja diferente de “Reais”, o campo
+      W200.VL_IR_PAGO_EST deve ser habilitado. Caso contrário, o campo W200.VL_IR_PAGO_EST é desabilitado, pois é calculado automaticamente pelo sistema.
+    tipo: Habilita
+  - regra: REGRA_VALOR_ESTRANGEIRO_OBRIGATORIO
+    descricao: Verifica, quando W100.TIP_MOEDA é diferente de “Reais”, se o campo W200.VL_IR_PAGO_EST está preenchido.
+    tipo: Erro
+  - regra: REGRA_VALOR_ESTRANGEIRO_NAO_PREENCHER
+    descricao: Verifica, quando W100.TIP_MOEDA é igual a “Reais”, se o campo W200.VL_IR_PAGO_EST não está preenchido.
+    tipo: Erro
+- numero: 12
+  campo: VL_IR_PAGO
+  regras:
+  - regra: REGRA_HABILITA_REAL
+    descricao: Caso W100.TIP_MOEDA seja igual a “Reais”, o campo W200.VL_IR_PAGO deve ser habilitado. Caso contrário, o campo W200.VL_IR_PAGO é desabilitado, pois é calculado automaticamente pelo sistema.
+    tipo: Habilita
+  - regra: REGRA_CALCULA_REAL_CNA
+    descricao: Caso o campo W100.TIP.MOEDA seja diferente de “Reais”, o campo W200.VL_IR_PAGO será igual ao resultado da multiplicação do campo W200.VL_IR_PAGO_EST pela taxa de câmbio para real em 31/12/ano da escrituração, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+    tipo: Erro
+- numero: 13
+  campo: VL_IR_DEVIDO_EST
+  regras:
+  - regra: REGRA_HABILITA_MOEDA_ESTRANGEIRA
+    descricao: |-
+      Caso W100.TIP_MOEDA seja diferente de “Reais”, o campo
+      W200.VL_IR_DEVIDO_EST deve ser habilitado. Caso contrário, o campo W200.VL_IR_DEVIDO_EST é desabilitado.
+    tipo: Habilita
+  - regra: REGRA_VALOR_ESTRANGEIRO_OBRIGATORIO
+    descricao: Verifica, quando W100.TIP_MOEDA é diferente de “Reais”, se o campo W200.VL_IR_DEVIDO_EST está preenchido.
+    tipo: Erro
+  - regra: REGRA_VALOR_ESTRANGEIRO_NAO_PREENCHER
+    descricao: Verifica, quando W100.TIP_MOEDA é igual a “Reais”, se o campo W200.VL_IR_DEVIDO_EST não está preenchido.
+    tipo: Erro
+- numero: 14
+  campo: VL_IR_DEVIDO
+  regras:
+  - regra: REGRA_HABILITA_REAL
+    descricao: |-
+      Caso W100.TIP_MOEDA seja igual a “Reais”, o campo W200.VL_IR_DEVIDO deve ser habilitado.
+      Caso contrário, o campo W200.VL_IR_DEVIDO é desabilitado, pois é calculado automaticamente pelo sistema.
+    tipo: Habilita
+  - regra: REGRA_CALCULA_REAL_CNA
+    descricao: Caso o campo W100.TIP.MOEDA seja diferente de “Reais”, o campo W200.VL_IR_DEVIDO será igual ao resultado da multiplicação do campo W200.VL_IR_DEVIDO_EST pela taxa de câmbio para real em 31/12/ano da escrituração, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+    tipo: Erro
+- numero: 15
+  campo: VL_CAP_SOC_EST
+  regras:
+  - regra: REGRA_HABILITA_MOEDA_ESTRANGEIRA
+    descricao: |-
+      Caso W100.TIP_MOEDA seja diferente de “Reais”, o campo
+      W200.VL_CAP_SOC_EST deve ser habilitado. Caso contrário, o campo W200.VL_CAP_SOC_EST é desabilitado.
+    tipo: Habilita
+  - regra: REGRA_VALOR_ESTRANGEIRO_OBRIGATORIO
+    descricao: Verifica, quando W100.TIP_MOEDA é diferente de “Reais”, se o campo W200.VL_CAP_SOC_EST está preenchido.
+    tipo: Erro
+  - regra: REGRA_VALOR_ESTRANGEIRO_NAO_PREENCHER
+    descricao: Verifica, quando W100.TIP_MOEDA é igual a “Reais”, se o campo W200.VL_CAP_SOC_EST não está preenchido.
+    tipo: Erro
+- numero: 16
+  campo: VL_CAP_SOC
+  regras:
+  - regra: REGRA_HABILITA_REAL
+    descricao: Caso W100.TIP_MOEDA seja igual a “Reais”, o campo W200.VL_CAP_SOC deve ser habilitado. Caso contrário, o campo W200.VL_CAP_SOC é desabilitado, pois é calculado automaticamente pelo sistema.
+    tipo: Habilita
+  - regra: REGRA_CALCULA_REAL_CNA
+    descricao: Caso o campo W100.TIP.MOEDA seja diferente de “Reais”, o campo W200.VL_CAP_SOC será igual ao resultado da multiplicação do campo W200.VL_CAP_SOC_EST pela taxa de câmbio para real em 31/12/ano da escrituração, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+    tipo: Erro
+- numero: 17
+  campo: VL_LUC_ACUM_EST
+  regras:
+  - regra: REGRA_HABILITA_MOEDA_ESTRANGEIRA
+    descricao: |-
+      Caso W100.TIP_MOEDA seja diferente de “Reais”, o campo
+      W200.VL_LUC_ACUM_EST deve ser habilitado. Caso contrário, o campo W200.VL_LUC_ACUM_EST é desabilitado.
+    tipo: Habilita
+  - regra: REGRA_VALOR_ESTRANGEIRO_OBRIGATORIO
+    descricao: Verifica, quando W100.TIP_MOEDA é diferente de “Reais”, se o campo W200.VL_LUC_ACUM_EST está preenchido.
+    tipo: Erro
+  - regra: REGRA_VALOR_ESTRANGEIRO_NAO_PREENCHER
+    descricao: Verifica, quando W100.TIP_MOEDA é igual a “Reais”, se o campo W200.VL_LUC_ACUM_EST não está preenchido.
+    tipo: Erro
+- numero: 18
+  campo: VL_LUC_ACUM
+  regras:
+  - regra: REGRA_HABILITA_REAL
+    descricao: Caso W100.TIP_MOEDA seja igual a “Reais”, o campo W200.LUC_ACUM deve ser habilitado. Caso contrário, o campo W200.LUC_ACUM é desabilitado, pois é calculado automaticamente pelo sistema.
+    tipo: Habilita
+  - regra: REGRA_CALCULA_REAL_CNA
+    descricao: Caso o campo W100.TIP.MOEDA seja diferente de “Reais”, o campo W200.VL_LUC_ACUM será igual ao resultado da multiplicação do campo W200.VL_LUC_ACUM_EST pela taxa de câmbio para real em 31/12/ano da escrituração, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+    tipo: Erro
+- numero: 19
+  campo: VL_ATIV_TANG_EST
+  regras:
+  - regra: REGRA_HABILITA_MOEDA_ESTRANGEIRA
+    descricao: |-
+      Caso W100.TIP_MOEDA seja diferente de “Reais”, o campo
+      W200.VL_ATIV_TANG_EST deve ser habilitado. Caso contrário, o campo W200.VL_ATIV_TANG_EST é desabilitado.
+    tipo: Habilita
+  - regra: REGRA_VALOR_ESTRANGEIRO_OBRIGATORIO
+    descricao: Verifica, quando W100.TIP_MOEDA é diferente de “Reais”, se o campo W200.VL_ATIV_TANG_EST está preenchido.
+    tipo: Erro
+  - regra: REGRA_VALOR_ESTRANGEIRO_NAO_PREENCHER
+    descricao: Verifica, quando W100.TIP_MOEDA é igual a “Reais”, se o campo W200.VL_ATIV_TANG_EST não está preenchido.
+    tipo: Erro
+- numero: 20
+  campo: VL_ATIV_TANG
+  regras:
+  - regra: REGRA_HABILITA_REAL
+    descricao: Caso W100.TIP_MOEDA seja igual a “Reais”, o campo W200.ATIV_TANG deve ser habilitado. Caso contrário, o campo W200.ATIV_TANG é desabilitado, pois é calculado automaticamente pelo sistema.
+    tipo: Habilita
+  - regra: REGRA_CALCULA_REAL_CNA
+    descricao: Caso o campo W100.TIP.MOEDA seja diferente de “Reais”, o campo W200.VL_ATIV_TANG será igual ao resultado da multiplicação do campo W200.VL_ATIV_TANG_EST pela taxa de câmbio para real em 31/12/ano da escrituração, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|W200|21||100000000||200000000||300000000||30000000||4500000||3000000||100000000||25000000||50000000|2000|'
+  explicacao:
+  - valor: '|W200|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|21|'
+    descricao: Jurisdição de residência tributária da(s) entidade(s) integrante(s) do grupo multinacional.
+  - valor: '||'
+    descricao: Receitas provenientes de partes não relacionadas em moeda estrangeira.
+  - valor: '|100000|'
+    descricao: Receitas provenientes de partes não relacionadas em reais (R$ 100.000.000,00).
+  - valor: '||'
+    descricao: Receitas provenientes de partes relacionadas em moeda estrangeira.
+  - valor: '|200000|'
+    descricao: Receitas provenientes de partes relacionadas em reais (R$ 200.000.000,00).
+  - valor: '||'
+    descricao: Receita total em moeda estrangeira.
+  - valor: '|300000|'
+    descricao: Receita total em reais (R$ 300.000.000,00).
+  - valor: '||'
+    descricao: Lucro antes do IR em moeda estrangeira.
+  - valor: '|30000|'
+    descricao: Lucro antes do IR em reais (R$ 30.000.000,00).
+  - valor: '||'
+    descricao: IR pago em moeda estrangeira.
+  - valor: '|4500|'
+    descricao: IR pago em reais (R$ 4.500.000,00).
+  - valor: '||'
+    descricao: IR devido em moeda estrangeira.
+  - valor: '|3000000|'
+    descricao: IR devido em reais (R$ 3.000.000,00).
+  - valor: '||'
+    descricao: Capital social em moeda estrangeira.
+  - valor: '|100000000|'
+    descricao: Capital Social em reais (R$ 100.000.000,00).
+  - valor: '||'
+    descricao: Lucros acumulados em moeda estrangeira.
+  - valor: '|25000000|'
+    descricao: Lucros acumulados em reais.
+  - valor: '||'
+    descricao: Ativos tangíveis em moeda estrangeira.
+  - valor: '|50000000|'
+    descricao: Ativos tangíveis em reais.
+  - valor: '|2000|'
+    descricao: Número de empregados (2.000).

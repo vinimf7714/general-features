@@ -1,0 +1,34 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+bloco: '9'
+nome: Encerramento do Arquivo Digital
+paginas_manual:
+- 613
+- 613
+orientacoes_gerais: null
+tabela_blocos:
+  nome: Encerramento do Arquivo Digital
+  descricao: Encerra o arquivo digital.
+registros:
+- registro: '9001'
+  nome: Abertura do Bloco 9
+  nivel: 1
+  arquivo: ../registros/bloco_9/9001.yml
+- registro: '9100'
+  nome: Avisos da Escrituração
+  nivel: 2
+  arquivo: ../registros/bloco_9/9100.yml
+- registro: '9900'
+  nome: Registros do Arquivo
+  nivel: 2
+  arquivo: ../registros/bloco_9/9900.yml
+- registro: '9990'
+  nome: Encerramento do Bloco 9
+  nivel: 1
+  arquivo: ../registros/bloco_9/9990.yml
+- registro: '9999'
+  nome: Encerramento do Arquivo Digital
+  nivel: 1
+  arquivo: ../registros/bloco_9/9999.yml

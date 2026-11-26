@@ -1,0 +1,298 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: Y620
+nome: Participações Avaliadas Pelo Método de Equivalência Patrimonial
+bloco: Y
+nome_tabela_registros: Participações Avaliadas pelo Método de Equivalência Patrimonial
+paginas_manual:
+- 579
+- 582
+descricao: |-
+  Este registro deve ser preenchido pela pessoa jurídica domiciliada no Brasil que teve participações avaliadas pelo método de equivalência patrimonial, no período de apuração, em capital de pessoa jurídica domiciliada no Brasil ou no exterior.
+  Observação: Este registro deve ser preenchido ainda que apenas para fins de informação do laudo disciplinado no art. 178, Instrução Normativa Nº 1.700/2017. Caso a participação societária já esteja extinta no período de apuração vinculado à ECF, os campos 07 a 11 devem estar zerados.
+  Para seu preenchimento, a pessoa jurídica declarante deve discriminar as empresas avaliadas pelo método de equivalência patrimonial em ordem cronológica da data de aquisição, limitado a 999 registros.
+  Regras de preenchimento:
+  1 – Informar as 500 maiores participações avaliadas pelo método de equivalência patrimonial existentes na data final do período de apuração.
+  2 – Informar as 499 maiores alterações no Y620.IND_RELAC ocorridas durante o período, não contempladas no item 1.
+  Exemplos de eventos que devem ser registrados:
+  1- Aquisição de nova parcela de participação societária, estágios, seja com aquisição de controle ou ainda apenas mantendo a influência significativa.
+  2- Aquisição ou perda de controle ou influência significativa devido apenas acordo de acionistas/cotistas, sem aquisição adicional ou venda de participação societária.
+  3- Alienação da participação societária total, ou parcial, resultando em perda influência significativa.
+  4- Aquisição e alienação de participação societária no curso do período de apuração. Os dois eventos devem estar registrados.
+titulo_leiaute: 'REGISTRO Y620: PARTICIPAÇÕES AVALIADAS PELO MÉTODO DE EQUIVALÊNCIA PATRIMONIAL'
+regras_validacao_registro:
+- REGRA_IND_PART_COLIG_Y620
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: null
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020.IND_PART_COLIG = "S"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: Y001
+  filhos: []
+  irmaos:
+  - Y520
+  - Y570
+  - Y590
+  - Y600
+  - Y612
+  - Y630
+  - Y640
+  - Y660
+  - Y672
+  - Y680
+  - Y682
+  - Y720
+  - Y730
+  - Y750
+  - Y800
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (Y620).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[Y620]'
+  obrigatorio: true
+- numero: 2
+  campo: DT_EVENTO
+  descricao: 'Data do Evento: Data do evento societário que deu causa à classificação conforme o indicador do tipo de relacionamento (Y620.IND_RELAC) no formato DDMMYYYY.'
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: IND_RELAC
+  descricao: |-
+    Indicador do Tipo de Relacionamento:
+    1 - Controle
+    2 - Controle Conjunto
+    3 - Influência Significativa
+    4 - Outras causas para aplicar MEP (mesmo grupo ou controle comum)
+    5 - Exclusão do MEP
+  tipo: N
+  tamanho: 1
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: PAIS
+  descricao: 'País: País onde a coligada ou controlada está domiciliada., conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).'
+  tipo: N
+  tamanho: 3
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: CNPJ
+  descricao: |-
+    CNPJ: CNPJ da coligada ou controlada.
+    Obrigatório se PAIS = 105 (Brasil)
+    Caso contrário, o campo deve ser nulo
+  tipo: C
+  tamanho: 14
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 6
+  campo: NOM_EMP
+  descricao: 'Nome Empresarial: Nome empresarial da coligada ou controlada.'
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 7
+  campo: VALOR_REAIS
+  descricao: Valor Total da Participação em Reais (Cotação da data do evento).
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 8
+  campo: VALOR_ESTR
+  descricao: Valor Total da Participação em Moeda Original do País da Empresa Investida.
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 9
+  campo: PERC_CAP_TOT
+  descricao: Percentual de Participação no Capital Total da Coligada ou Controlada.
+  tipo: N
+  tamanho: 8
+  decimal: 4
+  valores_validos: null
+  obrigatorio: true
+- numero: 10
+  campo: PERC_CAP_VOT
+  descricao: Percentual de Participação no Capital Votante da Coligada ou Controlada.
+  tipo: N
+  tamanho: 8
+  decimal: 4
+  valores_validos: null
+  obrigatorio: true
+- numero: 11
+  campo: RES_EQ_PAT
+  descricao: Resultado de Equivalência Patrimonial
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 12
+  campo: DATA_AQUIS
+  descricao: |-
+    Data da Primeira Aquisição da Participação Societária
+    Observação: Poderá ser igual a Y600.DT_EVENTO se a primeira aquisição foi causa do MEP.
+  tipo: C
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 13
+  campo: IND_PROC_CART
+  descricao: |-
+    Sumário em Cartório: Informar se houve sumário registrado em cartório relativo ao Laudo de Avaliação do Valor Justo dos Ativos Líquidos da Investida (Mais-valia ou menos-valia) de acordo com o art. 178 da Instrução Normativa RFB nº 1.700, de 14 de março de 2017:
+    S – Sim
+    N = Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 14
+  campo: NUM_PROC_CART
+  descricao: 'Número do Registro no Cartório: Informar o número do registro em cartório do sumário relativo ao Laudo de Avaliação do Valor Justo dos Ativos Líquidos da Investida (Mais- valia ou menos-valia) de acordo com o art. 178 da Instrução Normativa RFB nº 1.700, de 14 de março de 2017.'
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 15
+  campo: NOME_CART
+  descricao: 'Nome do Cartório: Informar o nome e endereço do cartório onde foi registrado o sumário relativo ao Laudo de Avaliação do Valor Justo dos Ativos Líquidos da Investida (Mais- valia ou menos-valia) de acordo com o art. 178 da Instrução Normativa RFB nº 1.700, de 14 de março de 2017.'
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 16
+  campo: IND_PROC_RFB
+  descricao: |-
+    Laudo Protocolado na RFB: Informar se houve Laudo de Avaliação do Valor Justo dos Ativos Líquidos da Investida (Mais-valia ou menos-valia) de acordo com o art. 178 da Instrução Normativa RFB nº 1.700, de 14 de março de 2017, protocolado na RFB:
+    S – Sim
+    N = Não
+    Observação: Deverá ser informado também para os casos de aquisição ou venda ocorridos antes do período a que se refere essa ECF.
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 17
+  campo: NUM_PROC_RFB
+  descricao: 'Número do Processo: Informar o número do processo eletrônico do Laudo de Avaliação do Valor Justo dos Ativos Líquidos da Investida protocolado na RFB (Mais-valia ou menos-valia) de acordo com o art. 178 da Instrução Normativa RFB nº 1.700, de 14 de março de 2017.'
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+regras_validacao_registro_detalhe:
+- regra: REGRA_IND_PART_COLIG_Y620
+  descricao: Verifica, quando 0020.IND_PART_EXT é igual a “S” (Sim) e 0020.IND_PART_COLIG é igual a “N” (Não), se o registro Y620 foi preenchido. Se a regra não for cumprida, a ECF gera um aviso.
+regras_validacao_campos:
+- numero: null
+  campo: CNPJ
+  regras:
+  - regra: REGRA_OBRIGATORIO_BRASIL
+    descricao: Obrigatório se Y620.PAIS for igual a "105" (Brasil). Caso contrário, não deve ser preenchido.
+    tipo: Erro
+  - regra: REGRA_CNPJ_DIFERENTE
+    descricao: Verifica se Y620.CNPJ é diferente do 0000.CNPJ.
+    tipo: Erro
+  - regra: REGRA_VALIDA_CNPJ
+    descricao: Verifica se a regra de formação do código é válida.
+    tipo: Erro
+- numero: null
+  campo: NUM_PROC_CART
+  regras:
+  - regra: REGRA_PREENCHER_IND_PROC_CART
+    descricao: Verifica, quando Y620.IND_PROC_CART igual a “S”, se o campo Y620.NUM_PROC_CART está preenchido.
+    tipo: Erro
+  - regra: REGRA_NAO_PREENCHER_IND_PROC_CART
+    descricao: Verifica, quando Y620.IND_PROC_CART igual a “N”, se o campo Y620.NUM_PROC_CART não está preenchido.
+    tipo: Erro
+- numero: 15
+  campo: NOME_CART
+  regras:
+  - regra: REGRA_PREENCHER_IND_PROC_CART
+    descricao: Verifica, quando Y620.IND_PROC_CART igual a “S”, se o campo Y620.NOME_CART está preenchido.
+    tipo: Erro
+  - regra: REGRA_NAO_PREENCHER_IND_PROC_CART
+    descricao: Verifica, quando Y620.IND_PROC_CART igual a “N”, se o campo Y620.NOME_CART não está preenchido.
+    tipo: Erro
+- numero: 17
+  campo: NUM_PROC_RFB
+  regras:
+  - regra: REGRA_PREENCHER_IND_PROC_RFB
+    descricao: Verifica, quando Y620.IND_PROC_RFB igual a “S”, se o campo Y620.NUM_PROC_RFB está preenchido.
+    tipo: Erro
+  - regra: REGRA_NAO_PREENCHER_IND_PROC_RFB
+    descricao: Verifica, quando Y620.IND_PROC_RFB igual a “N”, se o campo Y620.NUM_PROC_RFB não está preenchido.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|Y620|01012024|1|105|44444444000191|EMPRESA COLIGADA NO BRASIL|1000000,00|1000000,00|25,00|30,00|-100000,00|31102013|N|||N||'
+  explicacao:
+  - valor: '|Y620|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|01012024|'
+    descricao: Data do evento.
+  - valor: '|1|'
+    descricao: Indicador do tipo de relacionamento (1 = Controle).
+  - valor: '|105|'
+    descricao: País da coligada ou controlada (Brasil).
+  - valor: '|44444444000191|'
+    descricao: CNPJ da coligada ou controlada (44.444.444/0001-91).
+  - valor: '|EMPRESA COLIGADA NO BRASIL|'
+    descricao: Nome empresarial da coligada ou controlada.
+  - valor: '|1000000,00|'
+    descricao: Valor total da participação em reais (R$ 1.000.000,00).
+  - valor: '|1000000,00|'
+    descricao: Valor total da participação moeda original do país da empresa investida (R$ 1.000.000,00).
+  - valor: '|25,00|'
+    descricao: Percentual de participação no capital total (25%).
+  - valor: '|30,00|'
+    descricao: Percentual de participação no capital votante (30%).
+  - valor: '|-100000,00|'
+    descricao: Resultado da equivalência patrimonial (perda de R$ 100.000,00).
+  - valor: '|31102014|'
+    descricao: Data da aquisição da participação (31/10/2014).
+  - valor: '|N|'
+    descricao: Não houve sumário do laudo de avaliação registrado em cartório.
+  - valor: '||'
+    descricao: Não há número do registro em cartório.
+  - valor: '||'
+    descricao: Não há nome do cartório.
+  - valor: '|N|'
+    descricao: Não houve laudo de avaliação protocolado na RFB.
+  - valor: '||'
+    descricao: Não há número de processo na RFB.

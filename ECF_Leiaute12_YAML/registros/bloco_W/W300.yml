@@ -1,0 +1,186 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: W300
+nome: Observações Adicionais – Declaração País-a-País
+bloco: W
+nome_tabela_registros: Observações Adicionais
+paginas_manual:
+- 461
+- 463
+descricao: |-
+  Registro de utilização opcional pela entidade declarante, caso considere necessário fornecer esclarecimentos adicionais a respeito das informações reportadas na Declaração País-a-País (desde que não sejam referentes especificamente a uma entidade integrante do grupo, caso em que deve ser utilizado o campo 27 do Registro W250 relacionado à entidade em questão).
+  Neste registro, devem ser informados os padrões contábeis sob os quais os dados da DPP estão sendo reportados, bem como quais as fontes de dado utilizadas para a elaboração da Declaração. Em caso de mudança na fonte de dados de um ano para outro, a entidade declarante também deve utilizar esse Registro para justificar a decisão e as consequências sobre as informações apresentadas.
+  As informações adicionais devem ser fornecidas em texto livre, mediante preenchimento do campo 13 tantas vezes quantas forem necessárias. Opcionalmente, o contribuinte pode indicar sobre qual jurisdição as observações adicionais são referentes e/ou associá-las a um ou mais campos específicos da Declaração País-a-País, dentre as opções disponíveis, para facilitar a compreensão das informações.
+  Conforme previsto na Instrução Normativa RFB 1.681/2016, artigo 9, § 3º, todas as informações em texto livre da Declaração País-a-País deverão ser fornecidas em um único idioma, a ser escolhido pela entidade declarante dentre as opções de português, inglês e espanhol.
+titulo_leiaute: 'REGISTRO W300: OBSERVAÇÕES ADICIONAIS - DECLARAÇÃO PAÍS-A-PAÍS'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: null
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: F
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: W001
+  filhos: []
+  irmaos:
+  - W100
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (W300).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[W300]'
+  obrigatorio: true
+- numero: 2
+  campo: JURISDICAO
+  descricao: |-
+    Indicação da jurisdição tributária a que se referem as observações adicionais.
+    Código do país, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 3
+  campo: IND_REC_NAO_REL
+  descricao: O campo "Receitas Provenientes de Partes Não Relacionadas" (W200.VL_REC_NAO_REL) é tratado nestas observações adicionais? S - Sim N - Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: false
+- numero: 4
+  campo: IND_REC_REL
+  descricao: O campo "Receitas Provenientes de Partes Relacionadas" (W200.VL_REC_REL) é tratado nestas observações adicionais? S - Sim N - Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: false
+- numero: 5
+  campo: IND_REC_TOTAL
+  descricao: O campo "Receita Total" (W200.VL_REC_TOTAL) é tratado nestas observações adicionais? S - Sim N - Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: false
+- numero: 6
+  campo: IND_LUC_PREJ_ANTES_IR
+  descricao: O campo "Lucro ou Prejuízo antes do IR" (W200.VL_LUC_PREJ_ANTES_IR) é tratado nestas observações adicionais? S - Sim N - Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: false
+- numero: 7
+  campo: IND_IR_PAGO
+  descricao: O campo "Imposto de Renda Pago" (W200.VL_IR_PAGO) é tratado nestas observações adicionais? S - Sim N - Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: false
+- numero: 8
+  campo: IND_IR_DEVIDO
+  descricao: O campo "Imposto de Renda Devido" (W200.VL_IR_DEVIDO) é tratado nestas observações adicionais? S - Sim N - Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: false
+- numero: 9
+  campo: IND_CAP_SOC
+  descricao: O campo "Capital Social" (W200.VL_CAP_SOC) é tratado nestas observações adicionais? S - Sim N - Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: false
+- numero: 10
+  campo: IND_LUC_ACUM
+  descricao: O campo "Lucros Acumulados" (W200.VL_LUC_ACUM) é tratado nestas observações adicionais? S - Sim N - Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: false
+- numero: 11
+  campo: IND_ATIV_TANG
+  descricao: O campo "Ativos Tangíveis" (W200.VL_ATIV_TANG) é tratado nestas observações adicionais? S - Sim N - Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: false
+- numero: 12
+  campo: IND_NUM_EMP
+  descricao: O campo "Número de Empregados" (W200.NUM_EMP) é tratado nestas observações adicionais? S - Sim N - Não
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: false
+- numero: 13
+  campo: OBSERVAÇÃO
+  descricao: Observações.
+  tipo: C
+  tamanho: 4000
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 14
+  campo: FIM_OBSERVACAO
+  descricao: Indicador de fim das observações. Texto fixo contendo “W300FIM”.
+  tipo: C
+  tamanho: 7
+  decimal: '-'
+  valores_validos: '[W300FIM]'
+  obrigatorio: true
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|W300|105|S|N|N|N|N|N|N|N|N|N|OBSERVAÇÕES|W300FIM|'
+  explicacao:
+  - valor: '|W300|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|105|'
+    descricao: País.
+  - valor: '|S|'
+    descricao: O campo “Receitas Provenientes de Partes Não Relacionadas” é tratado nas observações adicionais? (S = Sim).
+  - valor: '|N|'
+    descricao: O campo “Receitas Provenientes de Parte Relacionadas” é tratado nas observações adicionais? (N = Não).
+  - valor: '|N|'
+    descricao: O campo “Receita Total” é tratado nas observações adicionais? (N = Não).
+  - valor: '|N|'
+    descricao: O campo “Lucros ou Prejuízos Antes do IR” é tratado nas observações adicionais? (N = Não).
+  - valor: '|N|'
+    descricao: O campo “Imposto de Renda Pago” é tratado nas observações adicionais? (N = Não).
+  - valor: '|N|'
+    descricao: O campo “Imposto de Renda Devido” é tratado nas observações adicionais? (N = Não).
+  - valor: '|N|'
+    descricao: O campo “Capital Social” é tratado nas observações adicionais? (N = Não).
+  - valor: '|N|'
+    descricao: O campo “Lucros Acumulados” é tratado nas observações adicionais? (N = Não).
+  - valor: '|N|'
+    descricao: O campo “Ativos Tangíveis” é tratado nas observações adicionais? (N = Não).
+  - valor: '|N|'
+    descricao: O campo “Número de Empregados” é tratado nas observações adicionais? (N = Não).
+  - valor: '|OBSERVAÇÕES|'
+    descricao: Observações.
+  - valor: '|W300FIM|'
+    descricao: Fim das observações.

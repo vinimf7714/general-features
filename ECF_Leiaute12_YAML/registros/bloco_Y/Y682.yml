@@ -1,0 +1,142 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: Y682
+nome: Informações de Optantes pelo Refis – Imunes ou Isentas
+bloco: Y
+nome_tabela_registros: Informações de Optantes pelo Refis - Imunes ou Isentas
+paginas_manual:
+- 598
+- 599
+descricao: |-
+  Este registro deve ser preenchido pela pessoa jurídica imune ou isenta que optou pelo REFIS para os meses em que esteve submetida ao programa.
+  No Y682.ACRES_PATR, deve ser informado o somatório das receitas auferidas em cada mês, independentemente de sua natureza.
+titulo_leiaute: 'REGISTRO Y682: INFORMAÇÕES DE OPTANTES PELO REFIS (IMUNES OU ISENTAS)'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 0:12
+campos_chave: MÊS
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0010.OPT_REFIS="S" E 0010.FORMA_TRIB = “8” e “9”
+  ocorrencia: '[0;12]'
+hierarquia:
+  pai: Y001
+  filhos: []
+  irmaos:
+  - Y520
+  - Y570
+  - Y590
+  - Y600
+  - Y612
+  - Y620
+  - Y630
+  - Y640
+  - Y660
+  - Y672
+  - Y680
+  - Y720
+  - Y730
+  - Y750
+  - Y800
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (Y682).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[Y682]'
+  obrigatorio: true
+- numero: 2
+  campo: MES
+  descricao: |-
+    Mês:
+    01 – Janeiro
+    02 – Fevereiro
+    03 – Março
+    04 – Abril
+    05 – Maio
+    06 – Junho
+    07 – Julho
+    08 – Agosto
+    09 – Setembro
+    10 – Outubro
+    11 – Novembro
+    12 – Dezembro
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: '[01; 02; 03; 04; 05; 06; 07; 08; 09; 10; 11; 12]'
+  obrigatorio: true
+- numero: 3
+  campo: ACRES_PATR
+  descricao: Acréscimo Patrimonial no Mês.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_campos:
+- numero: null
+  campo: MES
+  regras:
+  - regra: REGRA_MES_FORA_PERIODO
+    descricao: Verifica se Y682.MES está compreendido no período informado entre 0000.DT_INI e 0000.DT_FIN.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|Y682|01|100000,00|'
+  - '|Y682|02|200000,00|'
+  - '|Y682|03|111123,04|'
+  - '|Y682|04|500000,00|'
+  - '|Y682|11|2345678,10|'
+  - '|Y682|12|1000000,00|'
+  explicacao:
+  - valor: '|Y682|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|01|'
+    descricao: Identificação do mês (janeiro).
+  - valor: '|100000,00|'
+    descricao: Acréscimo patrimonial no mês de janeiro (R$ 100.000,00).
+  - valor: '|Y682|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|02|'
+    descricao: Identificação do mês (fevereiro).
+  - valor: '|200000,00|'
+    descricao: Acréscimo patrimonial no mês de fevereiro (R$ 200.000,00).
+  - valor: '|Y682|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|03|'
+    descricao: Identificação do mês (março).
+  - valor: '|111123,04|'
+    descricao: Acréscimo patrimonial no mês de março (R$ 111.123,04).
+  - valor: '|Y682|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|04|'
+    descricao: Identificação do mês (abril).
+  - valor: '|500000,00|'
+    descricao: Acréscimo patrimonial no mês de abril (R$ 500.000,00).
+  - valor: '|Y682|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|11|'
+    descricao: Identificação do mês (novembro).
+  - valor: '|2345678,10|'
+    descricao: Acréscimo patrimonial no mês de novembro (R$ 2.345.678,10).
+  - valor: '|Y682|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|12|'
+    descricao: Identificação do mês (dezembro).
+  - valor: '|1000000,00|'
+    descricao: Acréscimo patrimonial no mês de dezembro (R$ 1.000.000,00).

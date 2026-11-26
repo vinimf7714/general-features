@@ -1,0 +1,158 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: J053
+nome: Subcontas Correlatas
+bloco: J
+nome_tabela_registros: Subcontas Correlatas
+paginas_manual:
+- 138
+- 140
+descricao: |-
+  Registro utilizado para demonstrar os grupos (J053.COD_IDT) compostos de uma conta “pai” e uma ou mais subcontas correlatas. É possível utilizar o mesmo código de identificação do grupo para mais de um conjunto de conta “pai” e subconta(s).
+  Exemplo: Grupo 1 – Conta pai (informada no registro J050) = Veículos / Subconta = Ajuste a Valor Presente (AVP) (também deve estar informada no J050).
+  Grupo 2 – Conta pai (informada no registro J050) = Depreciação Acumulada/ Subconta = Ajuste a Valor Presente de Depreciação (também deve estar informada no J050).
+  Observação: De acordo com o artigo 300, §§ 3° e 4º, da Instrução Normativa RFB no 1.700/2017, caso a própria conta do ativo ou passivo seja utilizada como subconta correlata, o registro I053 não deve ser informado.
+titulo_leiaute: 'REGISTRO J053: SUBCONTAS CORRELATAS'
+regras_validacao_registro:
+- REGRA_REGISTRO_PARA_CONTA_ANALITICA
+- REGRA_COD_CTA_DUPLICIDADE
+- REGRA_SUB_CONTA_PAI
+nivel_hierarquico: 3
+ocorrencia: 0:N
+campos_chave: COD_CNT_CORR
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: F
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: J050
+  filhos: []
+  irmaos:
+  - J051
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (J053).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[J053]'
+  obrigatorio: true
+- numero: 2
+  campo: COD_IDT
+  descricao: Código de Identificação do Grupo Formado por Conta-Subconta(s). (Criado pela pessoa jurídica).
+  tipo: C
+  tamanho: 6
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: COD_CNT_CORR
+  descricao: Código da Subconta Correlata. (Deve estar no plano de contas e só pode estar relacionada a um único grupo)
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: NAT_SUB_CNT
+  descricao: Natureza da Subconta Correlata. (Conforme tabela de natureza da subconta )
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_registro_detalhe:
+- regra: REGRA_REGISTRO_PARA_CONTA_ANALITICA
+  descricao: O registro J053 somente poderá existir quando o valor do campo J050.IND_CTA for igual a “A” (Analítica). Se a regra não for cumprida, a ECF gera um erro (O erro ocorre se existe o registro J053 e J050.IND_CTA é diferente de “A”).
+- regra: REGRA_COD_CTA_DUPLICIDADE
+  descricao: Verifica se J053.COD_CNT_CORR pertence a uma única conta no plano de contas (J050.COD_CTA). Se a regra não for cumprida, a ECF gera um erro.
+- regra: REGRA_SUB_CONTA_PAI
+  descricao: Verifica se a subconta não possui filhos J053. Se a regra não for cumprida, o sistema gera um erro (O erro ocorre se a conta J050.COD_CTA possui registros filhos J053 e essa conta já foi subconta em outro grupo).
+regras_validacao_campos:
+- numero: 2
+  campo: COD_IDT
+  regras:
+  - regra: REGRA_COD_IDT_UNICO_POR_CONTA
+    descricao: |-
+      Verifica se todos os J053 filhos de uma conta do plano de contas (J050.COD_CTA) possuem o mesmo
+      J053.COD_IDT. O erro ocorre se os filhos de uma conta do plano de contas (J050) possuem J053.COD_IDT diferentes entre si.
+    tipo: Erro
+- numero: 3
+  campo: COD_CNT_CORR
+  regras:
+  - regra: REGRA_SUBCONTA_NO_PLANO_CONTAS
+    descricao: Verifica se a subconta informada no registro J053 (J053.COD_CNT_CORR) existe no plano de contas (J050.COD_CTA).
+    tipo: Erro
+- numero: 4
+  campo: NAT_SUB_CNT
+  regras:
+  - regra: REGRA_NAT_090_UNICA_POR_CONTA
+    descricao: Verifica se existe no máximo duas subcontas de natureza 90 ou 91 ou 92 ou 93 ou 95 (J053.NAT_SUB_CNT) para cada conta (J050.COD_CTA).
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|J053|FT1234|1.05.01.10|02|'
+  explicacao:
+  - valor: '|J053|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|FT1234|'
+    descricao: Código de identificação do grupo conta-subconta(s).
+  - valor: '|1.05.01.10|'
+    descricao: Código da subconta correlata.
+  - valor: '|02|'
+    descricao: Natureza da subconta correlata (02 = SUBCONTA TBU - CONTROLADA DIRETA NO EXTERIOR).
+informacoes_adicionais:
+- conteudo: |-
+    Tabela – Natureza da Subconta:
+
+    | NUM | DESCRIÇÃO | FUNDAMENTO LEGAL | CONTA PRINCIPAL |
+    |---|---|---|---|
+    | 2 | SUBCONTA TBU - CONTROLADA DIRETA NO EXTERIOR | Art. 76, Lei no 12.973/14 | PARTICIPAÇÃO CONTROLADA NO EXTERIOR |
+    | 3 | SUBCONTA TBU - CONTROLADA INDIRETA NO EXTERIOR | Art. 76, Lei no 12.973/14 | PARTICIPAÇÃO CONTROLADA NO EXTERIOR |
+    | 10 | SUBCONTA GOODWILL | Art. 20, Inciso III, Decreto-Lei no 1.598/77 | PARTICIPAÇÃO SOCIETARIA |
+    | 11 | SUBCONTA MAIS VALIA | Art. 20, Inciso II, Decreto-Lei no 1.598/77 | PARTICIPAÇÃO SOCIETARIA |
+    | 12 | SUBCONTA MENOS VALIA | Art. 20, Inciso II, Decreto-Lei no 1.598/77 | PARTICIPAÇÃO SOCIETARIA |
+    | 60 | SUBCONTA AVJ REFLEXO | Arts. 24A e 24B, Decreto-Lei no 1.598/77 | PARTICIPAÇÃO SOCIETARIA |
+    | 65 | SUBCONTA AVJ SUBSCRIÇÃO DE CAPITAL | Arts. 17 e 18, Lei no 12.973/14 | PARTICIPAÇÃO SOCIETARIA |
+    | 70 | SUBCONTA AVJ - VINCULADA ATIVO/PASSIVO | Arts 13 e 14, Lei no 12.973/14 | ATIVO OU PASSIVO |
+    | 71 | SUBCONTA AVJ - DEPRECIAÇÃO ACUMULADA | Arts 13, §1o, e 14, Lei no 12.973/14 | DEPRECIAÇÃO ACUMULADA |
+    | 72 | SUBCONTA AVJ - AMORTIZAÇÃO ACUMULADA | Arts 13, §1o, e 14, Lei no 12.973/14 | AMORTIZAÇÃO ACUMULADA |
+    | 73 | SUBCONTA AVJ - EXAUSTÃO ACUMULADA | Arts 13, §1o, e 14, Lei no 12.973/14 | EXAUSTÃO ACUMULADA |
+    | 75 | SUBCONTA AVP - VINCULADA AO ATIVO | Art. 5o, § 1o, Lei no 12.973/14 | ATIVO |
+    | 76 | SUBCONTA AVP - DEPRECIAÇÃO ACUMULADA | Art. 5o, Inc. III, Lei no 12.973/14 | DEPRECIAÇÃO ACUMULADA |
+    | 77 | SUBCONTA AVP - AMORTIZAÇÃO ACUMULADA | Art. 5o, Inc. III, Lei no 12.973/14 | AMORTIZAÇÃO ACUMULADA |
+    | 78 | SUBCONTA AVP - EXAUSTÃO ACUMULADA | Art. 5o, Inc. III, Lei no 12.973/14 | EXAUSTÃO ACUMULADA |
+    | | | Art. 37, §3o, Inc. I, Lei no 12.973/14, ou Art. 39, §1o, Inc. I, | |
+    | 80 | SUBCONTA MAIS VALIA ANTERIOR – ESTÁGIOS | Lei no 12.973/14 | PARTICIPAÇÃO SOCIETARIA NO PAÍS |
+    | | | Art. 37, §3o, Inc. I, Lei no 12.973/14, ou Art. 39, §1o., Inc. I, | |
+    | 81 | SUBCONTA MENOS VALIA ANTERIOR – ESTÁGIOS | Lei no 12.973/14 | PARTICIPAÇÃO SOCIETARIA NO PAÍS |
+    | | | Art. 37, §3o, Inc. I, Lei no 12.973/14, ou Art. 39, §1o, Inc. I, | |
+    | 82 | SUBCONTA GOODWILL ANTERIOR – ESTÁGIOS | Lei no 12.973/14 | PARTICIPAÇÃO SOCIETARIA NO PAÍS |
+    | | | Art. 37, §3o, Inc. II, Lei no 12.973/14 ou Art. 39, §1o, Inc. II, | |
+    | 84 | SUBCONTA VARIAÇÃO MAIS VALIA ANTERIOR – ESTÁGIOS | Lei no 12.973/14 | PARTICIPAÇÃO SOCIETARIA NO PAÍS |
+    | | SUBCONTA VARIAÇÃO MENOS VALIA ANTERIOR – | Art. 37, §3o, Inc. II, Lei no 12.973/14 ou Art. 39, §1o, Inc. II, | |
+    | 85 | ESTÁGIOS | Lei no 12.973/14 | PARTICIPAÇÃO SOCIETARIA NO PAÍS |
+    | | | Art. 37, §3o, Inc. II, Lei no 12.973/14 ou Art. 39, §1o, Inc. II, | |
+    | 86 | SUBCONTA VARIAÇÃO GOODWILL ANTERIOR – ESTÁGIOS | Lei no 12.973/14 | PARTICIPAÇÃO SOCIETARIA NO PAÍS |
+    | | | Arts. 66 e 67, Lei no 12.973/14 | |
+    | 90 | SUBCONTA ADOÇÃO INICIAL – VINCULADA OU AUXILIAR ATIVO/PASSIVO | Arts. 295, 296, 298 e 299 da Instrução Normativa RFB nº 1.700, de 14 de março de 2017 | ATIVO OU PASSIVO |
+    | | | Arts. 66 e 67, Lei no 12.973/14 | |
+    | 91 | SUBCONTA ADOÇÃO INICIAL – VINCULADA OU AUXILIAR - DEPRECIAÇÃO ACUMULADA | Arts. 295, 296, 298 e 299 da Instrução Normativa RFB nº 1.700, de 14 de março de 2017 | DEPRECIAÇÃO ACUMULADA |
+    | | | Arts. 66 e 67, Lei no 12.973/14 | |
+    | 92 | SUBCONTA ADOÇÃO INICIAL – VINCULADA OU AUXILIAR - AMORTIZAÇÃO ACUMULADA | Arts. 295, 296, 298 e 299 da Instrução Normativa RFB nº 1.700, de 14 de março de 2017 | AMORTIZAÇÃO ACUMULADA |
+
+    | | | Arts. 66 e 67, Lei no 12.973/14 | |
+    |---|---|---|---|
+    | 93 | SUBCONTA ADOÇÃO INICIAL – VINCULADA OU AUXILIAR - EXAUSTÃO ACUMULADA | Arts. 295, 296, 298 e 299 da Instrução Normativa RFB nº 1.700, de 14 de março de 2017 | EXAUSTÃO ACUMULADA |

@@ -1,0 +1,137 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: X292
+nome: Operações com o Exterior – Pessoa Não Vinculada/Não Interposta/País sem Tributação Favorecida
+bloco: X
+nome_tabela_registros: Operações com o Exterior - Pessoa Não Vinculada/ Não Interposta/País sem Tributação Favorecida
+paginas_manual:
+- 477
+- 478
+descricao: |-
+  Este registro deve ser preenchido pela pessoa jurídica, inclusive instituição financeira ou companhia seguradora, conforme relacionadas no § 1º do art. 22 da Lei nº 8.212, de 1991 e no inciso II do art. 14 da Lei nº 9.718, de 1998, tributada pelo lucro real, presumido ou arbitrado, que no ano-calendário tenha:
+  a) realizado operações de exportação de bens, serviços e direitos;
+  b) realizado operações de importação de bens, serviços e direitos;
+  c) auferido receitas financeiras em operações realizadas com pessoa física ou jurídica residente ou domiciliada no exterior;
+  d) incorrido em despesas financeiras em operações realizadas com pessoa física ou jurídica residente ou domiciliada no exterior.
+  Este registro é utilizado quando as operações com o exterior forem realizadas apenas com pessoas não vinculadas e em países não considerados com tributação favorecida.
+  Se a pessoa jurídica, no ano da escrituração, realizou operações com o exterior, com pessoas vinculadas ou residentes ou domiciliadas em países com tributação favorecida e também com pessoas não vinculadas ou em países não considerados com tributação favorecida, deve informar as operações nos registros relacionados a Preços de Transferência.
+titulo_leiaute: 'REGISTRO X292: OPERAÇÕES COM O EXTERIOR – PESSOA NÃO VINCULADA/NÃO INTERPOSTA/PAÍS SEM TRIBUTAÇÃO FAVORECIDA'
+regras_validacao_registro:
+- REGRA_DUPLICIDADE_DESPREZADA
+- REGRA_LINHA_DESPREZADA
+- REGRA_LINHA_ATUALIZADA
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: CODIGO
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020. IND_OP_EXT = "S” E 0020.IND_OP_VINC = "N"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: X001
+  filhos: []
+  irmaos:
+  - X280
+  - X340
+  - X360
+  - X365
+  - X370
+  - X390
+  - X400
+  - X410
+  - X420
+  - X430
+  - X450
+  - X460
+  - X470
+  - X480
+  - X485
+  - X490
+  - X500
+  - X510
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (X292).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[X292]'
+  obrigatorio: true
+- numero: 2
+  campo: CODIGO
+  descricao: Código, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: 6
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: DESCRICAO
+  descricao: Descrição, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 4
+  campo: VALOR
+  descricao: Valor
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+regras_validacao_registro_detalhe:
+- regra: REGRA_DUPLICIDADE_DESPREZADA
+  descricao: Verifica se o registro já foi importado anteriormente, de acordo com a chave e os registros pais. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_DESPREZADA
+  descricao: Verifica se o registro existe na importação, mas não será importado por não existir na tabela dinâmica devido às configurações do bloco 0 ou da tabela dinâmica. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_ATUALIZADA
+  descricao: Verifica se o registro está desatualizado em relação à tabela da RFB. Se a regra não for cumprida, a ECF gera um aviso.
+regras_validacao_campos:
+- numero: 4
+  campo: VALOR
+  regras:
+  - regra: REGRA_OBRIGATORIO_TIPO_DIFERENTE_R
+    descricao: Verifica se o campo está preenchido quando o tipo da linha é diferente de “R”.
+    tipo: Erro
+regras_validacao_campos_observacoes: |-
+  III – Tabela Dinâmica: X292 - Operações com o Exterior – Pessoa Não Vinculada / Não Interposta / País sem Tributação Favorecida
+  Vide planilha deste Registro no arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” a partir do link http://sped.rfb.gov.br/pasta/show/1644.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+  Regras de validação da tabela dinâmica X292:
+  Vide arquivo “SPEDECF_DINAMICO_2021$SPEDECF_DINAMICA_X292_REGRAS” no diretório C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas. (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|X292|11|OUTRAS INFORMAÇÕES||'
+  - '|X292|14|Royalties Incorridos na Importação de Mercadorias|100000,00|'
+  explicacao:
+  - valor: '|X292|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|11|'
+    descricao: Código da linha.
+  - valor: '|OUTRAS INFORMAÇÕES|'
+    descricao: Descrição da linha.
+  - valor: '||'
+    descricao: Valor da linha (como a linha corresponde a um rótulo – R – não há valor).
+  - valor: '|X292|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|14|'
+    descricao: Código da linha.
+  - valor: '|Royalties Incorridos na Importação de Mercadorias|'
+    descricao: Descrição da linha.
+  - valor: '|100000,00|'
+    descricao: Valor da linha (R$ 100.000,00).

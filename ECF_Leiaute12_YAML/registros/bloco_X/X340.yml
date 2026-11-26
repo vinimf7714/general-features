@@ -1,0 +1,226 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: X340
+nome: Identificação da Participação no Exterior
+bloco: X
+nome_tabela_registros: Identificação da Participação no Exterior
+paginas_manual:
+- 479
+- 482
+descricao: |-
+  Este registro deve ser preenchido pela pessoa jurídica, tributada pelo lucro real ou arbitrado, domiciliada no Brasil, que tenha, no ano-calendário, participado no capital de pessoa jurídica domiciliada no exterior. Este registro também deve ser preenchido pela pessoa jurídica optante pelo Refis que se submeteu ao regime de tributação pelo lucro presumido.
+  De acordo com o art. 19-A da Instrução Normativa RFB nº 1.520/2014, a opção pelo regime de caixa ou competência indicada no campo X340.IND_CONTROLE deve ser única para todas as coligadas no exterior.
+  “Art. 19-A. Opcionalmente, a pessoa jurídica domiciliada no Brasil poderá oferecer à tributação os lucros auferidos por intermédio de suas coligadas no exterior na forma prevista no art. 19, independentemente do descumprimento das condições previstas no caput do art. 17.
+  § 1º A pessoa jurídica deverá comunicar a opção de que trata o caput à RFB por intermédio da Escrituração Contábil Fiscal (ECF), prevista na Instrução Normativa RFB nº 2.004, de 2021, relativa ao respectivo ano-calendário da escrituração.
+  § 2º A opção de que trata o caput:
+  I - se aplica ao IRPJ e à CSLL;
+  II - deve englobar todas as coligadas no exterior, não sendo possível a opção parcial; e
+  III - é irretratável, não sendo válida a ECF retificadora fora do prazo de sua entrega para a comunicação de que trata o § 1º.
+  § 3º O disposto neste artigo não se aplica às hipóteses em que a pessoa jurídica coligada domiciliada no Brasil é equiparada à controladora, nos termos do art. 15.”
+  Atenção: A empresa que fizer a opção prevista no art. 96 da Lei no 12.973/2014 deverá preencher dos registros X340 a X356, caso seja aplicável.
+titulo_leiaute: 'REGISTRO X340: IDENTIFICAÇÃO DA PARTICIPAÇÃO NO EXTERIOR'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: NIF + CNPJ
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020. IND_PART_EXT = "S"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: X001
+  filhos:
+  - X350
+  - X351
+  - X352
+  - X353
+  - X354
+  - X355
+  - X356
+  - X357
+  irmaos:
+  - X280
+  - X292
+  - X360
+  - X365
+  - X370
+  - X390
+  - X400
+  - X410
+  - X420
+  - X430
+  - X450
+  - X460
+  - X470
+  - X480
+  - X485
+  - X490
+  - X500
+  - X510
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (X340).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[X340]'
+  obrigatorio: true
+- numero: 2
+  campo: RAZ_SOCIAL
+  descricao: 'Razão Social: Razão social de cada controlada, direta ou indireta, equiparada ou coligada em regime de competência.'
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: NIF
+  descricao: |-
+    NIF: Número de identificação fiscal de cada investida (“CNPJ” da investida no exterior).
+    Observação:
+    1 – Caso a investida não possua NIF, utilize “0000”
+    2 – Para investidas de um mesmo país diferente do Brasil que não possuam NIF, utilizar “0000”, “0001”, “0002”, e assim por diante, conforme a quantidade de investidas.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: IND_CONTROLE
+  descricao: |-
+    Indicador de Controle
+    1 – Controlada Direta
+    2 – Controlada Indireta
+    3 – Equiparada a Controlada
+    4 – Coligada em Regime de Competência
+    5 – Filial ou Sucursal
+    6 – Coligada em Regime de Caixa
+    7 – Joint Venture
+    8 – Partnership
+    9 – Trust
+    10 – Coligada em Regime de Competência por Opção (art. 19-A da Instrução Normativa RFB no 1.520/2014).
+    11 – Coligada em Regime Misto – Período em Regime de Competência e em Regime de Caixa.
+  tipo: N
+  tamanho: 2
+  decimal: '-'
+  valores_validos: '[1; 2; 3; 4; 5; 6; 7; 8; 9; 10;11]'
+  obrigatorio: true
+- numero: 5
+  campo: PAIS
+  descricao: |-
+    País: País de cada controlada, direta ou indireta, equiparada ou coligada em regime de competência.
+    Código do país, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: N
+  tamanho: 3
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: IND_ISEN_PETR
+  descricao: |-
+    Indicador de Prospecção e Exploração de Petróleo e Gás: Informar parcela de lucro decorrente de afretamento por tempo ou casco nu, arrendamento mercantil operacional, aluguel, empréstimo de bens ou prestação de serviços diretamente relacionados à prospecção e exploração de petróleo e gás, em território brasileiro, que goze de isenção nos termos do art. 77, §3º, da Lei nº 12.973 de 13 de maio de 2014:
+    S = Sim
+    N = Não
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 7
+  campo: IND_CONSOL
+  descricao: |-
+    Indicador de Consolidação: Informar se a investida terá os resultados positivos e negativos consolidados:
+    S = Sim
+    N = Não
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 8
+  campo: MOT_NAO_CONSOL
+  descricao: Motivo da não consolidação, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: N
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 9
+  campo: CNPJ
+  descricao: 'CNPJ da Investida no Brasil: Hipótese do art. 41, parágrafo único, da Instrução Normativa RFB nº 1.520/2014.'
+  tipo: C
+  tamanho: 14
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 10
+  campo: TIP_MOEDA
+  descricao: Moeda do País de Domicílio.
+  tipo: C
+  tamanho: 3
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_campos:
+- numero: null
+  campo: IND_CONTROLE
+  regras:
+  - regra: REGRA_OPCAO_REGIME
+    descricao: Verifica, quando X340.IND_CONTROLE igual a “10”, se não existe outro registro X340 com X340.IND_CONTROLE igual a “4” ou “6”. Verifica, quando X340.IND_CONTROLE igual a “4’ ou “6”, se não existe outro registro X340 com X340.IND_CONTROLE igual a “10”.
+    tipo: Erro
+  - regra: REGRA_CONSOLIDACAO_E_IND_CONTROLE
+    descricao: Verifica, quando X340.IND_CONSOL for igual a “Sim” E X340.IND_CONTROLE for igual a 4 ou 6 ou 10 ou 11.
+    tipo: Erro
+- numero: null
+  campo: MOT_NAO_CONSOL
+  regras:
+  - regra: REGRA_MOTIVO_NAO_CONSOL_PREENCHER
+    descricao: Verifica, quando X340.IND_CONSOL igual a “N”, se X340.MOT_NAO_CONSOL está preenchido.
+    tipo: Erro
+  - regra: REGRA_MOTIVO_NAO_CONSOL_NAO_PREENCHER
+    descricao: Verifica, quando X340.IND_CONSOL igual a “S”, se X340.MOT_NAO_CONSOL não está preenchido.
+    tipo: Erro
+- numero: null
+  campo: CNPJ
+  regras:
+  - regra: REGRA_VALIDA_CNPJ
+    descricao: Verifica se a regra de formação do código é válida.
+    tipo: Erro
+  - regra: REGRA_NAO_PREENCHER_CNPJ
+    descricao: |-
+      Se X40.PAIS diferente de “105” (Brasil), o campo X340.CNPJ não deve estar preenchido.
+      REGRA _PREENCHER_CNPJ: Se X40.PAIS igual a “105” (Brasil), o campo X340.CNPJ deve estar preenchido.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|X340|EMPRESA CONTROLADA|1111111111|1|249|N|S||'
+  explicacao:
+  - valor: '|X340|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|EMPRESA CONTROLADA|'
+    descricao: Razão social.
+  - valor: '|1111111111|'
+    descricao: Número de identificação fiscal (“CNPJ” da investida no exterior).
+  - valor: '|1|'
+    descricao: Indicador de controle (1 = Controlada Direta).
+  - valor: '|249|'
+    descricao: Código do país da investida (249 = Estados Unidos da América).
+  - valor: '|N|'
+    descricao: Indicador de Repetro (N = Não).
+  - valor: '|S|'
+    descricao: Indicador de consolidação (S = Sim – resultados positivos e negativos consolidados).
+  - valor: '||'
+    descricao: Não preenchido.

@@ -1,0 +1,217 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: Y570
+nome: Demonstrativo do Imposto de Renda e CSLL Retidos na Fonte
+bloco: Y
+nome_tabela_registros: Demonstrativo do Imposto de Renda e CSLL Retidos na Fonte
+paginas_manual:
+- 565
+- 568
+descricao: |-
+  Neste registro devem ser prestadas informações sobre todo o imposto de renda (IRRF) e contribuição social sobre o lucro líquido (CSLL) retidos na fonte durante o período abrangido pela ECF, incidentes sobre as receitas que compõem a base de cálculo do tributo devido.
+  Não devem ser informados nesse registro:
+  - Valores retidos à título de IRRF sobre o pagamento de Juros sobre Capital Próprio e IRRF incidente sobre o pagamento efetuado a cooperativas que foram utilizados em compensações, nos termos do art. 81 da IN RFB 2055, de 2021; e
+  - Valores de retenção não utilizados, por opção da pessoa jurídica, na apuração do IRPJ e da CSLL.
+titulo_leiaute: 'REGISTRO Y570: DEMONSTRATIVO DO IMPOSTO DE RENDA E CSLL RETIDOS NA FONTE'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: CNPJ_FON + COD_REC
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: F
+    condicao: Não deve existir se 0010.FORMA_APUR_I = “D” E 0010.APUR_CSLL = “D”
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: Y001
+  filhos: []
+  irmaos:
+  - Y520
+  - Y590
+  - Y600
+  - Y612
+  - Y620
+  - Y630
+  - Y640
+  - Y660
+  - Y672
+  - Y680
+  - Y682
+  - Y720
+  - Y730
+  - Y750
+  - Y800
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (Y570).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[Y570]'
+  obrigatorio: true
+- numero: 2
+  campo: CNPJ_FON
+  descricao: 'CNPJ: CNPJ da fonte pagadora'
+  tipo: C
+  tamanho: 14
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: NOM_EMP
+  descricao: 'Nome Empresarial: Nome da pessoa jurídica responsável pela retenção e recolhimento da fonte que estiver sendo compensado.'
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: IND_ORG_PUB
+  descricao: |-
+    Indicador de Órgão Público:
+    S - Sim
+    N – Não
+    Selecione “Sim” ou “Não” em relação à pessoa jurídica responsável pela retenção e recolhimento da fonte que estiver sendo compensado. Ao selecionar "Sim" serão disponibilizados os códigos de recolhimento utilizados pelos Órgãos Públicos Federais ou Entidades da Administração Pública Federal, ao selecionar "Não", serão disponibilizados os demais códigos.
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; N]'
+  obrigatorio: true
+- numero: 5
+  campo: COD_REC
+  descricao: Código de Receita Utilizado Para Recolhimento na Fonte, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: N
+  tamanho: 4
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: VL_REND
+  descricao: 'Rendimento Bruto: Valor bruto do rendimento que originou a retenção.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 7
+  campo: IR_RET
+  descricao: 'IR Retido na Fonte: Valor de todo o imposto de renda retido na fonte durante o período abrangido pela declaração, incidente sobre as receitas que compõem a base de cálculo do tributo devido, independentemente de a empresa ter apurado prejuízo fiscal ou imposto de renda devido menor que o retido na fonte durante o período.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 8
+  campo: CSLL_RET
+  descricao: 'CSLL Retida na Fonte: Valor de toda a contribuição social sobre o lucro líquido retida na fonte durante o período abrangido pela declaração, incidente sobre as receitas que compõem a base de cálculo do tributo devido, independentemente de a empresa ter apurado base de cálculo negativa ou CSLL devida menor que a retida na fonte durante o período.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+regras_validacao_campos:
+- numero: 5
+  campo: COD_REC
+  regras:
+  - regra: REGRA_COD_REC_ORP_PUB
+    descricao: Verifica, quando Y570.IND_ORG_PUB igual a “Sim”, se Y570.COD_REC é igual a 4085 ou 4397 ou 5928 ou 5936 ou 5944 ou 6147 ou 6175 ou 6188 ou 6190 ou 6228 ou 6256 ou 8739 ou 8767 ou 8850 ou 8863 ou 9060 ou 9997.
+    tipo: Erro
+  - regra: REGRA_COD_REC_ORP_PUB_NAO
+    descricao: Verifica, quando Y570.IND_ORG_PUB igual a “Não”, se Y570.COD_REC é igual a 0916 ou 0924 ou 1708 ou 1895 ou 3277 ou 3280 ou 3426 ou 5204 ou 5232 ou 5273 ou 5557 ou 5706 ou 5928 ou 5936 ou 5944 ou 5952 ou 5987 ou 6800 ou 6813 ou 8045 ou 8468 ou 9385 ou 9998 ou 9999.
+    tipo: Erro
+- numero: 7
+  campo: IR_RET
+  regras:
+  - regra: REGRA_COD_REC_IR_RET
+    descricao: Verifica se Y570.IR_RET está preenchido quando Y570.COD_REC é igual a 5928 ou 5936 ou 5944 ou 6147 ou 6175 ou 6188 ou 6190 ou 6256 ou 8739 ou 8767 ou 8850 ou 8863 ou 9060 ou 9997 ou 0916 ou 0924 ou 1708 ou 1895 ou 3277 ou 3280 ou 3426 ou 5204 ou 5232 ou 5273 ou 5557 ou 5706 ou 5928 ou 5936 ou 5944 ou 6800 ou 6813 ou 8045 ou 8468 ou 9385 ou 9999.
+    tipo: Erro
+  - regra: REGRA_EXISTE_IR_RET
+    descricao: Verifica, quando (N620 (21) ou N620 (23) ou N620 (24) forem maiores que zero); ou (0010.COD_QUALIF_PJ = “1” e (N630 (20) ou N630 (21) ou N630 (22) forem maiores que zero); ou (0010.COD_QUALIF_PJ ≠ “1” e (N630 (17) ou N630 (18) ou N630 (19)) forem maiores que zero); ou (P300 (10) ou P300 (12) ou P300 (13) forem maiores que zero); ou (T150 (11) ou T150 (13) ou T150 (14) forem maiores que zero); se Y570.IR_RET está preenchido.
+    tipo: Erro
+- numero: 8
+  campo: CSLL_RET
+  regras:
+  - regra: REGRA_COD_REC_CSLL_RET
+    descricao: Verifica se Y570.CSLL_RET está preenchido quando Y570.COD_REC é igual a 4085 ou 4397 ou 5928 ou 5936 ou 5944 ou 6147 ou 6175 ou 6188 ou 6190 ou 6228 ou 8739 ou 8767 ou 8850 ou 8863 ou 9060 ou 9997 ou 5952 ou 5987 ou 9998.
+    tipo: Erro
+  - regra: REGRA_EXISTE_CSLL_RET
+    descricao: Verifica, quando (N660 (14) ou N660 (15) ou N660 (16) ou N660 (17) forem maiores que zero); ou ((N670 (15) ou N670 (16) ou N670 (17) ou N670 (18)) forem maiores que zero); ou (P500 (9) ou P500 (10) ou P500 (11) ou P500 (12) forem maiores que zero); ou (T181 (11) ou T181 (12) ou T181 (13) ou T181 (14) forem maiores que zero); se Y570.CSLL_RET está preenchido.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|Y570|11111111000191|FONTE PAGADORA|S|5928|100000,00|1500,00|500,00|'
+  explicacao:
+  - valor: '|Y570|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|CNPJ|'
+    descricao: 'CNPJ da fonte pagadora (CNPJ: 11.111.111/0001-91).'
+  - valor: '|FONTE PAGADORA|'
+    descricao: Nome empresarial da fonte pagadora.
+  - valor: '|S|'
+    descricao: Indicador de órgão público (Órgão Público = Sim).
+  - valor: '|5928|'
+    descricao: Código da receita (5928 = Rendimentos decorrentes de decisão da Justiça Federal).
+  - valor: '|100000,00|'
+    descricao: Rendimento bruto (R$ 100.000,00).
+  - valor: '|1000,00|'
+    descricao: IR Retido na Fonte (R$ 1.500,00).
+  - valor: '|500,00|'
+    descricao: CSLL Retida na Fonte (R$ 500,00).
+informacoes_adicionais:
+- conteudo: |-
+    Tabela de Códigos de Retenção na Fonte
+
+    | Códigos | Nome da Receita | Órgão Público | IRRF | CSLL |
+    |---|---|---|---|---|
+    | 4085 | RET CONTRIB PAGT EST/DF/MUNIC - BENS/SERVIÇOS - CSLL/COFINS/PIS | Sim | Não | Sim |
+    | 4397 | CSLL - RET FONTE PAGT ESTADOS/DF/MUNICÍPIOS - BENS/SERVIÇOS | Sim | Não | Sim |
+    | 5928 | IRRF -REND DECOR DECISÃO JUSTIÇA FEDERAL, EXCETO ART 12A L 7713/88 | Sim ou Não | Sim | Não |
+    | 5936 | IRRF - REND DECOR DEC JUSTIÇA TRABALHO, EXCETO ART 12A L. 7.713/88 | Sim ou Não | Sim | Não |
+    | 5944 | IRRF - PAGAMENTO DE PJ A PJ POR SERVIÇOS DE FACTORING | Sim ou Não | Sim | Não |
+    | 6147 | PRODUTOS - RETENÇÃO EM PAGAMENTOS POR ÓRGÃO PÚBLICO | Sim | Sim | Sim |
+    | 6175 | TRANSPORTE DE PASSAGEIROS - RETENÇÃO EM PAGAMENTO POR ÓRGÃO PÚBLICO | Sim | Sim | Sim |
+    | 6188 | FINANCEIRAS - RETENÇÃO EM PAGAMENTO POR ÓRGÃO PÚBLICO | Sim | Sim | Sim |
+    | 6190 | SERVIÇOS - RETENÇÃO EM PAGAMENTO POR ÓRGÃO PÚBLICO | Sim | Sim | Sim |
+    | 6228 | CSLL - RETENÇÃO NA FONTE SOBRE PAGAMENTO DE ÓRGÃO PUBLICO A PESSOA JURÍDICA | Sim | Não | Sim |
+    | 6256 | IRPJ - PAGAMENTO EFETUADO POR ÓRGÃO PÚBLICO | Sim | Sim | Não |
+    | 8739 | GASOL/DIESEL/GLP E ALCOOL NO VAREJO-R ORG PUB | Sim | Sim | Sim |
+    | 8767 | MEDICAMENTO ADQUIR DISTRIB/VAREJ-RET ORG PUBL | Sim | Sim | Sim |
+    | 8850 | TRANSPORTE INTERNACIONAL PASSAGEIRO-R ORG PUB | Sim | Sim | Sim |
+    | 8863 | BENS OU SERVIÇOS ADQUIRIDOS DE SOCIEDADES COOPERATIVAS E ASSOCIAÇÃO | Sim | Sim | Sim |
+    | 9060 | QUEROSENE DE AVIAÇÃO ADQUIRIDO DE PRODUTOR OU IMPORTADOR - RETIDO | Sim | Sim | Sim |
+    | 9997 | OUTRAS RETENÇÕES NÃO ESPECIFICADAS ACIMA | Sim | Sim | Sim |
+    | 0916 | IRRF - PRÊMIOS OBTIDOS EM CONCURSOS SORTEIOS | Não | Sim | Não |
+    | 0924 | IRRF - DEMAIS RENDIMENTOS CAPITAL | Não | Sim | Não |
+    | 1708 | IRRF - REMUNERAÇÃO SERVIÇOS PRESTADOS POR PESSOA JURÍDICA | Não | Sim | Não |
+    | 1895 | IRRF – RENDIMENTOS DECORRENTES DE DECISÃO JUDICIAL DOS ESTADOS E MUNICÍPIOS, EXCETEO ART. 12ª DA LEI Nº 7.713/88 | Sim ou Não | Sim | Não |
+    | 3277 | IRRF - RENDIMENTOS DE PARTES BENEFICIÁRIAS OU DE FUNDADOR | Não | Sim | Não |
+    | 3426 | IRRF - APLICAÇÕES FINANCEIRAS DE RENDA FIXA - PESSOA JURÍDICA | Não | Sim | Não |
+
+    | Códigos | Nome da Receita | Órgão Público | IRRF | CSLL |
+    |---|---|---|---|---|
+    | 5204 | IRRF - JUROS INDENIZAÇÕES LUCROS CESSANTES | Não | Sim | Não |
+    | 5232 | IRRF - APLICAÇÕES FINANCEIRAS EM FUNDOS DE INVESTIMENTO IMOBILIÁRIOS | Não | Sim | Não |
+    | 5273 | IRRF - OPERAÇÕES DE SWAP (ART. 74 L 8981/95) | Não | Sim | Não |
+    | 5557 | IRRF - GANHOS LÍQUIDOS EM OPERAÇÕES EM BOLSAS E ASSEMELHADOS | Não | Sim | Não |
+    | 5706 | IRRF - JUROS SOBRE O CAPITAL PRÓPRIO | Não | Sim | Não |
+    | 5952 | RETENÇÃO CONTRIBUIÇÕES PAGT DE PJ A PJ DIR PRIV - CSLL/COFINS/PIS | Não | Não | Sim |
+    | 5987 | CSLL - RETENÇÃO PAGAMENTOS DE PJ A PJ DIREITO PRIVADO | Não | Não | Sim |
+    | 6800 | IRRF - APLICAÇÕES FINANCEIRAS EM FUNDOS DE INVESTIMENTO DE RENDA FIXA | Não | Sim | Não |
+    | 6813 | IRRF - FUNDOS DE INVESTIMENTO – AÇÕES | Não | Sim | Não |
+    | 8045 | IRRF - OUTROS RENDIMENTOS | Não | Sim | Não |
+    | 8468 | IRRF - DAY-TRADE OPERAÇÕES EM BOLSA | Não | Sim | Não |
+    | 9385 | IRRF - MULTAS E VANTAGENS | Não | Sim | Não |
+    | 9998 | CSLL - OUTRAS RETENÇÕES NÃO ESPECIFICADAS ACIMA | Não | Não | Sim |
+    | 9999 | IRPJ - OUTRAS RETENÇÕES NÃO ESPECIFICADAS ACIMA | Não | Sim | Não |

@@ -1,0 +1,88 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+bloco: M
+nome: Livro Eletrônico de Apuração do Lucro Real (e-Lalur) e Livro Eletrônico de Apuração da Base de Cálculo da CSLL (e-Lacs)
+paginas_manual:
+- 237
+- 237
+orientacoes_gerais: null
+tabela_blocos:
+  nome: e-LALUR e e-LACS – Lucro Real
+  descricao: |-
+    Apresenta os livros eletrônicos de escrituração e apuração do IRPJ (e-LALUR) e da
+    CSLL (e-LACS) da pessoa jurídica tributada pelo lucro real - partes A e B.
+registros:
+- registro: M001
+  nome: Abertura do Bloco M – Livro Eletrônico de Apuração do Lucro Real (e-Lalur) e Livro Eletrônico de Apuração da Base de Cálculo da CSLL (e-Lacs)
+  nivel: 1
+  arquivo: ../registros/bloco_M/M001.yml
+- registro: M010
+  nome: Identificação da Conta na Parte B e-Lalur e do e-Lacs
+  nivel: 2
+  arquivo: ../registros/bloco_M/M010.yml
+- registro: M030
+  nome: Identificação do Período e Forma de Apuração do IRPJ e da CSLL das Empresas Tributadas pelo Lucro Real
+  nivel: 2
+  arquivo: ../registros/bloco_M/M030.yml
+- registro: M300
+  nome: Demonstração do Lucro Real
+  nivel: 3
+  arquivo: ../registros/bloco_M/M300.yml
+- registro: M305
+  nome: Contas da Parte B Relacionadas ao Lançamento da Parte A do e-Lalur
+  nivel: 4
+  arquivo: ../registros/bloco_M/M305.yml
+- registro: M310
+  nome: Contas Contábeis Relacionadas ao Lançamento da Parte A do e-Lalur
+  nivel: 4
+  arquivo: ../registros/bloco_M/M310.yml
+- registro: M312
+  nome: Números dos Lançamentos Relacionados à Conta Contábil
+  nivel: 5
+  arquivo: ../registros/bloco_M/M312.yml
+- registro: M315
+  nome: Identificação de Processos Judiciais e Administrativos Referentes ao Lançamento
+  nivel: 4
+  arquivo: ../registros/bloco_M/M315.yml
+- registro: M350
+  nome: Demonstração da Base de Cálculo da CSLL
+  nivel: 3
+  arquivo: ../registros/bloco_M/M350.yml
+- registro: M355
+  nome: Contas da Parte B Relacionadas ao Lançamento da Parte A do e-Lacs
+  nivel: 4
+  arquivo: ../registros/bloco_M/M355.yml
+- registro: M360
+  nome: Contas Contábeis Relacionadas ao Lançamento da Parte A do e-Lacs
+  nivel: 4
+  arquivo: ../registros/bloco_M/M360.yml
+- registro: M362
+  nome: Números dos Lançamentos Relacionados à Conta Contábil
+  nivel: 5
+  arquivo: ../registros/bloco_M/M362.yml
+- registro: M365
+  nome: Identificação de Processos Judiciais e Administrativos Referentes ao Lançamento
+  nivel: 4
+  arquivo: ../registros/bloco_M/M365.yml
+- registro: M410
+  nome: Lançamentos na Conta da Parte B do e-Lalur e do e- Lacs Sem Reflexo na Parte A
+  nivel: 3
+  arquivo: ../registros/bloco_M/M410.yml
+- registro: M415
+  nome: Identificação de Processos Judiciais e Administrativos Referentes ao Lançamento
+  nivel: 4
+  arquivo: ../registros/bloco_M/M415.yml
+- registro: M500
+  nome: Controle de Saldos das Contas da Parte B do e-Lalur e do e-Lacs
+  nivel: 3
+  arquivo: ../registros/bloco_M/M500.yml
+- registro: M510
+  nome: Controle de Saldos das Contas Padrão da Parte B do e- Lalur e do e-Lacs
+  nivel: 3
+  arquivo: ../registros/bloco_M/M510.yml
+- registro: M990
+  nome: Encerramento do Bloco M
+  nivel: 1
+  arquivo: ../registros/bloco_M/M990.yml

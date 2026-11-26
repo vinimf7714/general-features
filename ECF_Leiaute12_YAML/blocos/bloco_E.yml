@@ -1,0 +1,43 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+bloco: E
+nome: Informações Recuperadas da ECF Anterior e Cálculo Fiscal dos Dados Recuperados da ECD
+paginas_manual:
+- 122
+- 122
+orientacoes_gerais: O bloco E não é preenchido pela empresa. O sistema preencherá o bloco E no momento da recuperação da ECF no período imediatamente anterior e efetuará os cálculos fiscais relativos aos dados recuperados da ECD.
+registros:
+- registro: E001
+  nome: Abertura do Bloco E – Informações Recuperadas da ECF Anterior e Cálculo Fiscal dos Dados Recuperados da ECD
+  nivel: 1
+  arquivo: ../registros/bloco_E/E001.yml
+- registro: E010
+  nome: Saldos Finais Recuperados da ECF Anterior
+  nivel: 2
+  arquivo: ../registros/bloco_E/E010.yml
+- registro: E015
+  nome: Contas Contábeis Mapeadas
+  nivel: 3
+  arquivo: ../registros/bloco_E/E015.yml
+- registro: E020
+  nome: Saldos Finais das Contas da Parte B do e-Lalur da ECF Imediatamente Anterior
+  nivel: 2
+  arquivo: ../registros/bloco_E/E020.yml
+- registro: E030
+  nome: Identificação do Período
+  nivel: 2
+  arquivo: ../registros/bloco_E/E030.yml
+- registro: E155
+  nome: Detalhes dos Saldos Contábeis Calculados com Base nas ECD
+  nivel: 3
+  arquivo: ../registros/bloco_E/E155.yml
+- registro: E355
+  nome: Detalhes dos Saldos das Contas de Resultado Antes do Encerramento
+  nivel: 3
+  arquivo: ../registros/bloco_E/E355.yml
+- registro: E990
+  nome: Encerramento do Bloco E
+  nivel: 1
+  arquivo: ../registros/bloco_E/E990.yml

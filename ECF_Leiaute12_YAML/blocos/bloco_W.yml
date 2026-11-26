@@ -1,0 +1,85 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+bloco: W
+nome: Declaração País-a-País (Country-by-Country Report)
+paginas_manual:
+- 427
+- 430
+orientacoes_gerais: |-
+  I. Informações gerais
+  A Declaração País-a-País (DPP) foi instituída pela Instrução Normativa RFB nº 1.681, de 29 de dezembro de 2016, em cumprimento ao compromisso acordado em âmbito internacional na Ação 131 do Projeto BEPS2, sigla em inglês para Base Erosion and Profit Shifting (Erosão da Base Tributável e Transferência de Lucros), coordenado conjuntamente pelos países-membros do G-20 e da Organização para a Cooperação e o Desenvolvimento Econômico (OCDE).
+  A DPP consiste em um relatório anual por meio do qual grupos multinacionais deverão fornecer à administração tributária da jurisdição de residência para fins tributários de seu controlador final diversas informações e indicadores relacionados à localização de suas atividades, à alocação global de renda e aos impostos pagos e devidos. Também deverão ser identificadas todas as jurisdições nas quais os grupos multinacionais operam, bem como todas as entidades integrantes do grupo (incluindo estabelecimentos permanentes) localizadas nessas jurisdições e as atividades econômicas que desempenham.
+  O compromisso assumido no âmbito do Projeto BEPS prevê que o documento deverá ser compartilhado entre os países nos quais as entidades do grupo multinacional estão presentes, por meio de acordos que prevejam a troca automática de informações em matéria tributária, assegurando-se a confidencialidade e a segurança das informações transmitidas.
+  I.1 - Obrigatoriedade
+  Conforme disposto na IN RFB nº 1.681/2016, todas as entidades integrantes de grupo multinacional que configurem o controlador final do respectivo grupo, incluindo instituições financeiras, estão obrigadas à apresentação da Declaração País-a-País. A Declaração deverá ser prestada anualmente, em relação ao ano fiscal encerrado imediatamente anterior.
+  I.1.1. - Exceção
+  Grupos multinacionais cuja receita consolidada total no ano fiscal anterior ao ano fiscal de declaração seja menor que R$ 2.260.000.000,00 (ou € 750.000.000,00, ou o equivalente na moeda local da jurisdição de residência para fins tributários do controlador final, tendo como data base para conversão 31 de janeiro de 2015) estão dispensados da entrega da Declaração País-a-País.
+  Toda entidade residente no Brasil integrante de grupo multinacional que esteja enquadrado nessa situação de dispensa deve informar à Receita Federal do Brasil por meio do Registro W100. O campo 7 do Registro (W100.IND_ENTREGA), o qual informa a entidade responsável pela entrega da DPP, deve ser preenchido com a opção “1 – Grupo multinacional dispensado da entrega da Declaração País-a-País. Além disso, a entidade deve fornecer uma breve descrição do motivo da dispensa no Registro W300 (Observações Adicionais).
+  I.1.2. - Casos Especiais – Obrigatoriedade de entrega por entidade integrante que não seja o controlador final do grupo multinacional
+  Existem situações em que uma entidade integrante de grupo multinacional pode ser obrigada à entrega da Declaração País-a-País mesmo que não seja a controladora final do respectivo grupo. São as seguintes:
+  1 Para acessar o conteúdo integral do relatório final da Ação 13 do Projeto BEPS, consulte http://www.oecd.org/tax/transfer-pricing-documentation-and-country-by-country-reporting-action-13-2015-final- report-9789264241480-en.htm
+  2 Para mais informações sobre o Projeto BEPS, consulte em http://www.oecd.org/tax/beps/. E Para conhecer os relatórios das 15 Ações do Projeto BEPS, consulte em <http://www.oecd.org/ctp/beps-2015- final-reports.htm>.
+  a) designação como entidade substituta
+  Na hipótese de o controlador final do grupo multinacional do qual uma entidade faz parte ser residente no exterior, e desde que verificadas determinadas condições estabelecidas na IN 1.681/2016, uma entidade do grupo multinacional poderá ser designada como responsável pela entrega da Declaração País-a-País relativa a determinado ano fiscal de declaração, na qualidade de entidade substituta.
+  Conforme disposto na norma, a entidade substituta é a única entidade integrante designada pelo grupo multinacional para o cumprimento da obrigação de entrega da Declaração País-a- País em nome de todo o grupo, em substituição ao controlador final. A entrega deve ser feita em sua própria jurisdição de residência para fins tributários, a qual ficará responsável pelo compartilhamento do documento com as demais jurisdições onde o grupo opera identificadas na própria Declaração.
+  Dessa forma, caso uma entidade integrante residente no Brasil seja designada sob tal qualificação, deverá informar à Receita Federal do Brasil no Registro W100 sua condição de entidade declarante da Declaração País-a-País como entidade substituta, e efetuar a entrega do documento. E a administração tributária será responsável, então, por compartilhar a Declaração recebida por meio de entidade residente no Brasil designada substituta com as demais jurisdições pertinentes.
+  b) entrega local
+  Ainda que uma entidade residente no Brasil, integrante de grupo multinacional obrigado à entrega da Declaração, não seja o controlador final do grupo multinacional nem a entidade substituta, ela estará obrigada à entrega da Declaração País-a-País à Receita Federal do Brasil em caso de ocorrência de pelo menos uma das seguintes situações previstas no art. 3º, § 1º da IN 1.681/2016:
+  I - o controlador final do grupo multinacional do qual faz parte não seja obrigado a entregar a Declaração País-a-País em sua jurisdição de residência para fins tributários;
+  II - a jurisdição de residência para fins tributários do controlador final tenha firmado acordo internacional com o Brasil, mas não tenha acordo de autoridades competentes com o País até o prazo final de entrega da Declaração País-a-País estabelecido no art. 6º para o ano fiscal de declaração; ou
+  III - tenha ocorrido falha sistêmica da jurisdição de residência para fins tributários do controlador final do grupo multinacional que tenha sido notificada pela RFB à entidade integrante residente para fins tributários no Brasil.
+  Além disso, a indicação, como entidade declarante da DPP, de entidade substituta residente no exterior sem que se verifique o cumprimento de todas as condições estabelecidas no art.
+  3º, §3º da IN também pode ensejar a obrigatoriedade de entrega local.
+  Por exemplo, caso seja informada entidade substituta residente no exterior em jurisdição que não exija em sua legislação doméstica a entrega da Declaração País-a-País, a indicação não poderá ser considerada válida, e a obrigatoriedade de entrega do documento recairá sobre a entidade integrante do grupo residente no Brasil. O mesmo vale para indicação de entidade substituta residente no exterior em jurisdição que não tenha firmado acordo de autoridades competentes com o Brasil que permita o compartilhamento automático da DPP e/ou que já esteja enquadrada em situação de falha sistêmica pelo Brasil ou que tenha enquadrado o país nessa situação.
+  Em caso de existência de mais de uma entidade residente no Brasil integrantes do mesmo grupo multinacional, caberá a essas entidades definir e informar à Receita Federal, nos termos estabelecidos na IN RFB nº 1.681/2016, qual será a entidade responsável pela entrega da Declaração País-a-País (entidade declarante). A indicação deve ocorrer mediante preenchimento do Registro W100.
+  Observação: No caso de grupo multinacional cujo controlador final é residente no Brasil, a obrigatoriedade de entrega da DPP à Receita Federal será sempre do controlador final, não existindo possibilidade de designação de entidade substituta ou realização de entrega da Declaração por outra entidade integrante do grupo. A hipótese de designação de entidade substituta e as situações que ensejam a obrigatoriedade de entrega local ocorrem apenas nos casos em que o controlador final do grupo multinacional é residente no exterior. Dessa forma, o grupo multinacional cujo controlador final seja residente no Brasil somente poderá designar entidade substituta para a entrega da DPP em outra jurisdição onde o grupo opere, bem como poderá estar sujeito à exigência de entrega local no exterior, em conformidade com os dispositivos do Relatório Final da Ação 13 do Projeto BEPS e da legislação doméstica das demais jurisdições em que o grupo está presente.
+  I.1.3. - Período fiscal
+  Conforme estabelecido na Ação 13 do Projeto BEPS, a DPP deve referir-se ao ano fiscal do controlador final do grupo multinacional. A IN RFB nº 1.681/2016 também esclarece, em seu art. 5º, que a DPP a ser entregue deve abranger o ano fiscal já encerrado, imediatamente anterior, e que o primeiro ano fiscal de declaração será aquele iniciado em 2016.
+  Assim, grupos multinacionais cujo controlador final possui período fiscal que i) não tenha encerrado no ano de 2016; ou ii) tenha data de encerramento em 2016, mas tenha iniciado em 2015, não encontram-se em condições de entrega da DPP durante o ano de 2017. Dessa forma, entidades residentes no Brasil que sejam integrantes de grupos multinacionais cujo controlador final é estrangeiro e encontra-se em uma das situações apresentadas devem preencher o campo 7 do Registro W100 (W100.IND_ENTREGA), o qual informa a entidade responsável pela entrega da DPP, utilizando a opção “1
+  -Grupo Multinacional dispensado da entrega da Declaração País-a-País”, e justificar a dispensa no Registro W300 (Observações Adicionais), informando o período fiscal ao qual o grupo está sujeito.
+  I.2 - Entidades integrantes – Quem deve ser reportado na Declaração País-a-País
+  Devem ser reportadas na Declaração País-a-País, no registro W250, todas as entidades integrantes do grupo multinacional que estejam incluídas nas demonstrações consolidadas do grupo, e também aquelas que estejam excluídas dessas demonstrações apenas em razão de seu tamanho ou por questões de materialidade (vide definição do artigo 2º, inciso III da IN RFB nº 1.681/2016).
+  Conforme disposto no artigo 2º, inciso IV da referida IN, filiais e sucursais de qualquer entidade integrante do grupo são entendidas, para fins da Declaração País-a-País, como estabelecimentos permanentes dessas entidades quando situadas em outro país, e todos devem ser reportados na Declaração com referência à jurisdição onde estão situados, e não com referência à jurisdição de residência da entidade à qual o estabelecimento permanente está relacionado.
+  I..3 - Identificação da Entidade Declarante (art. 7º da IN nº 1.681/2016)
+  Toda e qualquer entidade residente no Brasil que seja integrante de um grupo multinacional deve informar à Receita Federal do Brasil se é a controladora final do respectivo grupo ou se é responsável pela entrega da Declaração País-a-País na qualidade de entidade substituta. Caso a entidade não esteja enquadrada em nenhuma dessas condições, deve fornecer à RFB a identificação da entidade do grupo multinacional responsável pelo cumprimento da obrigação (entidade declarante), bem como sob que qualificação a referida entidade efetua a entrega da DPP – na condição de controladora final do grupo multinacional (residente no Brasil ou no exterior), de entidade substituta (residente no Brasil ou no exterior) ou de Preenchimento Local (obrigatoriamente residente no Brasil, podendo ser o próprio contribuinte ou outra entidade).
+  A modalidade de entrega intitulada Preenchimento Local refere-se à obrigatoriedade de cumprimento da obrigação acessória por entidade residente no Brasil que não seja nem o controlador final do grupo multinacional ao qual pertence nem a entidade substituta, conforme as hipóteses descritas na alínea “b” do item 1.1.2 deste Manual e previstas no art. 3º, § 1o da IN RFB nº 1.681/2016. É importante esclarecer que essa modalidade de entrega não é passível de utilização apenas em caso de intimação da Receita Federal do Brasil, devendo ser adotada caso o grupo multinacional de antemão identifique estar diante de situação que enseje o cumprimento da obrigação acessória dessa maneira.
+  A identificação da entidade declarante deve ser prestada mediante preenchimento do registro W100.
+  Na hipótese de o contribuinte, ao preencher o registro W100 para identificar a entidade declarante da Declaração País-a-País, indicar entidade residente no exterior em jurisdição que não tenha firmado acordo de autoridades competentes com o Brasil que permita o compartilhamento automático da Declaração, ou em jurisdição que esteja enquadrada em situação de falha sistêmica pelo Brasil ou que tenha enquadrado o País nessa situação, a inconsistência será automaticamente detectada pelo sistema. Nessa situação, o contribuinte deve modificar o preenchimento e indicar outra entidade declarante e modalidade de entrega válida, ou a obrigação de entrega da Declaração País-a-País recairá sobre o próprio contribuinte. A não indicação de entidade declarante válida, ou o não cumprimento da obrigação acessória pelo contribuinte serão impeditivos da transmissão da Escrituração Contábil Fiscal (ECF).
+  Por fim, vale salientar que, independentemente de quem seja a entidade responsável pela entrega da Declaração País-a-País em nome do grupo multinacional e sob que qualificação, é obrigatória também a identificação do controlador final do respectivo grupo no registro W100.
+  I.4 - Fonte dos dados e padrão contábil para a elaboração da DPP
+  Para o preenchimento da DPP, a entidade declarante deve utilizar as mesmas fontes de dados, de maneira consistente, ao longo dos anos. A entidade declarante pode escolher entre usar dados oriundos de suas demonstrações consolidadas, das demonstrações financeiras obrigatórias individuais das entidades constituintes do grupo ou de documentos de administração interna. Portanto, diferentes princípios contábeis aplicáveis (General Acceptable Accounting Principles - GAAP) podem ser utilizados no preenchimento da DPP, conforme cada jurisdição reportada em que o grupo opera, desde que isso seja feito consistentemente de um ano para outro. Além disso, devem ser informados no campo de Observações Adicionais (Registro W300) os padrões contábeis sob os quais os dados da DPP estão sendo reportados.
+  Se as demonstrações financeiras obrigatórias separadas das entidades integrantes forem utilizadas como base para o preenchimento da DPP, todos os montantes devem ser convertidos para a moeda funcional do controlador final do grupo multinacional pela taxa de câmbio do último dia do ano fiscal de declaração, a qual deve ser indicada no campo de Informação Adicionais da DPP (Registro W300).
+  Não são necessários ajustes em razão de diferenças nos princípios contábeis aplicados entre as jurisdições.
+  A entidade declarante deve fornecer uma breve descrição das fontes de dado utilizadas para a entrega da DPP no campo de Observações Adicionais (Registro W300) da Declaração. Em caso de mudança na fonte de dados utilizada de um ano para outro, a entidade declarante deve justificar a decisão e suas consequências também no campo de Observações Adicionais.
+  I.5 - Eventos especiais
+  A Declaração País-a-País somente deve ser apresentada na ECF regular. Nenhuma informação pertinente a essa obrigação deve ser prestada em uma ECF relativa a eventos especiais.
+tabela_blocos:
+  nome: Relatório País-a-País
+  descricao: Apresenta o Country by Country Report (Relatório País-a-País) - A partir do leiaute 3
+registros:
+- registro: W001
+  nome: Abertura do Bloco W - Declaração País-a-País
+  nivel: 1
+  arquivo: ../registros/bloco_W/W001.yml
+- registro: W100
+  nome: Informações Sobre o Grupo Multinacional e a Entidade Declarante
+  nivel: 2
+  arquivo: ../registros/bloco_W/W100.yml
+- registro: W200
+  nome: Declaração País a País
+  nivel: 3
+  arquivo: ../registros/bloco_W/W200.yml
+- registro: W250
+  nome: Declaração País a País - Entidades Integrantes
+  nivel: 4
+  arquivo: ../registros/bloco_W/W250.yml
+- registro: W300
+  nome: Observações Adicionais
+  nivel: 2
+  arquivo: ../registros/bloco_W/W300.yml
+- registro: W990
+  nome: Encerramento do Bloco W
+  nivel: 1
+  arquivo: ../registros/bloco_W/W990.yml

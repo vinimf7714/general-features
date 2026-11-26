@@ -1,0 +1,233 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: J050
+nome: Plano de Contas do Contribuinte
+bloco: J
+nome_tabela_registros: Plano de Contas do Contribuinte
+paginas_manual:
+- 133
+- 135
+descricao: Registro onde deve ser informado o plano de contas da empresa.
+titulo_leiaute: 'REGISTRO J050: PLANO DE CONTAS DO CONTRIBUINTE'
+regras_validacao_registro:
+- REGRA_REGISTRO_OBRIGATORIO_J051
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: DT_ALT + COD_CTA
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se (0010. FORMA_TRIB = “1”, “2”, “3”,“4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”)
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: J001
+  filhos:
+  - J051
+  - J053
+  irmaos:
+  - J100
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto fixo contendo a identificação do registro (J050).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[J050]'
+  obrigatorio: true
+- numero: 2
+  campo: DT_ALT
+  descricao: Data de Atualização (inclusão/ alteração).
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: COD_NAT
+  descricao: |-
+    Código da Natureza da Conta Analítica ou Sintética:
+    01 – Contas do Ativo
+    02 – Contas do Passivo
+    03 – Contas do Patrimônio Líquido
+    04 – Contas de Resultado
+    05 – Contas de Compensação
+    09 – Outras
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: '[01; 02; 03; 04; 05; 09]'
+  obrigatorio: true
+- numero: 4
+  campo: IND_CTA
+  descricao: |-
+    Indicador do Tipo de Conta:
+    S - Sintética (grupo de contas) A - Analítica (conta)
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; A]'
+  obrigatorio: true
+- numero: 5
+  campo: NÍVEL
+  descricao: |-
+    Nível da Conta Analítica/Sintética: Número crescente a partir da conta de menor detalhamento. Deve ser acrescido de “1” a cada mudança de nível.
+    Exemplo:
+    Nível 1 = Ativo
+    Nível 2 = Ativo Circulante
+    Nível 3 = Disponível
+    Nível 4 = Caixa Geral
+    Nível 5 = Caixa
+  tipo: N
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: COD_CTA
+  descricao: Código da Conta Analítica/Sintética.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 7
+  campo: COD_CTA_SUP
+  descricao: Código da Conta Sintética de Nível Imediatamente Superior.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 8
+  campo: CTA
+  descricao: Nome da Conta Analítica.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_registro_detalhe:
+- regra: REGRA_REGISTRO_OBRIGATORIO_J051
+  descricao: Verifica se existe, pelo menos, um registro J051 caso o J050.IND_CTA seja igual a “A” (analítica) e J050.COD_NAT igual a “01” (Contas do Ativo), “02” (Contas do Passivo), “03” (Contas do Patrimônio Líquido) ou “04” (Contas de Resultado). Se a regra não for cumprida, a ECF gera um erro.
+regras_validacao_campos:
+- numero: 2
+  campo: DT_ALT
+  regras:
+  - regra: REGRA_DT_ALT_DATA_MAIOR
+    descricao: Verifica se J050.DT_ALT é menor ou igual a 0000.DT_FIN.
+    tipo: Erro
+- numero: 3
+  campo: COD_NAT
+  regras:
+  - regra: REGRA_NATUREZA_J050_C050
+    descricao: Verifica se a conta informada no registro J050 (J050.COD_CTA) existe no registro C050 (C050.COD_CTA) e se possui a mesma natureza (J050.COD_NAT = C050.COD_NAT).
+    tipo: Erro
+- numero: 5
+  campo: NIVEL
+  regras:
+  - regra: REGRA_MAIOR_QUE_UM
+    descricao: Verifica se o valor informado para J050.NIVEL é maior ou igual a 1.
+    tipo: Erro
+  - regra: REGRA_ANALITICA_NIVEL4
+    descricao: Verifica se J050.NIVEL é maior ou igual a quatro (4) para uma conta analítica patrimonial.
+    tipo: Erro
+- numero: 7
+  campo: COD_CTA_SUP
+  regras:
+  - regra: REGRA_COD_CTA_SUP_OBRIGATORIO
+    descricao: Verifica se J050.NIVEL é maior que 1. Caso afirmativo, executa a REGRA_CAMPO_OBRIGATORIO (Verifica se o campo foi preenchido com algum valor diferente de vazio e do caractere “espaço”).
+    tipo: Erro
+  - regra: REGRA_CTA_DE_NIVEL_SUPERIOR_INVALIDA
+    descricao: |-
+      Verifica se J050.NVEL é maior que 1. Caso afirmativo, verifica as seguintes regras:
+      1. REGRA_CONTA_NO_PLANO_CONTAS: Verifica se J050.COD_CTA_SUP existe no plano de contas (Registro J050).
+      2. REGRA_CONTA_NIVEL_SUPERIOR_NAO_SINTETICA: Localiza o registro em que o J050.COD_CTA tenha o mesmo valor do J050.COD_CTA_SUP. Neste registro, o J050.IND_CTA deve ser igual a "S" (Sintética).
+      3. REGRA_NIVEL_DE_CONTA_NIVEL_SUPERIOR_INVALIDO: Localiza o registro em que o J050.COD_CTA tenha o mesmo valor do J050.COD_CTA_SUP. Neste registro, o J050.NIVEL deve ser menor que o nível atual.
+      4. Verifica se J050.NIVEL maior que 2. Se afirmativo, verifica a regra: REGRA_NATUREZA_CONTA (Verifica se a conta de nível superior tem a mesma natureza (J050.COD_NAT) da subconta).
+    tipo: Erro
+  - regra: REGRA_CONTA_SUPERIOR_NAO_SE_APLICA
+    descricao: Verifica, caso J050.NIVEL seja igual “1”, se J050.COD_CTA_SUP não foi informado.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|J050|01012014|01|S|1|1||Ativo Sintética 1|'
+  - '|J050|01012014|01|S|2|1.1|1|Ativo Sintética 2|'
+  - '|J050|01012014|01|S|3|1.1.1|1.1|Ativo Sintética 3|'
+  - '|J050|01012014|01|A|4|1.1.1.1|1.1.1.1|Ativo Analítica 1|'
+  explicacao:
+  - valor: '|J050|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|01012014|'
+    descricao: 'Data da inclusão/alteração: 01012014 (01/01/2014).'
+  - valor: '|01|'
+    descricao: Código da natureza da conta/Grupo de Contas (01 = Conta do Ativo).
+  - valor: '|S|'
+    descricao: Indicador do tipo de conta (S = Conta Sintética).
+  - valor: '|1|'
+    descricao: Nível da conta (1 = Conta de Nível 1).
+  - valor: '|1|'
+    descricao: Código da Conta Analítica/Grupo de Contas.
+  - valor: '||'
+    descricao: Código da Conta Sintética/Grupo de Contas de Nível Imediatamente Superior (Não há).
+  - valor: '|Ativo Sintética 1|'
+    descricao: Nome da Conta Analítica/Grupo de Contas.
+  - valor: '|J050|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|01012014|'
+    descricao: 'Data da inclusão/alteração: 01012014 (01/01/2014).'
+  - valor: '|01|'
+    descricao: Código da natureza da conta/Grupo de Contas (01 = Conta do Ativo).
+  - valor: '|S|'
+    descricao: Indicador do tipo de conta (S = Conta Sintética).
+  - valor: '|2|'
+    descricao: Nível da conta (2 = Conta de Nível 2).
+  - valor: '|1.1|'
+    descricao: Código da Conta Analítica/Grupo de Contas.
+  - valor: '|1|'
+    descricao: Código da Conta Sintética/Grupo de Contas de Nível Imediatamente Superior.
+  - valor: '|Ativo Sintética 2|'
+    descricao: Nome da Conta Analítica/Grupo de Contas.
+  - valor: '|J050|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|01012014|'
+    descricao: 'Data da inclusão/alteração: 01012014 (01/01/2014).'
+  - valor: '|01|'
+    descricao: Código da natureza da conta/Grupo de Contas (01 = Conta do Ativo).
+  - valor: '|S|'
+    descricao: Indicador do tipo de conta (S = Conta Sintética).
+  - valor: '|3|'
+    descricao: Nível da conta (3 = Conta de Nível 3).
+  - valor: '|1.1.1|'
+    descricao: Código da Conta Analítica/Grupo de Contas.
+  - valor: '|1.1|'
+    descricao: Código da Conta Sintética/Grupo de Contas de Nível Imediatamente Superior.
+  - valor: '|Ativo Sintética 3|'
+    descricao: Nome da Conta Analítica/Grupo de Contas.
+  - valor: '|J050|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|01012014|'
+    descricao: 'Data da inclusão/alteração: 01012014 (01/01/2014).'
+  - valor: '|01|'
+    descricao: Código da natureza da conta/Grupo de Contas (01 = Conta do Ativo).
+  - valor: '|A|'
+    descricao: Indicador do tipo de conta (A = Conta Analítica).
+  - valor: '|4|'
+    descricao: Nível da conta (4 = Conta de Nível 4).
+  - valor: '|1.1.1.1|'
+    descricao: Código da Conta Analítica/Grupo de Contas.
+  - valor: '|1.1.1|'
+    descricao: Código da Conta Sintética/Grupo de Contas de Nível Imediatamente Superior.
+  - valor: '|Ativo Analítica 1|'
+    descricao: Nome da Conta Analítica/Grupo de Contas.

@@ -1,0 +1,170 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: X355
+nome: Demonstrativo de Rendas Ativas e Passivas
+bloco: X
+nome_tabela_registros: Demonstrativo de Rendas Ativas e Passivas
+paginas_manual:
+- 496
+- 497
+descricao: |-
+  Este registro deve ser preenchido pelas pessoas jurídicas para demonstrar as rendas ativas e passivas no exterior provenientes de controladas, diretas ou indiretas, equiparadas ou coligadas.
+  De acordo com o art. 84 da Lei no 12.973/2014, considera-se:
+  I - renda ativa própria - aquela obtida diretamente pela pessoa jurídica mediante a exploração de atividade econômica própria, excluídas as receitas decorrentes de (que são consideradas rendas passivas):
+  a) royalties;
+  b) juros;
+  c) dividendos;
+  d) participações societárias;
+  e) aluguéis;
+  f) ganhos de capital, salvo na alienação de participações societárias ou ativos de caráter permanente adquiridos há mais de 2 (dois) anos;
+  g) aplicações financeiras; e
+  h) intermediação financeira.
+  II - renda total - somatório das receitas operacionais e não operacionais, conforme definido na legislação comercial do país de domicílio da investida; e
+  § 1o As alíneas “b”, “g” e “h” do inciso I não se aplicam às instituições financeiras reconhecidas e autorizadas a funcionar pela autoridade monetária do país em que estejam situadas.
+  § 2o Poderão ser considerados como renda ativa própria os valores recebidos a título de dividendos ou a receita decorrente de participações societárias relativos a investimentos efetuados até 31 de dezembro de 2013 em pessoa jurídica cuja receita ativa própria seja igual ou superior a 80% (oitenta por cento)
+  Observação 1: Este demonstrativo é o que se refere o inciso IV do art. 35 da Instrução Normativa RFB no 1.520, de 4 de dezembro de 2014.
+  Observação 2: Todos os campos devem ser informados, ainda que o valor a ser informado seja “zero”.
+titulo_leiaute: 'REGISTRO X355: DEMONSTRATIVO DE RENDAS ATIVAS E PASSIVAS'
+regras_validacao_registro:
+- REGRA_X355_PREENCHER
+nivel_hierarquico: 3
+ocorrencia: 0:1
+campos_chave: REG
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Não deve existir se X340.IND_CONTROLE = “6” e “11”
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: X340
+  filhos: []
+  irmaos:
+  - X350
+  - X351
+  - X352
+  - X353
+  - X354
+  - X356
+  - X357
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (X355).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[X355]'
+  obrigatorio: true
+- numero: 2
+  campo: REND_PASS_PROP
+  descricao: Renda Passiva Própria do Ano-Calendário em Moeda do País de Domicílio.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: REND_PASS_PROP_REAL
+  descricao: Renda Passiva Própria do Ano-Calendário em Reais (R$).
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: REND_TOTAL
+  descricao: 'Renda Total: Renda total conforme definição do inciso II do art. 21 da Instrução Normativa RFB no 1.520/2014, do ano-calendário em moeda do país de domicílio.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: REND_TOTAL_REAL
+  descricao: 'Renda Total em Reais: Renda total conforme definição do inciso II do art. 21 da Instrução Normativa RFB no 1.520/2014, do ano-calendário em Reais (R$).'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: REND_ATIV_PROP
+  descricao: Renda Ativa Própria em Moeda do País de Domicílio (corresponde ao resultado da subtração do X355.REND_TOTAL pelo X355.REND_PASS_PROP).
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 7
+  campo: REND_ATIV_PROP_REAL
+  descricao: |-
+    Renda Ativa Própria em Reais (corresponde ao resultado da subtração do X355.
+    REND_TOTAL_REAL pelo X355.REND_PASS_PROP_REAL).
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 8
+  campo: PERCENTUAL
+  descricao: |-
+    Percentual: Valor do percentual obtido mediante a razão entre o valor do X355.
+    REND_ATIV_PROP e do X355.REND_TOTAL.
+  tipo: N
+  tamanho: 8
+  decimal: 4
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_campos:
+- numero: null
+  campo: REND_ATIV_PROP
+  regras:
+  - regra: REGRA_ATIV_PROP_VALOR
+    descricao: Verifica se X355.REND_ATIV_PROP é igual ao resultado da subtração de X355.REND_TOTAL pelo X355.REND_PASS_PROP.
+    tipo: Erro
+- numero: null
+  campo: REND_ATIV_PROP_REAL
+  regras:
+  - regra: REGRA_ATIV_PROP_REAL_VALOR
+    descricao: Verifica se X355.REND_ATIV_PROP_REAL é igual ao resultado da subtração de X355.REND_TOTAL_REAL pelo X355.REND_PASS_PROP_REAL.
+    tipo: Erro
+- numero: null
+  campo: PERCENTUAL
+  regras:
+  - regra: REGRA_PERCENTUAL_VALOR
+    descricao: Verifica se X355.PERCENTUAL é igual ao resultado da divisão de X355.REND_ATIV_PROP por X355.REND_TOTAL, quando X355.REND_TOTAL > 0.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|X355|100000,00|250000,00|1000000,00|2500000,00|900000,00|2250000,00|90,00|'
+  explicacao:
+  - valor: '|X355|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|100000,00|'
+    descricao: Renda passiva própria em moeda do país de domicílio (U$ 100.000,00).
+  - valor: '|250000,00|'
+    descricao: Renda passiva própria em reais (R$ 250.000,00).
+  - valor: '|1000000,00|'
+    descricao: Renda total em moeda do país de domicílio (U$ 1.000.000,00).
+  - valor: '|2500000,00|'
+    descricao: Renda total em reais (R$ 2.500.000,00).
+  - valor: '|900000,00|'
+    descricao: Renda ativa própria em moeda do país de domicílio (U$ 900.000,00 = U$ 1.000.000,0 – U$ 100.000,00).
+  - valor: '|2250000,00|'
+    descricao: Renda ativa própria em reais (R$ 2.250.000,00 = R$ 2.500.000,00 – R$ 250.000,00).
+  - valor: '|90,00|'
+    descricao: Valor percentual (U$ 900.000,00/U$ 1.000.000,00 = 90%).
+informacoes_adicionais:
+- titulo: I – Regra de Validação de Registro
+  conteudo: 'REGRA_X355_PREENCHER: Este registro só ser preenchido/habilitado quando X340.IND_CONTROLE for diferente de “6” (Coligada em Regime de Caixa) e 11 (Coligada em Regime Misto).'

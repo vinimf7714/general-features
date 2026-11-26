@@ -1,0 +1,339 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: Y600
+nome: Identificação e Remuneração de Sócios, Titulares, Dirigentes e Conselheiros
+bloco: Y
+nome_tabela_registros: Identificação e Remuneração de Sócios, Titulares, Dirigentes e Conselheiro
+paginas_manual:
+- 571
+- 576
+descricao: |-
+  Este registro deve ser preenchido pela pessoa jurídica com os dados dos até 999 (novecentos e noventa e nove) sócios, dirigentes e conselheiros ou dos titulares que tenham recebido maiores remunerações no período da ECF, inclusive os titulares, sócios, dirigentes e conselheiros que tenham se retirado da pessoa jurídica no período da ECF e não fazem parte do quadro societário na data final.
+  Regras de preenchimento:
+  1 – Informar os 500 maiores dirigentes, conselheiros, sócios ou titulares na data final do período de apuração, ordenados pelo total dos campos Y600.VL_REM_TRAB; Y600.VL_LUC_DIV;
+  Y600.VL_JUR_CAP e Y600. VL_DEM_REND;
+  Observação: No caso de ações em tesouraria, a sociedade deverá informar uma ocorrência do registro com Y600. IND_QUALIF_SOCIO = “PJ”, Y600.CPF_CNPJ = “CNPJ da própria sociedade”, Y600.DT_ALT_SOC = “31/12/Ano da Escrituração” e Y600.NOM_EMP = “Ações em Tesouraria”.
+  Observação: No caso de ações em free float (livre circulante), a sociedade deverá informar uma ocorrência do registro com Y600. IND_QUALIF_SOCIO = “PJ”, Y600.CPF_CNPJ = “CNPJ da própria sociedade”, Y600.DT_ALT_SOC = “31/12/Ano da Escrituração” e Y600.NOM_EMP = “Ações em Free Float”.
+  2 – Informar as 499 maiores alterações Y600.DT_ALT_SOC ocorridas durante o período, não contempladas pelo item 1.
+  Exemplos de eventos que devem ser registrados:
+  1- Alteração intermediária da porcentagem de participação no capital social da Pessoa Jurídica no curso do período de apuração.
+  2- Aquisição e alienação de participação no capital social da Pessoa Jurídica no curso do período de apuração. Os dois eventos devem estar registrados.
+  3- Alterações das porcentagens de free float e ações em tesouraria.
+  4- Emissões ou cancelamentos de quotas/ ações, mesmo derivadas da conversão de outros valores mobiliários.
+  5- Split ou inplit de ações.
+  Observação: Para os campos relativos a valores, eles devem ser informados em todos os casos, mesmo quando o valor seja “zero”.
+titulo_leiaute: 'REGISTRO Y600: IDENTIFICAÇÃO E REMUNERAÇÃO DE SÓCIOS, TITULARES, DIRIGENTES E CONSELHEIROS'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: null
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0010.FORMA_TRIB = "1" a "7"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: Y001
+  filhos: []
+  irmaos:
+  - Y520
+  - Y570
+  - Y590
+  - Y612
+  - Y620
+  - Y630
+  - Y640
+  - Y660
+  - Y672
+  - Y680
+  - Y682
+  - Y720
+  - Y730
+  - Y750
+  - Y800
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (Y600).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[Y600]'
+  obrigatorio: true
+- numero: 2
+  campo: DT_ALT_SOC
+  descricao: |-
+    Data da Alteração no Quadro Societário. Pode ser uma data anterior ao ano da escrituração, inclusive da criação da Pessoa Jurídica.
+    Atenção: No caso de preenchimento de Y600.DT_FIM_SOC, informar neste campo a data da última alteração da participação do sócio, antes da data da saída do quadro societário.
+    Observação: No caso de administradores, diretores, dirigentes, presidentes ou conselheiros, adotar a data em que efetivamente começou a executar essas funções na entidade.
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: DT_FIM_SOC
+  descricao: |-
+    Data da Saída do Quadro Societário.
+    Deve ser preenchida somente se a saída do quadro societário ocorreu no ano da escrituração.
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 4
+  campo: PAIS
+  descricao: |-
+    País de Residência ou Domicílio da Pessoa Física ou Jurídica.
+    Código do país, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: N
+  tamanho: 3
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: IND_QUALIF
+  descricao: |-
+    Indicador de Qualificação do Sócio, Titular, Dirigente ou Conselheiro:
+    PF - Pessoa Física
+    PJ - Pessoa Jurídica
+    FI – Fundo de Investimento
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: '[PF; PJ; FI]'
+  obrigatorio: true
+- numero: 6
+  campo: CPF_CNPJ
+  descricao: |-
+    CPF ou CNPJ do Sócio, Titular, Dirigente ou Conselheiro.
+    Obrigatório se Código do País for igual a "105" (Brasil)
+    Caso contrário, pode ser preenchido com branco(s).
+    Se IND_QUALIF_SOCIO =” PF” preencher com CPF. Senão, preencher com CNPJ.
+  tipo: C
+  tamanho: 14
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 7
+  campo: NOM_EMP
+  descricao: Nome/Nome empresarial do Sócio, Titular, Dirigente ou Conselheiro.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 8
+  campo: QUALIF
+  descricao: |-
+    Qualificação do Sócio, Titular, Dirigente ou Conselheiro.
+    Se PAIS = “105” (Brasil) E IND_QUALIF_SOCIO = “PF”:
+    01 – Acionista Pessoa Física Domiciliado no Brasil
+    02 – Sócio Pessoa Física Domiciliado no Brasil
+    09 – Titular
+    10 – Administrador sem Vínculo Empregatício
+    11 – Diretor sem Vínculo Empregatício
+    12 – Presidente sem Vínculo Empregatício
+    13 – Administrador com Vínculo Empregatício
+    14 – Conselheiro de Administração ou Fiscal
+    15 – Diretor com Vínculo Empregatício
+    16 – Fundador
+    17 – Presidente com Vínculo Empregatício
+    18 – Usufrutuário de Quotas ou Ações
+    Se PAIS = “105” (Brasil) E IND_QUALIF_SOCIO = "PJ":
+    03 - Acionista Pessoa Jurídica Domiciliado no Brasil
+    04 - Sócio Pessoa Jurídica Domiciliado no Brasil
+    18 – Usufrutuário de Quotas ou Ações
+    Se PAIS diferente de “105” (Brasil) E IND_QUALIF_SOCIO = "PF":
+    05 - Acionista Pessoa Física Residente ou Domiciliado no Exterior
+    06 - Sócio Pessoa Física Residente ou Domiciliado no Exterior
+    14 – Conselheiro de Administração ou Fiscal
+    18 – Usufrutuário de Quotas ou Ações
+    Se PAIS diferente de “105” (Brasil) E IND_QUALIF_SOCIO = "PJ":
+    07 - Acionista Pessoa Jurídica Residente ou Domiciliado no Exterior
+    08 - Sócio Pessoa Jurídica Residente ou Domiciliado no Exterior
+    18 – Usufrutuário de Quotas ou Ações
+    Observação: Caso o sócio seja também administrador ou diretor, deve selecionar a opção
+    02 – Sócio Pessoa Física Domiciliado no Brasil ou 06 – Sócio Pessoa Física Domiciliado no Exterior.
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: '[01; 02; 03; 04; 05; 06; 07; 08; 09; 10; 11; 12; 13; 14; 15; 16; 17; 18]'
+  obrigatorio: true
+- numero: 9
+  campo: PERC_CAP_TOT
+  descricao: |-
+    Percentual Relativo à Participação da Pessoa Física ou Jurídica, Sócio, Titular, Conselheiro ou Dirigente, no Capital Total.
+    Observação: Caso o valor seja 100,00%, informe somente “100”.
+  tipo: N
+  tamanho: 8
+  decimal: 4
+  valores_validos: null
+  obrigatorio: true
+- numero: 10
+  campo: PERC_CAP_VOT
+  descricao: |-
+    Percentual Relativo à Participação da Pessoa Física ou Jurídica, Sócio, Titular, Conselheiro ou Dirigente, no Capital Votante.
+    Observação: Caso o valor seja 100,00%, informe somente “100”.
+  tipo: N
+  tamanho: 8
+  decimal: 4
+  valores_validos: null
+  obrigatorio: true
+- numero: 11
+  campo: CPF_REP_LEG
+  descricao: 'CPF do Representante Legal: No caso de residente ou domiciliado no exterior ou de pessoa física residente no Brasil legalmente representada.'
+  tipo: N
+  tamanho: 11
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 12
+  campo: QUALIF_REP_LEG
+  descricao: |-
+    Qualificação do Representante Legal:
+    Obrigatório se CPF_REP_LEG é diferente de vazio
+    Se IND_QUALIF_SOCIO = “PF”
+    01 - Procurador
+    02 - Curador
+    03 - Mãe
+    04 - Pai
+    05 - Tutor
+    06 – Outro
+    Se IND_QUALIF_SOCIO = “PJ”
+    01 - Procurador
+    06 – Outro
+  tipo: N
+  tamanho: 2
+  decimal: '-'
+  valores_validos: '[01; 02; 03; 04; 05; 06]'
+  obrigatorio: false
+- numero: 13
+  campo: VL_REM_TRAB
+  descricao: 'Remuneração do Trabalho: Valor, antes da dedução do imposto de renda retido na fonte, dos rendimentos pagos e escriturados, nos livros da escrituração contábil ou no livro Caixa, a título de remuneração a sócios, dirigentes e conselheiros pela prestação de serviços, ou quaisquer outros pagamentos, tais como: pró-labore e aluguéis.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 14
+  campo: VL_LUC_DIV
+  descricao: 'Lucros/Dividendos: Valor dos lucros e dividendos efetivamente pagos no ano-calendário a sócios ou a titular de empresa individual.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 15
+  campo: VL_JUR_CAP
+  descricao: 'Juros Sobre o Capital Próprio: Valor dos juros pagos ou creditados a titular, ou a sócios ou acionistas, a título de remuneração do capital próprio, antes de deduzido o imposto de renda na fonte, em conformidade com o disposto no art. 9o da Lei no 9.249, de 1995.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 16
+  campo: VL_DEM_REND
+  descricao: 'Demais Rendimentos: Valor, antes da dedução do imposto de renda retido na fonte, dos demais rendimentos pagos ou creditados a sócios, a acionistas, a titular de empresa individual, a dirigentes ou a conselheiros, inclusive os lucros e dividendos não apurados em balanço e distribuídos.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 17
+  campo: VL_IR_RET
+  descricao: 'IR Retido na Fonte: Valor do imposto de renda retido na fonte por ocasião do pagamento de lucros ou dividendos não abrangidos pela isenção, e sobre os demais rendimentos pagos a sócios, a acionistas, a titular de empresa individual, a dirigentes ou a conselheiros.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+regras_validacao_campos:
+- numero: 3
+  campo: DATA_FIM_SOC
+  regras:
+  - regra: REGRA_DATA_FIM_SOC
+    descricao: Verifica, caso Y600.DATA_FIM_SOC está preenchida, se está compreendida entre 0000.DT_INI e 0000.DT_FIN.
+    tipo: Erro
+- numero: 6
+  campo: CPF_CNPJ
+  regras:
+  - regra: REGRA_OBRIGATORIO_BRASIL
+    descricao: Verifica se o Y600.CPF_CNPJ está preenchido somente quando Y600.PAIS for igual a “105” (Brasil).
+    tipo: Erro
+  - regra: REGRA_VALIDA_CPF_CNPJ
+    descricao: Quando tamanho do campo igual 11, aplica a REGRA_VALIDA_CPF e quando o tamanho do campo igual a 14, aplica a REGRA_VALIDA_CNPJ.
+    tipo: Erro
+  - regra: REGRA_CPF_IND_QUALIF_PJ_FI
+    descricao: Verifica se Y600.IND_QUALIF for PJ ou FI e informar um CPF (11 dígitos).
+    tipo: Erro
+  - regra: REGRA_CPF_IND_QUALIF_PF
+    descricao: Verifica se Y600.IND_QUALIF for PF e informar um CNPJ (14 dígitos).
+    tipo: Erro
+- numero: 7
+  campo: QUALIF
+  regras:
+  - regra: REGRA_Y600_QUALIF
+    descricao: Verifica, quando Y600.PAIS igual a “105” (Brasil) e Y600.IND_QUALIF_SOCIO igual a “PF”, se Y600.QUALIF é igual a “01”, “02”, “09”, “10”, “11”, “12”, “13”, “14”, “15”, “16” ou “17”; quando Y600.PAIS igual a “105” (Brasil) e Y600.IND_QUALIF_SOCIO igual a “PJ”, se Y600.QUALIF é igual a “03” ou “04”; quando Y600.PAIS é diferente de “105” (Brasil) e Y600.IND_QUALIF_SOCIO igual a “PF”, se Y600.QUALIF é igual a “05”, “06” ou “14”; quando Y600.PAIS é diferente de “105” (Brasil) e Y600.IND_QUALIF_SOCIO igual a “PJ”, se Y600.QUALIF é igual a “07” ou “08”.
+    tipo: Erro
+- numero: 11
+  campo: CPF_REP_LEG
+  regras:
+  - regra: REGRA_VALIDA_CPF
+    descricao: Verifica se o CPF informado é válido.
+    tipo: Erro
+- numero: 12
+  campo: QUALIF_REP_LEG
+  regras:
+  - regra: REGRA_QUALIF_REP_LEG_OBRIGATORIO
+    descricao: Verifica, caso Y600.CPF_REP_LEG esteja preenchido, se Y600.QUALIF_REP_LEG está preenchido. Caso Y600.CPF_REP_LEG não esteja preenchido, o campo Y600.QUALIF_REP_LEG não deve ser preenchido.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|Y600|01012012|105|PF|00000000000|FULANO SÓCIO|01|60,00|60,00|||100000,00|10000,00|5000,00|3000,00|9000,00|'
+  explicacao:
+  - valor: '|Y600|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|01012012|'
+    descricao: Data da última alteração societária (01/01/2012).
+  - valor: '|105|'
+    descricao: Código do país de residência ou domicílio do sócio ou titular (105 = Brasil).
+  - valor: '|PF|'
+    descricao: Indicador da natureza do sócio ou titular (PF = Pessoa Física).
+  - valor: '|00000000000|'
+    descricao: 'CPF ou CNPJ do sócio ou titular (CPF: 000.000.000-00).'
+  - valor: '|FULANO SÓCIO|'
+    descricao: Nome ou nome empresarial do sócio ou titular.
+  - valor: '|01|'
+    descricao: Qualificação do sócio ou titular (01 = Acionista Pessoa Física Domiciliado no Brasil).
+  - valor: '|60,00|'
+    descricao: Percentual de participação do sócio ou titular no capital total (60%).
+  - valor: '|60,00|'
+    descricao: Percentual de participação do sócio ou titular no capital votante (60%).
+  - valor: '||'
+    descricao: Não há representante legal (CPF do representante legal não preenchido).
+  - valor: '||'
+    descricao: Não há representante legal (Qualificação do representante legal não preenchida).
+  - valor: '|100000,00|'
+    descricao: Rendimentos pagos e escriturados ao dirigente, conselheiro, sócio ou titular (R$ 100.000,00).
+  - valor: '|10000,00|'
+    descricao: Lucros e dividendos pagos ao dirigente, conselheiro, sócio ou titular (R$ 10.000,00).
+  - valor: '|5000,00|'
+    descricao: Juros sobre o capital próprio pagos ao dirigente, conselheiro, sócio ou titular (R$ 5.000,00).
+  - valor: '|3000,00|'
+    descricao: Demais rendimentos pagos ao dirigente, conselheiro, sócio ou titular (R$ 3.000,00).
+  - valor: '|9000,00|'
+    descricao: Imposto de renda retido na fonte em virtude do pagamento de lucros ou dividendos não abrangidos pela isenção e sobre os rendimentos pagos ao dirigente, conselheiro, sócio
+  observacoes:
+  - ou titular (R$ 9.000,00).

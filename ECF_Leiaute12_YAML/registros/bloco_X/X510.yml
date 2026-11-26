@@ -1,0 +1,139 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: X510
+nome: Áreas de Livre Comércio (ALC)
+bloco: X
+nome_tabela_registros: Áreas de Livre Comércio (ALC)
+paginas_manual:
+- 558
+- 559
+descricao: Este registro deverá ser preenchido pelas pessoas jurídicas autorizadas a operar nas Áreas de Livre Comércio (ALC) de Boa Vista, Bonfim, Tabatinga, Macapá e Santana, Brasiléia, Cruzeiro do Sul ou Guajará-Mirim, beneficiárias dos incentivos de que tratam a Lei no 8.256, de 25 de novembro de 1991, a Lei no 11.732, de 30 de junho de 2008, a Lei no 7.965, de 22 de dezembro de 1989, a Lei no 8.387, de 30 de dezembro de 1991, o Decreto no 517, de 8 de maio de 1992, a Lei no 8.857, de 8 de março de 1994, e a Lei no 8.210, de 19 de julho de 1991, e alterações posteriores.
+titulo_leiaute: 'REGISTRO X510: ÁREAS DE LIVRE COMÉRCIO (ALC)'
+regras_validacao_registro:
+- REGRA_DUPLICIDADE_DESPREZADA
+- REGRA_LINHA_DESPREZADA
+- REGRA_LINHA_ATUALIZADA
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: CODIGO
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020. IND_AREA_COM = "S"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: X001
+  filhos: []
+  irmaos:
+  - X280
+  - X292
+  - X340
+  - X360
+  - X365
+  - X370
+  - X390
+  - X400
+  - X410
+  - X420
+  - X430
+  - X450
+  - X460
+  - X470
+  - X480
+  - X485
+  - X490
+  - X500
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (X510).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[X510]'
+  obrigatorio: true
+- numero: 2
+  campo: CODIGO
+  descricao: Código, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: DESCRICAO
+  descricao: Descrição, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 4
+  campo: VALOR
+  descricao: Valor
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+regras_validacao_registro_detalhe:
+- regra: REGRA_DUPLICIDADE_DESPREZADA
+  descricao: Verifica se o registro já foi importado anteriormente, de acordo com a chave e os registros pais. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_DESPREZADA
+  descricao: Verifica se o registro existe na importação, mas não será importado por não existir na tabela dinâmica devido às configurações do bloco 0 ou da tabela dinâmica. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_ATUALIZADA
+  descricao: Verifica se o registro está desatualizado em relação à tabela da RFB. Se a regra não for cumprida, a ECF gera um aviso.
+regras_validacao_campos:
+- numero: 4
+  campo: VALOR
+  regras:
+  - regra: REGRA_OBRIGATORIO_TIPO_DIFERENTE_R
+    descricao: Verifica se o campo está preenchido quando o tipo da linha é diferente de “R”.
+    tipo: Erro
+tabelas_dinamicas: |-
+  X510 - Áreas de Livre Comércio (ALC)
+  Vide planilha deste Registro no arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” a partir do link http://sped.rfb.gov.br/pasta/show/1644.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+  Regras de validação da tabela dinâmica X510:
+  Vide arquivo “SPEDECF_DINAMICO_2021$SPEDECF_DINAMICA_X510_REGRAS” no diretório C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas. (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|X510|1|ALC (Lei nº 7.965/1989, Lei nº 8.210/1991, Lei nº 8.256/1991, alterada pela Lei nº 11.732/2008, Lei nº 8.387/1991, 8.857/1994 e Decreto nº 517/1992)||'
+  - '|X510|2|Entrada de Mercadorias Estrangeiras Sujeitas à Isenção do II e do IPI|100000,00|'
+  - '|X510|3|Isenção do II Correspondente à Entrada de Mercadorias Estrangeiras|30000,00|'
+  explicacao:
+  - valor: '|X510|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|1|'
+    descricao: Código da linha.
+  - valor: '|ALC (Lei nº 7.965/1989, Lei nº 8.210/1991, Lei nº 8.256/1991, alterada pela Lei nº 11.732/2008, Lei nº 8.387/1991, 8.857/1994 e Decreto nº 517/1992)|'
+    descricao: Descrição da linha.
+  - valor: '||'
+    descricao: Valor da linha (como a linha corresponde a um rótulo – R – não há valor).
+  - valor: '|X510|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|2|'
+    descricao: Código da linha.
+  - valor: '|Entrada de Mercadorias Estrangeiras Sujeitas à Isenção do II e do IPI|'
+    descricao: Descrição da linha.
+  - valor: '|100000,00|'
+    descricao: Valor da linha (R$ 100.000,00).
+  - valor: '|X510|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|3|'
+    descricao: Código da linha.
+  - valor: '|Isenção do II Correspondente à Entrada de Mercadorias Estrangeiras|'
+    descricao: Descrição da linha.
+  - valor: '|30000,00|'
+    descricao: Valor da linha (R$ 30.000,00).

@@ -1,0 +1,149 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: Y630
+nome: Fundos/Clubes de Investimento
+bloco: Y
+nome_tabela_registros: Fundos/Clubes de Investimento
+paginas_manual:
+- 583
+- 584
+descricao: Este registro deve ser preenchido pelas pessoas jurídicas administradoras de fundos ou clubes de investimento, e pelos fundos de investimento imobiliário de que trata a Lei no 8.668, de 25 de junho de 1993, alterada pelos arts. 2o a 4o e 22 da Lei no 9.779, de 19 de janeiro de 1999.
+titulo_leiaute: 'REGISTRO Y630: FUNDOS/CLUBES DE INVESTIMENTO'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: CNPJ
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020.IND_ADM_FUN_CLU = "S"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: Y001
+  filhos: []
+  irmaos:
+  - Y520
+  - Y570
+  - Y590
+  - Y600
+  - Y612
+  - Y620
+  - Y640
+  - Y660
+  - Y672
+  - Y680
+  - Y682
+  - Y720
+  - Y730
+  - Y750
+  - Y800
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (Y630).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[Y630]'
+  obrigatorio: true
+- numero: 2
+  campo: CNPJ
+  descricao: |-
+    CNPJ: As administradoras de Fundos ou Clubes de Investimento devem informar, neste campo, o CNPJ de cada Fundo ou Clube de Investimento. Os fundos de investimento imobiliário de que trata a Lei no 8.668, de 1993, alterada pelos arts. 2o a 4o e 22 da Lei no
+    9.779, de 1999, devem informar o próprio CNPJ.
+  tipo: C
+  tamanho: 14
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: QTE_QUOT
+  descricao: 'Quantidade de Quotistas no Final do Período: Quantidade de quotistas do fundo ou clube, existente no final do período de apuração, para cada CNPJ informado. Atenção: No caso de encerramento indicar a quantidade de quotistas do fundo ou clube apurada/levantada pelo Administrador para a data da Assembleia de quotistas para fins de deliberar o encerramento, ou na data do evento de encerramento.'
+  tipo: N
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: QTE_QUOTA
+  descricao: 'Quantidade de Quotas no Final do Período: Quantidade de quotas do fundo ou clube, existente no final do período de apuração, para cada CNPJ informado. Atenção: No caso de encerramento indicar a quantidade de quotas do fundo ou clube apurada/levantada pelo Administrador para a data da Assembleia de quotistas para fins de deliberar o encerramento, ou na data do evento de encerramento.'
+  tipo: N
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: PATR_FIN_PER
+  descricao: 'Patrimônio no Final do Período: Patrimônio do fundo ou clube, existente no final do período de apuração, para cada CNPJ informado. Atenção: No caso de encerramento indicar o patrimônio do fundo ou clube apurado/levantado pelo Administrador para a data da Assembleia de quotistas para fins de deliberar o encerramento, ou na data do evento de encerramento.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: DAT_ABERT
+  descricao: 'Data de Abertura: Indicar a data de abertura do fundo ou clube de investimento, para cada CNPJ informado.'
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 7
+  campo: DAT_ENCER
+  descricao: 'Data de Encerramento: Indicar a data de encerramento do fundo ou clube de investimento, para cada CNPJ informado.'
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+regras_validacao_campos:
+- numero: null
+  campo: CNPJ
+  regras:
+  - regra: REGRA_VALIDA_CNPJ
+    descricao: Verifica se a regra de formação do código é válida.
+    tipo: Erro
+- numero: null
+  campo: DAT_ABERT
+  regras:
+  - regra: REGRA_DATA_MAIOR_DT_FIN
+    descricao: Verifica se Y630.DT_ABERT foi preenchido com a data menor que a data informada em 0000.DT_FIN.
+    tipo: Erro
+- numero: null
+  campo: DAT_ENCER
+  regras:
+  - regra: REGRA_DATA_MAIOR_DT_FIN
+    descricao: Verifica se Y630.DT_ENCER foi preenchido com a data menor que a data informada em 0000.DT_FIN.
+    tipo: Erro
+  - regra: REGRA_DATA_ABERT_ENCER
+    descricao: Verifica se Y630.DT_ABERT foi preenchido com a data menor que a data informada em Y630.DAT_ENCER.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|Y630|44444444000191|100|5000000|100000000,00|10012010||'
+  explicacao:
+  - valor: '|Y630|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|44444444000191|'
+    descricao: CNPJ do fundo ou clube de investimento (44.444.444/0001-91).
+  - valor: '|100|'
+    descricao: Quantidade de quotistas (100 quotistas).
+  - valor: '|5000000|'
+    descricao: Quantidade de quotas (5.000.000 de quotas).
+  - valor: '|100000000,00|'
+    descricao: Patrimônio do fundo ou clube de investimento no final do período (R$ 100.000.000,00).
+  - valor: '|10012010|'
+    descricao: Data de abertura do fundo ou clube de investimento (01/01/2010).
+  - valor: '||'
+    descricao: Não há data de encerramento do fundo ou clube de investimento.

@@ -1,0 +1,269 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: K915
+nome: Justificativa para Divergência de Saldos Contábeis das Contas Patrimoniais Recuperados da ECD
+bloco: K
+nome_tabela_registros: Justificativa para Divergência nas Contas Patrimoniais
+paginas_manual:
+- 156
+- 159
+descricao: |-
+  Registro onde deve ser apresentada a justificativa do erro ocorrido no K155 (contas patrimoniais), quando do descumprimento as suas regras: REGRA_COMPATIBILIDADE_K155_E155 ou
+  REGRA_COMPATIBILIDADE_E155_K155.
+  Com o devido preenchimento da justificativa da diferença (campo K915_JUSTIFICATIVA preenchido), o erro se torna aviso, permitindo a entrega da ECF.
+  Este registro será excluído e incluído automaticamente pelo PGE da ECF durante o processo de verificação de pendência. Os campos de valores são calculados automaticamente.
+titulo_leiaute: 'REGISTRO K915: JUSTIFICATIVA PARA DIVERGÊNCIA DE SALDOS CONTÁBEIS DAS CONTAS PATRIMONIAIS RECUPERADOS DA ECD'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 1:N
+campos_chave: COD_CTA, COD_CCUS, ID_REGRA
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: FC
+    condicao: Se (0010.FORMA_TRIB = “1” ou “2” ou “3”, “4” ou “10”) Ou (0010. FORMA_TRIB = “5” ou “7” ou “8” ou “9” E 0010.TIP_ESC_PRE = “C”)
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: K001
+  filhos: []
+  irmaos:
+  - K030
+  - K935
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (K915).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[K915]'
+  obrigatorio: true
+- numero: 2
+  campo: PER_APUR
+  descricao: |-
+    Período de Apuração [para 0010.FORMA_APUR = “A” ou (0010.FORMA_APUR_I = “A” OU 0010.APUR_CSLL = “A” E 0010.TIP_ESC_PRE = “C”)]:
+    A00 – Anual
+    A01 – Rec. Bruta de janeiro /Balanço suspensão redução até janeiro A02 – Rec. Bruta de fevereiro /Balanço suspensão redução até fevereiro A03 – Rec. Bruta de março /Balanço suspensão redução até março A04 – Rec. Bruta de abril /Balanço suspensão redução até abril A05 – Rec. Bruta de maio /Balanço suspensão redução até maio A06 – Rec. Bruta de junho /Balanço suspensão redução até junho A07 – Rec. Bruta de julho /Balanço suspensão redução até julho A08 – Rec. Bruta de agosto /Balanço suspensão redução até agosto A09 – Rec. Bruta de setembro /Balanço suspensão redução até setembro A10 – Rec. Bruta de outubro/Balanço suspensão redução até outubro A11 – Rec. Bruta de novembro /Balanço suspensão redução até novembro A12 – Rec. Bruta de dezembro/Balanço suspensão redução até dezembro
+    Indicador do período de referência [para 0010.FORMA_APUR = “T” OU (0010.FORMA_APUR = “A” E 0010.FORMA_TRIB = “2”) ou (0010.FORMA_APUR_I = “T” OU 0010.APUR_CSLL = “T” E 0010.TIP_ESC_PRE = “C”)]:
+    T01 – 1º Trimestre
+    T02 – 2º Trimestre
+    T03 – 3º Trimestre
+    T04 – 4º Trimestre
+    Regra: O período deve estar compreendido entre a data início e data fim da escrituração.
+    Período de Apuração [para 0010.FORMA_APUR_I = “D” OU 0010.APUR_CSLL = “D” E 0010.TIP_ESC_PRE = “C”)]:
+    A00 – Anual
+  tipo: C
+  tamanho: 3
+  decimal: '-'
+  valores_validos: '[A00; A01; A02; A03; A04; A05; A06; A07; A08; A09; A10; A11; A12; T01; T02; T03; T04]'
+  obrigatorio: true
+- numero: 3
+  campo: COD_CTA
+  descricao: Código da conta contábil.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: COD_CCUS
+  descricao: Código do centro de custos.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 5
+  campo: ID_REGRA
+  descricao: |-
+    Identificação da regra que foi descumprida. O sistema deverá preencher com as seguintes regras:
+    REGRA_COMPATIBILIDADE_K155_E155: (Verifica se os valores utilizados no registro K155 são iguais aos valores calculados do registro E155.) ou
+    REGRA_COMPATIBILIDADE_E155_K155: Verifica se os campos do registro
+    E155 com algum valor maior que zero, são referenciados no registro K155 para o mesmo período de apuração.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: VL_SLD_INI_ESP
+  descricao: |-
+    Valor do saldo inicial recuperado da ECD para o período fiscal.
+    Este campo será calculado automaticamente pelo PGE da ECF durante a validação do arquivo da ECF.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 7
+  campo: IND_VL_SLD_INI_ESP
+  descricao: |-
+    Indicador de situação do saldo inicial esperado:
+    D – Devedor; e C – Credor.
+    Este campo será calculado automaticamente pelo PGE da ECF durante a validação do arquivo da ECF.
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[“D”; “C”]'
+  obrigatorio: false
+- numero: 8
+  campo: VL_DEB_ESP
+  descricao: |-
+    Valor total de débitos recuperado da ECD para o período fiscal.
+    Este campo será calculado automaticamente pelo PGE da ECF durante a validação do arquivo da ECF.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 9
+  campo: VL_CRED_ESP
+  descricao: |-
+    Valor total de créditos recuperado da ECD para o período fiscal.
+    Este campo será calculado automaticamente pelo PGE da ECF durante a validação do arquivo da ECF.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 10
+  campo: VL_SLD_FIN_ESP
+  descricao: |-
+    Valor do saldo final recuperado da ECD para o período fiscal.
+    Este campo será calculado automaticamente pelo PGE da ECF durante a validação do arquivo da ECF.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 11
+  campo: IND_VL_SLD_FIN_ESP
+  descricao: |-
+    Indicador de situação do saldo final esperado:
+    D – Devedor; e C – Credor.
+    Este campo será calculado automaticamente pelo PGE da ECF durante a validação do arquivo da ECF.
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[“D”; “C”]'
+  obrigatorio: false
+- numero: 12
+  campo: SLD_INI_PRE
+  descricao: Saldo inicial preenchido no registro K155.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 13
+  campo: IND_SLD_INI_PRE
+  descricao: |-
+    Indicador de situação do saldo inicial preenchido no registro K155:
+    D – Devedor; e C – Credor.
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[“D”; “C”]'
+  obrigatorio: false
+- numero: 14
+  campo: VL_DEB_PRE
+  descricao: Valor total dos débitos preenchido no registro K155.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 15
+  campo: VL_CRED_PRE
+  descricao: Valor total dos créditos preenchido no registro K155.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 16
+  campo: SLD_FIN_PRE
+  descricao: Saldo final preenchido no registro K155.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 17
+  campo: IND_SLD_FIN_PRE
+  descricao: |-
+    Indicador de situação do saldo final preenchido no registro K155:
+    D – Devedor; e C – Credor.
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[“D”; “C”]'
+  obrigatorio: false
+- numero: 18
+  campo: JUSTIFICATIVA
+  descricao: Justificativa da divergência entre o(s) valor(es) calculado(s) pelo PGE da ECF e o(s) valor(es) preenchido(s).
+  tipo: C
+  tamanho: 500
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+regras_validacao_campos:
+- numero: 18
+  campo: JUSTIFICATIVA
+  regras:
+  - regra: REGRA_K915_JUSTIFICATIVA
+    descricao: Verifica se o campo K915.JUSTIFICATIVA está preenchido com 20 ou mais caracteres.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|K915|A00|1.1.1.1||REGRA_COMPATIBILIDADE_K155_E155|10|D|20|0|30|D|20|D|20|0|40|D|Alteração do saldo inicial da conta em virtude de correção do cálculo do ajuste a valor presente,'
+  explicacao:
+  - valor: '|K915|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|A00|'
+    descricao: 'Período de apuração: A00 – Anual.'
+  - valor: '|1.1.1.1|'
+    descricao: 'Código da conta contábil: 1.1.1.1.'
+  - valor: '||'
+    descricao: 'Código do centro de custos: não há.'
+  - valor: '|REGRA_COMPATIBILIDADE_K155_E155|'
+    descricao: Identificação da regra.
+  - valor: '|10|'
+    descricao: 'Valor do saldo inicial esperado: 10,00.'
+  - valor: '|D|'
+    descricao: 'Indicador de situação do saldo inicial esperado: D = Devedor.'
+  - valor: '|20|'
+    descricao: 'Valor total dos débitos esperado: 20,00.'
+  - valor: '|0|'
+    descricao: 'Valor total dos créditos esperado: 0,00.'
+  - valor: '|30|'
+    descricao: 'Valor do saldo final esperado: 30,00.'
+  - valor: '|D|'
+    descricao: 'Indicador de situação do saldo final esperado: D = Devedor.'
+  - valor: '|10|'
+    descricao: 'Valor do saldo inicial preenchido: 20,00.'
+  - valor: '|D|'
+    descricao: 'Indicador de situação do saldo inicial preenchido: D = Devedor.'
+  - valor: '|20|'
+    descricao: 'Valor total dos débitos preenchido: 20,00.'
+  - valor: '|0|'
+    descricao: 'Valor total dos créditos preenchido: 0,00.'
+  - valor: '|40|'
+    descricao: 'Valor do saldo final preenchido: 40,00.'
+  - valor: '|D|'
+    descricao: 'Indicador de situação do saldo final esperado: D = Devedor.'
+  - valor: '|Alteração do saldo inicial da conta em virtude de correção do cálculo do ajuste a valor presente, conforme detalhe do cálculo: XXXXXXXXXXXXXXXXXXXXX|'
+    descricao: Justificativa da divergência
+  observacoes:
+  - 'conforme detalhe do cálculo: XXXXXXXXXXXXXXXXXXXXX|'
+  - entre o valor(es) calculado(s) pelo PGE da ECF e o valor(es) preenchido(s).

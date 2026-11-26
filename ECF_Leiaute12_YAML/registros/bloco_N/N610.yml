@@ -1,0 +1,171 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: N610
+nome: Cálculo da Isenção e Redução do Imposto Sobre o Lucro Real
+bloco: N
+nome_tabela_registros: Cálculo da Isenção e Redução do Imposto sobre Lucro Real
+paginas_manual:
+- 288
+- 291
+descricao: |-
+  Este registro deve ser preenchido pelas pessoas jurídicas sujeitas à apuração do imposto de renda trimestral ou anual, que gozem dos benefícios fiscais de redução ou isenção desse imposto com base no lucro da exploração.
+  Atenção: Deve ser informado, neste registro, o valor do imposto passível de redução por reinvestimento, caso a pessoa jurídica seja beneficiada com essa redução, em conformidade com as instruções contidas na linha N610/77.
+  Linhas N610/03, N610/08, N610/13, N610/18, N610/23, N610/28, N610/33, N610/38, N610/43, N610/48, N610/53, N610/58, N610/63, N610/68 e N610/73 - Adicional
+  Estas linhas somente devem ser preenchidas se a pessoa jurídica apurar lucro real sujeito à incidência do adicional de que trata a linha N630/4.
+  O rateio toma como base a proporção entre o lucro da exploração de cada atividade e o lucro real da empresa aplicado sobre o montante do adicional. Se o lucro real for menor que o lucro da exploração, o rateio do adicional deve ser efetuado com base na proporção da receita líquida de cada atividade em relação à receita líquida total, indicada nas linhas N600/2 a N600/18.
+  Exemplo: A pessoa jurídica, na apuração anual do imposto, obteve os seguintes resultados em 31 de dezembro:
+  a) Lucro Real menor que o Lucro da Exploração:
+
+  | Linha N600/2 | Receita Líquida da Atividade de Ensino Superior Isenta - Prouni | R$ | 1.800.000,00 |
+  |---|---|---|---|
+  | Linha N600/11 | Receita Líquida da Atividade com redução de 50% | R$ | 900.000,00 |
+  | Linha N600/18 | Receita Líquida das Demais Atividades | R$ | 3.300.000,00 |
+  | Linha N600/19 | Total da Receita Líquida | R$ | 6.000.000,00 |
+  | Linha N630/03 | Adicional no período de apuração | R$ | 201.600,00 |
+
+  Atividade Isenta:
+  Adicional da Linha N610/03 = (R$ 1.800.000,00 x R$ 201.600,00)/(R$ 6.000.000,00) = R$ 60.480,00
+  Atividade com Redução de 75%:
+  Adicional da Linha N610/58 = (R$ 900.000,00 x R$ 201.600,00)/(R$ 6.000.000,00) = R$ 30.240,00
+  b) Lucro Real igual ou maior que o Lucro da Exploração: Neste caso, o rateio do adicional é efetuado com base na proporção do lucro da exploração de cada uma das atividades relacionadas nas linhas N600/50 a N600/64 e o total do lucro real anual, conforme exemplo abaixo:
+
+  | Linha N600/50 | Lucro da Exploração Atividade de Ensino Superior Isenta - Prouni | R$ | 100.000,00 |
+  |---|---|---|---|
+  | Linha N600/04 | Lucro da Exploração Atividade Isenção – Sudam e Sudene. | R$ | 200.000,00 |
+  | Linha M300/175 + M300/349 | Lucro Real do período de apuração | R$ | 2.256.000,00 |
+  | Linha N630/03 | Adicional do Período de apuração | R$ | 201.600,00 |
+
+  Atividade Isenta:
+  Adicional da Linha N610/03 = (R$ 100.000,00 x R$ 201.600,00)/(R$ 2.256.000,00) = R$ 8.936,17
+  Atividade com Isenção – Sudam e Sudene.
+  Adicional da Linha N610/63 = (R$ 200.000,00 + R$ 201.600,00)/(R$ 2.256.000,00) = R$ 17.872,34
+  Linha N610/77 - REDUÇÃO POR REINVESTIMENTO
+  As empresas que tenham empreendimentos industriais e agroindustriais, inclusive os de construção civil (Lei nº 8.167, de 1991, art. 19, e Lei nº 8.191, de 1991, art. 4º, MP nº 2.058, de 2000, art.
+  4º, e reedições, Lei nº 9.532, de 1997, art. 2º, inciso I, e MP nº 2.199-14, de 2001, art. 3º, na redação dada pelo art. 69 da Lei nº 12.715, de 2012), em operação nas áreas de atuação da Sudam e da Sudene podem depositar no Banco da Amazônia S/A ou no Banco do Nordeste do Brasil S/A, para reinvestimento, 30% (trinta por cento) do valor do imposto devido, exceto adicional, pelos referidos empreendimentos, calculado sobre o lucro da exploração, acrescido de 50% (cinquenta por cento) de recursos próprios, ficando, porém, a liberação desses recursos condicionada à aprovação, pelas Agências do Desenvolvimento Regional, dos respectivos projetos técnico-econômicos de modernização ou complementação de equipamento.
+  Os incentivos de redução do imposto por reinvestimento podem ser utilizados somente em relação aos empreendimentos dos setores da economia considerados em ato do Poder Executivo prioritários para o desenvolvimento regional.
+  Atenção: A pessoa jurídica que se utilizar indevidamente do benefício estará sujeita ao pagamento do imposto em relação a cada período de apuração, acrescido de juros e multa, sem prejuízo das sanções penais cabíveis.
+  O valor decorrente da redução por reinvestimento deve ser indicado nesta linha.
+  Esse incentivo não pode ser usufruído cumulativamente com outros idênticos, salvo quando expressamente autorizado em Lei.
+  Atenção: A pessoa jurídica não pode optar pela aplicação em incentivos regionais (Registro N615) do valor do imposto de renda que serviu de base para o cálculo do incentivo fiscal previsto nesta linha.
+  Exemplo de Cálculo da Redução por Reinvestimento: A pessoa jurídica desenvolve atividades beneficiadas com isenção e redução de 75% (setenta e cinco por cento) do imposto. As atividades também estão amparadas com o incentivo de redução por reinvestimento. Assim temos:
+  Lucro da Exploração de Cada Atividade Incentivada:
+
+  | Linha N600/50 - Atividade de Ensino Superior Isenta - Prouni | R$ | 100.000,00 |
+  |---|---|---|
+  | Linha N600/59 - Atividade com Redução de 75% | R$ | 160.000,00 |
+  | Linha N600/65 - Atividade com Redução por Reinvestimento | R$ | 70.000,00 |
+
+  Imposto Devido em Cada Atividade Incentivada (alíquota de 15%):
+
+  | Imposto | Sobre Lucro da Exploração | Passível de Redução | Devido sobre Ativid. Incentivadas |
+  |---|---|---|---|
+  | Ativ. Isenta – Prouni | R$15.000,00 | R$15.000,00 | - |
+  | Ativ. c/Red. 75%: | R$24.000,00 | R$18.000,00 | R$ 6.000,00 |
+  | Ativ. com Red. Reinv.: | R$10.500,00 | - | R$10.500,00 |
+  | Total do Imposto Devid | o pelas Atividades Incentivad | as: | R$16.500,00 |
+
+  Valor passível de redução por reinvestimento: R$16.500,00 x 30% = R$ 4.950,00
+  No caso do exemplo acima, a pessoa jurídica pode fazer jus ao valor de R$ 4.950,00 a título de redução por reinvestimento, observadas as instruções contidas na linha N610/18.
+titulo_leiaute: 'REGISTRO N610: CÁLCULO DA ISENÇÃO E REDUÇÃO DO IMPOSTO SOBRE LUCRO REAL'
+regras_validacao_registro:
+- REGRA_DUPLICIDADE_DESPREZADA
+- REGRA_LINHA_DESPREZADA
+- REGRA_LINHA_ATUALIZADA
+nivel_hierarquico: 3
+ocorrencia: 1:N
+campos_chave: CODIGO
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020.IND_LUC_EXP = “S”) Não deve existir Se (N030.PER_APUR = [A01..A012] E 0010. MES_BAL_RED[1..12] = “E”
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: N030
+  filhos: []
+  irmaos:
+  - N500
+  - N600
+  - N605
+  - N615
+  - N620
+  - N630
+  - N650
+  - N660
+  - N670
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (N610).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[N610]'
+  obrigatorio: true
+- numero: 2
+  campo: CODIGO
+  descricao: Código, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: DESCRICAO
+  descricao: Descrição, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 4
+  campo: VALOR
+  descricao: Valor
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+regras_validacao_registro_detalhe:
+- regra: REGRA_DUPLICIDADE_DESPREZADA
+  descricao: Verifica se o registro já foi importado anteriormente, de acordo com a chave e os registros pais. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_DESPREZADA
+  descricao: Verifica se o registro existe na importação, mas não será importado por não existir na tabela dinâmica devido às configurações do bloco 0 ou da tabela dinâmica. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_ATUALIZADA
+  descricao: Verifica se o registro está desatualizado em relação à tabela da RFB. Se a regra não for cumprida, a ECF gera um aviso.
+regras_validacao_campos:
+- numero: 4
+  campo: VALOR
+  regras:
+  - regra: REGRA_OBRIGATORIO_TIPO_DIFERENTE_R
+    descricao: Verifica se o campo está preenchido quando o tipo da linha é diferente de “R”.
+    tipo: Erro
+tabelas_dinamicas: |-
+  N610 - Cálculo da Isenção e Redução do Imposto Sobre o Lucro Real
+  Vide planilha deste Registro no arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” a partir do link http://sped.rfb.gov.br/pasta/show/1644.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+  Regras de validação da tabela dinâmica N610:
+  Vide arquivo “SPEDECF_DINAMICO_2021$SPEDECF_DINAMICA_N610_REGRAS” no diretório C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|N610|77|REDUÇÃO POR REINVESTIMENTO|10000,00|'
+  explicacao:
+  - valor: '|N610|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|77|'
+    descricao: Código da linha.
+  - valor: '|REDUÇÃO POR REINVESTIMENTO|'
+    descricao: Descrição da linha.
+  - valor: '|10000,00|'
+    descricao: Valor da linha (R$ 10.000,00).

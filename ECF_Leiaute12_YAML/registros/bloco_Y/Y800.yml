@@ -1,0 +1,165 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: Y800
+nome: Outras Informações
+bloco: Y
+nome_tabela_registros: Outras Informações
+paginas_manual:
+- 609
+- 611
+descricao: |-
+  Este registro permite que seja anexado um arquivo em formato texto RTF (Rich Text Format), que se destina a receber informações que devam constar da ECF, tais como: laudos, relatórios, etc.
+  Exemplos de utilizações de informações a serem prestadas à administração pública através da anexação à ECF, em arquivos RTF, através deste registro:
+  1) O laudo de avaliação elaborado por perito independente que determina a mais ou menos-valia, correspondente à diferença entre o valor justo dos ativos líquidos da investida, na proporção da porcentagem da participação adquirida, e o valor do patrimônio líquido na época, por ocasião da aquisição da participação em investimento que deva ser avaliado pelo patrimônio líquido da investida. (Art. 20 do Decreto-Lei no 1.598/1977, com a redação dada pela Lei no 12.973/2014. Art. 178, § 2º da Instrução Normativa RFB no 1.700/2017).
+  2) A memória de cálculo relacionada aos eventos de incorporação, fusão ou cisão, ocorridos até 31 de dezembro de 2017, cuja participação societária tenha sido adquirida até 31 de dezembro de 2014, apresentada pela empresa resultante do evento, evidenciando de forma analítica a evolução da amortização do ágio ou deságio desde a data de aquisição da participação societária até a data do evento, considerando os métodos e critérios vigentes em 31 de dezembro de 2007. (Art. 65 da Lei nº 12.973/2014 e arts. 192 e 193 da Instrução Normativa RFB no 1.700/2017).
+  3) Item 15 do anexo IV da Instrução Normativa RFB nº 1.753, de 30 de outubro de 2017: Caso a pessoa jurídica adote somente uma conta de “ajuste da receita bruta”, o relacionamento será detalhado de acordo com a origem da diferença, conforme hipóteses previstas nos incisos e alíneas dos itens 1 e 2 do anexo IV, reproduzidos abaixo, por meio de demonstrativo auxiliar a ser apresentado na ECF. No demonstrativo, devem constar a origem a diferença relacionada com umas das hipóteses previstas nos itens 1 e 2 do anexo IV.
+  1. Os procedimentos contábeis relacionados abaixo, caso adotados pela pessoa jurídica, contemplam modificação ou adoção de novos métodos ou critérios contábeis:
+  I - o tratamento conferido às modificações contratuais (item 21 do CPC 47);
+  II - o reconhecimento de passivos em razão de obrigações contratuais relativas a:
+  a) garantias, exceto as contratadas com empresas de seguros e as contabilizadas como provisões (itens B30, B31 e B32 do CPC 47);
+  b) direitos não exercidos (item B46 do CPC 47); e
+  c) serviços de custódia, na hipótese de vendas para entrega futura (item B82 do CPC 47);
+  III - a aplicação dos critérios para a determinação do preço de transação em razão do reconhecimento de (itens 46, 47 e 48 do CPC 47):
+  a) contraprestações variáveis, nas hipóteses não previstas nos incisos I e II (itens 50 e 56 do CPC 47);
+  b) reavaliações da contraprestação variável (item 59 do CPC 47); e
+  c) contraprestações pagas ou a pagar (itens 70 a 72 do CPC 47); e
+  IV - a aplicação dos critérios para a alocação do preço de transação às obrigações de desempenho, nos casos não previstos nos incisos I e II (itens 73 e 74 do CPC 47).
+  2. Os procedimentos contábeis relacionados abaixo, caso adotados pela pessoa jurídica, contemplam métodos ou critérios contábeis que divergem da legislação tributária:
+  I - a aplicação do critério relativo à possibilidade de a entidade não receber a contraprestação a que tem direito na identificação do contrato (item 9.e do CPC 47); e
+  II - o reconhecimento de passivos em razão de obrigações contratuais relativas a:
+  a) direito à devolução (itens B21 a B27 do CPC 47); e
+  b) direitos de aquisição opcional de bens ou serviços adicionais ou com desconto (item B40 do CPC 47).
+  4) Número do processo eletrônico previsto no inciso IV, art. 13 da Instrução Normativa RFB nº 1.520, de 4 de dezembro de 2014.
+  O procedimento para anexar é o seguinte no próprio arquivo .txt:
+  1 – Digite o documento que deseja anexar no Word;
+  2 – Salve o documento como .rtf;
+  3 – Abra o documento no Bloco de Notas;
+  4 – Copie todo o conteúdo do arquivo aberto no Bloco de Notas;
+  5 – Cole o conteúdo copiado no registro Y800;
+  6 – Importe o arquivo, de acordo com o Leiaute da ECF, para o programa da ECF.
+  Funcionalidade de inclusão arquivo cadastrado no Y800 no programa da ECF:
+  1 – Selecionar a opção incluir arquivo rtf.
+  2 – O sistema abre uma interface de localização de arquivo.
+  3 – Selecionar somente arquivo ".RTF" (formato RTF)
+  4 – O sistema copia o arquivo para a pasta do sistema com o nome padronizado.
+  5 – O sistema calcula o hash e armazena o nome o local e o hash da cópia do arquivo selecionado.
+  6 – O sistema coloca o nome do arquivo no campo descrição.
+  Funcionalidade de exclusão arquivo cadastrado no Y800 no programa da ECF:
+  1 – Selecionar um registro e solicitar a exclusão (Botão "-").
+  2 – O sistema exclui o registro Y800 e o arquivo na pasta.
+  É possível ver o arquivo em formato texto RTF em Relatório/Outras Informações.
+titulo_leiaute: 'REGISTRO Y800: OUTRAS INFORMAÇÕES'
+regras_validacao_registro: []
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: null
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: F
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: Y001
+  filhos: []
+  irmaos:
+  - Y520
+  - Y570
+  - Y590
+  - Y600
+  - Y612
+  - Y620
+  - Y630
+  - Y640
+  - Y660
+  - Y672
+  - Y680
+  - Y682
+  - Y720
+  - Y730
+  - Y750
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (Y800).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[Y800]'
+  obrigatorio: true
+- numero: 2
+  campo: TIPO_DOC
+  descricao: |-
+    Tipo do Documento:
+    001 - Memória de Cálculo - Incorporação
+    002 - Laudo de Avaliação a Valor Justo
+    003 – Outros
+  tipo: N
+  tamanho: 3
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: DESCRICAO
+  descricao: Descrição do Conteúdo do Documento.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: HASH
+  descricao: Hash do arquivo incluído na escrituração. Este campo não deve ser informado no arquivo de importação pois será calculado pelo sistema (deve ser informado vazio).
+  tipo: C
+  tamanho: 41
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 5
+  campo: ARQ_RTF
+  descricao: 'Sequência de Bytes: Sequência de bytes que representem um único arquivo no formato RTF (Rich Text Format).'
+  tipo: C
+  tamanho: Não há limite
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: IND_FIM_RTF
+  descricao: Indicador de Fim do Arquivo RTF. Texto fixo contendo “Y800FIM”.
+  tipo: C
+  tamanho: 7
+  decimal: '-'
+  valores_validos: '[Y800FIM]'
+  obrigatorio: true
+regras_validacao_campos:
+- numero: null
+  campo: HASH
+  regras:
+  - regra: REGRA_VALIDA_HASH_ARQUIVO
+    descricao: Verifica se o hash do conteúdo do arquivo é igual ao HASH armazenado
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|Y800|001|Memória de Cálculo – Incoportação|1234567890ABCDEFABCDEFABCDEFAB1234567890|{\rtf1\ansi\ansicpg1252\uc1...|Y800FIM|'
+  explicacao:
+  - valor: '|Y800|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|001|'
+    descricao: Tipo do documento.
+  - valor: '|Memória de Cálculo – Incorporação|'
+    descricao: Descrição do documento.
+  - valor: '|1234567890ABCDEFABCDEFABCDEFAB1234567890|'
+    descricao: Hash do arquivo incluído.
+  - valor: '|{\rtf1\ansi\ansicpg1252\uc1...|'
+    descricao: Sequência de bytes que representem um único arquivo no formato RTF (Rich Text Format).
+  - valor: '|Y800FIM|'
+    descricao: Identificação o fim do arquivo.

@@ -1,0 +1,96 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: E001
+nome: Abertura do Bloco E
+bloco: E
+nome_tabela_registros: Abertura do Bloco E – Informações Recuperadas da ECF Anterior e Cálculo Fiscal dos Dados Recuperados da ECD
+paginas_manual:
+- 122
+- 122
+descricao: null
+titulo_leiaute: 'REGISTRO E001: ABERTURA DO BLOCO E'
+regras_validacao_registro:
+- REGRA_OCORRENCIA_UNITARIA_ARQ
+nivel_hierarquico: 1
+ocorrencia: '1:1'
+campos_chave: '[REG]'
+tabela_registros:
+  nivel: 1
+  obrigatoriedade_entrada:
+    codigo: O
+  obrigatoriedade_saida:
+    codigo: O
+  ocorrencia: '[1;1]'
+hierarquia:
+  pai: '0000'
+  filhos:
+  - E010
+  - E020
+  - E030
+  irmaos:
+  - '0001'
+  - 0990
+  - C001
+  - C990
+  - E990
+  - J001
+  - J990
+  - K001
+  - K990
+  - L001
+  - L990
+  - M001
+  - M990
+  - N001
+  - N990
+  - P001
+  - P990
+  - Q001
+  - Q990
+  - S001
+  - T001
+  - T990
+  - U001
+  - U990
+  - V001
+  - V990
+  - W001
+  - W990
+  - X001
+  - X990
+  - Y001
+  - Y990
+  - '9001'
+  - '9990'
+  - '9999'
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto fixo contendo a identificação do registro (E001).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[E001]'
+  obrigatorio: true
+- numero: 2
+  campo: IND_DAD
+  descricao: |-
+    Indicador de movimento:
+    0 – Bloco com dados informados.
+    1 – Bloco sem dados informados.
+  tipo: N
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[0;1]'
+  obrigatorio: true
+regras_validacao_registro_detalhe:
+- regra: REGRA_OCORRENCIA_UNITARIA_ARQ
+  descricao: Verifica se registro ocorreu apenas uma vez por arquivo, considerando a chave “E001” (REG). Se a regra não for cumprida, a ECF gera um erro.

@@ -1,0 +1,126 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: X360
+nome: Informações Gerais Sobre Preços de Transferência
+bloco: X
+nome_tabela_registros: Informações Gerais sobre Preços de Transferência
+paginas_manual:
+- 501
+- 502
+descricao: |-
+  Os Registros X360, X365, X366, X370, X371, X375A, X375B, X375C, X375D e X375E devem ser preenchidos por todos os contribuintes que realizam transações sujeitas ao controle de preços de transferência nos termos da Lei nº 14.596/2023 e da Instrução Normativa RFB nº 2.161/2023 (“transações controladas”), inclusive aqueles que não estão obrigados à apresentação do “Arquivo Local” (art. 57, inciso III da IN RFB nº 2.161/2023) e aqueles que apresentam o “Arquivo Local Simplificado” (art. 57, inciso II da IN RFB nº 2.161/2023), conforme disposto no art. 57, § 3º da IN RFB nº 2.161/2023.
+  A aplicação da Lei nº 14.596/2023 e da IN RFB nº 2.161/2023 é obrigatória para todos os contribuintes a partir do ano-calendário 2024. O contribuinte pode optar pela aplicação da legislação no ano-calendário 2023, desde que exerça a opção na forma prevista no art. 69 da IN RFB nº 2.161/2023 e, nesse caso, deverá preencher os Registros X360, X365, X366, X370, X371, X375A, X375B, X375C, X375D e X375E para o ano-calendário 2023 (0020.IND_PR_TRANSF = “S – Sim” – o campo IND_PR_TRANSF existiu apenas nos leiautes 10 e 11).
+  Conforme o art. 3º da IN RFB nº 2.161/2023, uma transação controlada compreende qualquer relação comercial ou financeira entre duas ou mais partes relacionadas (sobre a definição de partes relacionadas, ver art. 4º da IN RFB nº 2.161/2023), estabelecida ou realizada de forma direta ou indireta, incluídos os contratos ou arranjos sob qualquer forma e série de transações, bem como aquela efetuada entre a pessoa jurídica residente ou domiciliada no Brasil com qualquer entidade caracterizada nas hipóteses previstas nos arts. 24 e 24-A da Lei nº 9.430/1996.
+  O Registro X370 (“Informações sobre as Transações Controladas”) deve receber as informações de todas as transações controladas realizadas pelo contribuinte, inclusive aquelas que não precisam constar no Arquivo Local em função do disposto nas alíneas “a”, “b”, “c” e “d” do inciso I do § 2º do art. 57 da IN RFB nº 2.161/2023.
+  Os campos que requerem a informação de valor da transação controlada devem ser preenchidos com o valor da transação antes da realização dos ajustes de preços de transferência. Os ajustes de preços de transferência efetuados pelo contribuinte podem ser ajustes espontâneos (art. 48, inciso I da IN RFB nº 2.161/2023) ou ajustes compensatórios (art. 48, inciso II da IN RFB nº 2.161/2023).
+titulo_leiaute: 'REGISTRO X360: INFORMAÇÕES GERAIS SOBRE PREÇOS DE TRANSFERÊNCIA'
+regras_validacao_registro:
+- REGRA_DUPLICIDADE_DESPREZADA
+- REGRA_LINHA_DESPREZADA
+- REGRA_LINHA_ATUALIZADA
+nivel_hierarquico: 2
+ocorrencia: 0:N
+campos_chave: CODIGO
+tabela_registros:
+  nivel: 2
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0020. IND_OP_EXT = "S" E 0020.IND_OP_VINC = "S"
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: X001
+  filhos: []
+  irmaos:
+  - X280
+  - X292
+  - X340
+  - X365
+  - X370
+  - X390
+  - X400
+  - X410
+  - X420
+  - X430
+  - X450
+  - X460
+  - X470
+  - X480
+  - X485
+  - X490
+  - X500
+  - X510
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (X360).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[X360]'
+  obrigatorio: true
+- numero: 2
+  campo: CODIGO
+  descricao: Código, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: 6
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: DESCRICAO
+  descricao: Descrição, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 4
+  campo: VALOR
+  descricao: Valor
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+regras_validacao_registro_detalhe:
+- regra: REGRA_DUPLICIDADE_DESPREZADA
+  descricao: Verifica se o registro já foi importado anteriormente, de acordo com a chave e os registros pais. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_DESPREZADA
+  descricao: Verifica se o registro existe na importação, mas não será importado por não existir na tabela dinâmica devido às configurações do bloco 0 ou da tabela dinâmica. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_ATUALIZADA
+  descricao: Verifica se o registro está desatualizado em relação à tabela da RFB. Se a regra não for cumprida, a ECF gera um aviso.
+regras_validacao_campos:
+- numero: 4
+  campo: VALOR
+  regras:
+  - regra: REGRA_OBRIGATORIO_TIPO_DIFERENTE_R
+    descricao: Verifica se o campo está preenchido quando o tipo da linha é diferente de “R”.
+    tipo: Erro
+tabelas_dinamicas: |-
+  X360 – Informações Gerais sobre Preços de Transferência
+  Vide planilha deste Registro no arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” a partir do link http://sped.rfb.gov.br/pasta/show/1644.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+  Regras de validação da tabela dinâmica X360:
+  Vide arquivo “SPEDECF_DINAMICO_2021$SPEDECF_DINAMICA_X360_REGRAS” no diretório C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas. (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|X360|1|Tipo de Arquivo Local|AC|'
+  explicacao:
+  - valor: '|X360|'
+    descricao: Identificação do tipo de registro.
+  - valor: '|1|'
+    descricao: Código da linha.
+  - valor: '|Tipo de Arquivo Local|'
+    descricao: Descrição da linha.
+  - valor: '|AC|'
+    descricao: AC = Arquivo Local Completo.

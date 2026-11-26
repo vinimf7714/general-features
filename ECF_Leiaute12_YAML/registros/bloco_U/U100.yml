@@ -1,0 +1,266 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: U100
+nome: Balanço Patrimonial
+bloco: U
+nome_tabela_registros: Balanço Patrimonial
+paginas_manual:
+- 404
+- 408
+descricao: Apresenta o balanço patrimonial com base nas contas referenciais para o período de apuração. O saldo inicial pode ser replicado do registro E010/E015 ou preenchido. O saldo final será recuperado do registro K155/K156. Caso o bloco K não possua dados e for SCP (0000.TIP_ECF = 2), o saldo final poderá ser preenchido.
+titulo_leiaute: 'REGISTRO U100: BALANÇO PATRIMONIAL'
+regras_validacao_registro:
+- REGRA_COMPARA_CONT_REF_SI
+- REGRA_COMPARA_CONT_REF_SF
+- REGRA_COMPATIBILIDADE_U100_E010
+- REGRA_DUPLICIDADE_DESPREZADA
+- REGRA_LINHA_DESPREZADA
+- REGRA_LINHA_ATUALIZADA
+- REGRA_BALANCO_SALDO_FINAL
+- REGRA_BALANCO_SALDO_INICIAL
+nivel_hierarquico: 3
+ocorrencia: 0:N
+campos_chave: CODIGO
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0010. FORMA_TRIB = “8” ou “9” E 0010. TIP_ESP_PRE = “C”
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: U030
+  filhos: []
+  irmaos:
+  - U150
+  - U180
+  - U182
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (U100).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[U100]'
+  obrigatorio: true
+- numero: 2
+  campo: CODIGO
+  descricao: Código da Conta Referencial (Analíticas e Sintéticas), conforme tabela dinâmica do Sped (Disponibilizada no item II deste registro e no programa da ECF, no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: 50
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: DESCRICAO
+  descricao: Descrição da Conta Referencial.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 4
+  campo: TIPO
+  descricao: |-
+    Indicador do Tipo de Conta:
+    S – Sintética
+    A – Analítica
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; A]'
+  obrigatorio: true
+- numero: 5
+  campo: NIVEL
+  descricao: Nível da Conta.
+  tipo: N
+  tamanho: 3
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 6
+  campo: COD_NAT
+  descricao: Natureza da Conta, conforme tabela do Sped (Disponibilizada no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 7
+  campo: COD_CTA_SUP
+  descricao: Código da Conta Sintética de Nível Imediatamente Superior.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 8
+  campo: VAL_CTA_REF_INI
+  descricao: Saldo Inicial da Conta Referencial.
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 9
+  campo: IND_VAL_CTA_REF_INI
+  descricao: |-
+    Indicador da Situação do Saldo Inicial:
+    D – Devedor
+    C – Credor
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[D; C]'
+  obrigatorio: true
+- numero: 10
+  campo: VAL_CTA_REF_DEB
+  descricao: 'Valor Total dos Débitos: Somatório dos valores mapeados.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 11
+  campo: VAL_CTA_REF_CRED
+  descricao: 'Valor Total dos Créditos: Somatório dos valores mapeados.'
+  tipo: N
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 12
+  campo: VAL_CTA_REF_FIN
+  descricao: Saldo Final da Conta Referencial
+  tipo: C
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: true
+- numero: 13
+  campo: IND_VAL_CTA_REF_FIN
+  descricao: |-
+    Indicador da Situação do Saldo Final:
+    D – Devedor
+    C – Credor
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[D; C]'
+  obrigatorio: true
+regras_validacao_registro_detalhe:
+- regra: REGRA_COMPARA_CONT_REF_SI
+  descricao: Verifica se U100.VAL_CTA_REF_INI é igual ao somatório dos saldos iniciais dos registros K155 “pai” da mesma conta referencial, multiplicado pelo saldo final do registro K156 dividido pelo saldo final do registro K155 “pai”. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_COMPARA_CONT_REF_SF
+  descricao: Verifica, para cada período da escrturação, se o somatório do saldo final do registro K156 é igual a U100.VAL_CTA_REF_INI, para a mesma conta referencial. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_COMPATIBILIDADE_U100_E010
+  descricao: Verifica se o saldo inicial do primeiro período de apuração da escrituração é diferente dos saldos finais da ECF recuperada. O erro ocorre se (0010.FORMA_TRIB = “8” ou “9” e 0010.TIP_ESC_PRE = “C”) e 0010.HASH_ECF_ANTERIOR é diferente de vazio e U030.DT.INI é igual a 0000.DT_INI e (U100.VAL_CTA_REF_INI diferente de zero e não for localizada a mesma conta referencial no registro E010 ou U100.VAL_CTA_REF_INI diferente de E010.VAL_CTA_REF ou U100.IND_VAL_CTA_REF_INI diferente de E010.IND_VAL_CTA_REF). Se a regra não for cumprida, a ECF gera um erro.
+- regra: REGRA_DUPLICIDADE_DESPREZADA
+  descricao: Verifica se o registro já foi importado anteriormente, de acordo com a chave e os registros pais. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_DESPREZADA
+  descricao: Verifica se o registro existe na importação, mas não será importado por não existir na tabela dinâmica devido às configurações do bloco 0 ou da tabela dinâmica. Gera um aviso.
+- regra: REGRA_LINHA_ATUALIZADA
+  descricao: Verifica se o registro está desatualizado em relação à tabela da RFB. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_BALANCO_SALDO_FINAL
+  descricao: Verifica se o saldo final do ativo é igual ao saldo final do passivo. Gera um erro, caso U030.PER_APUR = “T04”.
+- regra: REGRA_BALANCO_SALDO_INICIAL
+  descricao: Verifica se o saldo inicial do ativo é igual ao saldo inicial do passivo. Gera um erro, caso U030.PER_APUR = “T01”.
+regras_validacao_campos:
+- numero: 8
+  campo: VAL_CTA_REF_INI
+  regras:
+  - regra: REGRA_BAL_SI_IGUAL_ANT
+    descricao: Verifica, no caso de forma de apuração trimestral – 0010.FORMA_APUR = “T” – se o valor do saldo incial – U100.VAL_CTA_REF_INI – do período atual é igual ao valor do saldo final – U100.VAL_CTA_REF_FIN – do período anterior.
+    tipo: Erro
+- numero: 10
+  campo: VAL_CTA_REF_DEB
+  regras:
+  - regra: REGRA_COMPARA_CONT_REF_DEB
+    descricao: Verifica se o valor total dos débitos – U100.VAL_CTA_REF_DEB – é igual ao somatório dos débitos informados nos registro K156 – K156.VL_DEB.
+    tipo: Erro
+- numero: 11
+  campo: VAL_CTA_REF_CRED
+  regras:
+  - regra: REGRA_COMPARA_CONT_REF_CRED
+    descricao: Verifica se o valor total dos créditos – U100.VAL_CTA_REF_CRED – é igual ao somatório dos créditos informados nos registro K156 – K156.VL_CRED.
+    tipo: Erro
+- numero: 12
+  campo: VAL_CTA_REF_FIN
+  regras:
+  - regra: REGRA_VALIDACAO_SALDO_FINAL_BAL
+    descricao: |-
+      Verifica se o valor do saldo final – U100.VAL_CTA_REF_FIN – é igual ao valor do saldo inicial –
+      U100.VAL_CTA_REF_INI – somado ao valor total dos débitos – U100.VAL_CTA_REF_DEB – e subtraído do valor total dos créditos – U100.VAL_CTA_REF_CRED.
+    tipo: Erro
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|U100|2.03.02.04.01|SUPERÁVIT/DÉFICIT ACUMULADO|A|5|03|2.03.02.04|10000,00|C|5000,00|15000,00|20000,00|C|'
+  explicacao:
+  - valor: '|U100|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|2.03.02.04.01|'
+    descricao: Código da linha.
+  - valor: '|SUPERÁVIT/DÉFICIT ACUMULADO|'
+    descricao: Descrição da linha.
+  - valor: '|A|'
+    descricao: Tipo da conta (A = Analítica).
+  - valor: '|5|'
+    descricao: Nível da conta.
+  - valor: '|03|'
+    descricao: Natureza da conta (03 = Contas do Patrimônio Líquido).
+  - valor: '|2.03.02.04|'
+    descricao: Código da conta superior.
+  - valor: '|10000,00|'
+    descricao: Valor do saldo inicial (R$ 10.000,00).
+  - valor: '|C|'
+    descricao: Indicador do sinal do saldo inicial da conta (C = Credor).
+  - valor: '|5000,00|'
+    descricao: Valor total dos débitos (R$ 5.000,00).
+  - valor: '|15000,00|'
+    descricao: Valor total dos créditos (R$ 15.000,00).
+  - valor: '|20000,00|'
+    descricao: Valor do saldo inicial (R$ 20.000,00).
+  - valor: '|C|'
+    descricao: Indicador do sinal do saldo final da conta (C = Credor).
+informacoes_adicionais:
+- titulo: III – Plano de Contas Referencial
+  conteudo: |-
+    Código: Chave da linha.
+    Ordem: Ordem de apresentação das linhas.
+    Tipo: S = Sintética; A = Analítica
+    Natureza: 01 = Ativo; 02 = Passivo; 03 = Patrimônio Líquido
+    III.1 – U100A - Plano de Contas Referencial - Contas Patrimoniais - Imunes e Isentas - PJ em Geral:
+    Vide planilha deste Registro no arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” a partir do link http://sped.rfb.gov.br/pasta/show/1644.
+    (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+    Regras de validação da tabela dinâmica U100A:
+    Vide arquivo “SPEDECF_DINAMICO_2021$SPEDECF_DINAMICA_U100_A_REGRAS” no diretório C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas. (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+    III.2 – U100B - Plano de Contas Referencial - Contas Patrimoniais - Imunes e Isentas - Associação de Poupança e Empréstimo:
+    Vide planilha deste Registro no arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” a partir do link http://sped.rfb.gov.br/pasta/show/1644.
+    (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+    Regras de validação da tabela dinâmica U100B:
+    Vide arquivo “SPEDECF_DINAMICO_2021$SPEDECF_DINAMICA_U100_B_REGRAS” no diretório C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas. (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+    III.3 – U100C - Plano de Contas Referencial - Contas Patrimoniais - Imunes e Isentas - Entidades Abertas de Previdência Complementar (Sem Fins Lucrativos):
+    Vide planilha deste Registro no arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” a partir do link http://sped.rfb.gov.br/pasta/show/1644.
+    (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+    Regras de validação da tabela dinâmica U100C:
+    Vide arquivo “SPEDECF_DINAMICO_2021$SPEDECF_DINAMICA_U100_C_REGRAS” no diretório C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas. (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+    III.4 – U100D - Plano de Contas Referencial - Contas Patrimoniais - Imunes e Isentas - Entidades Fechadas de Previdência Complementar:
+    Vide planilha deste Registro no arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” a partir do link http://sped.rfb.gov.br/pasta/show/1644.
+    (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+    Regras de validação da tabela dinâmica U100D:
+    Vide arquivo “SPEDECF_DINAMICO_2021$SPEDECF_DINAMICA_U100_D_REGRAS” no diretório C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas. (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+    III.5 – U100E - Plano de Contas Referencial - Contas Patrimoniais - Imunes e Isentas - Partidos Políticos:
+    Vide planilha deste Registro no arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” a partir do link http://sped.rfb.gov.br/pasta/show/1644.
+    (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+    Regras de validação da tabela dinâmica U100E:
+    Vide arquivo “SPEDECF_DINAMICO_2021$SPEDECF_DINAMICA_U100_E_REGRAS” no diretório C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas. (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).

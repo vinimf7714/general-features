@@ -1,0 +1,107 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: C050
+nome: Plano de Contas da ECD
+bloco: C
+nome_tabela_registros: Plano de Contas da ECD
+paginas_manual:
+- 112
+- 112
+descricao: Registro preenchido pelo sistema ao executar a funcionalidade de recuperação da ECD. Recupera os registros I050 (plano de contas societário) das ECD do período.
+titulo_leiaute: 'REGISTRO C050: PLANO DE CONTAS DA ECD'
+regras_validacao_registro: []
+nivel_hierarquico: 3
+ocorrencia: 0:N
+campos_chave: DT_ALT + COD_CTA
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: N
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se houver recuperação de dados da ECD
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: C040
+  filhos:
+  - C051
+  - C053
+  irmaos:
+  - C100
+  - C150
+  - C350
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto fixo contendo a identificação do registro (C050).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[C050]'
+  obrigatorio: true
+- numero: 2
+  campo: DT_ALT
+  descricao: Data de Atualização (inclusão/ alteração).
+  tipo: N
+  tamanho: 8
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: COD_NAT
+  descricao: Código da Natureza da Conta/Grupo de Contas.
+  tipo: C
+  tamanho: 2
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 4
+  campo: IND_CTA
+  descricao: |-
+    Indicador do Tipo de Conta:
+    S - Sintética (grupo de contas) A - Analítica (conta)
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[S; A]'
+  obrigatorio: true
+- numero: 5
+  campo: NÍVEL
+  descricao: Nível da Conta Analítica/Sintética.
+  tipo: N
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 6
+  campo: COD_CTA
+  descricao: Código da Conta Analítica/Sintética.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 7
+  campo: COD_CTA_SUP
+  descricao: Código da Conta Sintética de Nível Imediatamente Superior.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 8
+  campo: CTA
+  descricao: Nome da Conta Analítica.
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true

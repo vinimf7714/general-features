@@ -1,0 +1,265 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: M350
+nome: Demonstração da Base de Cálculo da CSLL – Lançamentos da Parte A do e-Lacs
+bloco: M
+nome_tabela_registros: Demonstração da Base de Cálculo da CSLL
+paginas_manual:
+- 257
+- 262
+descricao: |-
+  Apresenta os lançamentos da parte A do e-Lacs. Este registro demonstrará a apuração da base de cálculo da CSLL anual, trimestral e nos meses com estimativa apurada com base no balanço/balancete.
+
+  | Livro da Parte A | Saldo da Conta da Parte B | Sinal do Lançamento na Parte B | Utilização |
+  |---|---|---|---|
+  | Adição | Credor | Devedor | Utilização de saldo para adição |
+  | Adição | Devedor | Devedor | Constituição de saldo para posterior exclusão |
+  | Exclusão | Devedor | Credor | Utilização de saldo para exclusão |
+  | Exclusão | Credor | Credor | Constituição de saldo para posterior adição |
+
+  | Livro da Parte A | Sinal no M350 | Indicador no M355 (Sinal do lançamento na conta da Parte B) | Indicador no M360 Conta de Resultado (Sinal do saldo da conta contábil de resultado) | Indicador no M360 Conta Patrimonial (Sinal do saldo da conta contábil patrimonial) |
+  |---|---|---|---|---|
+  | Adição ou Lucro | + (positivo) | D – Devedor | D – Devedor | C – Credor |
+  | Adição ou Lucro | - (negativo) Erro do programa | C – Credor | C – Credor | D - Devedor |
+  | Exclusão ou Compensação de Prejuízo | + (positivo) | C – Credor | C – Credor | D - Devedor |
+  | Exclusão ou Compensação de Prejuízo | - (negativo) Erro do programa | D - Devedor | D - Devedor | C – Credor |
+titulo_leiaute: 'REGISTRO M350: LANÇAMENTOS DA PARTE A DO e-LACS'
+regras_validacao_registro:
+- REGRA_VALOR_DETALHADO
+- REGRA_DUPLICIDADE_DESPREZADA
+- REGRA_LINHA_DESPREZADA
+- REGRA_LINHA_ATUALIZADA
+nivel_hierarquico: 3
+ocorrencia: 1:N
+campos_chave: CODIGO
+tabela_registros:
+  nivel: 3
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: OC
+    condicao: Se 0010. FORMA_TRIB_PER = “R” ou “E”
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: M030
+  filhos:
+  - M355
+  - M360
+  - M365
+  irmaos:
+  - M300
+  - M410
+  - M500
+  - M510
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (M350).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[M350]'
+  obrigatorio: true
+- numero: 2
+  campo: CODIGO
+  descricao: Código do Lançamento no e-Lalur, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+- numero: 3
+  campo: DESCRICAO
+  descricao: Descrição do Tipo de Lançamento no e-Lalur, conforme tabela dinâmica do Sped (Disponibilizada no item III deste registro e no programa da ECF no diretório Arquivos de Programas/Programas Sped/ECf/SpedEcf/Recursos/Tabelas).
+  tipo: C
+  tamanho: '-'
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+- numero: 4
+  campo: TIPO_LANCAMENTO
+  descricao: |-
+    Indicador do Tipo de Lançamento:
+    A- Adição
+    E - Exclusão.
+    P - Compensação de Prejuízo
+    L - Lucro
+    Observação: O tipo “R” (Rótulo) é para linhas de títulos, que aparecem na interface do programa. Portanto, não deve ser utilizado neste campo.
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[A; E; P; L]'
+  obrigatorio: false
+- numero: 5
+  campo: IND_RELACAO
+  descricao: |-
+    Indicador de Relacionamento do Lançamento da Parte A:
+    1 - Com Conta da Parte B
+    2 - Com Conta Contábil
+    3 – Com Conta da parte B e Conta Contábil
+    4 - Sem Relacionamento
+    Observação: O valor do lançamento do tipo 3 pode considerar o saldo contas da parte B ou somatório dos saldos das contas da parte B com os saldos das contas contábeis.
+    Para isso, o valor do lançamento correto na parte A deve ser preenchido pela empresa.
+  tipo: N
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[1; 2; 3; 4]'
+  obrigatorio: false
+- numero: 6
+  campo: VALOR
+  descricao: Valor do Lançamento no e-Lalur
+  tipo: NS
+  tamanho: 19
+  decimal: 2
+  valores_validos: null
+  obrigatorio: false
+- numero: 7
+  campo: HIST_LAN_LAL
+  descricao: Histórico do Lançamento no e-Lalur
+  tipo: C
+  tamanho: 500
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: false
+exemplos_preenchimento:
+- linhas_exemplo: []
+  explicacao: []
+  observacoes:
+  - 1 - Contabilidade da Empresa - Constituição da Provisão
+  - 'Débito: Despesas com Provisão 100'
+  - 'Crédito: Perdas Estimadas com Créditos de Liquidação Duvidosa 100'
+  - Essa despesa é indedutível, e será adicionada na Parte A do e-Lalur e também será constituído um saldo de mesmo valor na Parte B, para exclusões futuras (lançamento do tipo 3).
+  - '2 - Reversão da Provisão:'
+  - 'Débito: Perdas Estimadas com Créditos de Liquidação Duvidosa 50'
+  - 'Crédito: Reversão da Provisão da Provisão (Receita) 50'
+  - Nesse caso, há uma exclusão na Parta A do e-Lalur, reduzindo o saldo da parte B e também há a reversão do saldo na parte contábil (lançamento do tipo 3).
+  - 3 - Perda considerada incobrável (Perda consumada)
+  - 'Débito: Perdas Estimadas com Créditos de Liquidação Duvidosa 30'
+  - 'Crédito: Duplicadas a Receber 30'
+  - Nesse caso, há uma exclusão na Parta A do e-Lalur, reduzindo o saldo da parte B (lançamento do tipo 1).
+  contexto: 'quando M350.IND_RELACAO = “3” (Conta Conta da Parte B e Conta Contábil):'
+- linhas_exemplo:
+  - '|M350|138|(-) Outras Exclusões|E|1|1000,00|LANÇAMENTO DE EXCLUSÃO XXXX|'
+  explicacao:
+  - valor: '|M350|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|138|'
+    descricao: Código do lançamento.
+  - valor: '|(-) Outras Exclusões|'
+    descricao: Descrição.
+  - valor: '|E|'
+    descricao: Tipo do lançamento (E = Exclusão).
+  - valor: '|1|'
+    descricao: Indicador de relacionamento (1 = Com Conta da Parte B).
+  - valor: '|1000,00|'
+    descricao: Valor (R$ 1.000,00).
+  - valor: '|LANÇAMENTO DE EXCLUSÃO XXXX|'
+    descricao: Histórico do lançamento.
+regras_validacao_registro_detalhe:
+- regra: REGRA_VALOR_DETALHADO_CSLL
+  descricao: |-
+    Verifica, quando M350.IND_RELACAO for igual a “1” (com conta da parte B), se o M350.VALOR é igual ao somatório de M355.VALOR_CTA.
+    Verifica, quando M350.IND_RELACAO for igual a “2” (com conta contábil) se o M350.VALOR é igual ao somatório de M360.VALOR_CTA.
+    Verifica, quando M350.IND_RELACAO for igual a “3” (com conta da parte B e conta contábil) se o M350.VALOR é igual ao somatório de M355.VALOR_CTA ou é igual ao somatório de M360.VALOR_CTA ou é igual ao somatório de M355.VALOR_CTA com M360.VALOR_CTA.
+    O somatorio deve fazer a seguinte conversão de sinais:
+    Se M350.TIPO_LANCAMENTO = “A” (Adição) ou “L” (Lucro):
+    - Se M355.IND_VL_CTA = “D”, então ”+” (valor positivo).
+    - Se M355.IND_VL_CTA = “C”, então ”-” (valor negativo).
+    - Se J050.COD_NAT = “4” (Conta de resultado) e M360.IND_VL_CTA = “D”, então ”+” (valor positivo).
+    - Se J050.COD_NAT = “4” (Conta de resultado) e M360.IND_VL_CTA = “C”, então ”-” (valor negativo).
+    - Se J050.COD_NAT = “1, 2 ou 3” (Conta de ativo, passivo ou patrimônio líquido) e M360.IND_VL_CTA = “D”, então ”-” (valor negativo).
+    - Se J050.COD_NAT = “1, 2 ou 3” (Conta de ativo, passivo ou patrimônio líquido) e M360.IND_VL_CTA = “C”, então ”+” (valor positivo).
+    Se M350.TIPO_LANCAMENTO = “E” (Exclusão) ou “P” (Prejuízo):
+    - Se M355.IND_VL_CTA = “D”, então ”-” (valor negativo).
+    - Se M355.IND_VL_CTA = “C”, então ”+” (valor positivo).
+    - Se J050.COD_NAT = “4” (Conta de resultado) e M360.IND_VL_CTA = “D”, então ”-” (valor negativo).
+    - Se J050.COD_NAT = “4” (Conta de resultado) e M360.IND_VL_CTA = “C”, então ”+” (valor positivo).
+    - Se J050.COD_NAT = “1, 2 ou 3” (Conta de ativo, passivo ou patrimônio líquido) e M360.IND_VL_CTA = “D”, então ”+” (valor positivo).
+    - Se J050.COD_NAT = “1, 2 ou 3” (Conta de ativo, passivo ou patrimônio líquido) e M360.IND_VL_CTA = “C”, então ”-” (valor negativo).
+- regra: REGRA_DUPLICIDADE_DESPREZADA
+  descricao: Verifica se o registro já foi importado anteriormente, de acordo com a chave e os registros pais. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_DESPREZADA
+  descricao: Verifica se o registro existe na importação, mas não será importado por não existir na tabela dinâmica devido às configurações do bloco 0 ou da tabela dinâmica. Se a regra não for cumprida, a ECF gera um aviso.
+- regra: REGRA_LINHA_ATUALIZADA
+  descricao: Verifica se o registro está desatualizado em relação à tabela da RFB. Se a regra não for cumprida, a ECF gera um aviso.
+regras_validacao_campos:
+- numero: 4
+  campo: TIPO_LANCAMENTO
+  regras:
+  - regra: REGRA_OBRIGATORIO_TIPO_E
+    descricao: Verifica se o campo M350.TIPO_LANCAMENTO não está preenchido quando o tipo de linha é “E”.
+    tipo: Erro
+  - regra: REGRA_NAO_PREENCHER_TIPO_DIFERENTE_E
+    descricao: Verifica se o campo M350.TIP_LANCAMENTO está preenchido quando o tipo da linha é “E”.
+    tipo: Erro
+  - regra: REGRA_RELACAO_INEXISTENTE
+    descricao: |-
+      - Verifica se existe, pelo menos, um registro M305/M355 filho e não existe um registro M310/M360 filho, quando M350.IND_RELACAO é igual a “1” (Com Conta da Parte B).
+      - Verifica se não existe registro M305/M355 filho e existe, pelo menos, um registro M310/M360 filho, quando M350.IND_RELACAO é igual a “2” (Com Conta Contábil).
+      - Verifica se existe, pelo menos, um registro M305/M355 filho e, pelo menos, um registro M310/M360 filho, quando M350.IND_RELACAO é igual a “3” (Com Conta da Parte B e Conta Contábil).
+      - Verifica se não existe registro M305/M355 filho e se não existe um registro M310/M360 filho, quando M350.IND_RELACAO é igual a “4” (Com Conta da Parte B).
+    tipo: Erro
+- numero: 5
+  campo: IND_RELACAO
+  regras:
+  - regra: REGRA_IND_RELACAO
+    descricao: Verifica, quando M350.TIPO_LANCAMENTO for igual a “P” (compensação de prejuízo), se M350.IND_RELACAOé igual a “1” (com conta da parte B).
+    tipo: Erro
+  - regra: REGRA_OBRIGATORIO_TIPO_E
+    descricao: Verifica se o campo M350.IND_RELACAO não está preenchido quando o tipo de linha é “E”.
+    tipo: Erro
+  - regra: REGRA_NAO_PREENCHER_TIPO_DIFERENTE_E
+    descricao: Verifica se o campo M350.IND_RELACAO está preenchido quando o tipo da linha é “E”.
+    tipo: Erro
+- numero: 6
+  campo: VALOR
+  regras:
+  - regra: REGRA_OBRIGATORIO_TIPO_R
+    descricao: Verifica se o campo M350.VALOR não está preenchido quando o tipo de linha é “R”.
+    tipo: Erro
+  - regra: REGRA_NAO_PREENCHER_TIPO_DIFERENTE_R
+    descricao: Verifica se o campo M350.VALOR está preenchido quando o tipo da linha é “R”.
+    tipo: Erro
+- numero: 7
+  campo: HIST_LAN_LAL
+  regras:
+  - regra: REGRA_NAO_PREENCHER_TIPO_DIFERENTE_E
+    descricao: Verifica se o campo M350.HIST_LAN_LAL está preenchido quando o tipo da linha é “E” e M350.IND_RELACAO = “4” (Sem Relacionamento).
+    tipo: Erro
+tabelas_dinamicas: |-
+  Formato: NS = Numérico Com Sinal; N = Numérico Sem Sinal
+  Tipo: R = Rótulo; E = Editável; CA = Cálculo Alterável; CNA = Cálculo Não Alterável
+  Tipo_Lançamento: A = Adição; E = Exclusão; P = Compensação de Prejuízos; R = Rótulo; L = Lucro
+  Atenção: Códigos do tipo XX.XX não significam que são hierarquicamente subordinados a códigos do tipo XX. Todos os códigos possuem a mesma hierarquia.
+  III.1 – M350A - Demonstrativo da Base de Cálculo da CSLL (e-Lacs-Parte A) - PJ em Geral – Atividade Geral:
+  Vide planilha deste Registro no arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” a partir do link http://sped.rfb.gov.br/pasta/show/1644.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+  Regras de validação da tabela dinâmica M350A:
+  Vide arquivo “SPEDECF_DINAMICO_2021$SPEDECF_DINAMICA_M350_A_REGRAS” no diretório C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+  III.2 – M350R - Demonstrativo da Base de Cálculo da CSLL (e-Lacs-Parte A) - PJ em Geral – Atividade Rural:
+  Vide planilha deste Registro no arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” a partir do link http://sped.rfb.gov.br/pasta/show/1644.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+  Regras de validação da tabela dinâmica M350R:
+  Vide arquivo “SPEDECF_DINAMICO_2021$SPEDECF_DINAMICA_M350_A_REGRAS” no diretório C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+  III.3 – M305B - Demonstrativo da Base de Cálculo da CSLL (e-Lacs-Parte A) - Financeiras:
+  Vide planilha deste Registro no arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” a partir do link http://sped.rfb.gov.br/pasta/show/1644.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+  Regras de validação da tabela dinâmica M350B:
+  Vide arquivo “SPEDECF_DINAMICO_2021$SPEDECF_DINAMICA_M350_B_REGRAS” no diretório C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+  III.3 – M350C - Demonstrativo da Base de Cálculo da CSLL (e-Lacs-Parte A) - Seguradoras ou Entidades Abertas de Previdência Complementar:
+  Vide planilha deste Registro no arquivo “Tabelas_Dinamicas_ECF_Leiaute_12_AC2025_SIT_ESP_2026.xlsx” a partir do link http://sped.rfb.gov.br/pasta/show/1644.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).
+  Regras de validação da tabela dinâmica M350C:
+  Vide arquivo “SPEDECF_DINAMICO_2021$SPEDECF_DINAMICA_M350_C_REGRAS” no diretório C:\Arquivos de Programas RFB\Programas SPED\ECF\recursos\tabelas.
+  (*) A partir do ano-calendário 2021, os arquivos de tabelas dinâmicas são únicos, para todos os anos-calendário (de 2021 em diante).

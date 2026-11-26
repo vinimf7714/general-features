@@ -1,0 +1,74 @@
+_meta:
+  fonte: Manual_ECF_Leiaute_12_23_07_2026_AC_2025_SIT_ESP_2026.pdf
+  leiaute: 12
+  atualizacao: julho/2026
+  legenda_campos:
+    tipo: N = numérico; NS = numérico com sinal; C = alfanumérico
+    tamanho: Algarismo = tamanho exato (N/NS) ou exato no caso geral (C); "-" em N/NS = sem máximo; "-" em C = máximo de 255 caracteres; "65536" = até 65.536 caracteres
+    decimal: Algarismo = quantidade máxima de casas decimais; "-" = sem casas decimais
+    obrigatorio: true = Sim; false = Não
+    formato_linha: 'Cada linha do arquivo: |REG|CAMPO2|CAMPO3|...| (campos delimitados por pipe, valores decimais com vírgula)'
+registro: M315
+nome: Identificação de Processos Judiciais e Administrativos Referentes ao Lançamento
+bloco: M
+nome_tabela_registros: Identificação de Processos Judiciais e Administrativos Referentes ao Lançamento
+paginas_manual:
+- 256
+- 256
+descricao: Identifica os processos judiciais ou administrativos utilizados que embasaram adições menores que as previstas na legislação ou falta de adição e exclusões maiores que as previstas na legislação na parte A do e-Lalur (tratamento diverso do regramento fiscal). Os processos judiciais a serem utilizados e informados devem ter decisão definitiva, ou seja, transitado em julgado. Ver item 1.29 deste Manual (Ações Judiciais) para mais informações.
+titulo_leiaute: 'REGISTRO M315: IDENTIFICAÇÃO DE PROCESSOS JUDICIAIS E ADMINISTRATIVOS REFERENTES AO LANÇAMENTO'
+regras_validacao_registro: []
+nivel_hierarquico: 4
+ocorrencia: 0:N
+campos_chave: IND_PROC + NUM_PROC
+tabela_registros:
+  nivel: 4
+  obrigatoriedade_entrada:
+    codigo: F
+  obrigatoriedade_saida:
+    codigo: F
+  ocorrencia: '[0;N]'
+hierarquia:
+  pai: M300
+  filhos: []
+  irmaos:
+  - M305
+  - M310
+campos:
+- numero: 1
+  campo: REG
+  descricao: Texto Fixo Contendo a Identificação do Registro (M315).
+  tipo: C
+  tamanho: 4
+  decimal: '-'
+  valores_validos: '[M315]'
+  obrigatorio: true
+- numero: 2
+  campo: IND_PROC
+  descricao: |-
+    Tipo do Processo:
+    1 - Judicial
+    2 – Administrativo
+  tipo: C
+  tamanho: 1
+  decimal: '-'
+  valores_validos: '[1; 2]'
+  obrigatorio: true
+- numero: 3
+  campo: NUM_PROC
+  descricao: Número do Processo.
+  tipo: C
+  tamanho: 20
+  decimal: '-'
+  valores_validos: null
+  obrigatorio: true
+exemplos_preenchimento:
+- linhas_exemplo:
+  - '|M315|1|123456789|'
+  explicacao:
+  - valor: '|M315|'
+    descricao: Identificação do tipo do registro.
+  - valor: '|1|'
+    descricao: Tipo do processo (1 = Judicial).
+  - valor: '|123456789|'
+    descricao: Número do processo.
